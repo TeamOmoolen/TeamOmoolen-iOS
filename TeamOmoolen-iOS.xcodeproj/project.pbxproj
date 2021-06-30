@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,14 @@
 		F83BA055268C4D5800E94E74 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA054268C4D5800E94E74 /* LoginVC.swift */; };
 		F83BA057268C4DFC00E94E74 /* OnboardingImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA056268C4DFC00E94E74 /* OnboardingImage.xcassets */; };
 		F83BA059268C4E5600E94E74 /* MainImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA058268C4E5600E94E74 /* MainImage.xcassets */; };
+		F83BA05B268C577E00E94E74 /* SecondOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA05A268C577E00E94E74 /* SecondOnboarding.storyboard */; };
+		F83BA05D268C579100E94E74 /* SecondOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA05C268C579100E94E74 /* SecondOnboardingVC.swift */; };
+		F83BA064268C6DA700E94E74 /* LensKindCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA062268C6DA700E94E74 /* LensKindCVC.swift */; };
+		F83BA065268C6DA700E94E74 /* LensKindCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F83BA063268C6DA700E94E74 /* LensKindCVC.xib */; };
+		F83BA067268C754A00E94E74 /* LensKindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA066268C754A00E94E74 /* LensKindModel.swift */; };
+		F83BA06A268C7DEF00E94E74 /* LensColorCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA068268C7DEF00E94E74 /* LensColorCVC.swift */; };
+		F83BA06B268C7DEF00E94E74 /* LensColorCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F83BA069268C7DEF00E94E74 /* LensColorCVC.xib */; };
+		F83BA06D268C81B200E94E74 /* LensColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA06C268C81B200E94E74 /* LensColorModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +58,14 @@
 		F83BA054268C4D5800E94E74 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F83BA056268C4DFC00E94E74 /* OnboardingImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OnboardingImage.xcassets; sourceTree = "<group>"; };
 		F83BA058268C4E5600E94E74 /* MainImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MainImage.xcassets; sourceTree = "<group>"; };
+		F83BA05A268C577E00E94E74 /* SecondOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondOnboarding.storyboard; sourceTree = "<group>"; };
+		F83BA05C268C579100E94E74 /* SecondOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingVC.swift; sourceTree = "<group>"; };
+		F83BA062268C6DA700E94E74 /* LensKindCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensKindCVC.swift; sourceTree = "<group>"; };
+		F83BA063268C6DA700E94E74 /* LensKindCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LensKindCVC.xib; sourceTree = "<group>"; };
+		F83BA066268C754A00E94E74 /* LensKindModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensKindModel.swift; sourceTree = "<group>"; };
+		F83BA068268C7DEF00E94E74 /* LensColorCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensColorCVC.swift; sourceTree = "<group>"; };
+		F83BA069268C7DEF00E94E74 /* LensColorCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LensColorCVC.xib; sourceTree = "<group>"; };
+		F83BA06C268C81B200E94E74 /* LensColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensColorModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +86,6 @@
 				87B1FF6CD055C8AE1AEE072C /* Pods-TeamOmoolen-iOS.debug.xcconfig */,
 				CE2D484B186EFAEC32FB35BE /* Pods-TeamOmoolen-iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -141,6 +156,7 @@
 			children = (
 				F83BA029268C476C00E94E74 /* LaunchScreen.storyboard */,
 				F83BA024268C476B00E94E74 /* Login.storyboard */,
+				F83BA05A268C577E00E94E74 /* SecondOnboarding.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -164,6 +180,7 @@
 		F83BA037268C491900E94E74 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				F83BA05E268C5CF400E94E74 /* SecondOnboarding */,
 				F83BA053268C4D3B00E94E74 /* Login */,
 			);
 			path = VCs;
@@ -180,6 +197,7 @@
 		F83BA039268C492700E94E74 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				F83BA05F268C6D3400E94E74 /* SecondOnboarding */,
 				F83BA043268C4A5800E94E74 /* TempCells.swift */,
 			);
 			path = Cells;
@@ -189,6 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				F83BA041268C4A5100E94E74 /* TempModel.swift */,
+				F83BA066268C754A00E94E74 /* LensKindModel.swift */,
+				F83BA06C268C81B200E94E74 /* LensColorModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -227,6 +247,25 @@
 				F83BA054268C4D5800E94E74 /* LoginVC.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		F83BA05E268C5CF400E94E74 /* SecondOnboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F83BA05C268C579100E94E74 /* SecondOnboardingVC.swift */,
+			);
+			path = SecondOnboarding;
+			sourceTree = "<group>";
+		};
+		F83BA05F268C6D3400E94E74 /* SecondOnboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F83BA062268C6DA700E94E74 /* LensKindCVC.swift */,
+				F83BA063268C6DA700E94E74 /* LensKindCVC.xib */,
+				F83BA068268C7DEF00E94E74 /* LensColorCVC.swift */,
+				F83BA069268C7DEF00E94E74 /* LensColorCVC.xib */,
+			);
+			path = SecondOnboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,9 +329,12 @@
 			files = (
 				F83BA02B268C476C00E94E74 /* LaunchScreen.storyboard in Resources */,
 				F83BA028268C476C00E94E74 /* Assets.xcassets in Resources */,
+				F83BA065268C6DA700E94E74 /* LensKindCVC.xib in Resources */,
 				F83BA057268C4DFC00E94E74 /* OnboardingImage.xcassets in Resources */,
 				F83BA026268C476B00E94E74 /* Login.storyboard in Resources */,
 				F83BA059268C4E5600E94E74 /* MainImage.xcassets in Resources */,
+				F83BA06B268C7DEF00E94E74 /* LensColorCVC.xib in Resources */,
+				F83BA05B268C577E00E94E74 /* SecondOnboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,14 +391,19 @@
 				F83BA04E268C4C3500E94E74 /* Storyboard.swift in Sources */,
 				F83BA055268C4D5800E94E74 /* LoginVC.swift in Sources */,
 				F83BA049268C4AE200E94E74 /* TempExtension.swift in Sources */,
+				F83BA06D268C81B200E94E74 /* LensColorModel.swift in Sources */,
+				F83BA064268C6DA700E94E74 /* LensKindCVC.swift in Sources */,
 				F83BA01F268C476B00E94E74 /* AppDelegate.swift in Sources */,
 				F83BA040268C4A4A00E94E74 /* TempLottie.swift in Sources */,
 				F83BA050268C4C3F00E94E74 /* ViewController.swift in Sources */,
 				F83BA042268C4A5100E94E74 /* TempModel.swift in Sources */,
 				F83BA03E268C4A4000E94E74 /* TempFonts.swift in Sources */,
+				F83BA06A268C7DEF00E94E74 /* LensColorCVC.swift in Sources */,
+				F83BA067268C754A00E94E74 /* LensKindModel.swift in Sources */,
 				F83BA044268C4A5800E94E74 /* TempCells.swift in Sources */,
 				F83BA021268C476B00E94E74 /* SceneDelegate.swift in Sources */,
 				F83BA04C268C4C1600E94E74 /* Const.swift in Sources */,
+				F83BA05D268C579100E94E74 /* SecondOnboardingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
