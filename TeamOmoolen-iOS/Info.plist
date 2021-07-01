@@ -71,6 +71,7 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 
+
 	<string>FirstOnboarding</string>
 
 	<key>UIRequiredDeviceCapabilities</key>
