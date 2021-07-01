@@ -21,6 +21,9 @@ class SecondOnboardingVC: UIViewController {
     @IBOutlet weak var secondCollectionView: UICollectionView!
     @IBOutlet weak var secondTitleLabel: UILabel!
     @IBOutlet weak var secondSubtitleLabel: UILabel!
+    @IBOutlet weak var backScrollView: UIScrollView!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var backView: UIView!
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -35,21 +38,38 @@ class SecondOnboardingVC: UIViewController {
     }
     // MARK: - Methods
     func setUI() {
+        backScrollView.backgroundColor = .omAlmostwhite
+        backView.backgroundColor = .omAlmostwhite
+        firstCollectionView.backgroundColor = .omAlmostwhite
+        secondCollectionView.backgroundColor = .omAlmostwhite
+        
         progressView.progress = 0.25
-        progressView.progressTintColor = .orange
+        progressView.progressTintColor = .omMainOrange
         
         progressStatusLabel.text = "2/4"
+        progressStatusLabel.font = UIFont(name: "Roboto-Regular", size: 12)
+        progressStatusLabel.textColor = .omThirdGray
         
         firstTitleLabel.text = "어떤 렌즈가 필요하세요?"
-        firstTitleLabel.textColor = .black
+        firstTitleLabel.textColor = .omMainBlack
+        firstTitleLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
+        
         firstSubtitleLabel.text = "렌즈를 선택하시면 취향에 맞게 렌즈를 추천해드릴게요!"
-        firstSubtitleLabel.textColor = .systemGray
+        firstSubtitleLabel.textColor = .omFourthGray
+        firstSubtitleLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
         
         secondTitleLabel.text = "좋아하는 렌즈 색상은 무엇인가요?"
-        secondTitleLabel.textColor = .black
+        secondTitleLabel.textColor = .omMainBlack
+        secondTitleLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         
         secondSubtitleLabel.text = "중복선택이 가능해요!"
-        secondSubtitleLabel.textColor = .systemGray
+        secondSubtitleLabel.textColor = .omFourthGray
+        secondSubtitleLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
+        
+        nextButton.setTitle("다음", for: .normal)
+        nextButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Regular", size: 18)
+        nextButton.tintColor = .omWhite
+        nextButton.setBackgroundImage(UIImage(named: "btNextNormal"), for: .normal)
     }
     
     func collectionViewDelegate() {
@@ -70,15 +90,24 @@ class SecondOnboardingVC: UIViewController {
     
     func setList() {
         lensKindList.append(contentsOf: [
-        LensKindModel(image: "abc", title: "컬러렌즈"),
-            LensKindModel(image: "abc", title: "투명렌즈"),
-            LensKindModel(image: "abc", title: "코스프레/공막렌즈"),
+        LensKindModel(image: "imgColorlens", title: "컬러렌즈"),
+            LensKindModel(image: "imgTrans", title: "투명렌즈"),
+            LensKindModel(image: "imgColorlens", title: "코스프레/공막렌즈"),
         ])
         
         lensColorList.append(contentsOf: [
-            LensColorModel(color: .systemRed, title: "빨강"),
-            LensColorModel(color: .systemBlue, title: "파랑"),
-            LensColorModel(color: .systemPink, title: "분홍")
+            LensColorModel(image: "btnNoncolorNormal"),
+            LensColorModel(image: "btnBlackcolorNormal"),
+            LensColorModel(image: "btnGreycolorNormal"),
+            LensColorModel(image: "btnChococolorNormal"),
+            LensColorModel(image: "btnGreencolorNormal"),
+            LensColorModel(image: "btnBrowncolorNormal"),
+            LensColorModel(image: "btnPurplecolorNormal"),
+            LensColorModel(image: "btnBluecolorNormal"),
+            LensColorModel(image: "btnGoldcolorNormal"),
+            LensColorModel(image: "btnPinkcolorNormal"),
+            LensColorModel(image: "btnGlittercolorNormal"),
+            LensColorModel(image: "btnEtccolorNormal")
         ])
     }
 
@@ -92,6 +121,9 @@ class SecondOnboardingVC: UIViewController {
     }
     
     // MARK: - @IBAction Properties
+    @IBAction func pushToThirdOnboarding(_ sender: Any) {
+        // push
+    }
     
 }
 
@@ -119,12 +151,16 @@ extension SecondOnboardingVC: UICollectionViewDataSource {
             }
             firstCell.initCell(image: lensKindList[indexPath.row].image, title: lensKindList[indexPath.row].title)
             
+            firstCell.layer.applyShadow(color: .black, alpha: 0.14, x: 2, y: 2, blur: 7, spread: 0)
+            firstCell.contentView.layer.cornerRadius = 20
+            firstCell.contentView.layer.masksToBounds = true
+            
             return firstCell
         } else if collectionView == secondCollectionView {
             guard let secondCell = collectionView.dequeueReusableCell(withReuseIdentifier: "LensColorCVC", for: indexPath) as? LensColorCVC else {
                 return UICollectionViewCell()
             }
-            secondCell.initCell(color: lensColorList[indexPath.row].color, title: lensColorList[indexPath.row].title)
+            secondCell.initCell(image: lensColorList[indexPath.row].image)
             
             return secondCell
         } else {
@@ -138,16 +174,23 @@ extension SecondOnboardingVC: UICollectionViewDataSource {
 extension SecondOnboardingVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == firstCollectionView {
-            return CGSize(width: 160, height: 160)
+            let width = collectionView.frame.width
+            let cellWidth = (width - 20) / 2
+            return CGSize(width: cellWidth, height: cellWidth)
         } else {
-            return CGSize(width: 164, height: 60)
+            let width = collectionView.frame.width
+            let height = collectionView.frame.height
+            let cellWidth = (width - 6) / 2
+            let cellHeight = (height - 40) / 6
+            
+            return CGSize(width: cellWidth, height: cellHeight)
         }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == firstCollectionView {
-            return 11
+            return 10
         } else {
             return 8
         }
@@ -155,13 +198,17 @@ extension SecondOnboardingVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == firstCollectionView {
-            return 11
+            return 10
         } else {
             return 6
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .zero
+        if collectionView == firstCollectionView {
+            return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        } else {
+            return .zero
+        }
     }
 }

@@ -8,12 +8,11 @@
 import UIKit
 
 class LoginVC: UIViewController {
-    // MARK: -
     
-    // MARK: -
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.navigationBar.isHidden = true
         // Do any additional setup after loading the view.
     }
     // MARK: -
