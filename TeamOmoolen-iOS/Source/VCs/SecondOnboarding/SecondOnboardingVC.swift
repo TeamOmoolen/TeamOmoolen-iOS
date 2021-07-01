@@ -69,7 +69,9 @@ class SecondOnboardingVC: UIViewController {
         nextButton.setTitle("다음", for: .normal)
         nextButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Regular", size: 18)
         nextButton.tintColor = .omWhite
-        nextButton.setBackgroundImage(UIImage(named: "btNextNormal"), for: .normal)
+        nextButton.backgroundColor = .omFourthGray
+        nextButton.layer.cornerRadius = 10
+        nextButton.isUserInteractionEnabled = false
     }
     
     func collectionViewDelegate() {
@@ -78,6 +80,7 @@ class SecondOnboardingVC: UIViewController {
         
         secondCollectionView.delegate = self
         secondCollectionView.dataSource = self
+        secondCollectionView.allowsMultipleSelection = true
     }
     
     func registerXib() {
@@ -92,22 +95,22 @@ class SecondOnboardingVC: UIViewController {
         lensKindList.append(contentsOf: [
         LensKindModel(image: "imgColorlens", title: "컬러렌즈"),
             LensKindModel(image: "imgTrans", title: "투명렌즈"),
-            LensKindModel(image: "imgColorlens", title: "코스프레/공막렌즈"),
+            LensKindModel(image: "imgCoslens", title: "코스프레/공막렌즈"),
         ])
         
         lensColorList.append(contentsOf: [
-            LensColorModel(image: "btnNoncolorNormal"),
-            LensColorModel(image: "btnBlackcolorNormal"),
-            LensColorModel(image: "btnGreycolorNormal"),
-            LensColorModel(image: "btnChococolorNormal"),
-            LensColorModel(image: "btnGreencolorNormal"),
-            LensColorModel(image: "btnBrowncolorNormal"),
-            LensColorModel(image: "btnPurplecolorNormal"),
-            LensColorModel(image: "btnBluecolorNormal"),
-            LensColorModel(image: "btnGoldcolorNormal"),
-            LensColorModel(image: "btnPinkcolorNormal"),
-            LensColorModel(image: "btnGlittercolorNormal"),
-            LensColorModel(image: "btnEtccolorNormal")
+            LensColorModel(image: "btnNoncolor"),
+            LensColorModel(image: "btnBlackcolor"),
+            LensColorModel(image: "btnGreycolor"),
+            LensColorModel(image: "btnChococolor"),
+            LensColorModel(image: "btnGreencolor"),
+            LensColorModel(image: "btnBrowncolor"),
+            LensColorModel(image: "btnPurplecolor"),
+            LensColorModel(image: "btnBluecolor"),
+            LensColorModel(image: "btnGoldcolor"),
+            LensColorModel(image: "btnPinkcolor"),
+            LensColorModel(image: "btnGlittercolor"),
+            LensColorModel(image: "btnEtccolor")
         ])
     }
 
@@ -123,13 +126,33 @@ class SecondOnboardingVC: UIViewController {
     // MARK: - @IBAction Properties
     @IBAction func pushToThirdOnboarding(_ sender: Any) {
         // push
+        print(firstCollectionView.indexPathsForSelectedItems!)
+        print(secondCollectionView.indexPathsForSelectedItems!)
     }
     
 }
 
 // MARK: - UICollectionViewDelegate
 extension SecondOnboardingVC: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if firstCollectionView.indexPathsForSelectedItems?.isEmpty == false && secondCollectionView.indexPathsForSelectedItems?.isEmpty == false {
+            nextButton.backgroundColor = .omMainOrange
+            nextButton.isUserInteractionEnabled = true
+        } else {
+            nextButton.backgroundColor = .omFourthGray
+            nextButton.isUserInteractionEnabled = false
+        }
+    }
     
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if firstCollectionView.indexPathsForSelectedItems?.isEmpty == false && secondCollectionView.indexPathsForSelectedItems?.isEmpty == false {
+            nextButton.backgroundColor = .omMainOrange
+            nextButton.isUserInteractionEnabled = true
+        } else {
+            nextButton.backgroundColor = .omFourthGray
+            nextButton.isUserInteractionEnabled = false
+        }
+    }
 }
 
 // MARK: - UICollectionViewDataSource

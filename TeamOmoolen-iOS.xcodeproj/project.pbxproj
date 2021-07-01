@@ -28,12 +28,10 @@
 		F824590B268E1F3A0048BE84 /* FunctionCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8245907268E1F3A0048BE84 /* FunctionCVC.swift */; };
 		F824590C268E1F3A0048BE84 /* TimeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8245908268E1F3A0048BE84 /* TimeCVC.swift */; };
 		F83BA01F268C476B00E94E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA01E268C476B00E94E74 /* AppDelegate.swift */; };
-		F83BA021268C476B00E94E74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA020268C476B00E94E74 /* SceneDelegate.swift */; };
-		F83BA026268C476B00E94E74 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA024268C476B00E94E74 /* Login.storyboard */; };
 		F83BA028268C476C00E94E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA027268C476C00E94E74 /* Assets.xcassets */; };
 		F83BA02B268C476C00E94E74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA029268C476C00E94E74 /* LaunchScreen.storyboard */; };
 		F83BA040268C4A4A00E94E74 /* TempLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA03F268C4A4A00E94E74 /* TempLottie.swift */; };
-		F83BA044268C4A5800E94E74 /* TempCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA043268C4A5800E94E74 /* TempCells.swift */; };
+
 		F83BA046268C4A5F00E94E74 /* TempClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA045268C4A5F00E94E74 /* TempClasses.swift */; };
 		F83BA049268C4AE200E94E74 /* TempExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA048268C4AE200E94E74 /* TempExtension.swift */; };
 		F83BA04C268C4C1600E94E74 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA04B268C4C1600E94E74 /* Const.swift */; };
@@ -72,6 +70,8 @@
 		F8B91F75268E207A006114CD /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F69268E207A006114CD /* Roboto-Medium.ttf */; };
 		F8B91F76268E207A006114CD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F6A268E207A006114CD /* Roboto-Regular.ttf */; };
 		F8B91F77268E207A006114CD /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F6B268E207A006114CD /* Roboto-Thin.ttf */; };
+		F8B91F7B268E2B09006114CD /* TempCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA043268C4A5800E94E74 /* TempCells.swift */; };
+		F8B91F7C268E2B15006114CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA020268C476B00E94E74 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -310,7 +310,9 @@
 				E82DE8ED268C5CC700296B53 /* ThirdOnboarding.storyboard */,
 				92E55FBC268C72EA0081D3A9 /* FirstOnboarding.storyboard */,
 				F83BA05A268C577E00E94E74 /* SecondOnboarding.storyboard */,
+
 				924751A8268E2CFE00924891 /* FourthOnboarding.storyboard */,
+
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -347,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				924751AA268E2D3A00924891 /* FourthOnboarding */,
+
 				F8245904268E1F3A0048BE84 /* ThirdOnboarding */,
 				92E55FBE268C79120081D3A9 /* FirstOnboarding */,
 				F83BA05F268C6D3400E94E74 /* SecondOnboarding */,
@@ -359,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				924751A7268E2CC500924891 /* FourthOnboarding */,
+
 				F85CD050268DB0F3005A3C95 /* SecondOnboarding */,
 				E82DE8FD268C748900296B53 /* FunctionDataModel.swift */,
 				E82DE8FF268C749800296B53 /* TimeDataModel.swift */,
@@ -541,7 +545,6 @@
 				F8B91F72268E207A006114CD /* Roboto-LightItalic.ttf in Resources */,
 				F83BA028268C476C00E94E74 /* Assets.xcassets in Resources */,
 				92BF87A7268D94F700706384 /* AgeCVC.xib in Resources */,
-				F83BA026268C476B00E94E74 /* Login.storyboard in Resources */,
 				F8B91F56268E205E006114CD /* NotoSansCJKkr-Bold.otf in Resources */,
 				F8B91F58268E205E006114CD /* NotoSansMonoCJKkr-Bold.otf in Resources */,
 				F8B91F75268E207A006114CD /* Roboto-Medium.ttf in Resources */,
@@ -561,7 +564,6 @@
 				F8B91F5B268E205E006114CD /* NotoSansCJKkr-DemiLight.otf in Resources */,
 				F8B91F55268E205E006114CD /* NotoSansCJKkr-Regular.otf in Resources */,
 				F8B91F71268E207A006114CD /* Roboto-Light.ttf in Resources */,
-				F83BA026268C476B00E94E74 /* Login.storyboard in Resources */,
 				F8245909268E1F3A0048BE84 /* FunctionCVC.xib in Resources */,
 				F8B91F59268E205E006114CD /* NotoSansMonoCJKkr-Regular.otf in Resources */,
 				F8B91F77268E207A006114CD /* Roboto-Thin.ttf in Resources */,
@@ -624,6 +626,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8B91F7C268E2B15006114CD /* SceneDelegate.swift in Sources */,
+				F8B91F7B268E2B09006114CD /* TempCells.swift in Sources */,
 				F83BA06F268CE4FD00E94E74 /* CALayer+applyShadow.swift in Sources */,
 				F83BA046268C4A5F00E94E74 /* TempClasses.swift in Sources */,
 				E82DE8F1268C5D5600296B53 /* ThirdOnboardingVC.swift in Sources */,
@@ -641,19 +645,19 @@
 				F83BA040268C4A4A00E94E74 /* TempLottie.swift in Sources */,
 				F83BA050268C4C3F00E94E74 /* ViewController.swift in Sources */,
 				E82DE904268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift in Sources */,
-				F83BA044268C4A5800E94E74 /* TempCells.swift in Sources */,
 				F824590C268E1F3A0048BE84 /* TimeCVC.swift in Sources */,
-				F83BA021268C476B00E94E74 /* SceneDelegate.swift in Sources */,
+
 				92E55FBB268C72BA0081D3A9 /* FirstOnboardingVC.swift in Sources */,
 				F83BA06A268C7DEF00E94E74 /* LensColorCVC.swift in Sources */,
 				F83BA067268C754A00E94E74 /* LensKindModel.swift in Sources */,
-				F83BA044268C4A5800E94E74 /* TempCells.swift in Sources */,
-				F83BA021268C476B00E94E74 /* SceneDelegate.swift in Sources */,
+
 				92BF87A6268D94F700706384 /* AgeCVC.swift in Sources */,
 				F83BA04C268C4C1600E94E74 /* Const.swift in Sources */,
 				92BF87A2268D908C00706384 /* GenderCVC.swift in Sources */,
 				92BF879D268CCC8100706384 /* AgeDataModel.swift in Sources */,
+
 				924751AC268E329400924891 /* FourthOnboardingVC.swift in Sources */,
+
 				F83BA05D268C579100E94E74 /* SecondOnboardingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

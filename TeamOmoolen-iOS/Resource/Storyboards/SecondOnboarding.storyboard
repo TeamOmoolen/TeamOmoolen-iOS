@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="1356"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZ7-1y-mmV">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1183"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1188"/>
                                         <subviews>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sAG-60-YfH">
                                                 <rect key="frame" x="20" y="29" width="325" height="4"/>
@@ -97,9 +97,9 @@
                                                 </cells>
                                             </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ib-Zp-sws">
-                                                <rect key="frame" x="20" y="1109" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="1109" width="374" height="55"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="XiU-ET-rDs"/>
+                                                    <constraint firstAttribute="height" constant="55" id="XiU-ET-rDs"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
