@@ -8,9 +8,7 @@
 import UIKit
 
 class LensColorCVC: UICollectionViewCell {
-    // MARK: - Properties
-    var imageString = ""
-    
+
     // MARK: - @IBOutlet Properties
     @IBOutlet weak var imageView: UIImageView!
     
@@ -22,22 +20,7 @@ class LensColorCVC: UICollectionViewCell {
     }
 
     // MARK: - Methods
-//    func initCell(image: UIImage) {
-//        imageView.image = image
-//    }
-    func initCell(image: String) {
-        self.imageString = image
-        imageView.image = UIImage(named: image) ?? UIImage()
-    }
-    
-    // MARK: - Override
-    override var isSelected: Bool {
-        didSet {
-            if isSelected {
-                imageView.image = UIImage(named: "\(imageString)Pressed") ?? UIImage()
-            } else {
-                imageView.image = UIImage(named: imageString) ?? UIImage()
-            }
-        }
+    func initCell(image: UIImage) {
+        imageView.image = image
     }
 }
