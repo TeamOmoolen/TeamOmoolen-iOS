@@ -9,7 +9,7 @@ import UIKit
 
 class AgeCVC: UICollectionViewCell {
     static let identifier = "AgeCVC"
-
+    
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var ageLabel: UILabel!
     
@@ -17,24 +17,37 @@ class AgeCVC: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     // cell 선택 시
     override var isSelected: Bool {
         didSet {
             if isSelected {
+                backView.layer.borderColor = UIColor.omMainOrange.cgColor
+                ageLabel.textColor = UIColor.omMainOrange
                 ageLabel.textColor = UIColor.orange
             } else {
+                backView.layer.borderColor = UIColor.omThirdGray.cgColor
+                ageLabel.textColor = UIColor.omThirdGray
                 ageLabel.textColor = UIColor.darkGray
             }
         }
     }
-    
-    // MARK: - init Methods
+}
+
+// MARK: - Custom Methods
+
+extension AgeCVC {
+    func setView() {
+        backView.layer.cornerRadius = 10
+        backView.layer.masksToBounds = true
+        backView.layer.borderWidth = 1
+        backView.layer.borderColor = UIColor.omThirdGray.cgColor
+    }
     
     func initCell(age: String) {
         ageLabel.text = age
+        
     }
 }
 
