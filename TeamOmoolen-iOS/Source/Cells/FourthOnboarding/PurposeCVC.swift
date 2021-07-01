@@ -1,24 +1,24 @@
 //
-//  AgeCVC.swift
+//  PurposeCVC.swift
 //  TeamOmoolen-iOS
 //
-//  Created by soyeon on 2021/07/01.
+//  Created by soyeon on 2021/07/02.
 //
 
 import UIKit
 
-class AgeCVC: UICollectionViewCell {
-    static let identifier = "AgeCVC"
+class PurposeCVC: UICollectionViewCell {
+    static let identifier = "PurposeCVC"
     
     @IBOutlet weak var backView: UIView!
-    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var purposeLabel: UILabel!
     
     // MARK: - Life Cycle Methods
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setUI()
+        setView()
     }
     
     // cell 선택 시
@@ -27,11 +27,11 @@ class AgeCVC: UICollectionViewCell {
             if isSelected {
                 backView.layer.borderColor = UIColor.omMainOrange.cgColor
                 backView.layer.borderWidth = 1
-                ageLabel.textColor = UIColor.omMainOrange
+                purposeLabel.textColor = .omMainOrange
             } else {
                 backView.layer.borderColor = UIColor.omThirdGray.cgColor
                 backView.layer.borderWidth = 0
-                ageLabel.textColor = UIColor.omThirdGray
+                purposeLabel.textColor = .omThirdGray
             }
         }
     }
@@ -39,18 +39,17 @@ class AgeCVC: UICollectionViewCell {
 
 // MARK: - Custom Methods
 
-extension AgeCVC {
-    func setUI() {
+extension PurposeCVC {
+    func setView() {
         backView.layer.cornerRadius = 10
         backView.layer.masksToBounds = true
         
-        ageLabel.textColor = .omThirdGray
-        ageLabel.font = UIFont(name: "NotoSansCJKKR-DemiLight", size: 14)
+        purposeLabel.textColor = .omThirdGray
+        purposeLabel.font = UIFont(name: "NotoSansCJKKR-DemiLight", size: 14)
     }
     
-    func initCell(age: String) {
-        ageLabel.text = age
+    func initCell(purpose: String) {
+        purposeLabel.text = purpose
         
     }
 }
-
