@@ -13,7 +13,6 @@
 		F83BA026268C476B00E94E74 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA024268C476B00E94E74 /* Login.storyboard */; };
 		F83BA028268C476C00E94E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA027268C476C00E94E74 /* Assets.xcassets */; };
 		F83BA02B268C476C00E94E74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA029268C476C00E94E74 /* LaunchScreen.storyboard */; };
-		F83BA03E268C4A4000E94E74 /* TempFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA03D268C4A4000E94E74 /* TempFonts.swift */; };
 		F83BA040268C4A4A00E94E74 /* TempLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA03F268C4A4A00E94E74 /* TempLottie.swift */; };
 		F83BA042268C4A5100E94E74 /* TempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA041268C4A5100E94E74 /* TempModel.swift */; };
 		F83BA044268C4A5800E94E74 /* TempCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA043268C4A5800E94E74 /* TempCells.swift */; };
@@ -23,8 +22,6 @@
 		F83BA04E268C4C3500E94E74 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA04D268C4C3500E94E74 /* Storyboard.swift */; };
 		F83BA050268C4C3F00E94E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA04F268C4C3F00E94E74 /* ViewController.swift */; };
 		F83BA055268C4D5800E94E74 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA054268C4D5800E94E74 /* LoginVC.swift */; };
-		F83BA057268C4DFC00E94E74 /* OnboardingImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA056268C4DFC00E94E74 /* OnboardingImage.xcassets */; };
-		F83BA059268C4E5600E94E74 /* MainImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA058268C4E5600E94E74 /* MainImage.xcassets */; };
 		F83BA05B268C577E00E94E74 /* SecondOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA05A268C577E00E94E74 /* SecondOnboarding.storyboard */; };
 		F83BA05D268C579100E94E74 /* SecondOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA05C268C579100E94E74 /* SecondOnboardingVC.swift */; };
 		F83BA064268C6DA700E94E74 /* LensKindCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA062268C6DA700E94E74 /* LensKindCVC.swift */; };
@@ -33,6 +30,30 @@
 		F83BA06A268C7DEF00E94E74 /* LensColorCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA068268C7DEF00E94E74 /* LensColorCVC.swift */; };
 		F83BA06B268C7DEF00E94E74 /* LensColorCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F83BA069268C7DEF00E94E74 /* LensColorCVC.xib */; };
 		F83BA06D268C81B200E94E74 /* LensColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA06C268C81B200E94E74 /* LensColorModel.swift */; };
+		F83BA06F268CE4FD00E94E74 /* CALayer+applyShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA06E268CE4FD00E94E74 /* CALayer+applyShadow.swift */; };
+		F83BA072268CEB5D00E94E74 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA071268CEB5D00E94E74 /* UIColor.swift */; };
+		F83BA076268D760000E94E74 /* OnboardingImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA075268D760000E94E74 /* OnboardingImage.xcassets */; };
+		F83BA082268D838000E94E74 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA079268D837C00E94E74 /* NotoSansCJKkr-Medium.otf */; };
+		F83BA083268D838000E94E74 /* NotoSansCJKkr-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA07A268D837D00E94E74 /* NotoSansCJKkr-Thin.otf */; };
+		F83BA084268D838000E94E74 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA07B268D837D00E94E74 /* NotoSansCJKkr-Bold.otf */; };
+		F83BA085268D838000E94E74 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA07C268D837E00E94E74 /* NotoSansCJKkr-Regular.otf */; };
+		F83BA086268D838000E94E74 /* NotoSansMonoCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA07D268D837E00E94E74 /* NotoSansMonoCJKkr-Bold.otf */; };
+		F83BA087268D838000E94E74 /* NotoSansCJKkr-DemiLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA07E268D837E00E94E74 /* NotoSansCJKkr-DemiLight.otf */; };
+		F83BA088268D838000E94E74 /* NotoSansMonoCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA07F268D837F00E94E74 /* NotoSansMonoCJKkr-Regular.otf */; };
+		F83BA089268D838000E94E74 /* NotoSansCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA080268D837F00E94E74 /* NotoSansCJKkr-Light.otf */; };
+		F83BA08A268D838000E94E74 /* NotoSansCJKkr-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA081268D838000E94E74 /* NotoSansCJKkr-Black.otf */; };
+		F83BA097268D838700E94E74 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA08B268D838600E94E74 /* Roboto-BlackItalic.ttf */; };
+		F83BA098268D838700E94E74 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA08C268D838600E94E74 /* Roboto-Regular.ttf */; };
+		F83BA099268D838700E94E74 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA08D268D838600E94E74 /* Roboto-MediumItalic.ttf */; };
+		F83BA09A268D838700E94E74 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA08E268D838600E94E74 /* Roboto-ThinItalic.ttf */; };
+		F83BA09B268D838700E94E74 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA08F268D838600E94E74 /* Roboto-Thin.ttf */; };
+		F83BA09C268D838700E94E74 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA090268D838600E94E74 /* Roboto-Medium.ttf */; };
+		F83BA09D268D838700E94E74 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA091268D838600E94E74 /* Roboto-LightItalic.ttf */; };
+		F83BA09E268D838700E94E74 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA092268D838700E94E74 /* Roboto-Black.ttf */; };
+		F83BA09F268D838700E94E74 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA093268D838700E94E74 /* Roboto-Bold.ttf */; };
+		F83BA0A0268D838700E94E74 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA094268D838700E94E74 /* Roboto-BoldItalic.ttf */; };
+		F83BA0A1268D838700E94E74 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA095268D838700E94E74 /* Roboto-Italic.ttf */; };
+		F83BA0A2268D838700E94E74 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F83BA096268D838700E94E74 /* Roboto-Light.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +67,6 @@
 		F83BA027268C476C00E94E74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F83BA02A268C476C00E94E74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F83BA02C268C476C00E94E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F83BA03D268C4A4000E94E74 /* TempFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempFonts.swift; sourceTree = "<group>"; };
 		F83BA03F268C4A4A00E94E74 /* TempLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempLottie.swift; sourceTree = "<group>"; };
 		F83BA041268C4A5100E94E74 /* TempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempModel.swift; sourceTree = "<group>"; };
 		F83BA043268C4A5800E94E74 /* TempCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCells.swift; sourceTree = "<group>"; };
@@ -56,8 +76,6 @@
 		F83BA04D268C4C3500E94E74 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		F83BA04F268C4C3F00E94E74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F83BA054268C4D5800E94E74 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		F83BA056268C4DFC00E94E74 /* OnboardingImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OnboardingImage.xcassets; sourceTree = "<group>"; };
-		F83BA058268C4E5600E94E74 /* MainImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MainImage.xcassets; sourceTree = "<group>"; };
 		F83BA05A268C577E00E94E74 /* SecondOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondOnboarding.storyboard; sourceTree = "<group>"; };
 		F83BA05C268C579100E94E74 /* SecondOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingVC.swift; sourceTree = "<group>"; };
 		F83BA062268C6DA700E94E74 /* LensKindCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensKindCVC.swift; sourceTree = "<group>"; };
@@ -66,6 +84,31 @@
 		F83BA068268C7DEF00E94E74 /* LensColorCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensColorCVC.swift; sourceTree = "<group>"; };
 		F83BA069268C7DEF00E94E74 /* LensColorCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LensColorCVC.xib; sourceTree = "<group>"; };
 		F83BA06C268C81B200E94E74 /* LensColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensColorModel.swift; sourceTree = "<group>"; };
+		F83BA06E268CE4FD00E94E74 /* CALayer+applyShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+applyShadow.swift"; sourceTree = "<group>"; };
+		F83BA070268CE8E200E94E74 /* TeamOmoolen-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TeamOmoolen-iOS.entitlements"; sourceTree = "<group>"; };
+		F83BA071268CEB5D00E94E74 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		F83BA075268D760000E94E74 /* OnboardingImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OnboardingImage.xcassets; sourceTree = "<group>"; };
+		F83BA079268D837C00E94E74 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		F83BA07A268D837D00E94E74 /* NotoSansCJKkr-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Thin.otf"; sourceTree = "<group>"; };
+		F83BA07B268D837D00E94E74 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		F83BA07C268D837E00E94E74 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		F83BA07D268D837E00E94E74 /* NotoSansMonoCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansMonoCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		F83BA07E268D837E00E94E74 /* NotoSansCJKkr-DemiLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-DemiLight.otf"; sourceTree = "<group>"; };
+		F83BA07F268D837F00E94E74 /* NotoSansMonoCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansMonoCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		F83BA080268D837F00E94E74 /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
+		F83BA081268D838000E94E74 /* NotoSansCJKkr-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Black.otf"; sourceTree = "<group>"; };
+		F83BA08B268D838600E94E74 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		F83BA08C268D838600E94E74 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		F83BA08D268D838600E94E74 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		F83BA08E268D838600E94E74 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		F83BA08F268D838600E94E74 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		F83BA090268D838600E94E74 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		F83BA091268D838600E94E74 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		F83BA092268D838700E94E74 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		F83BA093268D838700E94E74 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		F83BA094268D838700E94E74 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		F83BA095268D838700E94E74 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		F83BA096268D838700E94E74 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +161,7 @@
 		F83BA01D268C476B00E94E74 /* TeamOmoolen-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				F83BA070268CE8E200E94E74 /* TeamOmoolen-iOS.entitlements */,
 				F83BA02C268C476C00E94E74 /* Info.plist */,
 				F83BA032268C489B00E94E74 /* Resource */,
 				F83BA033268C489E00E94E74 /* Source */,
@@ -164,7 +208,8 @@
 		F83BA035268C48CC00E94E74 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				F83BA03D268C4A4000E94E74 /* TempFonts.swift */,
+				F83BA078268D835F00E94E74 /* Roboto */,
+				F83BA077268D835300E94E74 /* NotoSansCJKkr */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -217,8 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				F83BA027268C476C00E94E74 /* Assets.xcassets */,
-				F83BA056268C4DFC00E94E74 /* OnboardingImage.xcassets */,
-				F83BA058268C4E5600E94E74 /* MainImage.xcassets */,
+				F83BA075268D760000E94E74 /* OnboardingImage.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -227,6 +271,8 @@
 			isa = PBXGroup;
 			children = (
 				F83BA048268C4AE200E94E74 /* TempExtension.swift */,
+				F83BA06E268CE4FD00E94E74 /* CALayer+applyShadow.swift */,
+				F83BA071268CEB5D00E94E74 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -266,6 +312,41 @@
 				F83BA069268C7DEF00E94E74 /* LensColorCVC.xib */,
 			);
 			path = SecondOnboarding;
+			sourceTree = "<group>";
+		};
+		F83BA077268D835300E94E74 /* NotoSansCJKkr */ = {
+			isa = PBXGroup;
+			children = (
+				F83BA081268D838000E94E74 /* NotoSansCJKkr-Black.otf */,
+				F83BA07B268D837D00E94E74 /* NotoSansCJKkr-Bold.otf */,
+				F83BA07E268D837E00E94E74 /* NotoSansCJKkr-DemiLight.otf */,
+				F83BA080268D837F00E94E74 /* NotoSansCJKkr-Light.otf */,
+				F83BA079268D837C00E94E74 /* NotoSansCJKkr-Medium.otf */,
+				F83BA07C268D837E00E94E74 /* NotoSansCJKkr-Regular.otf */,
+				F83BA07A268D837D00E94E74 /* NotoSansCJKkr-Thin.otf */,
+				F83BA07D268D837E00E94E74 /* NotoSansMonoCJKkr-Bold.otf */,
+				F83BA07F268D837F00E94E74 /* NotoSansMonoCJKkr-Regular.otf */,
+			);
+			path = NotoSansCJKkr;
+			sourceTree = "<group>";
+		};
+		F83BA078268D835F00E94E74 /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				F83BA092268D838700E94E74 /* Roboto-Black.ttf */,
+				F83BA08B268D838600E94E74 /* Roboto-BlackItalic.ttf */,
+				F83BA093268D838700E94E74 /* Roboto-Bold.ttf */,
+				F83BA094268D838700E94E74 /* Roboto-BoldItalic.ttf */,
+				F83BA095268D838700E94E74 /* Roboto-Italic.ttf */,
+				F83BA096268D838700E94E74 /* Roboto-Light.ttf */,
+				F83BA091268D838600E94E74 /* Roboto-LightItalic.ttf */,
+				F83BA090268D838600E94E74 /* Roboto-Medium.ttf */,
+				F83BA08D268D838600E94E74 /* Roboto-MediumItalic.ttf */,
+				F83BA08C268D838600E94E74 /* Roboto-Regular.ttf */,
+				F83BA08F268D838600E94E74 /* Roboto-Thin.ttf */,
+				F83BA08E268D838600E94E74 /* Roboto-ThinItalic.ttf */,
+			);
+			path = Roboto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,14 +408,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F83BA09A268D838700E94E74 /* Roboto-ThinItalic.ttf in Resources */,
 				F83BA02B268C476C00E94E74 /* LaunchScreen.storyboard in Resources */,
+				F83BA084268D838000E94E74 /* NotoSansCJKkr-Bold.otf in Resources */,
+				F83BA097268D838700E94E74 /* Roboto-BlackItalic.ttf in Resources */,
+				F83BA0A0268D838700E94E74 /* Roboto-BoldItalic.ttf in Resources */,
+				F83BA08A268D838000E94E74 /* NotoSansCJKkr-Black.otf in Resources */,
+				F83BA087268D838000E94E74 /* NotoSansCJKkr-DemiLight.otf in Resources */,
 				F83BA028268C476C00E94E74 /* Assets.xcassets in Resources */,
+				F83BA098268D838700E94E74 /* Roboto-Regular.ttf in Resources */,
+				F83BA09C268D838700E94E74 /* Roboto-Medium.ttf in Resources */,
+				F83BA0A1268D838700E94E74 /* Roboto-Italic.ttf in Resources */,
+				F83BA076268D760000E94E74 /* OnboardingImage.xcassets in Resources */,
+				F83BA083268D838000E94E74 /* NotoSansCJKkr-Thin.otf in Resources */,
+				F83BA09E268D838700E94E74 /* Roboto-Black.ttf in Resources */,
+				F83BA09D268D838700E94E74 /* Roboto-LightItalic.ttf in Resources */,
 				F83BA065268C6DA700E94E74 /* LensKindCVC.xib in Resources */,
-				F83BA057268C4DFC00E94E74 /* OnboardingImage.xcassets in Resources */,
+				F83BA086268D838000E94E74 /* NotoSansMonoCJKkr-Bold.otf in Resources */,
 				F83BA026268C476B00E94E74 /* Login.storyboard in Resources */,
-				F83BA059268C4E5600E94E74 /* MainImage.xcassets in Resources */,
+				F83BA0A2268D838700E94E74 /* Roboto-Light.ttf in Resources */,
 				F83BA06B268C7DEF00E94E74 /* LensColorCVC.xib in Resources */,
+				F83BA09F268D838700E94E74 /* Roboto-Bold.ttf in Resources */,
+				F83BA09B268D838700E94E74 /* Roboto-Thin.ttf in Resources */,
+				F83BA089268D838000E94E74 /* NotoSansCJKkr-Light.otf in Resources */,
+				F83BA088268D838000E94E74 /* NotoSansMonoCJKkr-Regular.otf in Resources */,
 				F83BA05B268C577E00E94E74 /* SecondOnboarding.storyboard in Resources */,
+				F83BA082268D838000E94E74 /* NotoSansCJKkr-Medium.otf in Resources */,
+				F83BA099268D838700E94E74 /* Roboto-MediumItalic.ttf in Resources */,
+				F83BA085268D838000E94E74 /* NotoSansCJKkr-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F83BA06F268CE4FD00E94E74 /* CALayer+applyShadow.swift in Sources */,
 				F83BA046268C4A5F00E94E74 /* TempClasses.swift in Sources */,
 				F83BA04E268C4C3500E94E74 /* Storyboard.swift in Sources */,
 				F83BA055268C4D5800E94E74 /* LoginVC.swift in Sources */,
@@ -394,10 +496,10 @@
 				F83BA06D268C81B200E94E74 /* LensColorModel.swift in Sources */,
 				F83BA064268C6DA700E94E74 /* LensKindCVC.swift in Sources */,
 				F83BA01F268C476B00E94E74 /* AppDelegate.swift in Sources */,
+				F83BA072268CEB5D00E94E74 /* UIColor.swift in Sources */,
 				F83BA040268C4A4A00E94E74 /* TempLottie.swift in Sources */,
 				F83BA050268C4C3F00E94E74 /* ViewController.swift in Sources */,
 				F83BA042268C4A5100E94E74 /* TempModel.swift in Sources */,
-				F83BA03E268C4A4000E94E74 /* TempFonts.swift in Sources */,
 				F83BA06A268C7DEF00E94E74 /* LensColorCVC.swift in Sources */,
 				F83BA067268C754A00E94E74 /* LensKindModel.swift in Sources */,
 				F83BA044268C4A5800E94E74 /* TempCells.swift in Sources */,
@@ -551,14 +653,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TeamOmoolen-iOS/TeamOmoolen-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T8C9SSEX5G;
+				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				INFOPLIST_FILE = "TeamOmoolen-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "hyun99999.TeamOmoolen-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOmoolen.TeamOmooleniOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -571,14 +674,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TeamOmoolen-iOS/TeamOmoolen-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T8C9SSEX5G;
+				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				INFOPLIST_FILE = "TeamOmoolen-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "hyun99999.TeamOmoolen-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOmoolen.TeamOmooleniOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
