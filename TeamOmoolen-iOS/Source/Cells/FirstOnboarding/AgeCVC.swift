@@ -17,21 +17,33 @@ class AgeCVC: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        setView()
     }
     
     // cell 선택 시
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                ageLabel.textColor = UIColor.orange
+                backView.layer.borderColor = UIColor.omMainOrange.cgColor
+                ageLabel.textColor = UIColor.omMainOrange
             } else {
-                ageLabel.textColor = UIColor.darkGray
+                backView.layer.borderColor = UIColor.omThirdGray.cgColor
+                ageLabel.textColor = UIColor.omThirdGray
             }
         }
     }
-    
-    // MARK: - init Methods
+}
+
+// MARK: - Custom Methods
+
+extension AgeCVC {
+    func setView() {
+        backView.layer.cornerRadius = 10
+        backView.layer.masksToBounds = true
+        backView.layer.borderWidth = 1
+        backView.layer.borderColor = UIColor.omThirdGray.cgColor
+    }
     
     func initCell(age: String) {
         ageLabel.text = age
