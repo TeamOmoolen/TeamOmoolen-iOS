@@ -11,6 +11,7 @@ extension Const {
     struct ViewController {
         struct Name {
             static let ThirdOnboarding = "ThirdOnboardingVC"
+            static let SecondOnboarding = "SecondOnboardingVC"
         }
     }
 }
