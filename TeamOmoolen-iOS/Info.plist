@@ -58,9 +58,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-
-					<string>FirstOnboarding</string>
-
+					<string>SecondOnboarding</string>
 				</dict>
 			</array>
 		</dict>
@@ -70,9 +68,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-
-
-	<string>FirstOnboarding</string>
+	<string>SecondOnboarding</string>
 
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

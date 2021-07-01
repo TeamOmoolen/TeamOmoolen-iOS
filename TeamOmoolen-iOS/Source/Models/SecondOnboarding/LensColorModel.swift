@@ -11,10 +11,10 @@ import UIKit
 struct LensColorModel {
 //    let color: UIColor
 //    let title: String
-    let image: UIImage
-    init(image: String) {
-        self.image = UIImage(named: image) ?? UIImage()
-    }
+    let image: String
+//    init(image: String) {
+//        self.image = UIImage(named: image) ?? UIImage()
+//    }
     
 
 }
