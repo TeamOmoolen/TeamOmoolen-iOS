@@ -3,11 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		58740A13991CB69278C887DA /* Pods_TeamOmoolen_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBBE8C8AF696DB691BFA7FA6 /* Pods_TeamOmoolen_iOS.framework */; };
+		E82DE8EE268C5CC700296B53 /* ThirdOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82DE8ED268C5CC700296B53 /* ThirdOnboarding.storyboard */; };
+		E82DE8F1268C5D5600296B53 /* ThirdOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DE8F0268C5D5600296B53 /* ThirdOnboardingVC.swift */; };
+		E82DE8F4268C6AB900296B53 /* FunctionCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DE8F2268C6AB900296B53 /* FunctionCVC.swift */; };
+		E82DE8F5268C6AB900296B53 /* FunctionCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E82DE8F3268C6AB900296B53 /* FunctionCVC.xib */; };
+		E82DE8FA268C6B3F00296B53 /* TimeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DE8F8268C6B3F00296B53 /* TimeCVC.swift */; };
+		E82DE8FB268C6B3F00296B53 /* TimeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E82DE8F9268C6B3F00296B53 /* TimeCVC.xib */; };
+		E82DE8FE268C748900296B53 /* FunctionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DE8FD268C748900296B53 /* FunctionDataModel.swift */; };
+		E82DE900268C749800296B53 /* TimeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DE8FF268C749800296B53 /* TimeDataModel.swift */; };
+		E82DE904268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DE903268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift */; };
 		F83BA01F268C476B00E94E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA01E268C476B00E94E74 /* AppDelegate.swift */; };
 		F83BA021268C476B00E94E74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA020268C476B00E94E74 /* SceneDelegate.swift */; };
 		F83BA026268C476B00E94E74 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA024268C476B00E94E74 /* Login.storyboard */; };
@@ -31,6 +40,15 @@
 		87B1FF6CD055C8AE1AEE072C /* Pods-TeamOmoolen-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamOmoolen-iOS.debug.xcconfig"; path = "Target Support Files/Pods-TeamOmoolen-iOS/Pods-TeamOmoolen-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		BBBE8C8AF696DB691BFA7FA6 /* Pods_TeamOmoolen_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamOmoolen_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2D484B186EFAEC32FB35BE /* Pods-TeamOmoolen-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamOmoolen-iOS.release.xcconfig"; path = "Target Support Files/Pods-TeamOmoolen-iOS/Pods-TeamOmoolen-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		E82DE8ED268C5CC700296B53 /* ThirdOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThirdOnboarding.storyboard; sourceTree = "<group>"; };
+		E82DE8F0268C5D5600296B53 /* ThirdOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdOnboardingVC.swift; sourceTree = "<group>"; };
+		E82DE8F2268C6AB900296B53 /* FunctionCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionCVC.swift; sourceTree = "<group>"; };
+		E82DE8F3268C6AB900296B53 /* FunctionCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FunctionCVC.xib; sourceTree = "<group>"; };
+		E82DE8F8268C6B3F00296B53 /* TimeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCVC.swift; sourceTree = "<group>"; };
+		E82DE8F9268C6B3F00296B53 /* TimeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCVC.xib; sourceTree = "<group>"; };
+		E82DE8FD268C748900296B53 /* FunctionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionDataModel.swift; sourceTree = "<group>"; };
+		E82DE8FF268C749800296B53 /* TimeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDataModel.swift; sourceTree = "<group>"; };
+		E82DE903268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCVFlowLayout.swift; sourceTree = "<group>"; };
 		F83BA01B268C476B00E94E74 /* TeamOmoolen-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TeamOmoolen-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83BA01E268C476B00E94E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F83BA020268C476B00E94E74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +88,6 @@
 				87B1FF6CD055C8AE1AEE072C /* Pods-TeamOmoolen-iOS.debug.xcconfig */,
 				CE2D484B186EFAEC32FB35BE /* Pods-TeamOmoolen-iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -80,6 +97,26 @@
 				BBBE8C8AF696DB691BFA7FA6 /* Pods_TeamOmoolen_iOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E82DE8EF268C5D0400296B53 /* ThirdOnboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E82DE903268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift */,
+				E82DE8F0268C5D5600296B53 /* ThirdOnboardingVC.swift */,
+			);
+			path = ThirdOnboarding;
+			sourceTree = "<group>";
+		};
+		E82DE8F6268C6AE700296B53 /* ThirdOnboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E82DE8F3268C6AB900296B53 /* FunctionCVC.xib */,
+				E82DE8F2268C6AB900296B53 /* FunctionCVC.swift */,
+				E82DE8F8268C6B3F00296B53 /* TimeCVC.swift */,
+				E82DE8F9268C6B3F00296B53 /* TimeCVC.xib */,
+			);
+			path = ThirdOnboarding;
 			sourceTree = "<group>";
 		};
 		F83BA012268C476B00E94E74 = {
@@ -118,7 +155,6 @@
 				F83BA03B268C4A1400E94E74 /* Assets */,
 				F83BA04A268C4BF600E94E74 /* Constants */,
 				F83BA047268C4AD200E94E74 /* Extensions */,
-				F83BA035268C48CC00E94E74 /* Fonts */,
 				F83BA036268C48DA00E94E74 /* LottieAnimationFiles */,
 				F83BA034268C48A900E94E74 /* Storyboards */,
 			);
@@ -141,6 +177,7 @@
 			children = (
 				F83BA029268C476C00E94E74 /* LaunchScreen.storyboard */,
 				F83BA024268C476B00E94E74 /* Login.storyboard */,
+				E82DE8ED268C5CC700296B53 /* ThirdOnboarding.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -164,6 +201,7 @@
 		F83BA037268C491900E94E74 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				E82DE8EF268C5D0400296B53 /* ThirdOnboarding */,
 				F83BA053268C4D3B00E94E74 /* Login */,
 			);
 			path = VCs;
@@ -180,6 +218,7 @@
 		F83BA039268C492700E94E74 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				E82DE8F6268C6AE700296B53 /* ThirdOnboarding */,
 				F83BA043268C4A5800E94E74 /* TempCells.swift */,
 			);
 			path = Cells;
@@ -188,6 +227,8 @@
 		F83BA03A268C49DB00E94E74 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E82DE8FD268C748900296B53 /* FunctionDataModel.swift */,
+				E82DE8FF268C749800296B53 /* TimeDataModel.swift */,
 				F83BA041268C4A5100E94E74 /* TempModel.swift */,
 			);
 			path = Models;
@@ -206,6 +247,7 @@
 		F83BA047268C4AD200E94E74 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F83BA035268C48CC00E94E74 /* Fonts */,
 				F83BA048268C4AE200E94E74 /* TempExtension.swift */,
 			);
 			path = Extensions;
@@ -292,7 +334,10 @@
 				F83BA028268C476C00E94E74 /* Assets.xcassets in Resources */,
 				F83BA057268C4DFC00E94E74 /* OnboardingImage.xcassets in Resources */,
 				F83BA026268C476B00E94E74 /* Login.storyboard in Resources */,
+				E82DE8F5268C6AB900296B53 /* FunctionCVC.xib in Resources */,
 				F83BA059268C4E5600E94E74 /* MainImage.xcassets in Resources */,
+				E82DE8EE268C5CC700296B53 /* ThirdOnboarding.storyboard in Resources */,
+				E82DE8FB268C6B3F00296B53 /* TimeCVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,16 +391,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				F83BA046268C4A5F00E94E74 /* TempClasses.swift in Sources */,
+				E82DE8F1268C5D5600296B53 /* ThirdOnboardingVC.swift in Sources */,
+				E82DE8F4268C6AB900296B53 /* FunctionCVC.swift in Sources */,
+				E82DE8FE268C748900296B53 /* FunctionDataModel.swift in Sources */,
 				F83BA04E268C4C3500E94E74 /* Storyboard.swift in Sources */,
 				F83BA055268C4D5800E94E74 /* LoginVC.swift in Sources */,
+				E82DE900268C749800296B53 /* TimeDataModel.swift in Sources */,
 				F83BA049268C4AE200E94E74 /* TempExtension.swift in Sources */,
 				F83BA01F268C476B00E94E74 /* AppDelegate.swift in Sources */,
 				F83BA040268C4A4A00E94E74 /* TempLottie.swift in Sources */,
 				F83BA050268C4C3F00E94E74 /* ViewController.swift in Sources */,
 				F83BA042268C4A5100E94E74 /* TempModel.swift in Sources */,
+				E82DE904268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift in Sources */,
 				F83BA03E268C4A4000E94E74 /* TempFonts.swift in Sources */,
 				F83BA044268C4A5800E94E74 /* TempCells.swift in Sources */,
 				F83BA021268C476B00E94E74 /* SceneDelegate.swift in Sources */,
+				E82DE8FA268C6B3F00296B53 /* TimeCVC.swift in Sources */,
 				F83BA04C268C4C1600E94E74 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

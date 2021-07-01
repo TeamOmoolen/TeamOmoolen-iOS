@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TimeCVC" customModule="TeamOmoolen_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="115" height="55"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="115" height="55"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bMI-pf-Scc">
+                        <rect key="frame" x="5" y="5" width="105" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjX-o9-C4p">
+                                <rect key="frame" x="16" y="14" width="73" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NjX-o9-C4p" firstAttribute="leading" secondItem="bMI-pf-Scc" secondAttribute="leading" constant="16" id="2ph-bK-O8i"/>
+                            <constraint firstItem="NjX-o9-C4p" firstAttribute="centerY" secondItem="bMI-pf-Scc" secondAttribute="centerY" id="NZd-eb-FFQ"/>
+                            <constraint firstItem="NjX-o9-C4p" firstAttribute="centerX" secondItem="bMI-pf-Scc" secondAttribute="centerX" id="XF4-8C-k8N"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="bMI-pf-Scc" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="GZh-y9-WUP"/>
+                <constraint firstItem="bMI-pf-Scc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="azd-iV-1b3"/>
+                <constraint firstItem="bMI-pf-Scc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="lhT-y3-6RV"/>
+                <constraint firstItem="bMI-pf-Scc" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="xC4-Sd-hlN"/>
+            </constraints>
+            <size key="customSize" width="198" height="81"/>
+            <connections>
+                <outlet property="timeLabel" destination="NjX-o9-C4p" id="Htq-4e-oJX"/>
+                <outlet property="timeView" destination="bMI-pf-Scc" id="wgH-SD-Lhe"/>
+            </connections>
+            <point key="canvasLocation" x="92.028985507246389" y="93.415178571428569"/>
+        </collectionViewCell>
+    </objects>
+</document>

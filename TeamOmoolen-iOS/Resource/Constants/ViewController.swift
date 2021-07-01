@@ -10,7 +10,7 @@ import Foundation
 extension Const {
     struct ViewController {
         struct Name {
-            //static let ...
+            static let ThirdOnboarding = "ThirdOnboardingVC"
         }
     }
 }
