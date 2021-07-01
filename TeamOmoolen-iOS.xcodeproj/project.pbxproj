@@ -10,6 +10,10 @@
 		58740A13991CB69278C887DA /* Pods_TeamOmoolen_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBBE8C8AF696DB691BFA7FA6 /* Pods_TeamOmoolen_iOS.framework */; };
 		924751A9268E2CFE00924891 /* FourthOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924751A8268E2CFE00924891 /* FourthOnboarding.storyboard */; };
 		924751AC268E329400924891 /* FourthOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924751AB268E329400924891 /* FourthOnboardingVC.swift */; };
+		924751AE268E42E200924891 /* LensBrandDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924751AD268E42E200924891 /* LensBrandDataModel.swift */; };
+		924751B2268E48CE00924891 /* PurposeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924751B1268E48CE00924891 /* PurposeDataModel.swift */; };
+		924751B5268E49B500924891 /* PurposeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924751B3268E49B500924891 /* PurposeCVC.swift */; };
+		924751B6268E49B500924891 /* PurposeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924751B4268E49B500924891 /* PurposeCVC.xib */; };
 		927F97FE268C840100E893F2 /* GenderDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927F97FD268C840100E893F2 /* GenderDataModel.swift */; };
 		92BF879D268CCC8100706384 /* AgeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF879C268CCC8100706384 /* AgeDataModel.swift */; };
 		92BF87A2268D908C00706384 /* GenderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF87A0268D908C00706384 /* GenderCVC.swift */; };
@@ -31,7 +35,6 @@
 		F83BA028268C476C00E94E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA027268C476C00E94E74 /* Assets.xcassets */; };
 		F83BA02B268C476C00E94E74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA029268C476C00E94E74 /* LaunchScreen.storyboard */; };
 		F83BA040268C4A4A00E94E74 /* TempLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA03F268C4A4A00E94E74 /* TempLottie.swift */; };
-
 		F83BA046268C4A5F00E94E74 /* TempClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA045268C4A5F00E94E74 /* TempClasses.swift */; };
 		F83BA049268C4AE200E94E74 /* TempExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA048268C4AE200E94E74 /* TempExtension.swift */; };
 		F83BA04C268C4C1600E94E74 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA04B268C4C1600E94E74 /* Const.swift */; };
@@ -78,6 +81,10 @@
 		87B1FF6CD055C8AE1AEE072C /* Pods-TeamOmoolen-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamOmoolen-iOS.debug.xcconfig"; path = "Target Support Files/Pods-TeamOmoolen-iOS/Pods-TeamOmoolen-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		924751A8268E2CFE00924891 /* FourthOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FourthOnboarding.storyboard; sourceTree = "<group>"; };
 		924751AB268E329400924891 /* FourthOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthOnboardingVC.swift; sourceTree = "<group>"; };
+		924751AD268E42E200924891 /* LensBrandDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensBrandDataModel.swift; sourceTree = "<group>"; };
+		924751B1268E48CE00924891 /* PurposeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurposeDataModel.swift; sourceTree = "<group>"; };
+		924751B3268E49B500924891 /* PurposeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurposeCVC.swift; sourceTree = "<group>"; };
+		924751B4268E49B500924891 /* PurposeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurposeCVC.xib; sourceTree = "<group>"; };
 		927F97FD268C840100E893F2 /* GenderDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderDataModel.swift; sourceTree = "<group>"; };
 		92BF879C268CCC8100706384 /* AgeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeDataModel.swift; sourceTree = "<group>"; };
 		92BF87A0268D908C00706384 /* GenderCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCVC.swift; sourceTree = "<group>"; };
@@ -188,6 +195,8 @@
 		924751A7268E2CC500924891 /* FourthOnboarding */ = {
 			isa = PBXGroup;
 			children = (
+				924751AD268E42E200924891 /* LensBrandDataModel.swift */,
+				924751B1268E48CE00924891 /* PurposeDataModel.swift */,
 			);
 			path = FourthOnboarding;
 			sourceTree = "<group>";
@@ -195,6 +204,8 @@
 		924751AA268E2D3A00924891 /* FourthOnboarding */ = {
 			isa = PBXGroup;
 			children = (
+				924751B3268E49B500924891 /* PurposeCVC.swift */,
+				924751B4268E49B500924891 /* PurposeCVC.xib */,
 			);
 			path = FourthOnboarding;
 			sourceTree = "<group>";
@@ -310,9 +321,7 @@
 				E82DE8ED268C5CC700296B53 /* ThirdOnboarding.storyboard */,
 				92E55FBC268C72EA0081D3A9 /* FirstOnboarding.storyboard */,
 				F83BA05A268C577E00E94E74 /* SecondOnboarding.storyboard */,
-
 				924751A8268E2CFE00924891 /* FourthOnboarding.storyboard */,
-
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -349,7 +358,6 @@
 			isa = PBXGroup;
 			children = (
 				924751AA268E2D3A00924891 /* FourthOnboarding */,
-
 				F8245904268E1F3A0048BE84 /* ThirdOnboarding */,
 				92E55FBE268C79120081D3A9 /* FirstOnboarding */,
 				F83BA05F268C6D3400E94E74 /* SecondOnboarding */,
@@ -362,7 +370,6 @@
 			isa = PBXGroup;
 			children = (
 				924751A7268E2CC500924891 /* FourthOnboarding */,
-
 				F85CD050268DB0F3005A3C95 /* SecondOnboarding */,
 				E82DE8FD268C748900296B53 /* FunctionDataModel.swift */,
 				E82DE8FF268C749800296B53 /* TimeDataModel.swift */,
@@ -556,6 +563,7 @@
 				F8B91F76268E207A006114CD /* Roboto-Regular.ttf in Resources */,
 				F8B91F5A268E205E006114CD /* NotoSansCJKkr-Black.otf in Resources */,
 				F8B91F5D268E205E006114CD /* NotoSansCJKkr-Medium.otf in Resources */,
+				924751B6268E49B500924891 /* PurposeCVC.xib in Resources */,
 				F8B91F6C268E207A006114CD /* Roboto-ThinItalic.ttf in Resources */,
 				92BF87A3268D908C00706384 /* GenderCVC.xib in Resources */,
 				F8B91F6E268E207A006114CD /* Roboto-Bold.ttf in Resources */,
@@ -636,6 +644,7 @@
 				927F97FE268C840100E893F2 /* GenderDataModel.swift in Sources */,
 				F83BA055268C4D5800E94E74 /* LoginVC.swift in Sources */,
 				E82DE900268C749800296B53 /* TimeDataModel.swift in Sources */,
+				924751B2268E48CE00924891 /* PurposeDataModel.swift in Sources */,
 				F83BA049268C4AE200E94E74 /* TempExtension.swift in Sources */,
 				F824590B268E1F3A0048BE84 /* FunctionCVC.swift in Sources */,
 				F83BA06D268C81B200E94E74 /* LensColorModel.swift in Sources */,
@@ -643,21 +652,19 @@
 				F83BA01F268C476B00E94E74 /* AppDelegate.swift in Sources */,
 				F83BA072268CEB5D00E94E74 /* UIColor.swift in Sources */,
 				F83BA040268C4A4A00E94E74 /* TempLottie.swift in Sources */,
+				924751AE268E42E200924891 /* LensBrandDataModel.swift in Sources */,
 				F83BA050268C4C3F00E94E74 /* ViewController.swift in Sources */,
 				E82DE904268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift in Sources */,
+				924751B5268E49B500924891 /* PurposeCVC.swift in Sources */,
 				F824590C268E1F3A0048BE84 /* TimeCVC.swift in Sources */,
-
 				92E55FBB268C72BA0081D3A9 /* FirstOnboardingVC.swift in Sources */,
 				F83BA06A268C7DEF00E94E74 /* LensColorCVC.swift in Sources */,
 				F83BA067268C754A00E94E74 /* LensKindModel.swift in Sources */,
-
 				92BF87A6268D94F700706384 /* AgeCVC.swift in Sources */,
 				F83BA04C268C4C1600E94E74 /* Const.swift in Sources */,
 				92BF87A2268D908C00706384 /* GenderCVC.swift in Sources */,
 				92BF879D268CCC8100706384 /* AgeDataModel.swift in Sources */,
-
 				924751AC268E329400924891 /* FourthOnboardingVC.swift in Sources */,
-
 				F83BA05D268C579100E94E74 /* SecondOnboardingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
