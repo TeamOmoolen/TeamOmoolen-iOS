@@ -39,25 +39,42 @@ class FirstOnboardingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setNavigationController()
         setUI()
+        setNavigationController()
         
         setList()
         
         setCollectionViewDelegate()
         registerXib()
     }
+    
+    // MARK: - @IBAction Methods
+    @IBAction func pushToSecondOnboarding(_ sender: Any) {
+        guard let nextVC = UIStoryboard(name: Const.Storyboard.Name.SecondOnboarding, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SecondOnboarding) as? SecondOnboardingVC else {
+            return
+        }
+        
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
 }
 
 // MARK: - Custom Methods
 
 extension FirstOnboardingVC {
     func setNavigationController() {
-        
+        self.navigationItem.title = "맞춤 정보 설정"
+        self.navigationController?.navigationBar.tintColor = .omSecondGray
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.omSecondGray, .font: UIFont(name: "NotoSansCJKKR-Medium", size: 16) as Any]
+//        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "icBack")
+//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "icBack")
+        self.navigationItem.backButtonTitle = ""
     }
     
     func setUI() {
-        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateProgressViewWithAnimation), userInfo: nil, repeats: true)
+        self.navigationController?.navigationBar.isHidden = false
+        
+        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(updateProgressViewWithAnimation), userInfo: nil, repeats: true)
         progressView.tintColor = .systemOrange
         
         progressLabel.text = "1/4"
@@ -112,7 +129,7 @@ extension FirstOnboardingVC {
 
 extension FirstOnboardingVC {
     @objc func updateProgressViewWithAnimation() {
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.5) {
             if self.progressView.progress != 0.25 {
                 self.progressView.setProgress(0.25, animated: true)
             }

@@ -46,6 +46,9 @@
                                 <rect key="frame" x="20" y="786" width="374" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="pushToSecondOnboarding:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LE2-2X-56c"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xas-qv-MYR">
                                 <rect key="frame" x="20" y="217" width="374" height="241"/>

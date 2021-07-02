@@ -46,6 +46,7 @@
 		F83BA06F268CE4FD00E94E74 /* CALayer+applyShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA06E268CE4FD00E94E74 /* CALayer+applyShadow.swift */; };
 		F83BA072268CEB5D00E94E74 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA071268CEB5D00E94E74 /* UIColor.swift */; };
 		F83BA076268D760000E94E74 /* OnboardingImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA075268D760000E94E74 /* OnboardingImage.xcassets */; };
+		F83DBBFD268EE0C900E47B15 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA024268C476B00E94E74 /* Login.storyboard */; };
 		F8B91F55268E205E006114CD /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F4C268E205B006114CD /* NotoSansCJKkr-Regular.otf */; };
 		F8B91F56268E205E006114CD /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F4D268E205B006114CD /* NotoSansCJKkr-Bold.otf */; };
 		F8B91F57268E205E006114CD /* NotoSansCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F4E268E205C006114CD /* NotoSansCJKkr-Light.otf */; };
@@ -505,6 +506,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F83DBBFD268EE0C900E47B15 /* Login.storyboard in Resources */,
 				92E55FBD268C72EA0081D3A9 /* FirstOnboarding.storyboard in Resources */,
 				F83BA02B268C476C00E94E74 /* LaunchScreen.storyboard in Resources */,
 				F8B91F72268E207A006114CD /* Roboto-LightItalic.ttf in Resources */,

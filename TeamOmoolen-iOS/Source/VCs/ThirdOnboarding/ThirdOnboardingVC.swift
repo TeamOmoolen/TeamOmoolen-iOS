@@ -27,24 +27,30 @@ class ThirdOnboardingVC: UIViewController {
     
     //Mark: - IBAction Properties
     @IBAction func nextButtonClicked(_ sender: Any) {
-
+        //push
+//        guard let nextVC = UIStoryboard(name: Const.Storyboard.Name.ThirdOnboarding, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.FirstOnboarding) as? ThirdOnboardingVC else {
+//            return
+//        }
+//
+//        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     //Mark: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        setNavigationBar()
         setCollectionViewDelegate()
         registerCell()
         setFunctionList()
         setTimeList()
         
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateProgressViewWithAnimation), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(updateProgressViewWithAnimation), userInfo: nil, repeats: true)
     }
     //Mark: - Methods
     func setUI(){
         
-        progressView.progress = 0.75
+        progressView.progress = 0.5
         progressView.progressTintColor = .orange
         
         
@@ -62,6 +68,15 @@ class ThirdOnboardingVC: UIViewController {
         nextButtonView.backgroundColor = .systemGray
         
         
+    }
+    
+    func setNavigationBar() {
+        self.navigationItem.title = "맞춤 정보 설정"
+        self.navigationController?.navigationBar.tintColor = .omSecondGray
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.omSecondGray, .font: UIFont(name: "NotoSansCJKKR-Medium", size: 16) as Any]
+//        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "icBack")
+//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "icBack")
+        self.navigationItem.backButtonTitle = ""
     }
     
     func setCollectionViewDelegate() {
@@ -100,7 +115,7 @@ class ThirdOnboardingVC: UIViewController {
     
     //Mark: - @objc Methods
     @objc func updateProgressViewWithAnimation(){
-        UIView.animate(withDuration: 1) {
+        UIView.animate(withDuration: 0.5) {
             if self.progressView.progress != 0.75 {
                 self.progressView.setProgress(0.75, animated: true)
             }
