@@ -16,6 +16,8 @@ class GenderCVC: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        setUI()
     }
     
     // cell 선택 시
@@ -23,9 +25,11 @@ class GenderCVC: UICollectionViewCell {
         didSet {
             if isSelected {
                 backView.layer.borderColor = UIColor.omMainOrange.cgColor
+                backView.layer.borderWidth = 1
                 genderLabel.textColor = UIColor.omMainOrange
             } else {
                 backView.layer.borderColor = UIColor.omThirdGray.cgColor
+                backView.layer.borderWidth = 0
                 genderLabel.textColor = UIColor.omThirdGray
             }
         }
@@ -35,12 +39,12 @@ class GenderCVC: UICollectionViewCell {
 // MARK: - Custom Methods
 
 extension GenderCVC {
-    func setView() {
+    func setUI() {
         backView.layer.cornerRadius = 10
         backView.layer.masksToBounds = true
-        backView.layer.borderWidth = 1
-        backView.layer.borderColor = UIColor.omThirdGray.cgColor
-        // Initialization code
+        
+        genderLabel.textColor = .omMainBlack
+        genderLabel.font = UIFont(name: "NotoSansCJKKR-DemiLight", size: 14)
     }
     
     func initCell(genderImageName: String, gender: String) {

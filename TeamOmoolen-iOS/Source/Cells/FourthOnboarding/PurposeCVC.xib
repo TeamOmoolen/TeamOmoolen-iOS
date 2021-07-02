@@ -10,46 +10,46 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AgeCVC" customModule="TeamOmoolen_iOS" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PurposeCVC" customModule="TeamOmoolen_iOS" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="163" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="163" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dg6-PC-6af">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZzG-As-wnk">
                         <rect key="frame" x="0.0" y="0.0" width="163" height="50"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MH-4W-CUR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scp-J5-hhQ">
                                 <rect key="frame" x="15" y="15" width="133" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1MH-4W-CUR" firstAttribute="leading" secondItem="Dg6-PC-6af" secondAttribute="leading" constant="15" id="39r-oG-EgA"/>
-                            <constraint firstAttribute="bottom" secondItem="1MH-4W-CUR" secondAttribute="bottom" constant="15" id="KOm-bP-eho"/>
-                            <constraint firstItem="1MH-4W-CUR" firstAttribute="top" secondItem="Dg6-PC-6af" secondAttribute="top" constant="15" id="Sk6-VQ-o7k"/>
-                            <constraint firstAttribute="trailing" secondItem="1MH-4W-CUR" secondAttribute="trailing" constant="15" id="jTY-EY-NTO"/>
+                            <constraint firstItem="Scp-J5-hhQ" firstAttribute="top" secondItem="ZzG-As-wnk" secondAttribute="top" constant="15" id="MgT-ik-PtE"/>
+                            <constraint firstAttribute="bottom" secondItem="Scp-J5-hhQ" secondAttribute="bottom" constant="15" id="gT3-Q4-Q9W"/>
+                            <constraint firstItem="Scp-J5-hhQ" firstAttribute="leading" secondItem="ZzG-As-wnk" secondAttribute="leading" constant="15" id="koU-Dm-Tdt"/>
+                            <constraint firstAttribute="trailing" secondItem="Scp-J5-hhQ" secondAttribute="trailing" constant="15" id="ldf-K7-Rf6"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="Dg6-PC-6af" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Mg5-nL-XnK"/>
-                <constraint firstAttribute="bottom" secondItem="Dg6-PC-6af" secondAttribute="bottom" id="VGS-gg-925"/>
-                <constraint firstItem="Dg6-PC-6af" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uL8-Yt-tm5"/>
-                <constraint firstAttribute="trailing" secondItem="Dg6-PC-6af" secondAttribute="trailing" id="xpb-Ph-vgH"/>
+                <constraint firstItem="ZzG-As-wnk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="DQM-5b-5a9"/>
+                <constraint firstAttribute="bottom" secondItem="ZzG-As-wnk" secondAttribute="bottom" id="OqA-gZ-pQP"/>
+                <constraint firstItem="ZzG-As-wnk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="SE2-sg-1y5"/>
+                <constraint firstAttribute="trailing" secondItem="ZzG-As-wnk" secondAttribute="trailing" id="uGC-la-xmt"/>
             </constraints>
-            <size key="customSize" width="194" height="122"/>
+            <size key="customSize" width="184" height="108"/>
             <connections>
-                <outlet property="ageLabel" destination="1MH-4W-CUR" id="ECu-0Q-A2o"/>
-                <outlet property="backView" destination="Dg6-PC-6af" id="wHn-7H-fQd"/>
+                <outlet property="backView" destination="ZzG-As-wnk" id="kyh-37-tId"/>
+                <outlet property="purposeLabel" destination="Scp-J5-hhQ" id="q3v-pS-Cpw"/>
             </connections>
-            <point key="canvasLocation" x="242.0289855072464" y="127.90178571428571"/>
+            <point key="canvasLocation" x="234.78260869565219" y="123.21428571428571"/>
         </collectionViewCell>
     </objects>
     <resources>
