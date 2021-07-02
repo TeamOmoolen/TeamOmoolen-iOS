@@ -30,22 +30,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkc-Hf-2gM">
-                                <rect key="frame" x="20" y="127" width="252" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="252" id="Znb-a2-7DI"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="127" width="41.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMk-by-ThB">
-                                <rect key="frame" x="20" y="155" width="249" height="21"/>
+                                <rect key="frame" x="20" y="155" width="41.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Do-rP-Oy2">
-                                <rect key="frame" x="21" y="378" width="261" height="21"/>
+                                <rect key="frame" x="21" y="378" width="41.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -113,13 +110,11 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0Do-rP-Oy2" secondAttribute="trailing" constant="132" id="0QE-te-OjU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bOq-bQ-w1X" secondAttribute="trailing" constant="15" id="1jt-hF-hO6"/>
                             <constraint firstItem="RNw-DV-V7O" firstAttribute="leading" secondItem="0ro-O1-EBO" secondAttribute="trailing" constant="7" id="1ow-qE-V5K"/>
                             <constraint firstItem="kgo-7E-FhW" firstAttribute="top" secondItem="bOq-bQ-w1X" secondAttribute="bottom" constant="44" id="DoQ-rN-43y"/>
                             <constraint firstItem="0Do-rP-Oy2" firstAttribute="top" secondItem="j6V-bM-dIi" secondAttribute="bottom" constant="40" id="Dxv-bh-Dle"/>
                             <constraint firstItem="MMk-by-ThB" firstAttribute="top" secondItem="bkc-Hf-2gM" secondAttribute="bottom" constant="7" id="E08-Rb-Uys"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MMk-by-ThB" secondAttribute="trailing" constant="145" id="Obw-fZ-YW3"/>
                             <constraint firstItem="sBW-AT-z81" firstAttribute="top" secondItem="MMk-by-ThB" secondAttribute="bottom" constant="40" id="Odv-ck-XfH"/>
                             <constraint firstItem="kgo-7E-FhW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="S78-vO-jUJ"/>
                             <constraint firstItem="bOq-bQ-w1X" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="SbB-e0-D7P"/>

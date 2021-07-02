@@ -27,12 +27,11 @@ class ThirdOnboardingVC: UIViewController {
     
     //Mark: - IBAction Properties
     @IBAction func nextButtonClicked(_ sender: Any) {
-        //push
-//        guard let nextVC = UIStoryboard(name: Const.Storyboard.Name.ThirdOnboarding, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.FirstOnboarding) as? ThirdOnboardingVC else {
-//            return
-//        }
-//
-//        self.navigationController?.pushViewController(nextVC, animated: true)
+        guard let nextVC = UIStoryboard(name: Const.Storyboard.Name.FourthOnboarding, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.FourthOnboarding) as? FourthOnboardingVC else {
+            return
+        }
+
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     //Mark: - View Life Cycle

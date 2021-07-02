@@ -13,6 +13,7 @@ extension Const {
             static let FirstOnboarding = "FirstOnboarding"
             static let SecondOnboarding = "SecondOnboarding"
             static let ThirdOnboarding = "ThirdOnboarding"
+            static let FourthOnboarding = "FourthOnboarding"
         }
     }
 }
