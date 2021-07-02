@@ -9,11 +9,8 @@ import Foundation
 import UIKit
 
 struct LensColorModel {
-
     let image: String
 //    init(image: String) {
 //        self.image = UIImage(named: image) ?? UIImage()
 //    }
-    
-
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 class FirstOnboardingVC: UIViewController {
-
+    
     // MARK: - UIComponents
     
     @IBOutlet weak var progressView: UIProgressView!
@@ -28,6 +28,9 @@ class FirstOnboardingVC: UIViewController {
     private var genderList : [GenderDataModel] = []
     private var ageList : [AgeDataModel] = []
     
+    private var isGenderSelected = false
+    private var isAgeSelected = false
+    
     // MARK: - View Life Cycle Methods
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +49,8 @@ class FirstOnboardingVC: UIViewController {
         
         setCollectionViewDelegate()
         registerXib()
+        
+        setNotification()
     }
     
     // MARK: - @IBAction Methods
@@ -78,20 +83,26 @@ extension FirstOnboardingVC {
         progressView.tintColor = .systemOrange
         
         progressLabel.text = "1/4"
-        progressLabel.textColor = . darkGray
+        progressLabel.font = UIFont(name: "Roboto-Regular", size: 12)
+        progressLabel.textColor = .omThirdGray
         
         guideLabel1.text = "성별을 알려주세요!"
-        guideLabel1.font = UIFont.boldSystemFont(ofSize: 17)
+        guideLabel1.textColor = .omMainBlack
+        guideLabel1.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         
         guideLabel2.text = "연령과 성별에 따라 많이 찾는 렌즈를 추천해드릴게요!"
-        guideLabel2.textColor = .lightGray
+        guideLabel2.textColor = .omFourthGray
+        guideLabel2.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
         
         guideLabel3.text = "나이를 알려주세요!"
-        guideLabel3.font = UIFont.boldSystemFont(ofSize: 17)
+        guideLabel3.textColor = .omMainBlack
+        guideLabel3.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         
-        nextButton.backgroundColor = .lightGray
-        nextButton.tintColor = .white
+        nextButton.backgroundColor = .omFourthGray
         nextButton.setTitle("다음", for: .normal)
+        nextButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Regular", size: 18)
+        nextButton.tintColor = .omWhite
+        nextButton.isEnabled = false
     }
     
     func setList() {
@@ -137,9 +148,42 @@ extension FirstOnboardingVC {
     }
 }
 
+// MARK: - Notification
+
+extension FirstOnboardingVC {
+    private func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(buttonInActive), name: NSNotification.Name("buttonInActive"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(buttonActive), name: NSNotification.Name("buttonActive"), object: nil)
+    }
+    
+    @objc
+    private func buttonInActive() {
+        nextButton.backgroundColor = .darkGray
+    }
+    
+    @objc
+    private func buttonActive(_ notification: Notification) {
+        nextButton.backgroundColor = .omMainOrange
+    }
+}
+
 // MARK: - UICollectionView Delegate
 extension FirstOnboardingVC: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == genderListCollectionView {
+            print(genderList[indexPath.row].gender)
+            isGenderSelected = true
+        }
+        if collectionView == ageListCollectionView {
+            print(ageList[indexPath.row].age)
+            isAgeSelected = true
+        }
+        if isGenderSelected && isAgeSelected {
+            NotificationCenter.default.post(name: NSNotification.Name("buttonActive"), object: nil)
+            nextButton.isEnabled = true
+        }
+    }
 }
 
 // MARK: - UICollectionView DataSource
@@ -162,12 +206,18 @@ extension FirstOnboardingVC: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GenderCVC.identifier, for: indexPath) as? GenderCVC else {
                 return UICollectionViewCell()
             }
+            cell.layer.applyShadow(color: .black, alpha: 0.14, x: 2, y: 2, blur: 7, spread: 0)
+            cell.contentView.layer.cornerRadius = 10
+            cell.contentView.layer.masksToBounds = true
             cell.initCell(genderImageName: genderList[indexPath.row].genderImage, gender: genderList[indexPath.row].gender)
             return cell
         case ageListCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AgeCVC.identifier, for: indexPath) as? AgeCVC else {
                 return UICollectionViewCell()
             }
+            cell.layer.applyShadow(color: .black, alpha: 0.14, x: 2, y: 2, blur: 7, spread: 0)
+            cell.contentView.layer.cornerRadius = 10
+            cell.contentView.layer.masksToBounds = true
             cell.initCell(age: ageList[indexPath.row].age)
             return cell
         default:
@@ -181,30 +231,27 @@ extension FirstOnboardingVC: UICollectionViewDataSource {
 extension FirstOnboardingVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == genderListCollectionView {
-            return CGSize(width: 160, height: 160)
+            let width = collectionView.frame.width
+            let cellWidth = (width - 19) / 2
+            return CGSize(width: cellWidth, height: cellWidth)
         } else {
-            return CGSize(width: 200, height: 60)
+            let width = collectionView.frame.width
+            let height = collectionView.frame.height
+            let cellWidth = (width - 19) / 2
+            let cellHeight = (height - 20) / 2
+            return CGSize(width: cellWidth, height: cellHeight)
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        if collectionView == genderListCollectionView {
-            return 11
-        } else {
-            return 8
-        }
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        if collectionView == genderListCollectionView {
-            return 11
-        } else {
-            return 6
-        }
+        return 9
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .zero
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
 }
