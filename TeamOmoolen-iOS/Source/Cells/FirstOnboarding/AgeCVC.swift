@@ -28,10 +28,12 @@ class AgeCVC: UICollectionViewCell {
                 backView.layer.borderColor = UIColor.omMainOrange.cgColor
                 backView.layer.borderWidth = 1
                 ageLabel.textColor = UIColor.omMainOrange
+                ageLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
             } else {
                 backView.layer.borderColor = UIColor.omThirdGray.cgColor
                 backView.layer.borderWidth = 0
                 ageLabel.textColor = UIColor.omThirdGray
+                ageLabel.font = UIFont(name: "NotoSansCJKKR-DemiLight", size: 14)
             }
         }
     }
