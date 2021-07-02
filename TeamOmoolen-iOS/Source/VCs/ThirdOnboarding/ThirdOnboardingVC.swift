@@ -14,6 +14,7 @@ class ThirdOnboardingVC: UIViewController {
     private var timeList: [TimeDataModel] = []
     
     //Mark: - IBOutlet Properties
+    @IBOutlet var baseView: UIView!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var functionMainLabel: UILabel!
@@ -22,11 +23,13 @@ class ThirdOnboardingVC: UIViewController {
     @IBOutlet weak var functionCollectionView: UICollectionView!
         
     @IBOutlet weak var timeCollectionView: UICollectionView!
-    @IBOutlet weak var nextButtonView: UIView!
     @IBOutlet weak var nextButton: UIButton!
     
     //Mark: - IBAction Properties
     @IBAction func nextButtonClicked(_ sender: Any) {
+        
+        print(functionCollectionView.indexPathsForSelectedItems!)
+        print(timeCollectionView.indexPathsForSelectedItems!)
 
     }
     
@@ -44,23 +47,40 @@ class ThirdOnboardingVC: UIViewController {
     //Mark: - Methods
     func setUI(){
         
+        baseView.backgroundColor = .omAlmostwhite
+        
         progressView.progress = 0.75
-        progressView.progressTintColor = .orange
+        progressView.progressTintColor = .omMainOrange
         
         
         progressLabel.text = "3/4"
+        progressLabel.textColor = .omThirdGray
+        progressLabel.font = UIFont(name: "Roboto-Regular", size: 12)
+
         
         functionMainLabel.text = "어떤 기능의 렌즈가 필요하세요?"
-        functionMainLabel.textColor = .black
-        functionSubLabel.text = "기능을 선택하시면 필요에 맞게 렌즈를 추천해드릴게요!"
-        functionSubLabel.textColor = .gray
+        functionMainLabel.textColor = .omMainBlack
+        functionMainLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         
+        functionCollectionView.backgroundColor = .omAlmostwhite
+        functionSubLabel.text = "기능을 선택하시면 필요에 맞게 렌즈를 추천해드릴게요!"
+        functionSubLabel.textColor = .omFourthGray
+        functionSubLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
+
+        
+        timeCollectionView.backgroundColor = .omAlmostwhite
         timeLabel.text = "어떤 주기의 렌즈를 찾으시나요?"
-        timeLabel.textColor = .black
+        timeLabel.textColor = .omMainBlack
+        timeLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
+
                 
         
-        nextButtonView.backgroundColor = .systemGray
-        
+        nextButton.setTitle("다음", for: .normal)
+        nextButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Regular", size: 18)
+        nextButton.tintColor = .omWhite
+        nextButton.backgroundColor = .omFourthGray
+        nextButton.layer.cornerRadius = 10
+        nextButton.isUserInteractionEnabled = false
         
     }
     
@@ -133,13 +153,14 @@ extension ThirdOnboardingVC: UICollectionViewDataSource {
             guard let functionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "FunctionCVC", for: indexPath) as? FunctionCVC else {
                 return UICollectionViewCell()
             }
+            functionCell.layer.applyShadow(color: .black, alpha: 0.14, x: 2, y: 2, blur: 7, spread: 0)
+            
+            functionCell.backgroundColor = .white
             functionCell.setData(functionName: functionList[indexPath.row].functionName)
             
             functionCell.layer.cornerRadius = 7
             functionCell.contentView.layer.cornerRadius = 20
             functionCell.contentView.layer.masksToBounds = true
-
-
             
             return functionCell
             
@@ -147,7 +168,8 @@ extension ThirdOnboardingVC: UICollectionViewDataSource {
             guard let timeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeCVC", for: indexPath) as? TimeCVC else {
                 return UICollectionViewCell()
             }
-            
+            timeCell.layer.applyShadow(color: .black, alpha: 0.14, x: 2, y: 2, blur: 7, spread: 0)
+            timeCell.backgroundColor = .white
             timeCell.setData(timeType: timeList[indexPath.row].timeType)
             timeCell.layer.cornerRadius = 10
             timeCell.contentView.layer.cornerRadius = 20
@@ -164,6 +186,34 @@ extension ThirdOnboardingVC: UICollectionViewDataSource {
 }
 
 
+extension ThirdOnboardingVC: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if functionCollectionView.indexPathsForSelectedItems?.isEmpty == false && timeCollectionView.indexPathsForSelectedItems?.isEmpty == false {
+                        
+            nextButton.backgroundColor = .omMainOrange
+            nextButton.isUserInteractionEnabled = true
+            
+            
+        } else {
+            nextButton.backgroundColor = .omFourthGray
+            nextButton.isUserInteractionEnabled = false
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if functionCollectionView.indexPathsForSelectedItems?.isEmpty == false && timeCollectionView.indexPathsForSelectedItems?.isEmpty == false {
+            nextButton.backgroundColor = .omMainOrange
+            nextButton.isUserInteractionEnabled = true
+        } else {
+            nextButton.backgroundColor = .omFourthGray
+            nextButton.isUserInteractionEnabled = false
+        }
+    }
+    
+}
+
+
 //Mark: - UICollectionViewDelegate
 
 extension ThirdOnboardingVC: UICollectionViewDelegateFlowLayout {
@@ -171,9 +221,9 @@ extension ThirdOnboardingVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == functionCollectionView {
-            return CGSize(width: (collectionView.frame.width-19)/2, height: (collectionView.frame.height - 12)  / 2)
+            return CGSize(width: (collectionView.frame.width-20)/2, height: (collectionView.frame.height - 22)  / 2)
         } else {
-            return CGSize(width: (collectionView.frame.width-20)/3, height: (collectionView.frame.height-20)/3)
+            return CGSize(width: (collectionView.frame.width-30)/3, height: (collectionView.frame.height-34)/3)
         }
 
     }
@@ -182,16 +232,20 @@ extension ThirdOnboardingVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        //return UIEdgeInsets.zero
-        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        if collectionView == functionCollectionView {
+            return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        } else {
+            return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        }
+        
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == functionCollectionView {
-            return 5
+            return 12
         } else {
-            return 6
+            return 12
         }
     }
     
@@ -199,7 +253,7 @@ extension ThirdOnboardingVC: UICollectionViewDelegateFlowLayout {
         if collectionView == functionCollectionView {
             return 9
         } else {
-            return 2.5
+            return 10
         }
     }
     

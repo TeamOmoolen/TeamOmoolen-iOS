@@ -16,7 +16,7 @@ class LeftAlignedCVFlowLayout: UICollectionViewFlowLayout {
         var maxY: CGFloat = -1.0
         attributes?.forEach { layoutAttribute in
             if layoutAttribute.frame.origin.y >= maxY {
-                leftMargin = sectionInset.left
+                leftMargin = sectionInset.left + 2 //여기서 간격을 바꿨습니다
             }
             layoutAttribute.frame.origin.x = leftMargin
             

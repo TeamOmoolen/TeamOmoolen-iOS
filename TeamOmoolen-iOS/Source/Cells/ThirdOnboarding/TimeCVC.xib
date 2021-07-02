@@ -16,11 +16,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="115" height="55"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bMI-pf-Scc">
-                        <rect key="frame" x="5" y="5" width="105" height="44"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMI-pf-Scc">
+                        <rect key="frame" x="0.0" y="0.0" width="115" height="55"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjX-o9-C4p">
-                                <rect key="frame" x="16" y="14" width="73" height="17"/>
+                                <rect key="frame" x="15" y="12" width="85" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -28,19 +28,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="NjX-o9-C4p" firstAttribute="leading" secondItem="bMI-pf-Scc" secondAttribute="leading" constant="16" id="2ph-bK-O8i"/>
-                            <constraint firstItem="NjX-o9-C4p" firstAttribute="centerY" secondItem="bMI-pf-Scc" secondAttribute="centerY" id="NZd-eb-FFQ"/>
-                            <constraint firstItem="NjX-o9-C4p" firstAttribute="centerX" secondItem="bMI-pf-Scc" secondAttribute="centerX" id="XF4-8C-k8N"/>
+                            <constraint firstItem="NjX-o9-C4p" firstAttribute="leading" secondItem="bMI-pf-Scc" secondAttribute="leading" constant="15" id="KH4-Qt-kAA"/>
+                            <constraint firstAttribute="bottom" secondItem="NjX-o9-C4p" secondAttribute="bottom" constant="12" id="bRQ-Cc-Wwk"/>
+                            <constraint firstItem="NjX-o9-C4p" firstAttribute="top" secondItem="bMI-pf-Scc" secondAttribute="top" constant="12" id="r8f-kV-SYr"/>
+                            <constraint firstAttribute="trailing" secondItem="NjX-o9-C4p" secondAttribute="trailing" constant="15" id="rcD-ec-h21"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="bMI-pf-Scc" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="GZh-y9-WUP"/>
-                <constraint firstItem="bMI-pf-Scc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="azd-iV-1b3"/>
-                <constraint firstItem="bMI-pf-Scc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="lhT-y3-6RV"/>
-                <constraint firstItem="bMI-pf-Scc" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="xC4-Sd-hlN"/>
+                <constraint firstAttribute="trailing" secondItem="bMI-pf-Scc" secondAttribute="trailing" id="1aT-Ff-R5O"/>
+                <constraint firstAttribute="bottom" secondItem="bMI-pf-Scc" secondAttribute="bottom" id="98j-9r-qtP"/>
+                <constraint firstItem="bMI-pf-Scc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bT6-OG-k8h"/>
+                <constraint firstItem="bMI-pf-Scc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wIh-pJ-mH2"/>
             </constraints>
             <size key="customSize" width="198" height="81"/>
             <connections>

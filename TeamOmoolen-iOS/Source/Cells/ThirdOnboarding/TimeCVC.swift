@@ -18,13 +18,37 @@ class TimeCVC: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        timeView.layer.cornerRadius = 10
-        timeView.layer.shadowOffset = CGSize(width: 2, height: 2)
-        timeView.layer.shadowRadius = 7
-        timeView.layer.shadowColor = UIColor.black.cgColor
-        timeView.layer.shadowOpacity = 0.14
-        
+        setUI()
+    
+    }
+    
+    //Mark: - Methods
+    func setUI() {
+        timeLabel.font = UIFont(name: "NotoSansCJKKR-DemiLight", size: 14)
+        timeLabel.textColor = .omThirdGray
         timeLabel.center = CGPoint(x: self.timeView.frame.size.width / 2.0, y:self.timeView.frame.size.height / 2.0)
+        timeView.layer.masksToBounds = false
+        
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                
+                self.layer.applyShadow(color: .omMainOrange, alpha: 0.14, x: 1, y: 1, blur: 7, spread: 0)
+                self.contentView.layer.cornerRadius = 10.0
+                self.contentView.layer.borderWidth = 1.0
+                self.contentView.layer.borderColor = UIColor.omMainOrange.cgColor
+                
+                timeLabel.textColor = UIColor.omMainOrange
+                
+            } else {
+                self.layer.applyShadow(color: .black, alpha: 0.14, x: 1, y: 1, blur: 7, spread: 0)
+                self.contentView.layer.borderColor = UIColor.omWhite.cgColor
+                
+                timeLabel.textColor = UIColor.omThirdGray
+            }
+        }
     }
     
     //Mark: - Methods
