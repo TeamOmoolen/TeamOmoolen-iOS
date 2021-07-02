@@ -28,6 +28,34 @@ class FourthOnboardingVC: UIViewController {
     
     @IBOutlet weak var nextButton: UIButton!
     
+    private lazy var listView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .omWhite
+        view.layer.cornerRadius = 10
+        view.layer.masksToBounds = true
+        view.layer.applyShadow(color: .black, alpha: 0.14, x: 2, y: 2, blur: 7, spread: 0)
+        return view
+    }()
+    
+    let brandListCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.backgroundColor = .omWhite
+        
+        return collection
+    }()
+    
+    private lazy var selectButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .omFourthGray
+        button.setTitle("선택 완료", for: .normal)
+        button.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Regular", size: 18)
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
+        return button
+    }()
     
     // MARK: - Local Variables
     
@@ -36,7 +64,12 @@ class FourthOnboardingVC: UIViewController {
     
     private var isBrandSelected = false
     private var isLensNameSelected = false
+    private var isPurposeSelected = false
     
+    private var isPresentListView: Bool = false
+    private var listViewHeight: NSLayoutConstraint!
+    
+    private var selectedBrandName = "브랜드를 선택해주세요!"
     
     // MARK: - View Life Cycle Methods
     
@@ -50,6 +83,7 @@ class FourthOnboardingVC: UIViewController {
         super.viewDidLoad()
         
         setNavigationController()
+        setBrandListView()
         setUI()
         
         setList()
@@ -64,6 +98,39 @@ class FourthOnboardingVC: UIViewController {
 extension FourthOnboardingVC {
     func setNavigationController() {
         
+    }
+    
+    func setBrandListView() {
+        view.addSubview(listView)
+        listView.addSubview(selectButton)
+        listView.addSubview(brandListCollectionView)
+        
+        listView.snp.makeConstraints { make in
+            make.top.equalTo(brandSelectView.snp.bottom).offset(8)
+            make.leading.trailing.equalTo(brandSelectView)
+            make.width.equalTo(345)
+            make.height.equalTo(1)
+        }
+        listView.isHidden = true
+        
+        brandListCollectionView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(13)
+            make.top.equalToSuperview().inset(16)
+            make.height.equalTo(1)
+        }
+        
+        selectButton.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(13)
+            make.top.equalTo(brandListCollectionView.snp.bottom).offset(10)
+            make.height.equalTo(54)
+        }
+        selectButton.isEnabled = false
+        selectButton.isHidden = true
+        selectButton.addTarget(self, action: #selector(touchUpSelectButton(_:)), for: .touchUpInside)
+        selectButton.addTarget(self, action: #selector(touchUpBrandSelectView(_:)), for: .touchUpInside)
+        
+        let brandTapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpBrandSelectView(_:)))
+        brandSelectView.addGestureRecognizer(brandTapGesture)
     }
     
     func setUI() {
@@ -104,9 +171,11 @@ extension FourthOnboardingVC {
         lensTextView.layer.applyShadow(color: .black, alpha: 0.14, x: 2, y: 2, blur: 7, spread: 0)
         
         lensTextView.backgroundColor = .omAlmostwhite
-        lensTextView.text = "렌즈명을 입력해주세요"
         lensTextView.font = UIFont(name: "NotoSansCJKKR-DemiLight", size: 15)
         lensTextView.textColor = .omThirdGray
+        lensTextView.text = "렌즈명을 입력해주세요"
+        lensTextView.delegate = self
+        lensTextView.textContainerInset = UIEdgeInsets(top: 15, left: 20, bottom: 14, right: 5)
         
         nextButton.backgroundColor = .omFourthGray
         nextButton.tintColor = .white
@@ -132,7 +201,12 @@ extension FourthOnboardingVC {
             LensBrandDataModel(brandLogoImage: "abc", brandName: "렌즈디바"),
             LensBrandDataModel(brandLogoImage: "abc", brandName: "아큐브"),
             LensBrandDataModel(brandLogoImage: "abc", brandName: "바슈롬"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "클라렌")
+            LensBrandDataModel(brandLogoImage: "abc", brandName: "클라렌"),
+            LensBrandDataModel(brandLogoImage: "abc", brandName: "알콘"),
+            LensBrandDataModel(brandLogoImage: "abc", brandName: "뉴바이오"),
+            LensBrandDataModel(brandLogoImage: "abc", brandName: "프레쉬콘"),
+            LensBrandDataModel(brandLogoImage: "abc", brandName: "쿠퍼비전"),
+            LensBrandDataModel(brandLogoImage: "abc", brandName: "그외")
         ])
         
         purposeList.append(contentsOf: [
@@ -145,6 +219,8 @@ extension FourthOnboardingVC {
     }
     
     func registerXib() {
+        let brandNib = UINib(nibName: LensBrandCVC.identifier, bundle: nil)
+        brandListCollectionView.register(brandNib, forCellWithReuseIdentifier: LensBrandCVC.identifier)
         
         let purposeNib = UINib(nibName: PurposeCVC.identifier, bundle: nil)
         purposeListCollectionView.register(purposeNib, forCellWithReuseIdentifier: PurposeCVC.identifier)
@@ -153,6 +229,9 @@ extension FourthOnboardingVC {
     func setCollectionViewDelegate() {
         purposeListCollectionView.delegate = self
         purposeListCollectionView.dataSource = self
+        
+        brandListCollectionView.delegate = self
+        brandListCollectionView.dataSource = self
     }
 }
 
@@ -167,8 +246,105 @@ extension FourthOnboardingVC {
             }
         }
     }
+    
+    @objc
+    func touchUpBrandSelectView(_ sender: UITapGestureRecognizer) {
+        if isPresentListView {
+            isPresentListView = false
+
+            self.listView.snp.updateConstraints { make in
+                make.height.equalTo(0)
+            }
+            self.brandListCollectionView.snp.updateConstraints { make in
+                make.height.equalTo(0)
+            }
+            
+            UIView.animate(withDuration: 0.5) {
+                self.selectButton.isHidden = true
+                self.view.layoutIfNeeded()
+            }
+        } else {
+            isPresentListView = true
+            listView.isHidden = false
+            
+            self.listView.snp.updateConstraints { make in
+                make.height.equalTo(435)
+            }
+            self.brandListCollectionView.snp.updateConstraints { make in
+                make.leading.trailing.equalToSuperview().inset(13)
+                make.top.equalToSuperview().inset(16)
+                make.height.equalTo(330)
+            }
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.layoutIfNeeded()
+            }) { _ in
+                self.selectButton.isHidden = false
+            }
+            isPresentListView = true
+        }
+    }
+    
+    @objc
+    func touchUpSelectButton(_ sender: UIButton) {
+        brandSelectView.layer.borderWidth = 1
+        brandSelectView.layer.borderColor = UIColor.omMainOrange.cgColor
+        brandSelectLabel.textColor = .omMainOrange
+        brandSelectLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 15)
+        brandSelectLabel.text = selectedBrandName
+    }
 }
 
+// MARK: - UITextView Delegate
+extension FourthOnboardingVC: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if lensTextView.textColor == .omThirdGray {
+            lensTextView.text = nil
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            lensTextView.text = "제가 바로 PlaceHolder입니다."
+            lensTextView.textColor = .omThirdGray
+        }
+        lensTextView.textColor = .omMainOrange
+        lensTextView.font = UIFont(name: "NotoSansCJKKR-Medium", size: 15)
+        lensTextView.layer.borderWidth = 1
+        lensTextView.layer.borderColor = UIColor.omMainOrange.cgColor
+        
+        isLensNameSelected = true
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+        }
+        return true
+    }
+}
+
+// MARK: - UICollectionView Delegate
+
+extension FourthOnboardingVC: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == brandListCollectionView {
+            isBrandSelected = true
+            selectButton.isEnabled = true
+            selectButton.backgroundColor = .omMainOrange
+            selectedBrandName = brandList[indexPath.row].brandName
+        }
+        if collectionView == purposeListCollectionView {
+            isPurposeSelected = true
+        }
+        
+        // 모든 입력값을 받았을 때
+        if isBrandSelected && isPurposeSelected {
+            nextButton.layer.backgroundColor = UIColor.omMainOrange.cgColor
+            nextButton.isEnabled = true
+        }
+    }
+}
 
 // MARK: - UICollectionView DataSource
 
@@ -177,6 +353,8 @@ extension FourthOnboardingVC: UICollectionViewDataSource {
         switch collectionView {
         case purposeListCollectionView:
             return purposeList.count
+        case brandListCollectionView:
+            return brandList.count
         default:
             return 0
         }
@@ -193,13 +371,18 @@ extension FourthOnboardingVC: UICollectionViewDataSource {
             cell.contentView.layer.masksToBounds = true
             cell.initCell(purpose: purposeList[indexPath.row].purpose)
             return cell
+        case brandListCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LensBrandCVC.identifier, for: indexPath) as? LensBrandCVC else {
+                return UICollectionViewCell()
+            }
+            cell.initCell(brandLogoImage: brandList[indexPath.row].brandLogoImage, brandName: brandList[indexPath.row].brandName)
+            return cell
         default:
             return UICollectionViewCell()
         }
     }
-    
-    
 }
+
 // MARK: - UICollectionView DelegateFlowLayout
 
 extension FourthOnboardingVC: UICollectionViewDelegateFlowLayout {
@@ -211,19 +394,28 @@ extension FourthOnboardingVC: UICollectionViewDelegateFlowLayout {
             let cellHeight = (height - 30) / 3
             return CGSize(width: cellWidth, height: cellHeight)
         } else {
-            return CGSize(width: 50, height: 50)
+            return CGSize(width: 100, height: 74)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == brandListCollectionView {
+            return 4
+        }
         return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == brandListCollectionView {
+            return 4
+        }
         return 9
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if collectionView == brandListCollectionView {
+            return .zero
+        }
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
 }

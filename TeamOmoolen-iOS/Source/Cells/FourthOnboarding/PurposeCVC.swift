@@ -27,11 +27,14 @@ class PurposeCVC: UICollectionViewCell {
             if isSelected {
                 backView.layer.borderColor = UIColor.omMainOrange.cgColor
                 backView.layer.borderWidth = 1
+                
                 purposeLabel.textColor = .omMainOrange
+                purposeLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 14)
             } else {
                 backView.layer.borderColor = UIColor.omThirdGray.cgColor
                 backView.layer.borderWidth = 0
                 purposeLabel.textColor = .omThirdGray
+                purposeLabel.font = UIFont(name: "NotoSansCJKKR-DemiLight", size: 14)
             }
         }
     }
@@ -50,6 +53,5 @@ extension PurposeCVC {
     
     func initCell(purpose: String) {
         purposeLabel.text = purpose
-        
     }
 }
