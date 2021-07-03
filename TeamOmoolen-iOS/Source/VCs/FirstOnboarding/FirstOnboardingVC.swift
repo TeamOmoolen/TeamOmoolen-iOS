@@ -33,12 +33,6 @@ class FirstOnboardingVC: UIViewController {
     
     // MARK: - View Life Cycle Methods
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        progressView.progress = 0
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -78,9 +72,17 @@ extension FirstOnboardingVC {
     }
     
     func setUI() {
-        self.navigationController?.navigationBar.isHidden = false
+        view.backgroundColor = .omAlmostwhite
+        genderListCollectionView.backgroundColor = .omAlmostwhite
+        ageListCollectionView.backgroundColor = .omAlmostwhite
         
-        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(updateProgressViewWithAnimation), userInfo: nil, repeats: true)
+        progressView.progress = 0
+        
+        self.navigationController?.navigationBar.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
+            self.updateProgressViewWithAnimation()
+        }
+
         progressView.tintColor = .systemOrange
         
         progressLabel.text = "1/4"
@@ -143,7 +145,7 @@ extension FirstOnboardingVC {
 // MARK: - Action Methods
 
 extension FirstOnboardingVC {
-    @objc func updateProgressViewWithAnimation() {
+    func updateProgressViewWithAnimation() {
         UIView.animate(withDuration: 0.5) {
             if self.progressView.progress != 0.25 {
                 self.progressView.setProgress(0.25, animated: true)

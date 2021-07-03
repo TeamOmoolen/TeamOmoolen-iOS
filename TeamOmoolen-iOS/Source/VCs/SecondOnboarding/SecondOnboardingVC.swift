@@ -34,8 +34,9 @@ class SecondOnboardingVC: UIViewController {
         collectionViewDelegate()
         registerXib()
         
-
-        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(updateProgressViewWithAnimation), userInfo: nil, repeats: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
+            self.updateProgressViewWithAnimation()
+        }
     }
     // MARK: - Methods
     func setUI() {
@@ -123,9 +124,8 @@ class SecondOnboardingVC: UIViewController {
             LensColorModel(image: "btnEtccolor")
         ])
     }
-
-    // MARK: - @objc Methods
-    @objc func updateProgressViewWithAnimation() {
+    
+    func updateProgressViewWithAnimation() {
         UIView.animate(withDuration: 0.5) {
             if self.progressView.progress != 0.5 {
                 self.progressView.setProgress(0.5, animated: true)

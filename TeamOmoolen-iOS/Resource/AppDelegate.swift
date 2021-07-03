@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("revoked")
                 print("go to login")
                 self.isLogin = false
+                
             case .authorized:
                 print("authorized")
                 print("go to home")
