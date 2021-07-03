@@ -49,12 +49,13 @@ class FirstOnboardingVC: UIViewController {
         
         setCollectionViewDelegate()
         registerXib()
-        
-        setNotification()
     }
     
     // MARK: - @IBAction Methods
     @IBAction func pushToSecondOnboarding(_ sender: Any) {
+        print(genderListCollectionView.indexPathsForSelectedItems!)
+        print(ageListCollectionView.indexPathsForSelectedItems!)
+        
         guard let nextVC = UIStoryboard(name: Const.Storyboard.Name.SecondOnboarding, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SecondOnboarding) as? SecondOnboardingVC else {
             return
         }
@@ -102,13 +103,16 @@ extension FirstOnboardingVC {
         nextButton.setTitle("다음", for: .normal)
         nextButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Regular", size: 18)
         nextButton.tintColor = .omWhite
-        nextButton.isEnabled = false
+        nextButton.isUserInteractionEnabled = false
+        
+        nextButton.layer.cornerRadius = 10
+        nextButton.layer.masksToBounds = true
     }
     
     func setList() {
         genderList.append(contentsOf: [
-            GenderDataModel(genderImage: "abc", gender: "여자"),
-            GenderDataModel(genderImage: "abc", gender: "남자")
+            GenderDataModel(genderImage: "abc", gender: "여성"),
+            GenderDataModel(genderImage: "abc", gender: "남성")
         ])
         
         ageList.append(contentsOf: [
@@ -148,40 +152,25 @@ extension FirstOnboardingVC {
     }
 }
 
-// MARK: - Notification
-
-extension FirstOnboardingVC {
-    private func setNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(buttonInActive), name: NSNotification.Name("buttonInActive"), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(buttonActive), name: NSNotification.Name("buttonActive"), object: nil)
-    }
-    
-    @objc
-    private func buttonInActive() {
-        nextButton.backgroundColor = .darkGray
-    }
-    
-    @objc
-    private func buttonActive(_ notification: Notification) {
-        nextButton.backgroundColor = .omMainOrange
-    }
-}
-
 // MARK: - UICollectionView Delegate
 extension FirstOnboardingVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == genderListCollectionView {
-            print(genderList[indexPath.row].gender)
-            isGenderSelected = true
+        if genderListCollectionView.indexPathsForSelectedItems?.isEmpty == false && ageListCollectionView.indexPathsForSelectedItems?.isEmpty == false {
+            nextButton.backgroundColor = .omMainOrange
+            nextButton.isUserInteractionEnabled = true
+        } else {
+            nextButton.backgroundColor = .omFourthGray
+            nextButton.isUserInteractionEnabled = false
         }
-        if collectionView == ageListCollectionView {
-            print(ageList[indexPath.row].age)
-            isAgeSelected = true
-        }
-        if isGenderSelected && isAgeSelected {
-            NotificationCenter.default.post(name: NSNotification.Name("buttonActive"), object: nil)
-            nextButton.isEnabled = true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if genderListCollectionView.indexPathsForSelectedItems?.isEmpty == false && ageListCollectionView.indexPathsForSelectedItems?.isEmpty == false {
+            nextButton.backgroundColor = .omMainOrange
+            nextButton.isUserInteractionEnabled = true
+        } else {
+            nextButton.backgroundColor = .omFourthGray
+            nextButton.isUserInteractionEnabled = false
         }
     }
 }
@@ -232,8 +221,9 @@ extension FirstOnboardingVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == genderListCollectionView {
             let width = collectionView.frame.width
+            let height = collectionView.frame.height
             let cellWidth = (width - 19) / 2
-            return CGSize(width: cellWidth, height: cellWidth)
+            return CGSize(width: cellWidth, height: height - 10)
         } else {
             let width = collectionView.frame.width
             let height = collectionView.frame.height
