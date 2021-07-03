@@ -51,7 +51,7 @@ class ThirdOnboardingVC: UIViewController {
         
         baseView.backgroundColor = .omAlmostwhite
         
-        progressView.progress = 0.75
+        progressView.progress = 0.5
         progressView.progressTintColor = .omMainOrange
         
         

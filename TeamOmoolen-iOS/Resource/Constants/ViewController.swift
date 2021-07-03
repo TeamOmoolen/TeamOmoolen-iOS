@@ -14,6 +14,10 @@ extension Const {
             static let SecondOnboarding = "SecondOnboardingVC"
             static let ThirdOnboarding = "ThirdOnboardingVC"
             static let FourthOnboarding = "FourthOnboardingVC"
+            
+            static let Login = "LoginVC"
+            static let Home = "HomeVC"
+            static let Splash = "SplashVC"
         }
     }
 }
