@@ -14,12 +14,20 @@ class SplashVC: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("splashVC")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-          // 1초 후 실행될 부분
+//          // 1초 후 실행될 부분
             self.setIsLogin()
+//        guard let loginVC = UIStoryboard(name: Const.Storyboard.Name.Login, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Login) as? UINavigationController else {
+//            return
+//        }
+//        loginVC.modalPresentationStyle = .fullScreen
+//        loginVC.modalTransitionStyle = .crossDissolve
+//        self.present(loginVC, animated: true, completion: nil)
         }
-        // Do any additional setup after loading the view.
+        
     }
     
     // MARK: - Methods

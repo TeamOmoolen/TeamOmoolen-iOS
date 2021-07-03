@@ -125,12 +125,13 @@ extension LoginVC: ASAuthorizationControllerDelegate {
             break
         }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-        guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {
-            return
-        }
-        homeVC.modalPresentationStyle = .fullScreen
-        homeVC.modalTransitionStyle = .crossDissolve
-        self.present(homeVC, animated: true, completion: nil)
+            guard let first = UIStoryboard(name: Const.Storyboard.Name.FirstOnboarding, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.FirstOnboarding) as? FirstOnboardingVC else {
+                return
+            }
+            first.modalPresentationStyle = .fullScreen
+            first.modalTransitionStyle = .crossDissolve
+//            self.present(homeVC, animated: true, completion: nil)
+            self.navigationController?.pushViewController(first, animated: true)
         }
     }
     
