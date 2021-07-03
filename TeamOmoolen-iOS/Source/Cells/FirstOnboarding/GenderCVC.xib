@@ -27,7 +27,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1HX-L3-Yn0">
-                                <rect key="frame" x="69" y="114" width="26" height="21"/>
+                                <rect key="frame" x="69" y="114" width="26" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -40,7 +40,6 @@
                             <constraint firstItem="2Pj-tY-m5d" firstAttribute="leading" secondItem="ZFt-X3-1fQ" secondAttribute="leading" constant="31" id="Lrk-Rb-6L1"/>
                             <constraint firstAttribute="trailing" secondItem="2Pj-tY-m5d" secondAttribute="trailing" constant="31" id="aab-81-jGj"/>
                             <constraint firstItem="2Pj-tY-m5d" firstAttribute="top" secondItem="ZFt-X3-1fQ" secondAttribute="top" constant="17" id="fwy-8K-WKc"/>
-                            <constraint firstAttribute="bottom" secondItem="1HX-L3-Yn0" secondAttribute="bottom" constant="15" id="kUY-BX-rfj"/>
                             <constraint firstItem="1HX-L3-Yn0" firstAttribute="leading" secondItem="ZFt-X3-1fQ" secondAttribute="leading" constant="69" id="snx-ct-RaC"/>
                         </constraints>
                     </view>

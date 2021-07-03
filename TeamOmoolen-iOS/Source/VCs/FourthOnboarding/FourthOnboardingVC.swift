@@ -63,7 +63,6 @@ class FourthOnboardingVC: UIViewController {
     private var purposeList: [PurposeDataModel] = []
     
     private var isBrandSelected = false
-    private var isLensNameSelected = false
     private var isPurposeSelected = false
     
     private var isPresentListView: Bool = false
@@ -90,7 +89,16 @@ class FourthOnboardingVC: UIViewController {
         
         setCollectionViewDelegate()
         registerXib()
+        
+        setNotification()
     }
+    
+    @IBAction func pushToHome(_ sender: Any) {
+        print(brandListCollectionView.indexPathsForSelectedItems!)
+        print(purposeListCollectionView.indexPathsForSelectedItems!)
+        print(lensTextView.text!)
+    }
+    
 }
 
 // MARK: - Custom Methods
@@ -108,7 +116,6 @@ extension FourthOnboardingVC {
         listView.snp.makeConstraints { make in
             make.top.equalTo(brandSelectView.snp.bottom).offset(8)
             make.leading.trailing.equalTo(brandSelectView)
-            make.width.equalTo(345)
             make.height.equalTo(1)
         }
         listView.isHidden = true
@@ -139,7 +146,6 @@ extension FourthOnboardingVC {
         
         Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateProgressViewWithAnimation), userInfo: nil, repeats: true)
         progressView.tintColor = .omMainOrange
-        progressView.tintColor = .systemOrange
         
         progressLabel.text = "4/4"
         progressLabel.font = UIFont(name: "Roboto-Regular", size: 12)
@@ -295,7 +301,34 @@ extension FourthOnboardingVC {
     }
 }
 
+// MARK: - Notification
+
+extension FourthOnboardingVC {
+    private func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(buttonActive), name: NSNotification.Name("buttonActive"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(buttonInActive), name: NSNotification.Name("buttonInActive"), object: nil)
+    }
+    
+    @objc
+    private func buttonActive(_ notification: Notification) {
+        if isBrandSelected && isPurposeSelected {
+            if lensTextView.text != "" && lensTextView.text != "렌즈명을 입력해주세요" {
+                nextButton.isEnabled = true
+                nextButton.backgroundColor = .omMainOrange
+            }
+        }
+    }
+    
+    @objc
+    private func buttonInActive() {
+        nextButton.isEnabled = false
+        nextButton.backgroundColor = .omFourthGray
+    }
+}
+
 // MARK: - UITextView Delegate
+
 extension FourthOnboardingVC: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if lensTextView.textColor == .omThirdGray {
@@ -305,15 +338,16 @@ extension FourthOnboardingVC: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            lensTextView.text = "제가 바로 PlaceHolder입니다."
-            lensTextView.textColor = .omThirdGray
+            lensTextView.text = ""
+            lensTextView.layer.borderWidth = 0
+            NotificationCenter.default.post(name: NSNotification.Name("buttonInActive"), object: lensTextView.text)
+        } else {
+            lensTextView.textColor = .omMainOrange
+            lensTextView.font = UIFont(name: "NotoSansCJKKR-Medium", size: 15)
+            lensTextView.layer.borderWidth = 1
+            lensTextView.layer.borderColor = UIColor.omMainOrange.cgColor
+            NotificationCenter.default.post(name: NSNotification.Name("buttonActive"), object: lensTextView.text)
         }
-        lensTextView.textColor = .omMainOrange
-        lensTextView.font = UIFont(name: "NotoSansCJKKR-Medium", size: 15)
-        lensTextView.layer.borderWidth = 1
-        lensTextView.layer.borderColor = UIColor.omMainOrange.cgColor
-        
-        isLensNameSelected = true
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -333,15 +367,13 @@ extension FourthOnboardingVC: UICollectionViewDelegate {
             selectButton.isEnabled = true
             selectButton.backgroundColor = .omMainOrange
             selectedBrandName = brandList[indexPath.row].brandName
+            
+            NotificationCenter.default.post(name: NSNotification.Name("buttonActive"), object: isBrandSelected)
         }
         if collectionView == purposeListCollectionView {
             isPurposeSelected = true
-        }
-        
-        // 모든 입력값을 받았을 때
-        if isBrandSelected && isPurposeSelected {
-            nextButton.layer.backgroundColor = UIColor.omMainOrange.cgColor
-            nextButton.isEnabled = true
+            
+            NotificationCenter.default.post(name: NSNotification.Name("buttonActive"), object: isPurposeSelected)
         }
     }
 }
