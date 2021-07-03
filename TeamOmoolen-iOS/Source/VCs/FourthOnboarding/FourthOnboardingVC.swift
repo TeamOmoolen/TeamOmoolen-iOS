@@ -146,10 +146,14 @@ extension FourthOnboardingVC {
     }
     
     func setUI() {
+        
         view.backgroundColor = .omAlmostwhite
         purposeListCollectionView.backgroundColor = .omAlmostwhite
         
-        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateProgressViewWithAnimation), userInfo: nil, repeats: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
+            self.updateProgressViewWithAnimation()
+        }
+        
         progressView.tintColor = .omMainOrange
         
         progressLabel.text = "4/4"
@@ -249,7 +253,6 @@ extension FourthOnboardingVC {
 // MARK: - Action Methods
 
 extension FourthOnboardingVC {
-    @objc
     func updateProgressViewWithAnimation() {
         UIView.animate(withDuration: 0.3) {
             if self.progressView.progress != 1 {
