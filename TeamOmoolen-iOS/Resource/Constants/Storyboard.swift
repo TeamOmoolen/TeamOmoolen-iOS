@@ -14,6 +14,7 @@ extension Const {
             static let SecondOnboarding = "SecondOnboarding"
             static let ThirdOnboarding = "ThirdOnboarding"
             static let FourthOnboarding = "FourthOnboarding"
+            static let Search = "Search"
         }
     }
 }

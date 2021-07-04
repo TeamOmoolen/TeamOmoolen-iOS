@@ -29,6 +29,18 @@
 		E82DE8FE268C748900296B53 /* FunctionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DE8FD268C748900296B53 /* FunctionDataModel.swift */; };
 		E82DE900268C749800296B53 /* TimeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DE8FF268C749800296B53 /* TimeDataModel.swift */; };
 		E82DE904268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DE903268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift */; };
+		E8A078622690F32200D99444 /* RecentSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A078602690F32200D99444 /* RecentSearchVC.swift */; };
+		E8A078632690F32200D99444 /* RecentSearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8A078612690F32200D99444 /* RecentSearchVC.xib */; };
+		E8A078662690F35100D99444 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A078642690F35100D99444 /* FilterVC.swift */; };
+		E8A078672690F35100D99444 /* FilterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8A078652690F35100D99444 /* FilterVC.xib */; };
+		E8C9A42826908CF900E5BD9D /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C9A42726908CF900E5BD9D /* Search.storyboard */; };
+		E8C9A4372690AA3100E5BD9D /* SearchTabBarCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C9A4352690AA3100E5BD9D /* SearchTabBarCVC.swift */; };
+		E8C9A4382690AA3100E5BD9D /* SearchTabBarCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8C9A4362690AA3100E5BD9D /* SearchTabBarCVC.xib */; };
+		E8C9A43A2690AD1000E5BD9D /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C9A4392690AD1000E5BD9D /* SearchVC.swift */; };
+		E8C9A43C2690B97C00E5BD9D /* SearchTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C9A43B2690B97C00E5BD9D /* SearchTabBar.swift */; };
+		E8C9A4422690D06100E5BD9D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C9A4412690D06100E5BD9D /* UIView.swift */; };
+		E8C9A4452690D56000E5BD9D /* SearchHomeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C9A4432690D56000E5BD9D /* SearchHomeCVC.swift */; };
+		E8C9A4462690D56000E5BD9D /* SearchHomeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8C9A4442690D56000E5BD9D /* SearchHomeCVC.xib */; };
 		F8245909268E1F3A0048BE84 /* FunctionCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8245905268E1F3A0048BE84 /* FunctionCVC.xib */; };
 		F824590A268E1F3A0048BE84 /* TimeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8245906268E1F3A0048BE84 /* TimeCVC.xib */; };
 		F824590B268E1F3A0048BE84 /* FunctionCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8245907268E1F3A0048BE84 /* FunctionCVC.swift */; };
@@ -104,6 +116,18 @@
 		E82DE8FD268C748900296B53 /* FunctionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionDataModel.swift; sourceTree = "<group>"; };
 		E82DE8FF268C749800296B53 /* TimeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDataModel.swift; sourceTree = "<group>"; };
 		E82DE903268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCVFlowLayout.swift; sourceTree = "<group>"; };
+		E8A078602690F32200D99444 /* RecentSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchVC.swift; sourceTree = "<group>"; };
+		E8A078612690F32200D99444 /* RecentSearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentSearchVC.xib; sourceTree = "<group>"; };
+		E8A078642690F35100D99444 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
+		E8A078652690F35100D99444 /* FilterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterVC.xib; sourceTree = "<group>"; };
+		E8C9A42726908CF900E5BD9D /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		E8C9A4352690AA3100E5BD9D /* SearchTabBarCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabBarCVC.swift; sourceTree = "<group>"; };
+		E8C9A4362690AA3100E5BD9D /* SearchTabBarCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTabBarCVC.xib; sourceTree = "<group>"; };
+		E8C9A4392690AD1000E5BD9D /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		E8C9A43B2690B97C00E5BD9D /* SearchTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabBar.swift; sourceTree = "<group>"; };
+		E8C9A4412690D06100E5BD9D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		E8C9A4432690D56000E5BD9D /* SearchHomeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeCVC.swift; sourceTree = "<group>"; };
+		E8C9A4442690D56000E5BD9D /* SearchHomeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHomeCVC.xib; sourceTree = "<group>"; };
 		F8245905268E1F3A0048BE84 /* FunctionCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FunctionCVC.xib; sourceTree = "<group>"; };
 		F8245906268E1F3A0048BE84 /* TimeCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCVC.xib; sourceTree = "<group>"; };
 		F8245907268E1F3A0048BE84 /* FunctionCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionCVC.swift; sourceTree = "<group>"; };
@@ -252,6 +276,30 @@
 			path = ThirdOnboarding;
 			sourceTree = "<group>";
 		};
+		E8C9A4292690934C00E5BD9D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E8C9A4392690AD1000E5BD9D /* SearchVC.swift */,
+				E8C9A43B2690B97C00E5BD9D /* SearchTabBar.swift */,
+				E8A078602690F32200D99444 /* RecentSearchVC.swift */,
+				E8A078612690F32200D99444 /* RecentSearchVC.xib */,
+				E8A078642690F35100D99444 /* FilterVC.swift */,
+				E8A078652690F35100D99444 /* FilterVC.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		E8C9A4302690A8D500E5BD9D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E8C9A4352690AA3100E5BD9D /* SearchTabBarCVC.swift */,
+				E8C9A4362690AA3100E5BD9D /* SearchTabBarCVC.xib */,
+				E8C9A4432690D56000E5BD9D /* SearchHomeCVC.swift */,
+				E8C9A4442690D56000E5BD9D /* SearchHomeCVC.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		F8245904268E1F3A0048BE84 /* ThirdOnboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +375,7 @@
 				92E55FBC268C72EA0081D3A9 /* FirstOnboarding.storyboard */,
 				F83BA05A268C577E00E94E74 /* SecondOnboarding.storyboard */,
 				924751A8268E2CFE00924891 /* FourthOnboarding.storyboard */,
+				E8C9A42726908CF900E5BD9D /* Search.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -342,6 +391,7 @@
 		F83BA037268C491900E94E74 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				E8C9A4292690934C00E5BD9D /* Search */,
 				924751A6268E2C6900924891 /* FourthOnboarding */,
 				E82DE8EF268C5D0400296B53 /* ThirdOnboarding */,
 				92E55FB9268C727B0081D3A9 /* FirstOnboarding */,
@@ -362,6 +412,7 @@
 		F83BA039268C492700E94E74 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				E8C9A4302690A8D500E5BD9D /* Search */,
 				924751AA268E2D3A00924891 /* FourthOnboarding */,
 				F8245904268E1F3A0048BE84 /* ThirdOnboarding */,
 				92E55FBE268C79120081D3A9 /* FirstOnboarding */,
@@ -398,6 +449,7 @@
 				F83BA048268C4AE200E94E74 /* TempExtension.swift */,
 				F83BA06E268CE4FD00E94E74 /* CALayer+applyShadow.swift */,
 				F83BA071268CEB5D00E94E74 /* UIColor.swift */,
+				E8C9A4412690D06100E5BD9D /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -551,6 +603,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8A078672690F35100D99444 /* FilterVC.xib in Resources */,
 				F83DBBFD268EE0C900E47B15 /* Login.storyboard in Resources */,
 				92E55FBD268C72EA0081D3A9 /* FirstOnboarding.storyboard in Resources */,
 				F83BA02B268C476C00E94E74 /* LaunchScreen.storyboard in Resources */,
@@ -559,11 +612,13 @@
 				92BF87A7268D94F700706384 /* AgeCVC.xib in Resources */,
 				F8B91F56268E205E006114CD /* NotoSansCJKkr-Bold.otf in Resources */,
 				F8B91F58268E205E006114CD /* NotoSansMonoCJKkr-Bold.otf in Resources */,
+				E8C9A42826908CF900E5BD9D /* Search.storyboard in Resources */,
 				F8B91F75268E207A006114CD /* Roboto-Medium.ttf in Resources */,
 				F8B91F57268E205E006114CD /* NotoSansCJKkr-Light.otf in Resources */,
 				E82DE8EE268C5CC700296B53 /* ThirdOnboarding.storyboard in Resources */,
 				F824590A268E1F3A0048BE84 /* TimeCVC.xib in Resources */,
 				F8B91F73268E207A006114CD /* Roboto-Italic.ttf in Resources */,
+				E8A078632690F32200D99444 /* RecentSearchVC.xib in Resources */,
 				F8B91F74268E207A006114CD /* Roboto-MediumItalic.ttf in Resources */,
 				F8B91F76268E207A006114CD /* Roboto-Regular.ttf in Resources */,
 				F8B91F5A268E205E006114CD /* NotoSansCJKkr-Black.otf in Resources */,
@@ -571,10 +626,12 @@
 				924751B6268E49B500924891 /* PurposeCVC.xib in Resources */,
 				F8B91F6C268E207A006114CD /* Roboto-ThinItalic.ttf in Resources */,
 				92BF87A3268D908C00706384 /* GenderCVC.xib in Resources */,
+				E8C9A4462690D56000E5BD9D /* SearchHomeCVC.xib in Resources */,
 				F8B91F6E268E207A006114CD /* Roboto-Bold.ttf in Resources */,
 				F83BA076268D760000E94E74 /* OnboardingImage.xcassets in Resources */,
 				F83BA065268C6DA700E94E74 /* LensKindCVC.xib in Resources */,
 				F8B91F5B268E205E006114CD /* NotoSansCJKkr-DemiLight.otf in Resources */,
+				E8C9A4382690AA3100E5BD9D /* SearchTabBarCVC.xib in Resources */,
 				F8B91F55268E205E006114CD /* NotoSansCJKkr-Regular.otf in Resources */,
 				F8B91F71268E207A006114CD /* Roboto-Light.ttf in Resources */,
 				F8245909268E1F3A0048BE84 /* FunctionCVC.xib in Resources */,
@@ -646,13 +703,18 @@
 				F83BA046268C4A5F00E94E74 /* TempClasses.swift in Sources */,
 				E82DE8F1268C5D5600296B53 /* ThirdOnboardingVC.swift in Sources */,
 				E82DE8FE268C748900296B53 /* FunctionDataModel.swift in Sources */,
+				E8A078662690F35100D99444 /* FilterVC.swift in Sources */,
+				E8C9A43A2690AD1000E5BD9D /* SearchVC.swift in Sources */,
 				F83BA04E268C4C3500E94E74 /* Storyboard.swift in Sources */,
 				927F97FE268C840100E893F2 /* GenderDataModel.swift in Sources */,
+				E8A078622690F32200D99444 /* RecentSearchVC.swift in Sources */,
 				F83BA055268C4D5800E94E74 /* LoginVC.swift in Sources */,
 				E82DE900268C749800296B53 /* TimeDataModel.swift in Sources */,
 				924751B2268E48CE00924891 /* PurposeDataModel.swift in Sources */,
+				E8C9A43C2690B97C00E5BD9D /* SearchTabBar.swift in Sources */,
 				F83BA049268C4AE200E94E74 /* TempExtension.swift in Sources */,
 				F824590B268E1F3A0048BE84 /* FunctionCVC.swift in Sources */,
+				E8C9A4372690AA3100E5BD9D /* SearchTabBarCVC.swift in Sources */,
 				F83BA06D268C81B200E94E74 /* LensColorModel.swift in Sources */,
 				F83BA064268C6DA700E94E74 /* LensKindCVC.swift in Sources */,
 				F83BA01F268C476B00E94E74 /* AppDelegate.swift in Sources */,
@@ -667,7 +729,9 @@
 				F83BA06A268C7DEF00E94E74 /* LensColorCVC.swift in Sources */,
 				F83BA067268C754A00E94E74 /* LensKindModel.swift in Sources */,
 				92BF87A6268D94F700706384 /* AgeCVC.swift in Sources */,
+				E8C9A4452690D56000E5BD9D /* SearchHomeCVC.swift in Sources */,
 				F83BA04C268C4C1600E94E74 /* Const.swift in Sources */,
+				E8C9A4422690D06100E5BD9D /* UIView.swift in Sources */,
 				92BF87A2268D908C00706384 /* GenderCVC.swift in Sources */,
 				92BF879D268CCC8100706384 /* AgeDataModel.swift in Sources */,
 				924751AC268E329400924891 /* FourthOnboardingVC.swift in Sources */,
