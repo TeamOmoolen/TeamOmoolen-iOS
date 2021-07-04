@@ -37,8 +37,6 @@
 		F83BA028268C476C00E94E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA027268C476C00E94E74 /* Assets.xcassets */; };
 		F83BA02B268C476C00E94E74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA029268C476C00E94E74 /* LaunchScreen.storyboard */; };
 		F83BA040268C4A4A00E94E74 /* TempLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA03F268C4A4A00E94E74 /* TempLottie.swift */; };
-		F83BA046268C4A5F00E94E74 /* TempClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA045268C4A5F00E94E74 /* TempClasses.swift */; };
-		F83BA049268C4AE200E94E74 /* TempExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA048268C4AE200E94E74 /* TempExtension.swift */; };
 		F83BA04C268C4C1600E94E74 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA04B268C4C1600E94E74 /* Const.swift */; };
 		F83BA04E268C4C3500E94E74 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA04D268C4C3500E94E74 /* Storyboard.swift */; };
 		F83BA050268C4C3F00E94E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA04F268C4C3F00E94E74 /* ViewController.swift */; };
@@ -52,7 +50,7 @@
 		F83BA06B268C7DEF00E94E74 /* LensColorCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F83BA069268C7DEF00E94E74 /* LensColorCVC.xib */; };
 		F83BA06D268C81B200E94E74 /* LensColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA06C268C81B200E94E74 /* LensColorModel.swift */; };
 		F83BA06F268CE4FD00E94E74 /* CALayer+applyShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA06E268CE4FD00E94E74 /* CALayer+applyShadow.swift */; };
-		F83BA072268CEB5D00E94E74 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA071268CEB5D00E94E74 /* UIColor.swift */; };
+		F83BA072268CEB5D00E94E74 /* UIColor+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA071268CEB5D00E94E74 /* UIColor+Addition.swift */; };
 		F83BA076268D760000E94E74 /* OnboardingImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA075268D760000E94E74 /* OnboardingImage.xcassets */; };
 		F83DBBFD268EE0C900E47B15 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA024268C476B00E94E74 /* Login.storyboard */; };
 		F86F7AC626900A030037081D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F7AC526900A030037081D /* HomeVC.swift */; };
@@ -60,6 +58,8 @@
 		F86F7ACA269068960037081D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F86F7AC9269068960037081D /* Splash.storyboard */; };
 		F86F7ACD269068B20037081D /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F7ACC269068B20037081D /* SplashVC.swift */; };
 		F86F7ACF2690A1C20037081D /* Search.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F86F7ACE2690A1C20037081D /* Search.xcassets */; };
+		F86F7AD1269187AE0037081D /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F7AD0269187AE0037081D /* CustomNavigationBar.swift */; };
+		F86F7AD326918AC50037081D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F7AD226918AC50037081D /* UIViewController+Extension.swift */; };
 		F8B91F55268E205E006114CD /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F4C268E205B006114CD /* NotoSansCJKkr-Regular.otf */; };
 		F8B91F56268E205E006114CD /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F4D268E205B006114CD /* NotoSansCJKkr-Bold.otf */; };
 		F8B91F57268E205E006114CD /* NotoSansCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F4E268E205C006114CD /* NotoSansCJKkr-Light.otf */; };
@@ -122,8 +122,6 @@
 		F83BA02C268C476C00E94E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F83BA03F268C4A4A00E94E74 /* TempLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempLottie.swift; sourceTree = "<group>"; };
 		F83BA041268C4A5100E94E74 /* TempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempModel.swift; sourceTree = "<group>"; };
-		F83BA045268C4A5F00E94E74 /* TempClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempClasses.swift; sourceTree = "<group>"; };
-		F83BA048268C4AE200E94E74 /* TempExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempExtension.swift; sourceTree = "<group>"; };
 		F83BA04B268C4C1600E94E74 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		F83BA04D268C4C3500E94E74 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		F83BA04F268C4C3F00E94E74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,13 +136,15 @@
 		F83BA06C268C81B200E94E74 /* LensColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensColorModel.swift; sourceTree = "<group>"; };
 		F83BA06E268CE4FD00E94E74 /* CALayer+applyShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+applyShadow.swift"; sourceTree = "<group>"; };
 		F83BA070268CE8E200E94E74 /* TeamOmoolen-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TeamOmoolen-iOS.entitlements"; sourceTree = "<group>"; };
-		F83BA071268CEB5D00E94E74 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		F83BA071268CEB5D00E94E74 /* UIColor+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Addition.swift"; sourceTree = "<group>"; };
 		F83BA075268D760000E94E74 /* OnboardingImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OnboardingImage.xcassets; sourceTree = "<group>"; };
 		F86F7AC526900A030037081D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		F86F7AC726900A2F0037081D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F86F7AC9269068960037081D /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		F86F7ACC269068B20037081D /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		F86F7ACE2690A1C20037081D /* Search.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Search.xcassets; sourceTree = "<group>"; };
+		F86F7AD0269187AE0037081D /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		F86F7AD226918AC50037081D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		F8B91F4C268E205B006114CD /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		F8B91F4D268E205B006114CD /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		F8B91F4E268E205C006114CD /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
@@ -355,12 +355,12 @@
 			isa = PBXGroup;
 			children = (
 				F86F7ACB269068A30037081D /* Splash */,
-				F86F7AC4269009EB0037081D /* Home */,
-				924751A6268E2C6900924891 /* FourthOnboarding */,
-				E82DE8EF268C5D0400296B53 /* ThirdOnboarding */,
+				F83BA053268C4D3B00E94E74 /* Login */,
 				92E55FB9268C727B0081D3A9 /* FirstOnboarding */,
 				F83BA05E268C5CF400E94E74 /* SecondOnboarding */,
-				F83BA053268C4D3B00E94E74 /* Login */,
+				E82DE8EF268C5D0400296B53 /* ThirdOnboarding */,
+				924751A6268E2C6900924891 /* FourthOnboarding */,
+				F86F7AC4269009EB0037081D /* Home */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -368,7 +368,7 @@
 		F83BA038268C492000E94E74 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F83BA045268C4A5F00E94E74 /* TempClasses.swift */,
+				F86F7AD0269187AE0037081D /* CustomNavigationBar.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -410,9 +410,9 @@
 		F83BA047268C4AD200E94E74 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F83BA048268C4AE200E94E74 /* TempExtension.swift */,
 				F83BA06E268CE4FD00E94E74 /* CALayer+applyShadow.swift */,
-				F83BA071268CEB5D00E94E74 /* UIColor.swift */,
+				F83BA071268CEB5D00E94E74 /* UIColor+Addition.swift */,
+				F86F7AD226918AC50037081D /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -677,7 +677,6 @@
 				F8B91F7C268E2B15006114CD /* SceneDelegate.swift in Sources */,
 				F83BA06F268CE4FD00E94E74 /* CALayer+applyShadow.swift in Sources */,
 				924751B9268E672300924891 /* LensBrandCVC.swift in Sources */,
-				F83BA046268C4A5F00E94E74 /* TempClasses.swift in Sources */,
 				E82DE8F1268C5D5600296B53 /* ThirdOnboardingVC.swift in Sources */,
 				E82DE8FE268C748900296B53 /* FunctionDataModel.swift in Sources */,
 				F83BA04E268C4C3500E94E74 /* Storyboard.swift in Sources */,
@@ -686,12 +685,12 @@
 				F86F7AC626900A030037081D /* HomeVC.swift in Sources */,
 				E82DE900268C749800296B53 /* TimeDataModel.swift in Sources */,
 				924751B2268E48CE00924891 /* PurposeDataModel.swift in Sources */,
-				F83BA049268C4AE200E94E74 /* TempExtension.swift in Sources */,
 				F824590B268E1F3A0048BE84 /* FunctionCVC.swift in Sources */,
 				F83BA06D268C81B200E94E74 /* LensColorModel.swift in Sources */,
 				F83BA064268C6DA700E94E74 /* LensKindCVC.swift in Sources */,
+				F86F7AD326918AC50037081D /* UIViewController+Extension.swift in Sources */,
 				F83BA01F268C476B00E94E74 /* AppDelegate.swift in Sources */,
-				F83BA072268CEB5D00E94E74 /* UIColor.swift in Sources */,
+				F83BA072268CEB5D00E94E74 /* UIColor+Addition.swift in Sources */,
 				F83BA040268C4A4A00E94E74 /* TempLottie.swift in Sources */,
 				924751AE268E42E200924891 /* LensBrandDataModel.swift in Sources */,
 				F83BA050268C4C3F00E94E74 /* ViewController.swift in Sources */,
@@ -708,6 +707,7 @@
 				92BF879D268CCC8100706384 /* AgeDataModel.swift in Sources */,
 				924751AC268E329400924891 /* FourthOnboardingVC.swift in Sources */,
 				F83BA05D268C579100E94E74 /* SecondOnboardingVC.swift in Sources */,
+				F86F7AD1269187AE0037081D /* CustomNavigationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

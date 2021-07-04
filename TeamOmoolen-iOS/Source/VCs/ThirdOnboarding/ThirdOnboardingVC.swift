@@ -14,6 +14,8 @@ class ThirdOnboardingVC: UIViewController {
     private var timeList: [TimeDataModel] = []
     
     //Mark: - IBOutlet Properties
+    @IBOutlet weak var customNavigationBarView: UIView!
+    
     @IBOutlet var baseView: UIView!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
@@ -89,12 +91,8 @@ class ThirdOnboardingVC: UIViewController {
     }
     
     func setNavigationBar() {
-        self.navigationItem.title = "맞춤 정보 설정"
-        self.navigationController?.navigationBar.tintColor = .omSecondGray
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.omSecondGray, .font: UIFont(name: "NotoSansCJKKR-Medium", size: 16) as Any]
-//        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "icBack")
-//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "icBack")
-        self.navigationItem.backButtonTitle = ""
+        self.navigationController?.navigationBar.isHidden = true
+        setupNavigationBar(customNavigationBarView: customNavigationBarView)
     }
     
     func setCollectionViewDelegate() {

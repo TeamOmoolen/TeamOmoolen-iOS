@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcP-ch-7u3">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1356"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="1296"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZ7-1y-mmV">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1188"/>
@@ -150,13 +150,23 @@
                                     <constraint firstAttribute="bottom" secondItem="jZ7-1y-mmV" secondAttribute="bottom" id="oQC-zC-gBA"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZI8-MX-qq2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="5Xw-zm-1Ak"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ZcP-ch-7u3" firstAttribute="top" secondItem="ZI8-MX-qq2" secondAttribute="bottom" id="4he-7b-4Wt"/>
+                            <constraint firstItem="ZI8-MX-qq2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9wM-AC-YDZ"/>
+                            <constraint firstItem="ZI8-MX-qq2" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="CFb-qo-Azx"/>
                             <constraint firstItem="ZcP-ch-7u3" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="iI1-yj-dfj"/>
                             <constraint firstItem="ZcP-ch-7u3" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="j8F-08-1Wr"/>
-                            <constraint firstItem="ZcP-ch-7u3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="q9e-rA-XdA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZI8-MX-qq2" secondAttribute="trailing" id="sv6-9g-5Po"/>
                             <constraint firstItem="ZcP-ch-7u3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ytE-LT-fNN"/>
                         </constraints>
                     </view>
@@ -164,6 +174,7 @@
                     <connections>
                         <outlet property="backScrollView" destination="ZcP-ch-7u3" id="mec-h5-X4Z"/>
                         <outlet property="backView" destination="jZ7-1y-mmV" id="baQ-eU-B9D"/>
+                        <outlet property="customNavigationBarView" destination="ZI8-MX-qq2" id="v5P-wm-HED"/>
                         <outlet property="firstCollectionView" destination="isd-UK-41V" id="d60-1C-8bT"/>
                         <outlet property="firstSubtitleLabel" destination="Vpq-VA-BVa" id="e06-Ym-q2O"/>
                         <outlet property="firstTitleLabel" destination="5Sw-qz-oM5" id="wYr-hU-0Wm"/>
