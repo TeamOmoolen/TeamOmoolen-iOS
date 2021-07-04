@@ -15,6 +15,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var HomeHeaderView: UIView!
     @IBOutlet weak var HomeTableView: UITableView!
     
+    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
+    
     private lazy var topButton: UIButton = {
         let button = UIButton()
         button.layer.shadowColor  = UIColor.gray.cgColor
@@ -67,7 +69,7 @@ extension HomeVC {
         
         categoryView.snp.makeConstraints { make in
             make.width.equalToSuperview()
-            make.height.equalTo(100)
+            make.height.equalTo(80)
             make.top.equalTo(HomeHeaderView.snp.bottom).offset(0)
         }
         
@@ -116,13 +118,13 @@ extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section{
         case 0:
-            return 100
+            return 371
         case 1:
-            return 300
+            return 551
         case 2:
-            return 300
+            return 1083
         case 3:
-            return 300
+            return 180
         default:
             return UITableView.automaticDimension
         }
@@ -134,9 +136,12 @@ extension HomeVC: UITableViewDelegate {
             topButton.isHidden = false
             
             categoryView.snp.updateConstraints { make in
-                make.height.equalTo(50)
+                make.height.equalTo(40)
 //                make.top.equalTo(HomeHeaderView.snp.bottom).inset(30)
             }
+            
+            tableViewTopConstraint.constant = 40
+            
             
             topButton.snp.updateConstraints { make in
                 make.bottom.equalToSuperview().inset(30)
@@ -146,9 +151,11 @@ extension HomeVC: UITableViewDelegate {
             topButton.isHidden = true
             
             categoryView.snp.updateConstraints { make in
-                make.height.equalTo(100)
+                make.height.equalTo(80)
 //                make.top.equalTo(HomeHeaderView.snp.bottom).inset(-30)
             }
+            
+            tableViewTopConstraint.constant = 80
             
             topButton.snp.updateConstraints { make in
                 make.bottom.equalToSuperview().inset(-100)
