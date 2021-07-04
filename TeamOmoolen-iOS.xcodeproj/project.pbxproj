@@ -100,6 +100,9 @@
 		F8B91F76268E207A006114CD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F6A268E207A006114CD /* Roboto-Regular.ttf */; };
 		F8B91F77268E207A006114CD /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F6B268E207A006114CD /* Roboto-Thin.ttf */; };
 		F8B91F7C268E2B15006114CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA020268C476B00E94E74 /* SceneDelegate.swift */; };
+		F8CB27E92691FB3B00DEFA75 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CB27E82691FB3B00DEFA75 /* Service.swift */; };
+		F8CB27EB2691FB6000DEFA75 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CB27EA2691FB6000DEFA75 /* API.swift */; };
+		F8CB27ED2691FB8800DEFA75 /* GeneralAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CB27EC2691FB8800DEFA75 /* GeneralAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -202,6 +205,9 @@
 		F8B91F69268E207A006114CD /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		F8B91F6A268E207A006114CD /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		F8B91F6B268E207A006114CD /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		F8CB27E82691FB3B00DEFA75 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		F8CB27EA2691FB6000DEFA75 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		F8CB27EC2691FB8800DEFA75 /* GeneralAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -412,6 +418,7 @@
 				F83BA039268C492700E94E74 /* Cells */,
 				F83BA038268C492000E94E74 /* Classes */,
 				F83BA03A268C49DB00E94E74 /* Models */,
+				F8CB27E72691FB2B00DEFA75 /* Network */,
 				F83BA037268C491900E94E74 /* VCs */,
 			);
 			path = Source;
@@ -446,7 +453,7 @@
 			children = (
 				F86F7ACB269068A30037081D /* Splash */,
 				F83BA053268C4D3B00E94E74 /* Login */,
-                E8C9A4292690934C00E5BD9D /* Search */,
+				E8C9A4292690934C00E5BD9D /* Search */,
 				92E55FB9268C727B0081D3A9 /* FirstOnboarding */,
 				F83BA05E268C5CF400E94E74 /* SecondOnboarding */,
 				E82DE8EF268C5D0400296B53 /* ThirdOnboarding */,
@@ -506,7 +513,7 @@
 				F83BA06E268CE4FD00E94E74 /* CALayer+applyShadow.swift */,
 				F83BA071268CEB5D00E94E74 /* UIColor+Addition.swift */,
 				F86F7AD226918AC50037081D /* UIViewController+Extension.swift */,
-                E8C9A4412690D06100E5BD9D /* UIView.swift */,
+				E8C9A4412690D06100E5BD9D /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -517,6 +524,7 @@
 				F83BA04B268C4C1600E94E74 /* Const.swift */,
 				F83BA04D268C4C3500E94E74 /* Storyboard.swift */,
 				F83BA04F268C4C3F00E94E74 /* ViewController.swift */,
+				F8CB27EC2691FB8800DEFA75 /* GeneralAPI.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -615,6 +623,15 @@
 				F8B91F60268E207A006114CD /* Roboto-ThinItalic.ttf */,
 			);
 			path = Roboto;
+			sourceTree = "<group>";
+		};
+		F8CB27E72691FB2B00DEFA75 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F8CB27E82691FB3B00DEFA75 /* Service.swift */,
+				F8CB27EA2691FB6000DEFA75 /* API.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -794,11 +811,11 @@
 				92F994FB26918BC30053ABD8 /* RecommendTVC.swift in Sources */,
 				924751B2268E48CE00924891 /* PurposeDataModel.swift in Sources */,
 				E8C9A43C2690B97C00E5BD9D /* SearchTabBar.swift in Sources */,
-				F83BA049268C4AE200E94E74 /* TempExtension.swift in Sources */,
 				F824590B268E1F3A0048BE84 /* FunctionCVC.swift in Sources */,
 				E8C9A4372690AA3100E5BD9D /* SearchTabBarCVC.swift in Sources */,
 				F83BA06D268C81B200E94E74 /* LensColorModel.swift in Sources */,
 				F83BA064268C6DA700E94E74 /* LensKindCVC.swift in Sources */,
+				F8CB27ED2691FB8800DEFA75 /* GeneralAPI.swift in Sources */,
 				F86F7AD326918AC50037081D /* UIViewController+Extension.swift in Sources */,
 				F83BA01F268C476B00E94E74 /* AppDelegate.swift in Sources */,
 				F83BA072268CEB5D00E94E74 /* UIColor+Addition.swift in Sources */,
@@ -809,11 +826,13 @@
 				924751B5268E49B500924891 /* PurposeCVC.swift in Sources */,
 				F824590C268E1F3A0048BE84 /* TimeCVC.swift in Sources */,
 				92E55FBB268C72BA0081D3A9 /* FirstOnboardingVC.swift in Sources */,
+				F8CB27E92691FB3B00DEFA75 /* Service.swift in Sources */,
 				F83BA06A268C7DEF00E94E74 /* LensColorCVC.swift in Sources */,
 				F83BA067268C754A00E94E74 /* LensKindModel.swift in Sources */,
 				92BF87A6268D94F700706384 /* AgeCVC.swift in Sources */,
 				E8C9A4452690D56000E5BD9D /* SearchHomeCVC.swift in Sources */,
 				F83BA04C268C4C1600E94E74 /* Const.swift in Sources */,
+				F8CB27EB2691FB6000DEFA75 /* API.swift in Sources */,
 				E8C9A4422690D06100E5BD9D /* UIView.swift in Sources */,
 				F86F7ACD269068B20037081D /* SplashVC.swift in Sources */,
 				92BF87A2268D908C00706384 /* GenderCVC.swift in Sources */,
