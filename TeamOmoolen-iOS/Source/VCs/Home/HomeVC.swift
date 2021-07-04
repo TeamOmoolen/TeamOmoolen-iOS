@@ -31,8 +31,13 @@ class HomeVC: UIViewController {
         return button
     }()
     
-    // MARK: - Local Variables
+    private lazy var categoryView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .orange
+        return view
+    }()
     
+    // MARK: - Local Variables
     
     
     // MARK: - View Life Cycle Methods
@@ -57,7 +62,14 @@ extension HomeVC {
         HomeHeaderView.backgroundColor = .white
         HomeTableView.backgroundColor = .white
         
+        view.addSubview(categoryView)
         view.addSubview(topButton)
+        
+        categoryView.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalTo(100)
+            make.top.equalTo(HomeHeaderView.snp.bottom).offset(0)
+        }
         
         topButton.snp.makeConstraints { make in
             make.width.height.equalTo(60)
@@ -71,9 +83,6 @@ extension HomeVC {
     }
     
     func registerXib() {
-        let catogoryNib = UINib(nibName: CategoryTVC.identifier, bundle: nil)
-        HomeTableView.register(catogoryNib, forCellReuseIdentifier: CategoryTVC.identifier)
-        
         let recommedNib = UINib(nibName: RecommendTVC.identifier, bundle: nil)
         HomeTableView.register(recommedNib, forCellReuseIdentifier: RecommendTVC.identifier)
         
@@ -96,7 +105,6 @@ extension HomeVC {
 extension HomeVC {
     @objc
     func touchUpTop() {
-        print("위로 가기 버튼 눌림")
         let topIndex = IndexPath(row: 0, section: 0)
         HomeTableView.scrollToRow(at: topIndex, at: .top, animated: true)
     }
@@ -125,12 +133,20 @@ extension HomeVC: UITableViewDelegate {
             print("아래로 내리는 중 ..")
             topButton.isHidden = false
             
+            categoryView.snp.updateConstraints { make in
+                make.top.equalTo(HomeHeaderView.snp.bottom).inset(30)
+            }
+            
             topButton.snp.updateConstraints { make in
                 make.bottom.equalToSuperview().inset(30)
             }
         } else {
             print("위로 올리는 중 ..")
             topButton.isHidden = true
+            
+            categoryView.snp.updateConstraints { make in
+                make.top.equalTo(HomeHeaderView.snp.bottom).inset(-30)
+            }
             
             topButton.snp.updateConstraints { make in
                 make.bottom.equalToSuperview().inset(-100)
@@ -158,29 +174,25 @@ extension HomeVC: UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier:  CategoryTVC.identifier, for: indexPath) as? CategoryTVC else {
-                return UITableViewCell()
-            }
-            cell.selectionStyle = .none
-            return cell
-        case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  RecommendTVC.identifier, for: indexPath) as? RecommendTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
             return cell
-        case 2:
+        case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  OneMinTVC.identifier, for: indexPath) as? OneMinTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
             return cell
-        case 3:
+        case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  SeasonTVC.identifier, for: indexPath) as? SeasonTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
             return cell
+        case 3:
+            return UITableViewCell()
         default:
             return UITableViewCell()
         }

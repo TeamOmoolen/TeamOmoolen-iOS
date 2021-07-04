@@ -24,8 +24,6 @@
 		92BF87A7268D94F700706384 /* AgeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BF87A5268D94F700706384 /* AgeCVC.xib */; };
 		92E55FBB268C72BA0081D3A9 /* FirstOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E55FBA268C72BA0081D3A9 /* FirstOnboardingVC.swift */; };
 		92E55FBD268C72EA0081D3A9 /* FirstOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E55FBC268C72EA0081D3A9 /* FirstOnboarding.storyboard */; };
-		92F994F72691898A0053ABD8 /* CategoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F994F52691898A0053ABD8 /* CategoryTVC.swift */; };
-		92F994F82691898A0053ABD8 /* CategoryTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F994F62691898A0053ABD8 /* CategoryTVC.xib */; };
 		92F994FB26918BC30053ABD8 /* RecommendTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F994F926918BC30053ABD8 /* RecommendTVC.swift */; };
 		92F994FC26918BC30053ABD8 /* RecommendTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F994FA26918BC30053ABD8 /* RecommendTVC.xib */; };
 		92F994FF26918C8C0053ABD8 /* OneMinTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F994FD26918C8B0053ABD8 /* OneMinTVC.swift */; };
@@ -122,8 +120,6 @@
 		92BF87A5268D94F700706384 /* AgeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgeCVC.xib; sourceTree = "<group>"; };
 		92E55FBA268C72BA0081D3A9 /* FirstOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingVC.swift; sourceTree = "<group>"; };
 		92E55FBC268C72EA0081D3A9 /* FirstOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstOnboarding.storyboard; sourceTree = "<group>"; };
-		92F994F52691898A0053ABD8 /* CategoryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTVC.swift; sourceTree = "<group>"; };
-		92F994F62691898A0053ABD8 /* CategoryTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTVC.xib; sourceTree = "<group>"; };
 		92F994F926918BC30053ABD8 /* RecommendTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendTVC.swift; sourceTree = "<group>"; };
 		92F994FA26918BC30053ABD8 /* RecommendTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendTVC.xib; sourceTree = "<group>"; };
 		92F994FD26918C8B0053ABD8 /* OneMinTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMinTVC.swift; sourceTree = "<group>"; };
@@ -305,8 +301,6 @@
 		92F9950526918D7E0053ABD8 /* TVC */ = {
 			isa = PBXGroup;
 			children = (
-				92F994F52691898A0053ABD8 /* CategoryTVC.swift */,
-				92F994F62691898A0053ABD8 /* CategoryTVC.xib */,
 				92F994F926918BC30053ABD8 /* RecommendTVC.swift */,
 				92F994FA26918BC30053ABD8 /* RecommendTVC.xib */,
 				92F994FD26918C8B0053ABD8 /* OneMinTVC.swift */,
@@ -730,7 +724,6 @@
 				924751BA268E672300924891 /* LensBrandCVC.xib in Resources */,
 				F8B91F5C268E205E006114CD /* NotoSansCJKkr-Thin.otf in Resources */,
 				F86F7ACA269068960037081D /* Splash.storyboard in Resources */,
-				92F994F82691898A0053ABD8 /* CategoryTVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,7 +808,6 @@
 				E82DE904268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift in Sources */,
 				924751B5268E49B500924891 /* PurposeCVC.swift in Sources */,
 				F824590C268E1F3A0048BE84 /* TimeCVC.swift in Sources */,
-				92F994F72691898A0053ABD8 /* CategoryTVC.swift in Sources */,
 				92E55FBB268C72BA0081D3A9 /* FirstOnboardingVC.swift in Sources */,
 				F83BA06A268C7DEF00E94E74 /* LensColorCVC.swift in Sources */,
 				F83BA067268C754A00E94E74 /* LensKindModel.swift in Sources */,
