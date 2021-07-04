@@ -134,7 +134,8 @@ extension HomeVC: UITableViewDelegate {
             topButton.isHidden = false
             
             categoryView.snp.updateConstraints { make in
-                make.top.equalTo(HomeHeaderView.snp.bottom).inset(30)
+                make.height.equalTo(50)
+//                make.top.equalTo(HomeHeaderView.snp.bottom).inset(30)
             }
             
             topButton.snp.updateConstraints { make in
@@ -145,7 +146,8 @@ extension HomeVC: UITableViewDelegate {
             topButton.isHidden = true
             
             categoryView.snp.updateConstraints { make in
-                make.top.equalTo(HomeHeaderView.snp.bottom).inset(-30)
+                make.height.equalTo(100)
+//                make.top.equalTo(HomeHeaderView.snp.bottom).inset(-30)
             }
             
             topButton.snp.updateConstraints { make in
