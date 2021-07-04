@@ -14,6 +14,9 @@ extension Const {
             static let SecondOnboarding = "SecondOnboardingVC"
             static let ThirdOnboarding = "ThirdOnboardingVC"
             static let FourthOnboarding = "FourthOnboardingVC"
+            static let Search = "SearchVC"
+            static let RecentSearch = "RecentSearchVC"
+            static let Filter = "FilterVC"
             
             static let Login = "LoginVC"
             static let Home = "HomeVC"
