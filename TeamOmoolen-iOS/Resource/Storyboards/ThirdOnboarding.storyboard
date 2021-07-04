@@ -18,28 +18,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kIg-9y-Gqp">
-                                <rect key="frame" x="20" y="30" width="309" height="4"/>
+                                <rect key="frame" x="20" y="88" width="309" height="4"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="740" text="어떤 기능의 렌즈가 필요하세요?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tES-5T-qVc">
-                                <rect key="frame" x="20" y="74" width="225" height="21.5"/>
+                                <rect key="frame" x="20" y="132" width="225" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기능을 선택하시면 필요에 맞게 렌즈를 추천해드릴게요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLV-ID-vu5">
-                                <rect key="frame" x="20" y="102.5" width="302" height="17"/>
+                                <rect key="frame" x="20" y="160.5" width="302" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="어떤 주기의 렌즈를 찾으시나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CH-7g-VUt">
-                                <rect key="frame" x="20" y="325" width="225" height="21.5"/>
+                                <rect key="frame" x="20" y="383" width="225" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pRP-V1-aWu">
-                                <rect key="frame" x="15" y="366.5" width="345" height="176"/>
+                                <rect key="frame" x="15" y="424.5" width="345" height="176"/>
                                 <color key="backgroundColor" red="0.72081095169999998" green="0.51344477079999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pRP-V1-aWu" secondAttribute="height" multiplier="345:176" id="Bgw-Mq-AfP"/>
@@ -62,7 +62,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1v2-iE-0aG">
-                                <rect key="frame" x="15" y="159.5" width="345" height="115.5"/>
+                                <rect key="frame" x="15" y="217.5" width="345" height="115.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1v2-iE-0aG" secondAttribute="height" multiplier="335:112" id="j4F-ty-d3I"/>
                                 </constraints>
@@ -84,16 +84,13 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3/4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IV8-xM-QWe">
-                                <rect key="frame" x="336" y="25" width="19" height="14"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="14" id="LV8-Tj-tq8"/>
-                                </constraints>
+                                <rect key="frame" x="336" y="83" width="19" height="14"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x21-nW-prQ">
-                                <rect key="frame" x="20" y="599.5" width="335" height="55"/>
+                                <rect key="frame" x="20" y="657.5" width="335" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="85v-t0-dba"/>
                                 </constraints>
@@ -103,20 +100,29 @@
                                     <action selector="nextButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NQv-be-NbH"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlZ-FS-yqa">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="bhd-XD-M6R"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="IV8-xM-QWe" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="25" id="4fc-UG-gyh"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1v2-iE-0aG" secondAttribute="trailing" constant="15" id="4ug-xL-vUQ"/>
                             <constraint firstItem="kIg-9y-Gqp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="6vF-LK-XN8"/>
                             <constraint firstItem="1v2-iE-0aG" firstAttribute="top" secondItem="CLV-ID-vu5" secondAttribute="bottom" constant="40" id="BO7-p7-y8j"/>
+                            <constraint firstItem="jlZ-FS-yqa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="C1q-f2-aeW"/>
                             <constraint firstItem="pRP-V1-aWu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="GTM-rU-4I6"/>
-                            <constraint firstItem="kIg-9y-Gqp" firstAttribute="centerY" secondItem="IV8-xM-QWe" secondAttribute="centerY" id="KtR-2a-Q5D"/>
+                            <constraint firstItem="IV8-xM-QWe" firstAttribute="centerY" secondItem="kIg-9y-Gqp" secondAttribute="centerY" id="P5C-lY-kCy"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="IV8-xM-QWe" secondAttribute="trailing" constant="20" id="Q3w-0f-bIM"/>
                             <constraint firstItem="CLV-ID-vu5" firstAttribute="top" secondItem="tES-5T-qVc" secondAttribute="bottom" constant="7" id="ROJ-ad-Sg0"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pRP-V1-aWu" secondAttribute="trailing" constant="15" id="Rf1-fI-M24"/>
                             <constraint firstItem="tES-5T-qVc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="TLt-kN-aVj"/>
+                            <constraint firstItem="jlZ-FS-yqa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Uqj-iM-12c"/>
+                            <constraint firstItem="jlZ-FS-yqa" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="VQS-VJ-zeI"/>
                             <constraint firstItem="IV8-xM-QWe" firstAttribute="leading" secondItem="kIg-9y-Gqp" secondAttribute="trailing" constant="7" id="VyD-s0-Bse"/>
                             <constraint firstItem="1v2-iE-0aG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="WQn-Il-GFr"/>
                             <constraint firstItem="x21-nW-prQ" firstAttribute="top" secondItem="pRP-V1-aWu" secondAttribute="bottom" constant="57" id="YKM-re-zOY"/>
@@ -128,11 +134,13 @@
                             <constraint firstItem="pRP-V1-aWu" firstAttribute="top" secondItem="9CH-7g-VUt" secondAttribute="bottom" constant="20" id="sMl-Le-fZd"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="x21-nW-prQ" secondAttribute="trailing" constant="20" id="uPw-9O-eO9"/>
                             <constraint firstItem="x21-nW-prQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="uZG-rU-bwb"/>
+                            <constraint firstItem="kIg-9y-Gqp" firstAttribute="top" secondItem="jlZ-FS-yqa" secondAttribute="bottom" constant="28" id="xtq-71-Qdz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IZ6-1N-AAT"/>
                     <connections>
                         <outlet property="baseView" destination="5EZ-qb-Rvc" id="QE2-Cc-CJ2"/>
+                        <outlet property="customNavigationBarView" destination="jlZ-FS-yqa" id="I7v-PK-Ot5"/>
                         <outlet property="functionCollectionView" destination="1v2-iE-0aG" id="Btv-Op-TU3"/>
                         <outlet property="functionMainLabel" destination="tES-5T-qVc" id="GhE-lK-jEh"/>
                         <outlet property="functionSubLabel" destination="CLV-ID-vu5" id="zaG-Fl-fDi"/>

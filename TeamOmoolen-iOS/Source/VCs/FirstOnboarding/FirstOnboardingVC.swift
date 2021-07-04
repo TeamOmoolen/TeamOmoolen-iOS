@@ -10,6 +10,7 @@ import UIKit
 class FirstOnboardingVC: UIViewController {
     
     // MARK: - UIComponents
+    @IBOutlet weak var customNavigationBarView: UIView!
     
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
@@ -31,6 +32,8 @@ class FirstOnboardingVC: UIViewController {
     private var isGenderSelected = false
     private var isAgeSelected = false
     
+    private var navigationBar = UIView()
+    
     // MARK: - View Life Cycle Methods
     
     override func viewDidLoad() {
@@ -38,9 +41,8 @@ class FirstOnboardingVC: UIViewController {
 
         setUI()
         setNavigationController()
-        
+//        setNotificationLoginErr()
         setList()
-        
         setCollectionViewDelegate()
         registerXib()
     }
@@ -63,12 +65,9 @@ class FirstOnboardingVC: UIViewController {
 
 extension FirstOnboardingVC {
     func setNavigationController() {
-        self.navigationItem.title = "맞춤 정보 설정"
-        self.navigationController?.navigationBar.tintColor = .omSecondGray
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.omSecondGray, .font: UIFont(name: "NotoSansCJKKR-Medium", size: 16) as Any]
-//        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "icBack")
-//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "icBack")
-        self.navigationItem.backButtonTitle = ""
+        self.navigationController?.navigationBar.isHidden = true
+        
+        setupNavigationBar(customNavigationBarView: customNavigationBarView)
     }
     
     func setUI() {
@@ -78,7 +77,7 @@ extension FirstOnboardingVC {
         
         progressView.progress = 0
         
-        self.navigationController?.navigationBar.isHidden = false
+        
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
             self.updateProgressViewWithAnimation()
         }

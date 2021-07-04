@@ -13,6 +13,8 @@ class SecondOnboardingVC: UIViewController {
     private var lensColorList = [LensColorModel]()
 
     // MARK: - @IBOutlet Properties
+    @IBOutlet weak var customNavigationBarView: UIView!
+    
     @IBOutlet weak var progressStatusLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var firstTitleLabel: UILabel!
@@ -30,6 +32,7 @@ class SecondOnboardingVC: UIViewController {
         super.viewDidLoad()
         setUI()
         setNavigationBar()
+//        setNotificationLoginErr()
         setList()
         collectionViewDelegate()
         registerXib()
@@ -77,12 +80,8 @@ class SecondOnboardingVC: UIViewController {
     }
     
     func setNavigationBar() {
-        self.navigationItem.title = "맞춤 정보 설정"
-        self.navigationController?.navigationBar.tintColor = .omSecondGray
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.omSecondGray, .font: UIFont(name: "NotoSansCJKKR-Medium", size: 16) as Any]
-//        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "icBack")
-//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "icBack")
-        self.navigationItem.backButtonTitle = ""
+        self.navigationController?.navigationBar.isHidden = true
+        setupNavigationBar(customNavigationBarView: customNavigationBarView)
     }
     
     func collectionViewDelegate() {
