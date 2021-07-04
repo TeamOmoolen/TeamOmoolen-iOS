@@ -446,6 +446,7 @@
 			children = (
 				F86F7ACB269068A30037081D /* Splash */,
 				F83BA053268C4D3B00E94E74 /* Login */,
+                E8C9A4292690934C00E5BD9D /* Search */,
 				92E55FB9268C727B0081D3A9 /* FirstOnboarding */,
 				F83BA05E268C5CF400E94E74 /* SecondOnboarding */,
 				E82DE8EF268C5D0400296B53 /* ThirdOnboarding */,
@@ -505,6 +506,7 @@
 				F83BA06E268CE4FD00E94E74 /* CALayer+applyShadow.swift */,
 				F83BA071268CEB5D00E94E74 /* UIColor+Addition.swift */,
 				F86F7AD226918AC50037081D /* UIViewController+Extension.swift */,
+                E8C9A4412690D06100E5BD9D /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
