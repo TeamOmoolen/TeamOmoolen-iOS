@@ -67,6 +67,11 @@
 		F83BA072268CEB5D00E94E74 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA071268CEB5D00E94E74 /* UIColor.swift */; };
 		F83BA076268D760000E94E74 /* OnboardingImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA075268D760000E94E74 /* OnboardingImage.xcassets */; };
 		F83DBBFD268EE0C900E47B15 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA024268C476B00E94E74 /* Login.storyboard */; };
+		F86F7AC626900A030037081D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F7AC526900A030037081D /* HomeVC.swift */; };
+		F86F7AC826900A2F0037081D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F86F7AC726900A2F0037081D /* Home.storyboard */; };
+		F86F7ACA269068960037081D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F86F7AC9269068960037081D /* Splash.storyboard */; };
+		F86F7ACD269068B20037081D /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F7ACC269068B20037081D /* SplashVC.swift */; };
+		F86F7ACF2690A1C20037081D /* Search.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F86F7ACE2690A1C20037081D /* Search.xcassets */; };
 		F8B91F55268E205E006114CD /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F4C268E205B006114CD /* NotoSansCJKkr-Regular.otf */; };
 		F8B91F56268E205E006114CD /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F4D268E205B006114CD /* NotoSansCJKkr-Bold.otf */; };
 		F8B91F57268E205E006114CD /* NotoSansCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F4E268E205C006114CD /* NotoSansCJKkr-Light.otf */; };
@@ -159,6 +164,11 @@
 		F83BA070268CE8E200E94E74 /* TeamOmoolen-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TeamOmoolen-iOS.entitlements"; sourceTree = "<group>"; };
 		F83BA071268CEB5D00E94E74 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F83BA075268D760000E94E74 /* OnboardingImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OnboardingImage.xcassets; sourceTree = "<group>"; };
+		F86F7AC526900A030037081D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		F86F7AC726900A2F0037081D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		F86F7AC9269068960037081D /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		F86F7ACC269068B20037081D /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		F86F7ACE2690A1C20037081D /* Search.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Search.xcassets; sourceTree = "<group>"; };
 		F8B91F4C268E205B006114CD /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		F8B91F4D268E205B006114CD /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		F8B91F4E268E205C006114CD /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
@@ -376,6 +386,8 @@
 				F83BA05A268C577E00E94E74 /* SecondOnboarding.storyboard */,
 				924751A8268E2CFE00924891 /* FourthOnboarding.storyboard */,
 				E8C9A42726908CF900E5BD9D /* Search.storyboard */,
+				F86F7AC726900A2F0037081D /* Home.storyboard */,
+				F86F7AC9269068960037081D /* Splash.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -391,6 +403,8 @@
 		F83BA037268C491900E94E74 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				F86F7ACB269068A30037081D /* Splash */,
+				F86F7AC4269009EB0037081D /* Home */,
 				E8C9A4292690934C00E5BD9D /* Search */,
 				924751A6268E2C6900924891 /* FourthOnboarding */,
 				E82DE8EF268C5D0400296B53 /* ThirdOnboarding */,
@@ -439,6 +453,7 @@
 			children = (
 				F83BA027268C476C00E94E74 /* Assets.xcassets */,
 				F83BA075268D760000E94E74 /* OnboardingImage.xcassets */,
+				F86F7ACE2690A1C20037081D /* Search.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -498,6 +513,22 @@
 				F83BA06C268C81B200E94E74 /* LensColorModel.swift */,
 			);
 			path = SecondOnboarding;
+			sourceTree = "<group>";
+		};
+		F86F7AC4269009EB0037081D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F86F7AC526900A030037081D /* HomeVC.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F86F7ACB269068A30037081D /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				F86F7ACC269068B20037081D /* SplashVC.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		F8B91F4B268E2028006114CD /* Fonts */ = {
@@ -614,6 +645,7 @@
 				F8B91F58268E205E006114CD /* NotoSansMonoCJKkr-Bold.otf in Resources */,
 				E8C9A42826908CF900E5BD9D /* Search.storyboard in Resources */,
 				F8B91F75268E207A006114CD /* Roboto-Medium.ttf in Resources */,
+				F86F7ACF2690A1C20037081D /* Search.xcassets in Resources */,
 				F8B91F57268E205E006114CD /* NotoSansCJKkr-Light.otf in Resources */,
 				E82DE8EE268C5CC700296B53 /* ThirdOnboarding.storyboard in Resources */,
 				F824590A268E1F3A0048BE84 /* TimeCVC.xib in Resources */,
@@ -621,6 +653,7 @@
 				E8A078632690F32200D99444 /* RecentSearchVC.xib in Resources */,
 				F8B91F74268E207A006114CD /* Roboto-MediumItalic.ttf in Resources */,
 				F8B91F76268E207A006114CD /* Roboto-Regular.ttf in Resources */,
+				F86F7AC826900A2F0037081D /* Home.storyboard in Resources */,
 				F8B91F5A268E205E006114CD /* NotoSansCJKkr-Black.otf in Resources */,
 				F8B91F5D268E205E006114CD /* NotoSansCJKkr-Medium.otf in Resources */,
 				924751B6268E49B500924891 /* PurposeCVC.xib in Resources */,
@@ -645,6 +678,7 @@
 				F8B91F70268E207A006114CD /* Roboto-BoldItalic.ttf in Resources */,
 				924751BA268E672300924891 /* LensBrandCVC.xib in Resources */,
 				F8B91F5C268E205E006114CD /* NotoSansCJKkr-Thin.otf in Resources */,
+				F86F7ACA269068960037081D /* Splash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +743,7 @@
 				927F97FE268C840100E893F2 /* GenderDataModel.swift in Sources */,
 				E8A078622690F32200D99444 /* RecentSearchVC.swift in Sources */,
 				F83BA055268C4D5800E94E74 /* LoginVC.swift in Sources */,
+				F86F7AC626900A030037081D /* HomeVC.swift in Sources */,
 				E82DE900268C749800296B53 /* TimeDataModel.swift in Sources */,
 				924751B2268E48CE00924891 /* PurposeDataModel.swift in Sources */,
 				E8C9A43C2690B97C00E5BD9D /* SearchTabBar.swift in Sources */,
@@ -732,6 +767,7 @@
 				E8C9A4452690D56000E5BD9D /* SearchHomeCVC.swift in Sources */,
 				F83BA04C268C4C1600E94E74 /* Const.swift in Sources */,
 				E8C9A4422690D06100E5BD9D /* UIView.swift in Sources */,
+				F86F7ACD269068B20037081D /* SplashVC.swift in Sources */,
 				92BF87A2268D908C00706384 /* GenderCVC.swift in Sources */,
 				92BF879D268CCC8100706384 /* AgeDataModel.swift in Sources */,
 				924751AC268E329400924891 /* FourthOnboardingVC.swift in Sources */,
@@ -894,7 +930,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOmoolen.TeamOmooleniOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -915,7 +951,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOmoolen.TeamOmooleniOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

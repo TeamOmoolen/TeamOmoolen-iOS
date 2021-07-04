@@ -17,6 +17,10 @@ extension Const {
             static let Search = "SearchVC"
             static let RecentSearch = "RecentSearchVC"
             static let Filter = "FilterVC"
+            
+            static let Login = "LoginVC"
+            static let Home = "HomeVC"
+            static let Splash = "SplashVC"
         }
     }
 }

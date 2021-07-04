@@ -81,7 +81,7 @@ class FourthOnboardingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationController()
+        setNavigationBar()
         setBrandListView()
         setUI()
         
@@ -104,8 +104,13 @@ class FourthOnboardingVC: UIViewController {
 // MARK: - Custom Methods
 
 extension FourthOnboardingVC {
-    func setNavigationController() {
-        
+    func setNavigationBar() {
+        self.navigationItem.title = "맞춤 정보 설정"
+        self.navigationController?.navigationBar.tintColor = .omSecondGray
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.omSecondGray, .font: UIFont(name: "NotoSansCJKKR-Medium", size: 16) as Any]
+//        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "icBack")
+//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "icBack")
+        self.navigationItem.backButtonTitle = ""
     }
     
     func setBrandListView() {
@@ -141,10 +146,14 @@ extension FourthOnboardingVC {
     }
     
     func setUI() {
+        
         view.backgroundColor = .omAlmostwhite
         purposeListCollectionView.backgroundColor = .omAlmostwhite
         
-        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateProgressViewWithAnimation), userInfo: nil, repeats: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
+            self.updateProgressViewWithAnimation()
+        }
+        
         progressView.tintColor = .omMainOrange
         
         progressLabel.text = "4/4"
@@ -244,7 +253,6 @@ extension FourthOnboardingVC {
 // MARK: - Action Methods
 
 extension FourthOnboardingVC {
-    @objc
     func updateProgressViewWithAnimation() {
         UIView.animate(withDuration: 0.3) {
             if self.progressView.progress != 1 {
