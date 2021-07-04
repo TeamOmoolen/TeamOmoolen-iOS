@@ -24,6 +24,12 @@
 		92BF87A7268D94F700706384 /* AgeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BF87A5268D94F700706384 /* AgeCVC.xib */; };
 		92E55FBB268C72BA0081D3A9 /* FirstOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E55FBA268C72BA0081D3A9 /* FirstOnboardingVC.swift */; };
 		92E55FBD268C72EA0081D3A9 /* FirstOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E55FBC268C72EA0081D3A9 /* FirstOnboarding.storyboard */; };
+		92F994FB26918BC30053ABD8 /* RecommendTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F994F926918BC30053ABD8 /* RecommendTVC.swift */; };
+		92F994FC26918BC30053ABD8 /* RecommendTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F994FA26918BC30053ABD8 /* RecommendTVC.xib */; };
+		92F994FF26918C8C0053ABD8 /* OneMinTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F994FD26918C8B0053ABD8 /* OneMinTVC.swift */; };
+		92F9950026918C8C0053ABD8 /* OneMinTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F994FE26918C8C0053ABD8 /* OneMinTVC.xib */; };
+		92F9950326918D4D0053ABD8 /* SeasonTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9950126918D4D0053ABD8 /* SeasonTVC.swift */; };
+		92F9950426918D4D0053ABD8 /* SeasonTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F9950226918D4D0053ABD8 /* SeasonTVC.xib */; };
 		E82DE8EE268C5CC700296B53 /* ThirdOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82DE8ED268C5CC700296B53 /* ThirdOnboarding.storyboard */; };
 		E82DE8F1268C5D5600296B53 /* ThirdOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DE8F0268C5D5600296B53 /* ThirdOnboardingVC.swift */; };
 		E82DE8FE268C748900296B53 /* FunctionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DE8FD268C748900296B53 /* FunctionDataModel.swift */; };
@@ -114,6 +120,12 @@
 		92BF87A5268D94F700706384 /* AgeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgeCVC.xib; sourceTree = "<group>"; };
 		92E55FBA268C72BA0081D3A9 /* FirstOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingVC.swift; sourceTree = "<group>"; };
 		92E55FBC268C72EA0081D3A9 /* FirstOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstOnboarding.storyboard; sourceTree = "<group>"; };
+		92F994F926918BC30053ABD8 /* RecommendTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendTVC.swift; sourceTree = "<group>"; };
+		92F994FA26918BC30053ABD8 /* RecommendTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendTVC.xib; sourceTree = "<group>"; };
+		92F994FD26918C8B0053ABD8 /* OneMinTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMinTVC.swift; sourceTree = "<group>"; };
+		92F994FE26918C8C0053ABD8 /* OneMinTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneMinTVC.xib; sourceTree = "<group>"; };
+		92F9950126918D4D0053ABD8 /* SeasonTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonTVC.swift; sourceTree = "<group>"; };
+		92F9950226918D4D0053ABD8 /* SeasonTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonTVC.xib; sourceTree = "<group>"; };
 		BBBE8C8AF696DB691BFA7FA6 /* Pods_TeamOmoolen_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamOmoolen_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2D484B186EFAEC32FB35BE /* Pods-TeamOmoolen-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamOmoolen-iOS.release.xcconfig"; path = "Target Support Files/Pods-TeamOmoolen-iOS/Pods-TeamOmoolen-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		E82DE8ED268C5CC700296B53 /* ThirdOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThirdOnboarding.storyboard; sourceTree = "<group>"; };
@@ -249,6 +261,15 @@
 			path = FourthOnboarding;
 			sourceTree = "<group>";
 		};
+		92979F1C269035B00059AEEB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				92F9950526918D7E0053ABD8 /* TVC */,
+				92F9950626918D850053ABD8 /* CVC */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		92BF879B268CCC5A00706384 /* FirstOnboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +296,26 @@
 				92BF87A5268D94F700706384 /* AgeCVC.xib */,
 			);
 			path = FirstOnboarding;
+			sourceTree = "<group>";
+		};
+		92F9950526918D7E0053ABD8 /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				92F994F926918BC30053ABD8 /* RecommendTVC.swift */,
+				92F994FA26918BC30053ABD8 /* RecommendTVC.xib */,
+				92F994FD26918C8B0053ABD8 /* OneMinTVC.swift */,
+				92F994FE26918C8C0053ABD8 /* OneMinTVC.xib */,
+				92F9950126918D4D0053ABD8 /* SeasonTVC.swift */,
+				92F9950226918D4D0053ABD8 /* SeasonTVC.xib */,
+			);
+			path = TVC;
+			sourceTree = "<group>";
+		};
+		92F9950626918D850053ABD8 /* CVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CVC;
 			sourceTree = "<group>";
 		};
 		E82DE8EF268C5D0400296B53 /* ThirdOnboarding */ = {
@@ -426,6 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				E8C9A4302690A8D500E5BD9D /* Search */,
+				92979F1C269035B00059AEEB /* Home */,
 				924751AA268E2D3A00924891 /* FourthOnboarding */,
 				F8245904268E1F3A0048BE84 /* ThirdOnboarding */,
 				92E55FBE268C79120081D3A9 /* FirstOnboarding */,
@@ -641,6 +683,7 @@
 				92BF87A7268D94F700706384 /* AgeCVC.xib in Resources */,
 				F8B91F56268E205E006114CD /* NotoSansCJKkr-Bold.otf in Resources */,
 				F8B91F58268E205E006114CD /* NotoSansMonoCJKkr-Bold.otf in Resources */,
+				92F9950426918D4D0053ABD8 /* SeasonTVC.xib in Resources */,
 				E8C9A42826908CF900E5BD9D /* Search.storyboard in Resources */,
 				F8B91F75268E207A006114CD /* Roboto-Medium.ttf in Resources */,
 				F86F7ACF2690A1C20037081D /* Search.xcassets in Resources */,
@@ -649,6 +692,8 @@
 				F824590A268E1F3A0048BE84 /* TimeCVC.xib in Resources */,
 				F8B91F73268E207A006114CD /* Roboto-Italic.ttf in Resources */,
 				E8A078632690F32200D99444 /* RecentSearchVC.xib in Resources */,
+				92F9950026918C8C0053ABD8 /* OneMinTVC.xib in Resources */,
+				92F994FC26918BC30053ABD8 /* RecommendTVC.xib in Resources */,
 				F8B91F74268E207A006114CD /* Roboto-MediumItalic.ttf in Resources */,
 				F8B91F76268E207A006114CD /* Roboto-Regular.ttf in Resources */,
 				F86F7AC826900A2F0037081D /* Home.storyboard in Resources */,
@@ -733,15 +778,18 @@
 				F83BA06F268CE4FD00E94E74 /* CALayer+applyShadow.swift in Sources */,
 				924751B9268E672300924891 /* LensBrandCVC.swift in Sources */,
 				E82DE8F1268C5D5600296B53 /* ThirdOnboardingVC.swift in Sources */,
+				92F994FF26918C8C0053ABD8 /* OneMinTVC.swift in Sources */,
 				E82DE8FE268C748900296B53 /* FunctionDataModel.swift in Sources */,
 				E8A078662690F35100D99444 /* FilterVC.swift in Sources */,
 				E8C9A43A2690AD1000E5BD9D /* SearchVC.swift in Sources */,
 				F83BA04E268C4C3500E94E74 /* Storyboard.swift in Sources */,
+				92F9950326918D4D0053ABD8 /* SeasonTVC.swift in Sources */,
 				927F97FE268C840100E893F2 /* GenderDataModel.swift in Sources */,
 				E8A078622690F32200D99444 /* RecentSearchVC.swift in Sources */,
 				F83BA055268C4D5800E94E74 /* LoginVC.swift in Sources */,
 				F86F7AC626900A030037081D /* HomeVC.swift in Sources */,
 				E82DE900268C749800296B53 /* TimeDataModel.swift in Sources */,
+				92F994FB26918BC30053ABD8 /* RecommendTVC.swift in Sources */,
 				924751B2268E48CE00924891 /* PurposeDataModel.swift in Sources */,
 				E8C9A43C2690B97C00E5BD9D /* SearchTabBar.swift in Sources */,
 				F83BA049268C4AE200E94E74 /* TempExtension.swift in Sources */,

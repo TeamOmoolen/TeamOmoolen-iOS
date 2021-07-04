@@ -320,6 +320,8 @@ extension FourthOnboardingVC {
             if lensTextView.text != "" && lensTextView.text != "렌즈명을 입력해주세요" {
                 nextButton.isEnabled = true
                 nextButton.backgroundColor = .omMainOrange
+            } else {
+                print("렌즈명도 입력해주셔야 합니다.")
             }
         }
     }
@@ -345,6 +347,7 @@ extension FourthOnboardingVC: UITextViewDelegate {
             lensTextView.text = ""
             lensTextView.layer.borderWidth = 0
             NotificationCenter.default.post(name: NSNotification.Name("buttonInActive"), object: lensTextView.text)
+            print("렌즈명 입력해라.")
         } else {
             lensTextView.textColor = .omMainOrange
             lensTextView.font = UIFont(name: "NotoSansCJKKR-Medium", size: 15)
