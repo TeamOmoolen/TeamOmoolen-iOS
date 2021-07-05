@@ -17,14 +17,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uwf-c7-5fA">
-                                <rect key="frame" x="0.0" y="184" width="414" height="678"/>
+                                <rect key="frame" x="0.0" y="245" width="414" height="617"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9VZ-nr-Ie2">
-                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="80"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6kh-rT-Suh">
+                                        <rect key="frame" x="21" y="25" width="47" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="Lgp-r5-z8C"/>
+                                            <constraint firstAttribute="width" constant="47" id="RLQ-dA-CsG"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HZS-Dn-86g">
+                                        <rect key="frame" x="126" y="20" width="268" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="1Tl-A0-OsZ"/>
+                                            <constraint firstAttribute="width" constant="268" id="rlP-N5-sQx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="L5r-TL-Vda"/>
+                                    <constraint firstAttribute="height" constant="80" id="L5r-TL-Vda"/>
+                                    <constraint firstAttribute="trailing" secondItem="HZS-Dn-86g" secondAttribute="trailing" constant="20" id="Shg-MV-c9Q"/>
+                                    <constraint firstItem="6kh-rT-Suh" firstAttribute="leading" secondItem="9VZ-nr-Ie2" secondAttribute="leading" constant="21" id="c44-ud-cKJ"/>
+                                    <constraint firstItem="6kh-rT-Suh" firstAttribute="top" secondItem="9VZ-nr-Ie2" secondAttribute="top" constant="25" id="g3j-Cf-2jQ"/>
+                                    <constraint firstItem="HZS-Dn-86g" firstAttribute="top" secondItem="9VZ-nr-Ie2" secondAttribute="top" constant="20" id="nRL-Zb-YwA"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -33,7 +55,7 @@
                         <constraints>
                             <constraint firstItem="9VZ-nr-Ie2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="7jN-CD-5qm"/>
                             <constraint firstItem="uwf-c7-5fA" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="ONw-3I-VaR"/>
-                            <constraint firstItem="uwf-c7-5fA" firstAttribute="top" secondItem="9VZ-nr-Ie2" secondAttribute="bottom" constant="80" id="QBe-XG-lL5"/>
+                            <constraint firstItem="uwf-c7-5fA" firstAttribute="top" secondItem="9VZ-nr-Ie2" secondAttribute="bottom" constant="121" id="QBe-XG-lL5"/>
                             <constraint firstItem="9VZ-nr-Ie2" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="QMb-f0-YqG"/>
                             <constraint firstItem="uwf-c7-5fA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ZMF-PH-mBE"/>
                             <constraint firstItem="9VZ-nr-Ie2" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="hNb-kF-0Dd"/>
@@ -41,8 +63,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="HomeHeaderView" destination="9VZ-nr-Ie2" id="YLj-Jt-HpF"/>
-                        <outlet property="HomeTableView" destination="uwf-c7-5fA" id="Gxb-hj-p08"/>
+                        <outlet property="homeHeaderView" destination="9VZ-nr-Ie2" id="Vxi-Ge-sYv"/>
+                        <outlet property="homeTableView" destination="uwf-c7-5fA" id="A0Q-FI-ISp"/>
+                        <outlet property="logoImageView" destination="6kh-rT-Suh" id="4gQ-7f-O5k"/>
+                        <outlet property="searchTextField" destination="HZS-Dn-86g" id="r3L-2c-d41"/>
                         <outlet property="tableViewTopConstraint" destination="QBe-XG-lL5" id="Qut-Ww-XuU"/>
                     </connections>
                 </viewController>

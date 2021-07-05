@@ -11,9 +11,13 @@ import SnapKit
 class HomeVC: UIViewController {
     
     // MARK: - UI Components
-    
+   
     @IBOutlet weak var homeHeaderView: UIView!
     @IBOutlet weak var homeTableView: UITableView!
+    
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var searchTextField: UITextField!
+    
     
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     
@@ -69,8 +73,8 @@ extension HomeVC {
         
         categoryView.snp.makeConstraints { make in
             make.width.equalToSuperview()
-            make.height.equalTo(80)
-            make.top.equalTo(homeHeaderView.snp.bottom).offset(0)
+            make.height.equalTo(121)
+            make.top.equalTo(homeHeaderView.snp.bottom).offset(5)
         }
         
         topButton.snp.makeConstraints { make in
@@ -78,6 +82,15 @@ extension HomeVC {
             make.trailing.equalToSuperview().inset(20)
             make.bottom.equalToSuperview().inset(-100)
         }
+        
+        logoImageView.image = UIImage(named: "abc")
+        
+        searchTextField.borderStyle = .roundedRect
+        searchTextField.layer.borderColor = UIColor.omMainOrange.cgColor
+        searchTextField.layer.borderWidth = 1
+        searchTextField.layer.cornerRadius = 5
+        searchTextField.layer.masksToBounds = true
+        searchTextField.placeholder = "오늘 무슨 렌즈 끼지?"
     }
     
     func setList() {
@@ -96,6 +109,12 @@ extension HomeVC {
         
         let newLensNib = UINib(nibName: NewLensTVC.identifier, bundle: nil)
         homeTableView.register(newLensNib, forCellReuseIdentifier: NewLensTVC.identifier)
+        
+        let timeRecommendNib = UINib(nibName: TimeRecommendTVC.identifier, bundle: nil)
+        homeTableView.register(timeRecommendNib, forCellReuseIdentifier: TimeRecommendTVC.identifier)
+        
+        let lastBannerNib = UINib(nibName: LastBannerTVC.identifier, bundle: nil)
+        homeTableView.register(lastBannerNib, forCellReuseIdentifier: LastBannerTVC.identifier)
     }
     
     func setHomeTableView() {
@@ -131,7 +150,7 @@ extension HomeVC: UITableViewDelegate {
         case 4:
             return 807
         case 5:
-            return 300
+            return 780
         case 6:
             return 230
         default:
@@ -144,10 +163,10 @@ extension HomeVC: UITableViewDelegate {
             topButton.isHidden = false
             
             categoryView.snp.updateConstraints { make in
-                make.height.equalTo(40)
+                make.height.equalTo(60)
             }
             
-            tableViewTopConstraint.constant = 40
+            tableViewTopConstraint.constant = 60
             
             topButton.snp.updateConstraints { make in
                 make.bottom.equalToSuperview().inset(30)
@@ -156,10 +175,10 @@ extension HomeVC: UITableViewDelegate {
             topButton.isHidden = true
             
             categoryView.snp.updateConstraints { make in
-                make.height.equalTo(80)
+                make.height.equalTo(121)
             }
             
-            tableViewTopConstraint.constant = 80
+            tableViewTopConstraint.constant = 121
             
             topButton.snp.updateConstraints { make in
                 make.bottom.equalToSuperview().inset(-100)
@@ -213,9 +232,17 @@ extension HomeVC: UITableViewDataSource {
             cell.selectionStyle = .none
             return cell
         case 5:
-            return UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:  TimeRecommendTVC.identifier, for: indexPath) as? TimeRecommendTVC else {
+                return UITableViewCell()
+            }
+            cell.selectionStyle = .none
+            return cell
         case 6:
-            return UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:  LastBannerTVC.identifier, for: indexPath) as? LastBannerTVC else {
+                return UITableViewCell()
+            }
+            cell.selectionStyle = .none
+            return cell
         default:
             return UITableViewCell()
         }
