@@ -8,9 +8,14 @@
 import UIKit
 
 class SecondOnboardingVC: UIViewController {
+    
     // MARK: - Properties
     private var lensKindList = [LensKindModel]()
     private var lensColorList = [LensColorModel]()
+    var gender = ""
+    var age = ""
+    var lensKind = ""
+    var lensColor = ""
 
     // MARK: - @IBOutlet Properties
     @IBOutlet weak var customNavigationBarView: UIView!
@@ -140,7 +145,10 @@ class SecondOnboardingVC: UIViewController {
         guard let nextVC = UIStoryboard(name: Const.Storyboard.Name.ThirdOnboarding, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.ThirdOnboarding) as? ThirdOnboardingVC else {
             return
         }
-        
+        nextVC.age = age
+        nextVC.gender = gender
+        nextVC.lensKind = lensKind
+        nextVC.lensColor = lensColor
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
