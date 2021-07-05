@@ -12,6 +12,12 @@ class ThirdOnboardingVC: UIViewController {
     //Mark: - Properties
     private var functionList: [FunctionDataModel] = []
     private var timeList: [TimeDataModel] = []
+    var gender = ""
+    var age = ""
+    var lensKind = ""
+    var lensColor = ""
+    var lensFunction = ""
+    var lensPeriod = ""
     
     //Mark: - IBOutlet Properties
     @IBOutlet weak var customNavigationBarView: UIView!
@@ -32,7 +38,12 @@ class ThirdOnboardingVC: UIViewController {
         guard let nextVC = UIStoryboard(name: Const.Storyboard.Name.FourthOnboarding, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.FourthOnboarding) as? FourthOnboardingVC else {
             return
         }
-
+        nextVC.age = age
+        nextVC.gender = gender
+        nextVC.lensKind = lensKind
+        nextVC.lensColor = lensColor
+        nextVC.lensFunction = lensFunction
+        nextVC.lensPeriod = lensPeriod
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

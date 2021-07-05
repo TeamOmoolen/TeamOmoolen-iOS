@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Moya
 
 class FourthOnboardingVC: UIViewController {
 
@@ -58,6 +59,16 @@ class FourthOnboardingVC: UIViewController {
     }()
     
     // MARK: - Local Variables
+    var gender = ""
+    var age = ""
+    var lensKind = ""
+    var lensColor = ""
+    var lensFunction = ""
+    var lensPeriod = ""
+    var lensBrand = ""
+    var lensName = ""
+    var lensWhen = ""
+    var onboardingDataModel: OnBoardingDataModel?
     
     private var brandList: [LensBrandDataModel] = []
     private var purposeList: [PurposeDataModel] = []
@@ -97,6 +108,15 @@ class FourthOnboardingVC: UIViewController {
         print(brandListCollectionView.indexPathsForSelectedItems!)
         print(purposeListCollectionView.indexPathsForSelectedItems!)
         print(lensTextView.text!)
+        guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {
+            return
+        }
+        homeVC.modalPresentationStyle = .fullScreen
+        homeVC.modalTransitionStyle = .crossDissolve
+        let param = OnboardingRequest(gender, age, lensKind, lensColor, lensFunction, lensPeriod, lensBrand, lensName, lensWhen, "001628.1f39bf3727b44f1f8a6615166ae3b718.0924")
+        OnboardingAPI.shared.postOnboardingWithAPI(param: param) { response in
+            print("data: \(response)")
+        }
     }
     
 }

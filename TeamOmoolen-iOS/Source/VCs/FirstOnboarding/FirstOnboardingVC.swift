@@ -8,6 +8,8 @@
 import UIKit
 
 class FirstOnboardingVC: UIViewController {
+    var gender = ""
+    var age = ""
     
     // MARK: - UIComponents
     @IBOutlet weak var customNavigationBarView: UIView!
@@ -55,7 +57,8 @@ class FirstOnboardingVC: UIViewController {
         guard let nextVC = UIStoryboard(name: Const.Storyboard.Name.SecondOnboarding, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SecondOnboarding) as? SecondOnboardingVC else {
             return
         }
-        
+        nextVC.gender = gender
+        nextVC.age = age
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
