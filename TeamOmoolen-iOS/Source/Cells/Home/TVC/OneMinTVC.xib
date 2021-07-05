@@ -35,10 +35,10 @@
                         </constraints>
                     </imageView>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="lBF-C3-1fV">
-                        <rect key="frame" x="20" y="76" width="355" height="420"/>
+                        <rect key="frame" x="0.0" y="76" width="375" height="420"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="355" id="C3H-pr-fI8"/>
+                            <constraint firstAttribute="width" constant="375" id="C3H-pr-fI8"/>
                             <constraint firstAttribute="height" constant="420" id="WTo-lA-7nk"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Elj-zg-jA1">
@@ -55,7 +55,7 @@
                     <constraint firstItem="VTU-2z-0NE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="35" id="EUv-EP-wKK"/>
                     <constraint firstItem="lBF-C3-1fV" firstAttribute="top" secondItem="VTU-2z-0NE" secondAttribute="bottom" constant="20" id="Ir8-Sd-4fc"/>
                     <constraint firstItem="UYS-UA-zTa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="309" id="KzU-C4-5YQ"/>
-                    <constraint firstItem="lBF-C3-1fV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="MvN-O6-tqH"/>
+                    <constraint firstItem="lBF-C3-1fV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MvN-O6-tqH"/>
                     <constraint firstItem="xMc-8K-cff" firstAttribute="centerY" secondItem="VTU-2z-0NE" secondAttribute="centerY" id="hNO-6t-HJM"/>
                     <constraint firstItem="VTU-2z-0NE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="scN-Wu-VFT"/>
                 </constraints>

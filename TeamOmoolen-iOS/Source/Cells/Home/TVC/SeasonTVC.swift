@@ -19,10 +19,17 @@ class SeasonTVC: UITableViewCell {
     
     @IBOutlet weak var seasonCollectionView: UICollectionView!
     
+    // MARK: - Local Variables
+    
+    private var seasonList: [RecommendLens] = []
+    
+    // MARK: - Life Cycle Methods
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setUI()
+        setList()
         registerXib()
         setCollectionView()
     }
@@ -45,6 +52,17 @@ extension SeasonTVC {
         moreButton.tintColor = .omFourthGray
         
         moreImageView.image = UIImage(named: "abc")
+    }
+    
+    func setList() {
+        seasonList.append(contentsOf: [
+            RecommendLens(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: "1Day(10p)", price: 18000),
+            RecommendLens(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: "1Day(10p)", price: 18000),
+            RecommendLens(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: "1Day(10p)", price: 18000),
+            RecommendLens(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: "1Day(10p)", price: 18000),
+            RecommendLens(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: "1Day(10p)", price: 18000),
+            RecommendLens(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: "1Day(10p)", price: 18000)
+        ])
     }
     
     func initCell() {
@@ -92,6 +110,8 @@ extension SeasonTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeasonCVC.identifier, for: indexPath) as? SeasonCVC else {
             return UICollectionViewCell()
         }
+        let data = seasonList[indexPath.row]
+        cell.initCell(brandName: data.brandName, lensName: data.lensName, diameter: data.diameter, cycle: data.cycle, price: data.price)
         return cell
     }
 }

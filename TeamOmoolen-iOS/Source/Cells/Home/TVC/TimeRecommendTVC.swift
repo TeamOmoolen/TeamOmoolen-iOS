@@ -20,12 +20,17 @@ class TimeRecommendTVC: UITableViewCell {
     
     @IBOutlet weak var timeRecommendCollectionView: UICollectionView!
     
+    // MARK: - Local Variables
+    
+    private var recommendList: [RecommendLens] = []
+    
     // MARK: - Life Cycle Methods
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setUI()
+        setList()
         registerXib()
         setCollectionView()
     }
@@ -49,6 +54,15 @@ extension TimeRecommendTVC {
         moreButton.tintColor = .omFourthGray
         
         moreImageView.image = UIImage(named: "abc")
+    }
+    
+    func setList() {
+        recommendList.append(contentsOf: [
+            RecommendLens(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: "1Day(10p)", price: 18000),
+            RecommendLens(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: "1Day(10p)", price: 18000),
+            RecommendLens(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: "1Day(10p)", price: 18000),
+            RecommendLens(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: "1Day(10p)", price: 18000)
+        ])
     }
     
     func initCell() {
@@ -96,6 +110,8 @@ extension TimeRecommendTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeasonCVC.identifier, for: indexPath) as? SeasonCVC else {
             return UICollectionViewCell()
         }
+        let data = recommendList[indexPath.row]
+        cell.initCell(brandName: data.brandName, lensName: data.lensName, diameter: data.diameter, cycle: data.cycle, price: data.price)
         return cell
     }
 }

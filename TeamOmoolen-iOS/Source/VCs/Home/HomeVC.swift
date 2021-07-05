@@ -33,7 +33,6 @@ class HomeVC: UIViewController {
                                                      scale: .large),
                                                forImageIn: .normal)
         button.addTarget(self, action: #selector(touchUpTop), for: .touchUpInside)
-        print("버튼 생성")
         return button
     }()
     
@@ -169,7 +168,7 @@ extension HomeVC: UITableViewDelegate {
             tableViewTopConstraint.constant = 60
             
             topButton.snp.updateConstraints { make in
-                make.bottom.equalToSuperview().inset(30)
+                make.bottom.equalToSuperview().inset(100)
             }
         } else {
             topButton.isHidden = true

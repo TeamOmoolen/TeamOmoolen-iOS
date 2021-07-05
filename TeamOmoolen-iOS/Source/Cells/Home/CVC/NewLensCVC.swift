@@ -11,39 +11,26 @@ class NewLensCVC: UICollectionViewCell {
     static let identifier = "NewLensCVC"
     
     // MARK: - UI Components
+    
     @IBOutlet weak var modelImageView: UIImageView!
     @IBOutlet weak var brandImageView: UIImageView!
     
     @IBOutlet weak var brandLabel: UILabel!
     @IBOutlet weak var lensLabel: UILabel!
     
+    @IBOutlet weak var newLensTableView: UITableView!
     
-    @IBOutlet weak var firstBackView: UIView!
-    @IBOutlet weak var firstBrandLabel: UILabel!
-    @IBOutlet weak var firstLensLabel: UILabel!
-    @IBOutlet weak var firstPriceLabel: UILabel!
-    @IBOutlet weak var firstImageView: UIImageView!
+    // MARK: - Local Variables
     
-    
-    @IBOutlet weak var secondBackView: UIView!
-    @IBOutlet weak var secondBrandLabel: UILabel!
-    @IBOutlet weak var secondLensLabel: UILabel!
-    @IBOutlet weak var secondPriceLabel: UILabel!
-    @IBOutlet weak var secondImageView: UIImageView!
-    
-    
-    @IBOutlet weak var thirdBackView: UIView!
-    @IBOutlet weak var thirdBrandLabel: UILabel!
-    @IBOutlet weak var thirdLensLabel: UILabel!
-    @IBOutlet weak var thirdPriceLabel: UILabel!
-    @IBOutlet weak var thirdImageView: UIImageView!
-    
-    
+    private var newLensList: [NewLens] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setUI()
+        setList()
+        registerXib()
+        setTableView()
     }
     
 }
@@ -66,60 +53,58 @@ extension NewLensCVC {
         lensLabel.text = "제품 상세 정보 이름"
         lensLabel.textColor = .omWhite
         lensLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
-        
-        // 첫번째 렌즈 정보
-        firstBackView.backgroundColor = .omAlmostwhite
-        firstBackView.layer.cornerRadius = 10
-        firstBackView.layer.masksToBounds = true
-        
-        firstBrandLabel.text = "오렌즈"
-        firstBrandLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 15)
-        firstBrandLabel.textColor = .omMainBlack
-        
-        firstLensLabel.text = "브라운 컬러 익스 렌즈"
-        firstLensLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
-        firstLensLabel.textColor = .omSecondGray
-        
-        firstPriceLabel.text = "18,000원"
-        firstPriceLabel.font = UIFont(name: "Roboto-Bold", size: 14)
-        firstPriceLabel.textColor = .omMainBlack
-        
-        // 두번째 렌즈 정보
-        secondBackView.backgroundColor = .omAlmostwhite
-        secondBackView.layer.cornerRadius = 10
-        secondBackView.layer.masksToBounds = true
-        
-        secondBrandLabel.text = "오렌즈"
-        secondBrandLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 15)
-        secondBrandLabel.textColor = .omMainBlack
-        
-        secondLensLabel.text = "브라운 컬러 익스 렌즈"
-        secondLensLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
-        secondLensLabel.textColor = .omSecondGray
-        
-        secondPriceLabel.text = "18,000원"
-        secondPriceLabel.font = UIFont(name: "Roboto-Bold", size: 14)
-        secondPriceLabel.textColor = .omMainBlack
-        
-        // 세번째 렌즈 정보
-        thirdBackView.backgroundColor = .omAlmostwhite
-        thirdBackView.layer.cornerRadius = 10
-        thirdBackView.layer.masksToBounds = true
-        
-        thirdBrandLabel.text = "오렌즈"
-        thirdBrandLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 15)
-        thirdBrandLabel.textColor = .omMainBlack
-        
-        thirdLensLabel.text = "브라운 컬러 익스 렌즈"
-        thirdLensLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
-        thirdLensLabel.textColor = .omSecondGray
-        
-        thirdPriceLabel.text = "18,000원"
-        thirdPriceLabel.font = UIFont(name: "Roboto-Bold", size: 14)
-        thirdPriceLabel.textColor = .omMainBlack
     }
     
-    func initCell() {
-        
+    func setList() {
+        newLensList.append(contentsOf: [
+            NewLens(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
+            NewLens(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
+            NewLens(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000)
+        ])
     }
+    
+    func registerXib() {
+        let detailNib = UINib(nibName: NewLensDetailTVC.identifier, bundle: nil)
+        newLensTableView.register(detailNib, forCellReuseIdentifier: NewLensDetailTVC.identifier)
+    }
+    
+    func setTableView() {
+        newLensTableView.delegate = self
+        newLensTableView.dataSource = self
+        
+        newLensTableView.separatorStyle = .none
+        
+        newLensTableView.isScrollEnabled = false
+    }
+    
+    func initCell(brandName: String, lensName: String) {
+        brandLabel.text = brandName
+        lensLabel.text = lensName
+    }
+}
+
+extension NewLensCVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 104
+    }
+}
+
+extension NewLensCVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return newLensList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NewLensDetailTVC.identifier) as? NewLensDetailTVC else {
+            return UITableViewCell()
+        }
+        let data = newLensList[indexPath.row]
+        cell.initCell(lensImage: "abc", brandName: data.brandName, lensName: data.lensName, price: data.price)
+        return cell
+    }
+    
 }

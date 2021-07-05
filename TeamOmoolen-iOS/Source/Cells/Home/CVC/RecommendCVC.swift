@@ -32,24 +32,31 @@ extension RecommendCVC {
         recommendImageView.image = UIImage(named: "abc")
         
         brandNameLabel.text
-         = "오렌즈"
+         = "브랜드명"
         brandNameLabel.textColor = .omThirdGray
         brandNameLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 11)
         
-        lensNameLabel.text = "브라운 컬러 렌즈"
+        lensNameLabel.text = "렌즈명"
         lensNameLabel.textColor = .omMainBlack
         lensNameLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 14)
         
-        lensInfoLabel.text = "11.9mm/1Day(10dp)"
+        lensInfoLabel.text = "직경 / 교체시기"
         lensInfoLabel.textColor = .omThirdGray
         lensInfoLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
         
-        priceLabel.text = "18,000원"
+        priceLabel.text = "가격"
         priceLabel.textColor = .omMainBlack
         priceLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
     }
     
-    func initCell() {
+    func initCell(brandName: String, lensName: String, diameter: Float, cycle: String, price: Int) {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
         
+        brandNameLabel.text = brandName
+        lensNameLabel.text = lensName
+        lensInfoLabel.text = "\(diameter)mm / \(cycle)"
+                         
+        priceLabel.text = "\(formatter.string(from: NSNumber(value: price))!)원"
     }
 }

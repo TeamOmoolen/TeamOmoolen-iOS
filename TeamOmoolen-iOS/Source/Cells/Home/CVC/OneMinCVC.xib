@@ -54,24 +54,35 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cS8-TX-qOl">
                         <rect key="frame" x="15" y="362" width="280" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="44" id="bFH-0K-zc3"/>
+                            <constraint firstAttribute="height" constant="44" id="ygE-m6-cFB"/>
                         </constraints>
                         <state key="normal" title="Button"/>
                     </button>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iyn-jV-Qri">
+                        <rect key="frame" x="16" y="104" width="278" height="242"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="242" id="DtT-Pe-PSN"/>
+                        </constraints>
+                    </tableView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="Iyn-jV-Qri" firstAttribute="top" secondItem="Ktz-aH-1Td" secondAttribute="bottom" constant="4" id="7cu-EZ-O4I"/>
                 <constraint firstItem="Ktz-aH-1Td" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Dj8-5c-diB"/>
-                <constraint firstAttribute="bottom" secondItem="cS8-TX-qOl" secondAttribute="bottom" constant="14" id="Ef8-C4-2G2"/>
-                <constraint firstItem="cS8-TX-qOl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="SPC-YE-J7L"/>
                 <constraint firstAttribute="trailing" secondItem="Ktz-aH-1Td" secondAttribute="trailing" id="ZcP-0M-EFS"/>
-                <constraint firstAttribute="trailing" secondItem="cS8-TX-qOl" secondAttribute="trailing" constant="15" id="cxi-FY-Dkq"/>
+                <constraint firstAttribute="trailing" secondItem="Iyn-jV-Qri" secondAttribute="trailing" constant="16" id="d4P-6Q-8qw"/>
+                <constraint firstItem="cS8-TX-qOl" firstAttribute="top" secondItem="Iyn-jV-Qri" secondAttribute="bottom" constant="16" id="pZP-DK-eYB"/>
                 <constraint firstItem="Ktz-aH-1Td" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="pgg-QJ-OBb"/>
+                <constraint firstAttribute="trailing" secondItem="cS8-TX-qOl" secondAttribute="trailing" constant="15" id="sQZ-cD-lN1"/>
+                <constraint firstItem="Iyn-jV-Qri" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="tBe-O2-48R"/>
+                <constraint firstItem="cS8-TX-qOl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="yHG-ke-vvU"/>
             </constraints>
             <connections>
                 <outlet property="imageView" destination="a24-bl-KdU" id="Duy-Vt-7Po"/>
                 <outlet property="moreButton" destination="cS8-TX-qOl" id="CHi-gg-tXT"/>
+                <outlet property="oneMinTableView" destination="Iyn-jV-Qri" id="3lP-U5-bCU"/>
                 <outlet property="subtitleLabel" destination="e5Y-8V-VzS" id="q7j-ab-iRy"/>
                 <outlet property="titleLabel" destination="Ir2-5f-L2T" id="AAV-i0-vqe"/>
                 <outlet property="topView" destination="Ktz-aH-1Td" id="bcK-LC-GKw"/>

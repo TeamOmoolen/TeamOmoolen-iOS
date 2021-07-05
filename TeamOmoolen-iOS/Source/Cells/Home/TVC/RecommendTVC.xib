@@ -28,10 +28,10 @@
                         <state key="normal" title="Button"/>
                     </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="USo-Du-ANJ">
-                        <rect key="frame" x="20" y="65" width="355" height="249"/>
+                        <rect key="frame" x="0.0" y="65" width="375" height="249"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="355" id="Edu-vQ-wQR"/>
+                            <constraint firstAttribute="width" constant="375" id="Edu-vQ-wQR"/>
                             <constraint firstAttribute="height" constant="249" id="gk9-69-Sqi"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xuu-EF-11P">
@@ -50,7 +50,7 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="USo-Du-ANJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="5wj-b2-Dv0"/>
+                    <constraint firstItem="USo-Du-ANJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5wj-b2-Dv0"/>
                     <constraint firstAttribute="trailing" secondItem="V3I-dr-4kx" secondAttribute="trailing" constant="12" id="Bje-1h-IYD"/>
                     <constraint firstItem="USo-Du-ANJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="65" id="PtD-mM-Ldz"/>
                     <constraint firstItem="wP2-Q4-jCF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="SQi-34-dlA"/>
