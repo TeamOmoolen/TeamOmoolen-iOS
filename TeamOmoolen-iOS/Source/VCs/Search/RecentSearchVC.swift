@@ -9,6 +9,7 @@ import UIKit
 
 class RecentSearchVC: UIViewController {
 
+    @IBOutlet weak var stackView: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
