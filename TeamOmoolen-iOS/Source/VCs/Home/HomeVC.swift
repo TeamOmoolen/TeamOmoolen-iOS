@@ -12,8 +12,8 @@ class HomeVC: UIViewController {
     
     // MARK: - UI Components
     
-    @IBOutlet weak var HomeHeaderView: UIView!
-    @IBOutlet weak var HomeTableView: UITableView!
+    @IBOutlet weak var homeHeaderView: UIView!
+    @IBOutlet weak var homeTableView: UITableView!
     
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     
@@ -61,8 +61,8 @@ extension HomeVC {
     func setUI() {
         view.backgroundColor = .omAlmostwhite
         
-        HomeHeaderView.backgroundColor = .white
-        HomeTableView.backgroundColor = .white
+        homeHeaderView.backgroundColor = .white
+        homeTableView.backgroundColor = .white
         
         view.addSubview(categoryView)
         view.addSubview(topButton)
@@ -70,7 +70,7 @@ extension HomeVC {
         categoryView.snp.makeConstraints { make in
             make.width.equalToSuperview()
             make.height.equalTo(80)
-            make.top.equalTo(HomeHeaderView.snp.bottom).offset(0)
+            make.top.equalTo(homeHeaderView.snp.bottom).offset(0)
         }
         
         topButton.snp.makeConstraints { make in
@@ -86,20 +86,23 @@ extension HomeVC {
     
     func registerXib() {
         let recommedNib = UINib(nibName: RecommendTVC.identifier, bundle: nil)
-        HomeTableView.register(recommedNib, forCellReuseIdentifier: RecommendTVC.identifier)
+        homeTableView.register(recommedNib, forCellReuseIdentifier: RecommendTVC.identifier)
         
         let oneMinNib = UINib(nibName: OneMinTVC.identifier, bundle: nil)
-        HomeTableView.register(oneMinNib, forCellReuseIdentifier: OneMinTVC.identifier)
+        homeTableView.register(oneMinNib, forCellReuseIdentifier: OneMinTVC.identifier)
         
         let seasonNib = UINib(nibName: SeasonTVC.identifier, bundle: nil)
-        HomeTableView.register(seasonNib, forCellReuseIdentifier: SeasonTVC.identifier)
+        homeTableView.register(seasonNib, forCellReuseIdentifier: SeasonTVC.identifier)
+        
+        let newLensNib = UINib(nibName: NewLensTVC.identifier, bundle: nil)
+        homeTableView.register(newLensNib, forCellReuseIdentifier: NewLensTVC.identifier)
     }
     
     func setHomeTableView() {
-        HomeTableView.delegate = self
-        HomeTableView.dataSource = self
+        homeTableView.delegate = self
+        homeTableView.dataSource = self
         
-        HomeTableView.separatorStyle = .none
+        homeTableView.separatorStyle = .none
     }
 }
 
@@ -108,7 +111,7 @@ extension HomeVC {
     @objc
     func touchUpTop() {
         let topIndex = IndexPath(row: 0, section: 0)
-        HomeTableView.scrollToRow(at: topIndex, at: .top, animated: true)
+        homeTableView.scrollToRow(at: topIndex, at: .top, animated: true)
     }
 }
 
@@ -125,6 +128,12 @@ extension HomeVC: UITableViewDelegate {
             return 1083
         case 3:
             return 180
+        case 4:
+            return 807
+        case 5:
+            return 300
+        case 6:
+            return 230
         default:
             return UITableView.automaticDimension
         }
@@ -132,27 +141,22 @@ extension HomeVC: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 10 {
-            print("아래로 내리는 중 ..")
             topButton.isHidden = false
             
             categoryView.snp.updateConstraints { make in
                 make.height.equalTo(40)
-//                make.top.equalTo(HomeHeaderView.snp.bottom).inset(30)
             }
             
             tableViewTopConstraint.constant = 40
-            
             
             topButton.snp.updateConstraints { make in
                 make.bottom.equalToSuperview().inset(30)
             }
         } else {
-            print("위로 올리는 중 ..")
             topButton.isHidden = true
             
             categoryView.snp.updateConstraints { make in
                 make.height.equalTo(80)
-//                make.top.equalTo(HomeHeaderView.snp.bottom).inset(-30)
             }
             
             tableViewTopConstraint.constant = 80
@@ -176,7 +180,7 @@ extension HomeVC: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -201,6 +205,16 @@ extension HomeVC: UITableViewDataSource {
             cell.selectionStyle = .none
             return cell
         case 3:
+            return UITableViewCell()
+        case 4:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:  NewLensTVC.identifier, for: indexPath) as? NewLensTVC else {
+                return UITableViewCell()
+            }
+            cell.selectionStyle = .none
+            return cell
+        case 5:
+            return UITableViewCell()
+        case 6:
             return UITableViewCell()
         default:
             return UITableViewCell()

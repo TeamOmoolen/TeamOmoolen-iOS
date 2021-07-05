@@ -16,6 +16,10 @@
 		924751B6268E49B500924891 /* PurposeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924751B4268E49B500924891 /* PurposeCVC.xib */; };
 		924751B9268E672300924891 /* LensBrandCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924751B7268E672300924891 /* LensBrandCVC.swift */; };
 		924751BA268E672300924891 /* LensBrandCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924751B8268E672300924891 /* LensBrandCVC.xib */; };
+		925644172692C1DB00A45945 /* NewLensTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925644152692C1DA00A45945 /* NewLensTVC.swift */; };
+		925644182692C1DB00A45945 /* NewLensTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925644162692C1DA00A45945 /* NewLensTVC.xib */; };
+		9256441B2692C1EF00A45945 /* NewLensCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925644192692C1EF00A45945 /* NewLensCVC.swift */; };
+		9256441C2692C1EF00A45945 /* NewLensCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9256441A2692C1EF00A45945 /* NewLensCVC.xib */; };
 		9261598926920EBE00E1E87F /* RecommendCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261598726920EBE00E1E87F /* RecommendCVC.swift */; };
 		9261598A26920EBE00E1E87F /* RecommendCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9261598826920EBE00E1E87F /* RecommendCVC.xib */; };
 		9261598D26921B4700E1E87F /* OneMinCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261598B26921B4700E1E87F /* OneMinCVC.swift */; };
@@ -121,6 +125,10 @@
 		924751B4268E49B500924891 /* PurposeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurposeCVC.xib; sourceTree = "<group>"; };
 		924751B7268E672300924891 /* LensBrandCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensBrandCVC.swift; sourceTree = "<group>"; };
 		924751B8268E672300924891 /* LensBrandCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LensBrandCVC.xib; sourceTree = "<group>"; };
+		925644152692C1DA00A45945 /* NewLensTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLensTVC.swift; sourceTree = "<group>"; };
+		925644162692C1DA00A45945 /* NewLensTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewLensTVC.xib; sourceTree = "<group>"; };
+		925644192692C1EF00A45945 /* NewLensCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLensCVC.swift; sourceTree = "<group>"; };
+		9256441A2692C1EF00A45945 /* NewLensCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewLensCVC.xib; sourceTree = "<group>"; };
 		9261598726920EBE00E1E87F /* RecommendCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCVC.swift; sourceTree = "<group>"; };
 		9261598826920EBE00E1E87F /* RecommendCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendCVC.xib; sourceTree = "<group>"; };
 		9261598B26921B4700E1E87F /* OneMinCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMinCVC.swift; sourceTree = "<group>"; };
@@ -288,6 +296,8 @@
 				9261598C26921B4700E1E87F /* OneMinCVC.xib */,
 				9261598F26921B6600E1E87F /* SeasonCVC.swift */,
 				9261599026921B6600E1E87F /* SeasonCVC.xib */,
+				925644192692C1EF00A45945 /* NewLensCVC.swift */,
+				9256441A2692C1EF00A45945 /* NewLensCVC.xib */,
 			);
 			path = CVC;
 			sourceTree = "<group>";
@@ -338,6 +348,8 @@
 				92F994FE26918C8C0053ABD8 /* OneMinTVC.xib */,
 				92F9950126918D4D0053ABD8 /* SeasonTVC.swift */,
 				92F9950226918D4D0053ABD8 /* SeasonTVC.xib */,
+				925644152692C1DA00A45945 /* NewLensTVC.swift */,
+				925644162692C1DA00A45945 /* NewLensTVC.xib */,
 			);
 			path = TVC;
 			sourceTree = "<group>";
@@ -737,6 +749,7 @@
 				F8B91F76268E207A006114CD /* Roboto-Regular.ttf in Resources */,
 				F86F7AC826900A2F0037081D /* Home.storyboard in Resources */,
 				F8B91F5A268E205E006114CD /* NotoSansCJKkr-Black.otf in Resources */,
+				9256441C2692C1EF00A45945 /* NewLensCVC.xib in Resources */,
 				F8B91F5D268E205E006114CD /* NotoSansCJKkr-Medium.otf in Resources */,
 				924751B6268E49B500924891 /* PurposeCVC.xib in Resources */,
 				F8B91F6C268E207A006114CD /* Roboto-ThinItalic.ttf in Resources */,
@@ -755,6 +768,7 @@
 				F8B91F77268E207A006114CD /* Roboto-Thin.ttf in Resources */,
 				924751A9268E2CFE00924891 /* FourthOnboarding.storyboard in Resources */,
 				F8B91F6F268E207A006114CD /* Roboto-BlackItalic.ttf in Resources */,
+				925644182692C1DB00A45945 /* NewLensTVC.xib in Resources */,
 				F83BA06B268C7DEF00E94E74 /* LensColorCVC.xib in Resources */,
 				F8B91F6D268E207A006114CD /* Roboto-Black.ttf in Resources */,
 				F83BA05B268C577E00E94E74 /* SecondOnboarding.storyboard in Resources */,
@@ -829,6 +843,7 @@
 				F83BA055268C4D5800E94E74 /* LoginVC.swift in Sources */,
 				F86F7AC626900A030037081D /* HomeVC.swift in Sources */,
 				E82DE900268C749800296B53 /* TimeDataModel.swift in Sources */,
+				9256441B2692C1EF00A45945 /* NewLensCVC.swift in Sources */,
 				92F994FB26918BC30053ABD8 /* RecommendTVC.swift in Sources */,
 				924751B2268E48CE00924891 /* PurposeDataModel.swift in Sources */,
 				E8C9A43C2690B97C00E5BD9D /* SearchTabBar.swift in Sources */,
@@ -841,6 +856,7 @@
 				9261598926920EBE00E1E87F /* RecommendCVC.swift in Sources */,
 				F83BA01F268C476B00E94E74 /* AppDelegate.swift in Sources */,
 				F83BA072268CEB5D00E94E74 /* UIColor+Addition.swift in Sources */,
+				925644172692C1DB00A45945 /* NewLensTVC.swift in Sources */,
 				F83BA040268C4A4A00E94E74 /* TempLottie.swift in Sources */,
 				924751AE268E42E200924891 /* LensBrandDataModel.swift in Sources */,
 				F83BA050268C4C3F00E94E74 /* ViewController.swift in Sources */,
