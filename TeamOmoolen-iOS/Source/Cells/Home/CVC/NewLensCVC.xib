@@ -42,10 +42,12 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7n8-jk-XT3">
-                        <rect key="frame" x="14" y="336" width="240" height="128"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dMV-Hb-mg6">
+                        <rect key="frame" x="0.0" y="342" width="324" height="298"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="298" id="Xjy-qv-1Lh"/>
+                        </constraints>
                     </tableView>
                 </subviews>
             </view>
@@ -53,12 +55,15 @@
             <constraints>
                 <constraint firstItem="48n-em-1gG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1Kv-bC-x98"/>
                 <constraint firstItem="wOy-3B-E3s" firstAttribute="leading" secondItem="VxA-mU-0lC" secondAttribute="trailing" constant="13" id="1hg-ip-taK"/>
+                <constraint firstItem="dMV-Hb-mg6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2A7-B5-nmb"/>
                 <constraint firstItem="VxA-mU-0lC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="2fG-Ut-8x6"/>
+                <constraint firstItem="dMV-Hb-mg6" firstAttribute="top" secondItem="48n-em-1gG" secondAttribute="bottom" constant="24" id="5Oq-Ix-nUR"/>
                 <constraint firstItem="wOy-3B-E3s" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="257" id="9Xh-ca-xYM"/>
                 <constraint firstAttribute="trailing" secondItem="48n-em-1gG" secondAttribute="trailing" id="Qmo-By-xFq"/>
                 <constraint firstItem="uq8-jk-MRw" firstAttribute="top" secondItem="wOy-3B-E3s" secondAttribute="bottom" constant="2" id="SWT-xo-u9P"/>
                 <constraint firstItem="VxA-mU-0lC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="249" id="SkW-1T-HA9"/>
                 <constraint firstItem="48n-em-1gG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="gDV-Ha-PwH"/>
+                <constraint firstAttribute="trailing" secondItem="dMV-Hb-mg6" secondAttribute="trailing" id="qBj-tJ-O2o"/>
                 <constraint firstItem="uq8-jk-MRw" firstAttribute="leading" secondItem="VxA-mU-0lC" secondAttribute="trailing" constant="13" id="wum-BW-ys5"/>
             </constraints>
             <connections>
@@ -66,6 +71,7 @@
                 <outlet property="brandLabel" destination="wOy-3B-E3s" id="i1h-Mc-g6g"/>
                 <outlet property="lensLabel" destination="uq8-jk-MRw" id="tyx-cZ-Vyh"/>
                 <outlet property="modelImageView" destination="48n-em-1gG" id="rDi-cZ-Hb7"/>
+                <outlet property="newLensTableView" destination="dMV-Hb-mg6" id="8if-jM-OKQ"/>
             </connections>
             <point key="canvasLocation" x="34.782608695652179" y="108.48214285714285"/>
         </collectionViewCell>

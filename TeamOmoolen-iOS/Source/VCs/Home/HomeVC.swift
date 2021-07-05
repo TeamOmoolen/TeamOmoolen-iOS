@@ -168,7 +168,7 @@ extension HomeVC: UITableViewDelegate {
             tableViewTopConstraint.constant = 60
             
             topButton.snp.updateConstraints { make in
-                make.bottom.equalToSuperview().inset(30)
+                make.bottom.equalToSuperview().inset(100)
             }
         } else {
             topButton.isHidden = true

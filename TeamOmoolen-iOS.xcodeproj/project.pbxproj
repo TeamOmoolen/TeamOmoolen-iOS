@@ -35,6 +35,8 @@
 		92A889DB2692FD4D00AC1B81 /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92A889DA2692FD4D00AC1B81 /* Tabbar.storyboard */; };
 		92A889DE26931A6900AC1B81 /* RecommendLens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889DD26931A6900AC1B81 /* RecommendLens.swift */; };
 		92A889E02693227000AC1B81 /* NewLens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889DF2693227000AC1B81 /* NewLens.swift */; };
+		92A889E3269334DB00AC1B81 /* NewLensDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889E1269334DB00AC1B81 /* NewLensDetailTVC.swift */; };
+		92A889E4269334DB00AC1B81 /* NewLensDetailTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A889E2269334DB00AC1B81 /* NewLensDetailTVC.xib */; };
 		92BF879D268CCC8100706384 /* AgeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF879C268CCC8100706384 /* AgeDataModel.swift */; };
 		92BF87A2268D908C00706384 /* GenderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF87A0268D908C00706384 /* GenderCVC.swift */; };
 		92BF87A3268D908C00706384 /* GenderCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BF87A1268D908C00706384 /* GenderCVC.xib */; };
@@ -152,6 +154,8 @@
 		92A889DA2692FD4D00AC1B81 /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabbar.storyboard; sourceTree = "<group>"; };
 		92A889DD26931A6900AC1B81 /* RecommendLens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendLens.swift; sourceTree = "<group>"; };
 		92A889DF2693227000AC1B81 /* NewLens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLens.swift; sourceTree = "<group>"; };
+		92A889E1269334DB00AC1B81 /* NewLensDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLensDetailTVC.swift; sourceTree = "<group>"; };
+		92A889E2269334DB00AC1B81 /* NewLensDetailTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewLensDetailTVC.xib; sourceTree = "<group>"; };
 		92BF879C268CCC8100706384 /* AgeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeDataModel.swift; sourceTree = "<group>"; };
 		92BF87A0268D908C00706384 /* GenderCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCVC.swift; sourceTree = "<group>"; };
 		92BF87A1268D908C00706384 /* GenderCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenderCVC.xib; sourceTree = "<group>"; };
@@ -378,6 +382,8 @@
 				92A889CB2692E11A00AC1B81 /* TimeRecommendTVC.xib */,
 				92A889D22692EC2800AC1B81 /* LastBannerTVC.swift */,
 				92A889D32692EC2800AC1B81 /* LastBannerTVC.xib */,
+				92A889E1269334DB00AC1B81 /* NewLensDetailTVC.swift */,
+				92A889E2269334DB00AC1B81 /* NewLensDetailTVC.xib */,
 			);
 			path = TVC;
 			sourceTree = "<group>";
@@ -769,6 +775,7 @@
 				F8B91F75268E207A006114CD /* Roboto-Medium.ttf in Resources */,
 				F86F7ACF2690A1C20037081D /* Search.xcassets in Resources */,
 				F8B91F57268E205E006114CD /* NotoSansCJKkr-Light.otf in Resources */,
+				92A889E4269334DB00AC1B81 /* NewLensDetailTVC.xib in Resources */,
 				E82DE8EE268C5CC700296B53 /* ThirdOnboarding.storyboard in Resources */,
 				F824590A268E1F3A0048BE84 /* TimeCVC.xib in Resources */,
 				F8B91F73268E207A006114CD /* Roboto-Italic.ttf in Resources */,
@@ -872,6 +879,7 @@
 				E8C9A43A2690AD1000E5BD9D /* SearchVC.swift in Sources */,
 				F83BA04E268C4C3500E94E74 /* Storyboard.swift in Sources */,
 				92F9950326918D4D0053ABD8 /* SeasonTVC.swift in Sources */,
+				92A889E3269334DB00AC1B81 /* NewLensDetailTVC.swift in Sources */,
 				927F97FE268C840100E893F2 /* GenderDataModel.swift in Sources */,
 				E8A078622690F32200D99444 /* RecentSearchVC.swift in Sources */,
 				92A889D92692FBD200AC1B81 /* TabBarController.swift in Sources */,

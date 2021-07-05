@@ -19,12 +19,16 @@ class OneMinCVC: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var oneMinTableView: UITableView!
+    
     @IBOutlet weak var moreButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setUI()
+        registerXib()
+        setTableView()
     }
 
 }
@@ -38,6 +42,8 @@ extension OneMinCVC {
         contentView.layer.masksToBounds = true
         
         topView.backgroundColor = .omMainOrange
+        
+        oneMinTableView.backgroundColor = .gray
         
         titleLabel.text = "오무렌 1분 렌즈 상식"
         titleLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
@@ -55,7 +61,30 @@ extension OneMinCVC {
         moreButton.layer.masksToBounds = true
     }
     
+    func registerXib() {
+        
+    }
+    
+    func setTableView() {
+        oneMinTableView.delegate = self
+        oneMinTableView.dataSource = self
+    }
+    
     func initCell() {
         
+    }
+}
+
+extension OneMinCVC: UITableViewDelegate {
+    
+}
+
+extension OneMinCVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }
