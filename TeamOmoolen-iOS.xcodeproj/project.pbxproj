@@ -91,6 +91,7 @@
 		F83BA072268CEB5D00E94E74 /* UIColor+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA071268CEB5D00E94E74 /* UIColor+Addition.swift */; };
 		F83BA076268D760000E94E74 /* OnboardingImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA075268D760000E94E74 /* OnboardingImage.xcassets */; };
 		F83DBBFD268EE0C900E47B15 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA024268C476B00E94E74 /* Login.storyboard */; };
+		F8514795269366C300C8532F /* HomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8514794269366C300C8532F /* HomeDataModel.swift */; };
 		F86F7AC626900A030037081D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F7AC526900A030037081D /* HomeVC.swift */; };
 		F86F7AC826900A2F0037081D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F86F7AC726900A2F0037081D /* Home.storyboard */; };
 		F86F7ACA269068960037081D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F86F7AC9269068960037081D /* Splash.storyboard */; };
@@ -218,6 +219,7 @@
 		F83BA070268CE8E200E94E74 /* TeamOmoolen-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TeamOmoolen-iOS.entitlements"; sourceTree = "<group>"; };
 		F83BA071268CEB5D00E94E74 /* UIColor+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Addition.swift"; sourceTree = "<group>"; };
 		F83BA075268D760000E94E74 /* OnboardingImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OnboardingImage.xcassets; sourceTree = "<group>"; };
+		F8514794269366C300C8532F /* HomeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataModel.swift; sourceTree = "<group>"; };
 		F86F7AC526900A030037081D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		F86F7AC726900A2F0037081D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F86F7AC9269068960037081D /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
@@ -556,8 +558,8 @@
 		F83BA03A268C49DB00E94E74 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F8CB27F626932EB100DEFA75 /* ThirdOnboarding */,
 				F8CB27EF2692C1DA00DEFA75 /* NetworkDataModel */,
+				F8CB27F626932EB100DEFA75 /* ThirdOnboarding */,
 				92A889DC26931A3D00AC1B81 /* Home */,
 				924751A7268E2CC500924891 /* FourthOnboarding */,
 				F85CD050268DB0F3005A3C95 /* SecondOnboarding */,
@@ -623,6 +625,14 @@
 				F83BA069268C7DEF00E94E74 /* LensColorCVC.xib */,
 			);
 			path = SecondOnboarding;
+			sourceTree = "<group>";
+		};
+		F8514793269366AC00C8532F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F8514794269366C300C8532F /* HomeDataModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		F85CD050268DB0F3005A3C95 /* SecondOnboarding */ = {
@@ -724,6 +734,7 @@
 		F8CB27F72693367E00DEFA75 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				F8514793269366AC00C8532F /* Home */,
 				F8CB27F426931FF700DEFA75 /* OnboardingRequest.swift */,
 				F8CB27F02692C1F700DEFA75 /* OnboardingDataModel.swift */,
 			);
@@ -930,6 +941,7 @@
 				9261598926920EBE00E1E87F /* RecommendCVC.swift in Sources */,
 				F83BA01F268C476B00E94E74 /* AppDelegate.swift in Sources */,
 				92A889DE26931A6900AC1B81 /* RecommendLens.swift in Sources */,
+				F8514795269366C300C8532F /* HomeDataModel.swift in Sources */,
 				F83BA072268CEB5D00E94E74 /* UIColor+Addition.swift in Sources */,
 				925644172692C1DB00A45945 /* NewLensTVC.swift in Sources */,
 				F83BA040268C4A4A00E94E74 /* TempLottie.swift in Sources */,

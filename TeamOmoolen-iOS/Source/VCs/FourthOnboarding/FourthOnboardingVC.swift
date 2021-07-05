@@ -108,14 +108,27 @@ class FourthOnboardingVC: UIViewController {
         print(brandListCollectionView.indexPathsForSelectedItems!)
         print(purposeListCollectionView.indexPathsForSelectedItems!)
         print(lensTextView.text!)
-        guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {
-            return
-        }
-        homeVC.modalPresentationStyle = .fullScreen
-        homeVC.modalTransitionStyle = .crossDissolve
+
+        
         let param = OnboardingRequest(gender, age, lensKind, lensColor, lensFunction, lensPeriod, lensBrand, lensName, lensWhen, "001628.1f39bf3727b44f1f8a6615166ae3b718.0924")
+        
         OnboardingAPI.shared.postOnboardingWithAPI(param: param) { response in
-            print("data: \(response)")
+            print("data: \(response.success)")
+            if response.success {
+                print("postOnboardingWithAPI: post success")
+                guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {
+                    return
+                }
+                homeVC.modalPresentationStyle = .fullScreen
+                homeVC.modalTransitionStyle = .crossDissolve
+            } else {
+                print("postOnboardingWithAPI: post Fail")
+                guard let loginVC = UIStoryboard(name: Const.Storyboard.Name.Login, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Login) as? LoginVC else {
+                    return
+                }
+                loginVC.modalPresentationStyle = .fullScreen
+                loginVC.modalTransitionStyle = .crossDissolve
+            }
         }
     }
     

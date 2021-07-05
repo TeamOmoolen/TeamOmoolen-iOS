@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Moya
 
 class HomeVC: UIViewController {
     
@@ -55,6 +56,7 @@ class HomeVC: UIViewController {
         
         registerXib()
         setHomeTableView()
+        getHomeWithAPI()
     }
 }
 
@@ -121,6 +123,12 @@ extension HomeVC {
         homeTableView.dataSource = self
         
         homeTableView.separatorStyle = .none
+    }
+    
+    func getHomeWithAPI() {
+        OnboardingAPI.shared.getHomeWithAPI() { response in
+//            response.
+        }
     }
 }
 
