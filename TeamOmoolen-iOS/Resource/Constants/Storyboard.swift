@@ -19,6 +19,8 @@ extension Const {
             static let Home = "Home"
             static let Splash = "Splash"
             static let Search = "Search"
+            
+            static let Tabbar = "Tabbar"
         }
     }
 }

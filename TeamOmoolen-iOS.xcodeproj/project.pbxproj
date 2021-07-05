@@ -31,6 +31,8 @@
 		92A889CD2692E11A00AC1B81 /* TimeRecommendTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A889CB2692E11A00AC1B81 /* TimeRecommendTVC.xib */; };
 		92A889D42692EC2800AC1B81 /* LastBannerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889D22692EC2800AC1B81 /* LastBannerTVC.swift */; };
 		92A889D52692EC2800AC1B81 /* LastBannerTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A889D32692EC2800AC1B81 /* LastBannerTVC.xib */; };
+		92A889D92692FBD200AC1B81 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889D82692FBD200AC1B81 /* TabBarController.swift */; };
+		92A889DB2692FD4D00AC1B81 /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92A889DA2692FD4D00AC1B81 /* Tabbar.storyboard */; };
 		92A889DE26931A6900AC1B81 /* RecommendLens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889DD26931A6900AC1B81 /* RecommendLens.swift */; };
 		92A889E02693227000AC1B81 /* NewLens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889DF2693227000AC1B81 /* NewLens.swift */; };
 		92BF879D268CCC8100706384 /* AgeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF879C268CCC8100706384 /* AgeDataModel.swift */; };
@@ -146,6 +148,8 @@
 		92A889CB2692E11A00AC1B81 /* TimeRecommendTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeRecommendTVC.xib; sourceTree = "<group>"; };
 		92A889D22692EC2800AC1B81 /* LastBannerTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastBannerTVC.swift; sourceTree = "<group>"; };
 		92A889D32692EC2800AC1B81 /* LastBannerTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastBannerTVC.xib; sourceTree = "<group>"; };
+		92A889D82692FBD200AC1B81 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		92A889DA2692FD4D00AC1B81 /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabbar.storyboard; sourceTree = "<group>"; };
 		92A889DD26931A6900AC1B81 /* RecommendLens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendLens.swift; sourceTree = "<group>"; };
 		92A889DF2693227000AC1B81 /* NewLens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLens.swift; sourceTree = "<group>"; };
 		92BF879C268CCC8100706384 /* AgeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeDataModel.swift; sourceTree = "<group>"; };
@@ -490,6 +494,7 @@
 				E8C9A42726908CF900E5BD9D /* Search.storyboard */,
 				F86F7AC726900A2F0037081D /* Home.storyboard */,
 				F86F7AC9269068960037081D /* Splash.storyboard */,
+				92A889DA2692FD4D00AC1B81 /* Tabbar.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -623,6 +628,7 @@
 			isa = PBXGroup;
 			children = (
 				F86F7AC526900A030037081D /* HomeVC.swift */,
+				92A889D82692FBD200AC1B81 /* TabBarController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -759,6 +765,7 @@
 				92A889CD2692E11A00AC1B81 /* TimeRecommendTVC.xib in Resources */,
 				92F9950426918D4D0053ABD8 /* SeasonTVC.xib in Resources */,
 				E8C9A42826908CF900E5BD9D /* Search.storyboard in Resources */,
+				92A889DB2692FD4D00AC1B81 /* Tabbar.storyboard in Resources */,
 				F8B91F75268E207A006114CD /* Roboto-Medium.ttf in Resources */,
 				F86F7ACF2690A1C20037081D /* Search.xcassets in Resources */,
 				F8B91F57268E205E006114CD /* NotoSansCJKkr-Light.otf in Resources */,
@@ -867,6 +874,7 @@
 				92F9950326918D4D0053ABD8 /* SeasonTVC.swift in Sources */,
 				927F97FE268C840100E893F2 /* GenderDataModel.swift in Sources */,
 				E8A078622690F32200D99444 /* RecentSearchVC.swift in Sources */,
+				92A889D92692FBD200AC1B81 /* TabBarController.swift in Sources */,
 				F83BA055268C4D5800E94E74 /* LoginVC.swift in Sources */,
 				F86F7AC626900A030037081D /* HomeVC.swift in Sources */,
 				E82DE900268C749800296B53 /* TimeDataModel.swift in Sources */,
