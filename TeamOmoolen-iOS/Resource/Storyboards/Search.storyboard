@@ -11,7 +11,7 @@
         <!--SearchVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="SearchVC" customModule="TeamOmoolen_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchVC" id="Y6W-OH-hqX" customClass="SearchVC" customModule="TeamOmoolen_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,9 +29,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c78-wW-gZH">
                                 <rect key="frame" x="39" y="54" width="316" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="검색어를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MOf-Gz-KZ1">
-                                        <rect key="frame" x="8" y="3" width="150" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="원하는 렌즈를 검색해보세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MOf-Gz-KZ1">
+                                        <rect key="frame" x="14" y="3" width="181" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -39,6 +38,9 @@
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="c78-wW-gZH" secondAttribute="height" multiplier="316:40" id="0Sg-Ft-8oy"/>
+                                    <constraint firstAttribute="bottom" secondItem="MOf-Gz-KZ1" secondAttribute="bottom" constant="3" id="iap-Xe-24z"/>
+                                    <constraint firstItem="MOf-Gz-KZ1" firstAttribute="leading" secondItem="c78-wW-gZH" secondAttribute="leading" constant="14" id="iic-D1-G1Y"/>
+                                    <constraint firstItem="MOf-Gz-KZ1" firstAttribute="top" secondItem="c78-wW-gZH" secondAttribute="top" constant="3" id="z6o-lu-xEV"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8S-5U-p4n">
@@ -62,6 +64,8 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="ONP-XA-ib6" id="PJC-Yb-4VT"/>
+                        <outlet property="searchBarView" destination="c78-wW-gZH" id="X67-Wu-Udm"/>
+                        <outlet property="searchTextField" destination="MOf-Gz-KZ1" id="0fh-Ad-qEy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

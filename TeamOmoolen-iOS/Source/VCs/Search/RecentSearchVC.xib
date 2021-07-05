@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecentSearchVC" customModule="TeamOmoolen_iOS" customModuleProvider="target">
             <connections>
+                <outlet property="stackView" destination="VXG-5W-R5h" id="oKC-ff-czE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,16 +18,18 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="최근 검색어 선배" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WX3-Vo-8Sl">
-                    <rect key="frame" x="144" y="418" width="112" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="VXG-5W-R5h">
+                    <rect key="frame" x="0.0" y="160" width="414" height="702"/>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="VXG-5W-R5h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RTq-Jy-04M"/>
+                <constraint firstItem="VXG-5W-R5h" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="tZ1-mc-Sts"/>
+                <constraint firstItem="VXG-5W-R5h" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="116" id="vDV-vG-zUq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="VXG-5W-R5h" secondAttribute="bottom" id="zMZ-dM-oDw"/>
+            </constraints>
             <point key="canvasLocation" x="-86.956521739130437" y="67.633928571428569"/>
         </view>
     </objects>

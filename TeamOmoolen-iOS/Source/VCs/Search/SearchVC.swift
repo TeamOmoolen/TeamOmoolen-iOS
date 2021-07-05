@@ -10,7 +10,9 @@ import UIKit
 class SearchVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var searchBarView: UIView!
+    
     
     let searchViews : [UIViewController] = [RecentSearchVC(), FilterVC()]
     
@@ -49,7 +51,20 @@ class SearchVC: UIViewController {
         layout.minimumLineSpacing = 0
         collectionView.collectionViewLayout = layout
         collectionView.isPagingEnabled = true
+        
+        searchBarView.layer.cornerRadius = 6
+        searchBarView.backgroundColor = .omFifthGray
 
+        searchTextField.backgroundColor = .omFifthGray
+        searchTextField.layer.borderWidth = 1
+        searchTextField.layer.borderColor = UIColor.omFifthGray.cgColor
+        
+        let attributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.omFourthGray,
+            NSAttributedString.Key.font : UIFont(name: "NotoSansCJKKR-Regular", size: 14)!
+        ]
+        searchTextField.attributedPlaceholder = NSAttributedString(string: "원하는 렌즈를 검색해보세요",
+                                                                   attributes: attributes )
 
     }
     
