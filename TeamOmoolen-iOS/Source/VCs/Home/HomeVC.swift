@@ -33,7 +33,6 @@ class HomeVC: UIViewController {
                                                      scale: .large),
                                                forImageIn: .normal)
         button.addTarget(self, action: #selector(touchUpTop), for: .touchUpInside)
-        print("버튼 생성")
         return button
     }()
     

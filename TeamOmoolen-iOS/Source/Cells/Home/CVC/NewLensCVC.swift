@@ -44,6 +44,7 @@ class NewLensCVC: UICollectionViewCell {
         super.awakeFromNib()
         
         setUI()
+        setList()
     }
     
 }
@@ -119,7 +120,12 @@ extension NewLensCVC {
         thirdPriceLabel.textColor = .omMainBlack
     }
     
-    func initCell() {
+    func setList() {
         
+    }
+    
+    func initCell(brandName: String, lensName: String) {
+        brandLabel.text = brandName
+        lensLabel.text = lensName
     }
 }
