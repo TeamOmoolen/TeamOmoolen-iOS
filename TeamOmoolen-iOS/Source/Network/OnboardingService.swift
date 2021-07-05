@@ -12,6 +12,7 @@ enum OnboardingService {
 //    static let key = "4803d10b09913b29b376e511c75a63fb"
     
     case onboarding(param: OnboardingRequest)
+    case home
 }
 
 extension OnboardingService: TargetType {
@@ -23,12 +24,16 @@ extension OnboardingService: TargetType {
         switch self {
         case .onboarding:
             return "/onboarding"
+        case .home:
+            return "/home"
         }
     }
     public var method: Moya.Method {
         switch self {
         case .onboarding:
             return .post
+        case .home:
+            return .get
         }
     }
     
@@ -40,6 +45,8 @@ extension OnboardingService: TargetType {
         switch self {
         case .onboarding(let param):
             return .requestJSONEncodable(param)
+        case .home:
+            return .requestPlain
         }
     }
     
