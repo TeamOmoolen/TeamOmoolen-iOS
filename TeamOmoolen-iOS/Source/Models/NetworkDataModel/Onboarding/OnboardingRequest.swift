@@ -10,8 +10,8 @@ import Foundation
 struct OnboardingRequest: Codable {
     let gender: String
     let age: String
-    let lensKind: String
-    let lensColor: String
+    let lensKind: [String]
+    let lensColor: [String]
     let lensFunction: String
     let lensPeriod: String
     let lensBrand: String
@@ -20,7 +20,7 @@ struct OnboardingRequest: Codable {
     
     let userIdentifier: String
     
-    init(_ gender: String, _ age: String, _ lensKind: String, _ lensColor: String, _ lensFunction: String, _ lensPeriod: String, _ lensBrand: String, _ lensName: String, _ lensWhen: String, _ userIdentifier: String) {
+    init(_ gender: String, _ age: String, _ lensKind: [String], _ lensColor: [String], _ lensFunction: String, _ lensPeriod: String, _ lensBrand: String, _ lensName: String, _ lensWhen: String, _ userIdentifier: String) {
         self.gender = gender
         self.age = age
         self.lensKind = lensKind
