@@ -20,6 +20,7 @@ class FourthOnboardingVC: UIViewController {
     @IBOutlet weak var guideLabel2: UILabel!
     @IBOutlet weak var guideLabel3: UILabel!
     
+    @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var brandSelectView: UIView!
     @IBOutlet weak var brandSelectLabel: UILabel!
     
@@ -61,8 +62,8 @@ class FourthOnboardingVC: UIViewController {
     // MARK: - Local Variables
     var gender = ""
     var age = ""
-    var lensKind = ""
-    var lensColor = ""
+    var lensKind = [String]()
+    var lensColor = [String]()
     var lensFunction = ""
     var lensPeriod = ""
     var lensBrand = ""
@@ -105,12 +106,57 @@ class FourthOnboardingVC: UIViewController {
     }
     
     @IBAction func pushToHome(_ sender: Any) {
-        print(brandListCollectionView.indexPathsForSelectedItems!)
-        print(purposeListCollectionView.indexPathsForSelectedItems!)
-        print(lensTextView.text!)
-
+        lensName = lensTextView.text
         
+        if purposeListCollectionView.indexPathsForSelectedItems! == [[0,0]] {
+            lensBrand = "오렌즈"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,1]] {
+            lensBrand = "렌즈미"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,2]] {
+            lensBrand = "렌즈베리"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,3]] {
+            lensBrand = "앤365"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,4]] {
+            lensBrand = "렌즈타운"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,5]] {
+            lensBrand = "다비치"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,6]] {
+            lensBrand = "아이돌렌즈"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,7]] {
+            lensBrand = "렌즈나인"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,8]] {
+            lensBrand = "렌즈디바"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,9]] {
+            lensBrand = "아큐브"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,10]] {
+            lensBrand = "바슈롬"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,11]] {
+            lensBrand = "클라렌"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,12]] {
+            lensBrand = "알콘"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,13]] {
+            lensBrand = "뉴바이오"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,14]] {
+            lensBrand = "프레쉬콘"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,15]] {
+            lensBrand = "쿠퍼비전"
+        } else {
+            lensBrand = "그 외"
+        }
+        
+        if purposeListCollectionView.indexPathsForSelectedItems! == [[0,0]] {
+            lensWhen = "운동"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,1]] {
+            lensWhen = "특별한 날"
+        } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,2]] {
+            lensWhen = "여행"
+        } else {
+            lensWhen = "기타"
+        }
+
         let param = OnboardingRequest(gender, age, lensKind, lensColor, lensFunction, lensPeriod, lensBrand, lensName, lensWhen, "001628.1f39bf3727b44f1f8a6615166ae3b718.0924")
+        
+        print(param)
         
         OnboardingAPI.shared.postOnboardingWithAPI(param: param) { response in
             print("data: \(response.success)")
@@ -197,6 +243,11 @@ extension FourthOnboardingVC {
         guideLabel2.textColor = .omFourthGray
         guideLabel2.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
         
+        warningLabel.text = "렌즈 정보를 입력하지 않았습니다."
+        warningLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 12)
+        warningLabel.textColor = .omMainRed
+        warningLabel.isHidden = true
+        
         guideLabel3.text = "렌즈를 주로 언제 착용하시나요?"
         guideLabel3.textColor = .omMainBlack
         guideLabel3.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
@@ -213,6 +264,7 @@ extension FourthOnboardingVC {
         lensTextView.layer.cornerRadius = 10
         lensTextView.layer.masksToBounds = true
         lensTextView.layer.applyShadow(color: .black, alpha: 0.14, x: 2, y: 2, blur: 7, spread: 0)
+//        lensTextView.isEditable = false
         
         lensTextView.backgroundColor = .omAlmostwhite
         lensTextView.font = UIFont(name: "NotoSansCJKKR-DemiLight", size: 15)
@@ -250,7 +302,7 @@ extension FourthOnboardingVC {
             LensBrandDataModel(brandLogoImage: "abc", brandName: "뉴바이오"),
             LensBrandDataModel(brandLogoImage: "abc", brandName: "프레쉬콘"),
             LensBrandDataModel(brandLogoImage: "abc", brandName: "쿠퍼비전"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "그외")
+            LensBrandDataModel(brandLogoImage: "abc", brandName: "그 외")
         ])
         
         purposeList.append(contentsOf: [
@@ -381,11 +433,13 @@ extension FourthOnboardingVC: UITextViewDelegate {
             lensTextView.layer.borderWidth = 0
             NotificationCenter.default.post(name: NSNotification.Name("buttonInActive"), object: lensTextView.text)
             print("렌즈명 입력해라.")
+            warningLabel.isHidden = false
         } else {
             lensTextView.textColor = .omMainOrange
             lensTextView.font = UIFont(name: "NotoSansCJKKR-Medium", size: 15)
             lensTextView.layer.borderWidth = 1
             lensTextView.layer.borderColor = UIColor.omMainOrange.cgColor
+            warningLabel.isHidden = true
             NotificationCenter.default.post(name: NSNotification.Name("buttonActive"), object: lensTextView.text)
         }
     }

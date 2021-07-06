@@ -51,14 +51,27 @@ class FirstOnboardingVC: UIViewController {
     
     // MARK: - @IBAction Methods
     @IBAction func pushToSecondOnboarding(_ sender: Any) {
-        print(genderListCollectionView.indexPathsForSelectedItems!)
-        print(ageListCollectionView.indexPathsForSelectedItems!)
-        
         guard let nextVC = UIStoryboard(name: Const.Storyboard.Name.SecondOnboarding, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SecondOnboarding) as? SecondOnboardingVC else {
             return
         }
+        if genderListCollectionView.indexPathsForSelectedItems! == [[0,0]] {
+            gender = "여성"
+        } else {
+            gender = "여성"
+        }
+        
+        if ageListCollectionView.indexPathsForSelectedItems! == [[0,0]] {
+            age = "10대"
+        } else if ageListCollectionView.indexPathsForSelectedItems! == [[0,1]] {
+            age = "20대"
+        } else if ageListCollectionView.indexPathsForSelectedItems! == [[0,2]] {
+            age = "30대"
+        } else {
+            age = "40대 이상"
+        }
         nextVC.gender = gender
         nextVC.age = age
+        print("gender: \(gender) , age: \(age)")
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -159,16 +172,6 @@ extension FirstOnboardingVC {
 // MARK: - UICollectionView Delegate
 extension FirstOnboardingVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if genderListCollectionView.indexPathsForSelectedItems?.isEmpty == false && ageListCollectionView.indexPathsForSelectedItems?.isEmpty == false {
-            nextButton.backgroundColor = .omMainOrange
-            nextButton.isUserInteractionEnabled = true
-        } else {
-            nextButton.backgroundColor = .omFourthGray
-            nextButton.isUserInteractionEnabled = false
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if genderListCollectionView.indexPathsForSelectedItems?.isEmpty == false && ageListCollectionView.indexPathsForSelectedItems?.isEmpty == false {
             nextButton.backgroundColor = .omMainOrange
             nextButton.isUserInteractionEnabled = true

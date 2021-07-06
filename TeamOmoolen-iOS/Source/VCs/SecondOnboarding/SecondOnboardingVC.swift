@@ -14,8 +14,8 @@ class SecondOnboardingVC: UIViewController {
     private var lensColorList = [LensColorModel]()
     var gender = ""
     var age = ""
-    var lensKind = ""
-    var lensColor = ""
+    var lensKind = [String]()
+    var lensColor = [String]()
 
     // MARK: - @IBOutlet Properties
     @IBOutlet weak var customNavigationBarView: UIView!
@@ -92,6 +92,7 @@ class SecondOnboardingVC: UIViewController {
     func collectionViewDelegate() {
         firstCollectionView.delegate = self
         firstCollectionView.dataSource = self
+        firstCollectionView.allowsMultipleSelection = true
         
         secondCollectionView.delegate = self
         secondCollectionView.dataSource = self
@@ -139,16 +140,72 @@ class SecondOnboardingVC: UIViewController {
     
     // MARK: - @IBAction Properties
     @IBAction func pushToThirdOnboarding(_ sender: Any) {
-        print(firstCollectionView.indexPathsForSelectedItems!)
-        print(secondCollectionView.indexPathsForSelectedItems!)
+//        print(firstCollectionView.indexPathsForSelectedItems!)
+//        print(secondCollectionView.indexPathsForSelectedItems!)
         
         guard let nextVC = UIStoryboard(name: Const.Storyboard.Name.ThirdOnboarding, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.ThirdOnboarding) as? ThirdOnboardingVC else {
             return
         }
+        // append lensKind
+        guard let lensKindList = firstCollectionView.indexPathsForSelectedItems else {
+            return
+        }
+        if lensKindList.contains([0,0]) {
+            lensKind.append("컬러렌즈")
+        }
+        if lensKindList.contains([0,1]) {
+            lensKind.append("투명렌즈")
+        }
+        if lensKindList.contains([0,2]) {
+            lensKind.append("코스프레/공막렌즈")
+        }
+        
+        // append lensColor
+        guard let lensColorList = secondCollectionView.indexPathsForSelectedItems else {
+            return
+        }
+        if lensColorList.contains([0,0]) {
+            lensColor.append("투명")
+        }
+        if lensColorList.contains([0,1]) {
+            lensColor.append("블랙")
+        }
+        if lensColorList.contains([0,2]) {
+            lensColor.append("그레이")
+        }
+        if lensColorList.contains([0,3]) {
+            lensColor.append("초코")
+        }
+        if lensColorList.contains([0,4]) {
+            lensColor.append("그린")
+        }
+        if lensColorList.contains([0,5]) {
+            lensColor.append("브라운")
+        }
+        if lensColorList.contains([0,6]) {
+            lensColor.append("퍼플")
+        }
+        if lensColorList.contains([0,7]) {
+            lensColor.append("블루")
+        }
+        if lensColorList.contains([0,8]) {
+            lensColor.append("골드")
+        }
+        if lensColorList.contains([0,9]) {
+            lensColor.append("핑크")
+        }
+        if lensColorList.contains([0,10]) {
+            lensColor.append("글리터")
+        }
+        if lensColorList.contains([0,11]) {
+            lensColor.append("기타")
+        }
+        
         nextVC.age = age
         nextVC.gender = gender
         nextVC.lensKind = lensKind
         nextVC.lensColor = lensColor
+        print("gender: \(gender) , age: \(age), lensKind: \(lensKind), lensColor: \(lensColor)")
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
