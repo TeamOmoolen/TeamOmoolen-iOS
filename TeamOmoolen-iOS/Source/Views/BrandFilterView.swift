@@ -19,6 +19,8 @@ class BrandFilterView: UIView {
     // MARK: - Local Variables
     
     private var brandList: [LensBrandDataModel] = []
+    var lensBrand = [String]()
+    var isAllSelected = false
     
     // MARK: - init Methods
     
@@ -41,6 +43,7 @@ class BrandFilterView: UIView {
         self.addSubview(customView)
         
         setUI()
+        setButton()
         setList()
         registerXib()
         setCollectionView()
@@ -92,6 +95,26 @@ extension BrandFilterView {
     }
 }
 
+// MARK: - Action Methods
+
+extension BrandFilterView {
+    func setButton() {
+        let allSelectAction = UIAction { _ in
+            if !self.isAllSelected {
+                self.isAllSelected = true
+                self.selectButton.tintColor = .omMainOrange
+                self.brandListCollectionView.selectAll(animated: true)
+            } else {
+                self.isAllSelected = false
+                self.selectButton.tintColor = .omFourthGray
+                self.brandListCollectionView.deselectAll(animated: true)
+            }
+        }
+        selectButton.addAction(allSelectAction, for: .touchUpInside)
+    }
+}
+
+
 // MARK: - UICollectionViewDataSource
 
 extension BrandFilterView: UICollectionViewDataSource {
@@ -106,9 +129,8 @@ extension BrandFilterView: UICollectionViewDataSource {
         cell.initCell(brandLogoImage: brandList[indexPath.row].brandLogoImage, brandName: brandList[indexPath.row].brandName)
         return cell
     }
-    
-    
 }
+
 // MARK: - UICollectionViewDelegateFlowLayout
 
 extension BrandFilterView: UICollectionViewDelegateFlowLayout {
@@ -127,6 +149,6 @@ extension BrandFilterView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .zero
+        return UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
     }
 }

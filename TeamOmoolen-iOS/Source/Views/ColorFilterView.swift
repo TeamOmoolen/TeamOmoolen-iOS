@@ -18,6 +18,8 @@ class ColorFilterView: UIView {
     // MARK: - Local Variables
     
     private var lensColorList = [LensColorModel]()
+    var lensColor = [String]()
+    var isAllSelected = false
     
     // MARK: - init Methods
     
@@ -40,6 +42,7 @@ class ColorFilterView: UIView {
         self.addSubview(customView)
         
         setUI()
+        setButton()
         setList()
         registerXib()
         setCollectionView()
@@ -87,7 +90,26 @@ extension ColorFilterView {
     }
 }
 
-// MARK: - UICollectionViewDataSource
+// MARK: - Action Methods
+
+extension ColorFilterView {
+    func setButton() {
+        let allSelectAction = UIAction { _ in
+            if !self.isAllSelected {
+                self.isAllSelected = true
+                self.selectButton.tintColor = .omMainOrange
+                self.colorCollectionView.selectAll(animated: true)
+            } else {
+                self.isAllSelected = false
+                self.selectButton.tintColor = .omFourthGray
+                self.colorCollectionView.deselectAll(animated: true)
+            }
+        }
+        selectButton.addAction(allSelectAction, for: .touchUpInside)
+    }
+}
+
+// MARK: - UI CollectionViewDataSource
 
 extension ColorFilterView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -103,9 +125,8 @@ extension ColorFilterView: UICollectionViewDataSource {
         cell.contentView.layer.masksToBounds = true
         return cell
     }
-    
-    
 }
+
 // MARK: - UICollectionViewDelegateFlowLayout
 
 extension ColorFilterView: UICollectionViewDelegateFlowLayout {
@@ -113,7 +134,7 @@ extension ColorFilterView: UICollectionViewDelegateFlowLayout {
         let width = collectionView.frame.width
         let height = collectionView.frame.height
         let cellWidth = (width - 7) / 2
-        let cellHeight = (height - 60) / 6
+        let cellHeight = (height - 100) / 6
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
@@ -126,6 +147,6 @@ extension ColorFilterView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        return UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
     }
 }
