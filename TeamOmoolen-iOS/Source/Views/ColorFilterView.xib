@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ColorFilterView" customModule="TeamOmoolen_iOS" customModuleProvider="target">
+            <connections>
+                <outlet property="colorCollectionView" destination="uAM-KA-hNb" id="2wm-At-bgH"/>
+                <outlet property="filterLabel" destination="s8m-fV-Uav" id="suW-6N-nwa"/>
+                <outlet property="selectButton" destination="uiy-pK-G4e" id="bfS-9e-wyd"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8m-fV-Uav">
+                    <rect key="frame" x="20" y="44" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiy-pK-G4e">
+                    <rect key="frame" x="348" y="39.5" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="uAM-KA-hNb">
+                    <rect key="frame" x="0.0" y="69.5" width="414" height="384"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="384" id="VZg-I6-WCU"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="79z-e1-gGA">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="uiy-pK-G4e" firstAttribute="centerY" secondItem="s8m-fV-Uav" secondAttribute="centerY" id="1NI-RU-qSx"/>
+                <constraint firstItem="uAM-KA-hNb" firstAttribute="top" secondItem="uiy-pK-G4e" secondAttribute="bottom" id="3wf-hc-XiZ"/>
+                <constraint firstItem="s8m-fV-Uav" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="9xc-8e-Mbp"/>
+                <constraint firstItem="uAM-KA-hNb" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Yib-Vt-AtG"/>
+                <constraint firstItem="uAM-KA-hNb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dw1-6s-LsK"/>
+                <constraint firstItem="s8m-fV-Uav" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="h5J-qo-x40"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uiy-pK-G4e" secondAttribute="trailing" constant="20" id="w02-It-qAD"/>
+            </constraints>
+            <point key="canvasLocation" x="34.782608695652179" y="73.660714285714278"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

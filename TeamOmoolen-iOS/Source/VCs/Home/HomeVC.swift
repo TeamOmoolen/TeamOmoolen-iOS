@@ -80,7 +80,7 @@ extension HomeVC {
         
         topButton.snp.makeConstraints { make in
             make.width.height.equalTo(60)
-            make.trailing.equalToSuperview().inset(20)
+            make.trailing.equalToSuperview().inset(25)
             make.bottom.equalToSuperview().inset(-100)
         }
         
