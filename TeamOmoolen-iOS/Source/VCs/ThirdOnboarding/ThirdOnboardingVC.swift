@@ -14,8 +14,8 @@ class ThirdOnboardingVC: UIViewController {
     private var timeList: [TimeDataModel] = []
     var gender = ""
     var age = ""
-    var lensKind = ""
-    var lensColor = ""
+    var lensKind = [String]()
+    var lensColor = [String]()
     var lensFunction = ""
     var lensPeriod = ""
     
@@ -38,12 +38,51 @@ class ThirdOnboardingVC: UIViewController {
         guard let nextVC = UIStoryboard(name: Const.Storyboard.Name.FourthOnboarding, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.FourthOnboarding) as? FourthOnboardingVC else {
             return
         }
+        
+        if functionCollectionView.indexPathsForSelectedItems! == [[0,0]] {
+            lensFunction = "근시"
+        } else if functionCollectionView.indexPathsForSelectedItems! == [[0,1]] {
+            lensFunction = "난시"
+        } else if functionCollectionView.indexPathsForSelectedItems! == [[0,2]] {
+            lensFunction = "다초점"
+        } else {
+            lensFunction = "없음"
+        }
+        
+        if timeCollectionView.indexPathsForSelectedItems! == [[0,0]] {
+            print(timeCollectionView.indexPathsForSelectedItems!)
+            lensPeriod = "원데이"
+        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,1]] {
+            print(timeCollectionView.indexPathsForSelectedItems!)
+            lensPeriod = "1주"
+        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,2]] {
+            print(timeCollectionView.indexPathsForSelectedItems!)
+            lensPeriod = "2주"
+        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,3]] {
+            print(timeCollectionView.indexPathsForSelectedItems!)
+            lensPeriod = "1개월"
+        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,4]] {
+            print(timeCollectionView.indexPathsForSelectedItems!)
+            lensPeriod = "2~3개월"
+        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,5]] {
+            print(timeCollectionView.indexPathsForSelectedItems!)
+            lensPeriod = "3~6개월"
+        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,6]] {
+            print(timeCollectionView.indexPathsForSelectedItems!)
+            lensPeriod = "6개월 이상"
+        } else {
+            print(timeCollectionView.indexPathsForSelectedItems!)
+            lensPeriod = "없음"
+        }
+
+        
         nextVC.age = age
         nextVC.gender = gender
         nextVC.lensKind = lensKind
         nextVC.lensColor = lensColor
         nextVC.lensFunction = lensFunction
         nextVC.lensPeriod = lensPeriod
+        print("gender: \(gender) , age: \(age), lensKind: \(lensKind), lensColor: \(lensColor), lensFunction: \(lensFunction), lensPeriod: \(lensPeriod)")
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -221,17 +260,6 @@ extension ThirdOnboardingVC: UICollectionViewDelegate {
             nextButton.isUserInteractionEnabled = false
         }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if functionCollectionView.indexPathsForSelectedItems?.isEmpty == false && timeCollectionView.indexPathsForSelectedItems?.isEmpty == false {
-            nextButton.backgroundColor = .omMainOrange
-            nextButton.isUserInteractionEnabled = true
-        } else {
-            nextButton.backgroundColor = .omFourthGray
-            nextButton.isUserInteractionEnabled = false
-        }
-    }
-    
 }
 
 
