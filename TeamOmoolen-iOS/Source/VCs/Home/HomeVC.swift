@@ -55,7 +55,7 @@ class HomeVC: UIViewController {
         
         setUI()
         setList()
-        
+        setNotificationLoginErr()
         registerXib()
         setHomeTableView()
         getHomeWithAPI()
