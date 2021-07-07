@@ -17,8 +17,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var homeTableView: UITableView!
     
     @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var searchTextField: UITextField!
-    
+    @IBOutlet weak var searchView: UIView!
     
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     
@@ -86,12 +85,13 @@ extension HomeVC {
         
         logoImageView.image = UIImage(named: "abc")
         
-        searchTextField.borderStyle = .roundedRect
-        searchTextField.layer.borderColor = UIColor.omMainOrange.cgColor
-        searchTextField.layer.borderWidth = 1
-        searchTextField.layer.cornerRadius = 5
-        searchTextField.layer.masksToBounds = true
-        searchTextField.placeholder = "오늘 무슨 렌즈 끼지?"
+        searchView.layer.borderColor = UIColor.omMainOrange.cgColor
+        searchView.layer.borderWidth = 1
+        searchView.layer.cornerRadius = 8
+        searchView.layer.masksToBounds = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpSearchView))
+        searchView.addGestureRecognizer(tapGesture)
     }
     
     func setList() {
@@ -141,6 +141,11 @@ extension HomeVC {
     func touchUpTop() {
         let topIndex = IndexPath(row: 0, section: 0)
         homeTableView.scrollToRow(at: topIndex, at: .top, animated: true)
+    }
+    
+    @objc
+    func touchUpSearchView(_ sender: UITapGestureRecognizer) {
+        print("SearchVC로 이동")
     }
 }
 

@@ -12,12 +12,20 @@ class RecentSearchVC: UIViewController {
     //Mark: - UI Components
     @IBOutlet weak var searchInTableView: UITableView!
     
+
+
+    
+
+
+
     
     //Mark: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         registerXib()
         setSearchInTableView()
+        
+
         print(searchInTableView.frame.width)
 
         // Do any additional setup after loading the view.
@@ -27,6 +35,7 @@ class RecentSearchVC: UIViewController {
     func registerXib(){
         let searchInNib = UINib(nibName:SearchInTVC.identifier, bundle: nil)
         searchInTableView.register(searchInNib, forCellReuseIdentifier: SearchInTVC.identifier)
+        
     
         let popularNib = UINib(nibName: PopularTVC.identifier, bundle: nil)
         searchInTableView.register(popularNib, forCellReuseIdentifier: PopularTVC.identifier)
@@ -101,3 +110,5 @@ extension RecentSearchVC: UITableViewDataSource {
 
     
 }
+
+

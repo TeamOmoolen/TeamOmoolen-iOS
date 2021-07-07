@@ -13,13 +13,15 @@ class SearchVC: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchBarView: UIView!
     
-    
-    let searchViews : [UIViewController] = [RecentSearchVC(), FilterVC()]
+
+      var searchViews : [UIViewController] = []
+
     
     lazy var searchTabBar: SearchTabBar = {
         let sTB = SearchTabBar()
         sTB.searchviewcontroller = self
         return sTB
+        
     }()
     
     
@@ -31,9 +33,31 @@ class SearchVC: UIViewController {
         setUI()
         registerNib()
         setCollectionViewDelegate()
+        setVCs()
 
     }
-    
+
+    func setVCs(){
+        let searchVC = RecentSearchVC(nibName: "RecentSearchVC", bundle: nil)
+        
+        let storyboard = UIStoryboard(name: "RecentSearchVC", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(identifier: "RecentSearchVC") as? RecentSearchVC else {return}
+        
+        let storyboard2 = UIStoryboard(name: "FIlterVC", bundle: nil)
+        
+        guard let vc2 = storyboard2.instantiateViewController(identifier: "FilterVC") as? FilterVC else {return}
+        
+        
+        
+        
+        
+        let filterVC = FilterVC(nibName: "FilterVC", bundle: nil)
+        
+        searchViews.append(vc)
+        searchViews.append(vc2)
+        collectionView.reloadData()
+    }
+
     //Mark: - Methods
     private func setUpTabBar(){
         view.addSubview(searchTabBar)
@@ -100,17 +124,25 @@ extension SearchVC : UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return searchViews.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchHomeCVC", for: indexPath) as! SearchHomeCVC
         self.addChild(searchViews[indexPath.item])
+        
+        print("야호",searchViews[0].view.frame.width)
+        print("야22호",searchViews[1].view.frame.width)
+
+        
         cell.addSubview(searchViews[indexPath.item].view)
+        cell.translatesAutoresizingMaskIntoConstraints = true
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         return CGSize(width: view.frame.width, height: view.frame.height)
 //        return self.collectionView.frame.size
     }
