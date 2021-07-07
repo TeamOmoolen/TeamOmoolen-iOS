@@ -4,12 +4,13 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecentSearchVC" customModule="TeamOmoolen_iOS" customModuleProvider="target">
             <connections>
-                <outlet property="stackView" destination="VXG-5W-R5h" id="oKC-ff-czE"/>
+                <outlet property="searchInTableView" destination="FHh-uk-PaR" id="a1r-MD-mNt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,19 +19,25 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="VXG-5W-R5h">
-                    <rect key="frame" x="0.0" y="160" width="414" height="702"/>
-                </stackView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FHh-uk-PaR">
+                    <rect key="frame" x="0.0" y="138" width="414" height="724"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="VXG-5W-R5h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RTq-Jy-04M"/>
-                <constraint firstItem="VXG-5W-R5h" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="tZ1-mc-Sts"/>
-                <constraint firstItem="VXG-5W-R5h" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="116" id="vDV-vG-zUq"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="VXG-5W-R5h" secondAttribute="bottom" id="zMZ-dM-oDw"/>
+                <constraint firstItem="FHh-uk-PaR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LEy-8k-hfI"/>
+                <constraint firstItem="FHh-uk-PaR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="94" id="RkL-4p-QgJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FHh-uk-PaR" secondAttribute="trailing" id="cXr-Tb-jij"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="FHh-uk-PaR" secondAttribute="bottom" id="so6-91-aBd"/>
             </constraints>
             <point key="canvasLocation" x="-86.956521739130437" y="67.633928571428569"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
