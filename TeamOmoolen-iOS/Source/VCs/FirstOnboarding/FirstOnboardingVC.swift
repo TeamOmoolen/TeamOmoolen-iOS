@@ -57,7 +57,7 @@ class FirstOnboardingVC: UIViewController {
         if genderListCollectionView.indexPathsForSelectedItems! == [[0,0]] {
             gender = "여성"
         } else {
-            gender = "여성"
+            gender = "남성"
         }
         
         if ageListCollectionView.indexPathsForSelectedItems! == [[0,0]] {

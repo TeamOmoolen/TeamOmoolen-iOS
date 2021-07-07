@@ -92,6 +92,10 @@
 		F83BA076268D760000E94E74 /* OnboardingImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA075268D760000E94E74 /* OnboardingImage.xcassets */; };
 		F83DBBFD268EE0C900E47B15 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA024268C476B00E94E74 /* Login.storyboard */; };
 		F8514795269366C300C8532F /* HomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8514794269366C300C8532F /* HomeDataModel.swift */; };
+		F85147972695839500C8532F /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85147962695839500C8532F /* SearchService.swift */; };
+		F85147992695839D00C8532F /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85147982695839D00C8532F /* SearchAPI.swift */; };
+		F851479C2695C5C300C8532F /* SearchDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F851479B2695C5C300C8532F /* SearchDataModel.swift */; };
+		F85147A02695CE5800C8532F /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F851479F2695CE5800C8532F /* SearchResultVC.swift */; };
 		F86F7AC626900A030037081D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F7AC526900A030037081D /* HomeVC.swift */; };
 		F86F7AC826900A2F0037081D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F86F7AC726900A2F0037081D /* Home.storyboard */; };
 		F86F7ACA269068960037081D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F86F7AC9269068960037081D /* Splash.storyboard */; };
@@ -220,6 +224,10 @@
 		F83BA071268CEB5D00E94E74 /* UIColor+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Addition.swift"; sourceTree = "<group>"; };
 		F83BA075268D760000E94E74 /* OnboardingImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OnboardingImage.xcassets; sourceTree = "<group>"; };
 		F8514794269366C300C8532F /* HomeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataModel.swift; sourceTree = "<group>"; };
+		F85147962695839500C8532F /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		F85147982695839D00C8532F /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
+		F851479B2695C5C300C8532F /* SearchDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataModel.swift; sourceTree = "<group>"; };
+		F851479F2695CE5800C8532F /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
 		F86F7AC526900A030037081D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		F86F7AC726900A2F0037081D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F86F7AC9269068960037081D /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
@@ -530,6 +538,7 @@
 				E82DE8EF268C5D0400296B53 /* ThirdOnboarding */,
 				924751A6268E2C6900924891 /* FourthOnboarding */,
 				F86F7AC4269009EB0037081D /* Home */,
+				F851479F2695CE5800C8532F /* SearchResultVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -635,6 +644,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		F851479A2695C5B300C8532F /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F851479B2695C5C300C8532F /* SearchDataModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		F85CD050268DB0F3005A3C95 /* SecondOnboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,6 +727,8 @@
 			children = (
 				F8CB27E82691FB3B00DEFA75 /* OnboardingService.swift */,
 				F8CB27EA2691FB6000DEFA75 /* OnbaordingAPI.swift */,
+				F85147962695839500C8532F /* SearchService.swift */,
+				F85147982695839D00C8532F /* SearchAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -717,6 +736,7 @@
 		F8CB27EF2692C1DA00DEFA75 /* NetworkDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				F851479A2695C5B300C8532F /* Search */,
 				F8CB27F72693367E00DEFA75 /* Onboarding */,
 			);
 			path = NetworkDataModel;
@@ -917,6 +937,7 @@
 				92F994FF26918C8C0053ABD8 /* OneMinTVC.swift in Sources */,
 				92A889D42692EC2800AC1B81 /* LastBannerTVC.swift in Sources */,
 				E82DE8FE268C748900296B53 /* FunctionDataModel.swift in Sources */,
+				F85147992695839D00C8532F /* SearchAPI.swift in Sources */,
 				E8A078662690F35100D99444 /* FilterVC.swift in Sources */,
 				E8C9A43A2690AD1000E5BD9D /* SearchVC.swift in Sources */,
 				F83BA04E268C4C3500E94E74 /* Storyboard.swift in Sources */,
@@ -927,6 +948,7 @@
 				92A889D92692FBD200AC1B81 /* TabBarController.swift in Sources */,
 				F83BA055268C4D5800E94E74 /* LoginVC.swift in Sources */,
 				F86F7AC626900A030037081D /* HomeVC.swift in Sources */,
+				F85147A02695CE5800C8532F /* SearchResultVC.swift in Sources */,
 				E82DE900268C749800296B53 /* TimeDataModel.swift in Sources */,
 				9256441B2692C1EF00A45945 /* NewLensCVC.swift in Sources */,
 				92F994FB26918BC30053ABD8 /* RecommendTVC.swift in Sources */,
@@ -957,9 +979,11 @@
 				F83BA067268C754A00E94E74 /* LensKindModel.swift in Sources */,
 				92BF87A6268D94F700706384 /* AgeCVC.swift in Sources */,
 				E8C9A4452690D56000E5BD9D /* SearchHomeCVC.swift in Sources */,
+				F851479C2695C5C300C8532F /* SearchDataModel.swift in Sources */,
 				F83BA04C268C4C1600E94E74 /* Const.swift in Sources */,
 				F8CB27EB2691FB6000DEFA75 /* OnbaordingAPI.swift in Sources */,
 				E8C9A4422690D06100E5BD9D /* UIView.swift in Sources */,
+				F85147972695839500C8532F /* SearchService.swift in Sources */,
 				F86F7ACD269068B20037081D /* SplashVC.swift in Sources */,
 				92A889CC2692E11A00AC1B81 /* TimeRecommendTVC.swift in Sources */,
 				92BF87A2268D908C00706384 /* GenderCVC.swift in Sources */,
