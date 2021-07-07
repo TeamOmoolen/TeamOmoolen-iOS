@@ -42,6 +42,8 @@ class FilterVC: UIViewController {
     
     // MARK: - Local Variables
     
+    private var lensBrand = [String]()
+    private var lensColor = [String]()
     
     // MARK: - View Life Cycle Methods
     
@@ -51,8 +53,14 @@ class FilterVC: UIViewController {
         setCategoryView()
         setCustomView()
         setButtonView()
+        
+        setNotification()
     }
-   
+    
+    // 필터 검색 버튼 눌렀을 때
+    @IBAction func touchUpSearchButton(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("touchUpSearchButton"), object: nil)
+    }
 }
 
 extension FilterVC {
@@ -184,5 +192,29 @@ extension FilterVC {
     @objc
     func touchUpCycleFilter(_ sender: UITapGestureRecognizer) {
         
+    }
+}
+
+// MARK: - Notification
+
+extension FilterVC {
+    private func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(searchBrandData), name: NSNotification.Name("postBrandList"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(searchColorData), name: NSNotification.Name("postColorList"), object: nil)
+    }
+    
+    @objc
+    func searchBrandData(_ notification: Notification) {
+        print("🍏 브랜드 정보 받았다")
+        lensBrand = notification.object as! [String]
+        print(lensBrand)
+    }
+    
+    @objc
+    func searchColorData(_ notification: Notification) {
+        print("🍎 컬러 정보 받았다")
+        lensColor = notification.object as! [String]
+        print(lensColor)
     }
 }
