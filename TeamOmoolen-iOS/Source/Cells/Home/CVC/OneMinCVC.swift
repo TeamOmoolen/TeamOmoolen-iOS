@@ -23,10 +23,15 @@ class OneMinCVC: UICollectionViewCell {
     
     @IBOutlet weak var moreButton: UIButton!
     
+    // MARK: - Local Variables
+    
+    private var lensInfo: [LensInfo] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setUI()
+        setList()
         registerXib()
         setTableView()
     }
@@ -49,7 +54,7 @@ extension OneMinCVC {
         titleLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
         titleLabel.textColor = .white
         
-        subtitleLabel.text = "이런이런 정보가 들어가요!"
+        subtitleLabel.text = "렌즈 상식 제목"
         subtitleLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         subtitleLabel.textColor = .white
         
@@ -61,22 +66,33 @@ extension OneMinCVC {
         moreButton.layer.masksToBounds = true
     }
     
-    func registerXib() {
+    func setList() {
         
+    }
+    
+    func registerXib() {
+        let nib = UINib(nibName: OneMinDetailTVC.identifier, bundle: nil)
+        oneMinTableView.register(nib, forCellReuseIdentifier: OneMinDetailTVC.identifier)
     }
     
     func setTableView() {
+        oneMinTableView.backgroundColor = .white
+        
         oneMinTableView.delegate = self
         oneMinTableView.dataSource = self
-    }
-    
-    func initCell() {
         
+        oneMinTableView.isScrollEnabled = false
     }
 }
 
 extension OneMinCVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 }
 
 extension OneMinCVC: UITableViewDataSource {
@@ -85,6 +101,10 @@ extension OneMinCVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: OneMinDetailTVC.identifier) as? OneMinDetailTVC else {
+            return UITableViewCell()
+        }
+        cell.initCell(title: "렌즈 눈치 안보고 패션을 꾸밀 수 있다?", subTitle: "1분 렌즈 상식에 대한 간단 설명")
+        return cell
     }
 }

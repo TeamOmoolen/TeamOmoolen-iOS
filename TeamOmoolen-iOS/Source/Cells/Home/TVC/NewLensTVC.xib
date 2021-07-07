@@ -28,10 +28,9 @@
                         <state key="normal" title="Button"/>
                     </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-92-d2h">
-                        <rect key="frame" x="20" y="111" width="355" height="640"/>
+                        <rect key="frame" x="0.0" y="111" width="375" height="640"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="355" id="3cw-O4-hhJ"/>
                             <constraint firstAttribute="height" constant="640" id="9S8-f9-YEu"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3IJ-F1-UF0">
@@ -51,7 +50,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="1dO-bc-aK1" firstAttribute="centerY" secondItem="fM3-WO-NN8" secondAttribute="centerY" id="9NW-gb-1DU"/>
-                    <constraint firstItem="rMW-92-d2h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Rd4-b7-NXw"/>
+                    <constraint firstAttribute="trailing" secondItem="rMW-92-d2h" secondAttribute="trailing" id="FEx-ON-uH5"/>
+                    <constraint firstItem="rMW-92-d2h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rd4-b7-NXw"/>
                     <constraint firstItem="iWt-YA-P2V" firstAttribute="centerY" secondItem="fM3-WO-NN8" secondAttribute="centerY" id="XCx-tO-BCw"/>
                     <constraint firstItem="rMW-92-d2h" firstAttribute="top" secondItem="fM3-WO-NN8" secondAttribute="bottom" constant="20" id="d9B-3a-2LK"/>
                     <constraint firstItem="fM3-WO-NN8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="hfb-8A-TM7"/>
