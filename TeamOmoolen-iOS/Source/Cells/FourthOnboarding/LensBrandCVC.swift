@@ -53,6 +53,8 @@ extension LensBrandCVC {
         backView.layer.cornerRadius = 10
         backView.layer.masksToBounds = true
         
+        brandLogoImageView.contentMode = .center
+        
         brandNameLabel.textColor = .omThirdGray
         brandNameLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 10)
     }
