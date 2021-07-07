@@ -46,6 +46,8 @@ class ColorFilterView: UIView {
         setList()
         registerXib()
         setCollectionView()
+        
+        setNotification()
     }
 
 }
@@ -149,4 +151,71 @@ extension ColorFilterView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
+}
+
+// MARK: - Notification
+
+extension ColorFilterView {
+    private func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(postData), name: NSNotification.Name("touchUpSearchButton"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(resetData), name: NSNotification.Name("touchUpColorReset"), object: nil)
+    }
+    
+    @objc
+    func postData(_ notification: Notification) {
+        lensColor = []
+        
+        guard let lensColorList = colorCollectionView.indexPathsForSelectedItems else {
+            return
+        }
+        if lensColorList.contains([0,0]) {
+            lensColor.append("투명")
+        }
+        if lensColorList.contains([0,1]) {
+            lensColor.append("블랙")
+        }
+        if lensColorList.contains([0,2]) {
+            lensColor.append("그레이")
+        }
+        if lensColorList.contains([0,3]) {
+            lensColor.append("초코")
+        }
+        if lensColorList.contains([0,4]) {
+            lensColor.append("그린")
+        }
+        if lensColorList.contains([0,5]) {
+            lensColor.append("브라운")
+        }
+        if lensColorList.contains([0,6]) {
+            lensColor.append("퍼플")
+        }
+        if lensColorList.contains([0,7]) {
+            lensColor.append("블루")
+        }
+        if lensColorList.contains([0,8]) {
+            lensColor.append("골드")
+        }
+        if lensColorList.contains([0,9]) {
+            lensColor.append("핑크")
+        }
+        if lensColorList.contains([0,10]) {
+            lensColor.append("글리터")
+        }
+        if lensColorList.contains([0,11]) {
+            lensColor.append("기타")
+        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name("postColorList"), object: lensColor)
+    }
+    
+    @objc
+    func resetData(_ notification: Notification) {
+        lensColor = []
+        
+        colorCollectionView.deselectAll(animated: true)
+        
+        NotificationCenter.default.post(name: NSNotification.Name("resetColorList"), object: lensColor)
+    }
+    
 }

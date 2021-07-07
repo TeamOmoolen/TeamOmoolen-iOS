@@ -287,23 +287,23 @@ extension FourthOnboardingVC {
     
     func setList() {
         brandList.append(contentsOf: [
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "오렌즈"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "렌즈미"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "렌즈베리"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "앤365"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "렌즈타운"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "다비치"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "아이돌렌즈"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "렌즈나인"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "렌즈디바"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "아큐브"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "바슈롬"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "클라렌"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "알콘"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "뉴바이오"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "프레쉬콘"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "쿠퍼비전"),
-            LensBrandDataModel(brandLogoImage: "abc", brandName: "그 외")
+            LensBrandDataModel(brandLogoImage: "imgOlensLogoOnboardingNormal", brandName: "오렌즈"),
+            LensBrandDataModel(brandLogoImage: "imgLensmeLogoOnboardingNormal", brandName: "렌즈미"),
+            LensBrandDataModel(brandLogoImage: "imgLensveryLogoOnboardingNormal", brandName: "렌즈베리"),
+            LensBrandDataModel(brandLogoImage: "imgAnnLogoOnboardingNormal", brandName: "앤365"),
+            LensBrandDataModel(brandLogoImage: "imgLenstownLogoOnboardingNormal", brandName: "렌즈타운"),
+            LensBrandDataModel(brandLogoImage: "imgDaviLogoOnboardingNormal", brandName: "다비치"),
+            LensBrandDataModel(brandLogoImage: "imgIdolLogoOnboardingNormal", brandName: "아이돌렌즈"),
+            LensBrandDataModel(brandLogoImage: "imgLensnineLogoOnboardingNormal", brandName: "렌즈나인"),
+            LensBrandDataModel(brandLogoImage: "imgLensdivaLogoOnboardingNormal", brandName: "렌즈디바"),
+            LensBrandDataModel(brandLogoImage: "imgAcuvueLogoOnboardingNormal", brandName: "아큐브"),
+            LensBrandDataModel(brandLogoImage: "imgBaLogoOnboardingNormal", brandName: "바슈롬"),
+            LensBrandDataModel(brandLogoImage: "imgClLogoOnboardingNormal", brandName: "클라렌"),
+            LensBrandDataModel(brandLogoImage: "imgIlconLogoOnboardingNormal", brandName: "알콘"),
+            LensBrandDataModel(brandLogoImage: "imgIdolLogoOnboardingNormal", brandName: "뉴바이오"),
+            LensBrandDataModel(brandLogoImage: "imgFreshkonLogoOnboardingNormal", brandName: "프레쉬콘"),
+            LensBrandDataModel(brandLogoImage: "imgCoupervisionLogoOnboardingNormal", brandName: "쿠퍼비전"),
+            LensBrandDataModel(brandLogoImage: "imgEtcLogoOnboardingNormal", brandName: "그 외")
         ])
         
         purposeList.append(contentsOf: [
@@ -391,6 +391,7 @@ extension FourthOnboardingVC {
         icToggleImageView.image = UIImage(named: "icToggle")
         
         //렌즈입력 텍스트필드 활성화
+        icToggleImageView.image = UIImage(named: "icToggleBrandselectPressed")
         lensTextView.isEditable = true
     }
 }

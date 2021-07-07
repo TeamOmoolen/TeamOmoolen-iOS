@@ -142,6 +142,9 @@
                                             <constraint firstAttribute="height" constant="54" id="Dcl-or-AM9"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="touchUpSearchButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="u03-CA-OP9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
