@@ -21,6 +21,7 @@ extension Const {
             static let Login = "LoginVC"
             static let Home = "HomeVC"
             static let Splash = "SplashVC"
+            static let Detail = "DetailVC"
             
             static let Tabbar = "TabBarController"
         }
