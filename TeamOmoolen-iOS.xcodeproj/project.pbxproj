@@ -74,9 +74,7 @@
 		E82DE900268C749800296B53 /* TimeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DE8FF268C749800296B53 /* TimeDataModel.swift */; };
 		E82DE904268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DE903268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift */; };
 		E8A078622690F32200D99444 /* RecentSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A078602690F32200D99444 /* RecentSearchVC.swift */; };
-		E8A078632690F32200D99444 /* RecentSearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8A078612690F32200D99444 /* RecentSearchVC.xib */; };
 		E8A078662690F35100D99444 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A078642690F35100D99444 /* FilterVC.swift */; };
-		E8A078672690F35100D99444 /* FilterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8A078652690F35100D99444 /* FilterVC.xib */; };
 		E8C9A42826908CF900E5BD9D /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C9A42726908CF900E5BD9D /* Search.storyboard */; };
 		E8C9A4372690AA3100E5BD9D /* SearchTabBarCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C9A4352690AA3100E5BD9D /* SearchTabBarCVC.swift */; };
 		E8C9A4382690AA3100E5BD9D /* SearchTabBarCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8C9A4362690AA3100E5BD9D /* SearchTabBarCVC.xib */; };
@@ -220,9 +218,7 @@
 		E82DE8FF268C749800296B53 /* TimeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDataModel.swift; sourceTree = "<group>"; };
 		E82DE903268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCVFlowLayout.swift; sourceTree = "<group>"; };
 		E8A078602690F32200D99444 /* RecentSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchVC.swift; sourceTree = "<group>"; };
-		E8A078612690F32200D99444 /* RecentSearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentSearchVC.xib; sourceTree = "<group>"; };
 		E8A078642690F35100D99444 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
-		E8A078652690F35100D99444 /* FilterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterVC.xib; sourceTree = "<group>"; };
 		E8C9A42726908CF900E5BD9D /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		E8C9A4352690AA3100E5BD9D /* SearchTabBarCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabBarCVC.swift; sourceTree = "<group>"; };
 		E8C9A4362690AA3100E5BD9D /* SearchTabBarCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTabBarCVC.xib; sourceTree = "<group>"; };
@@ -393,10 +389,10 @@
 		92A889EE2693BA7100AC1B81 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				92A889EA2693B14400AC1B81 /* ColorFilterView.swift */,
-				92A889EC2693B18A00AC1B81 /* ColorFilterView.xib */,
 				9276925E2693CB7D00201EE1 /* BrandFilterView.swift */,
 				927692602693CB9100201EE1 /* BrandFilterView.xib */,
+				92A889EA2693B14400AC1B81 /* ColorFilterView.swift */,
+				92A889EC2693B18A00AC1B81 /* ColorFilterView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -466,14 +462,12 @@
 		E8C9A4292690934C00E5BD9D /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				E8A078612690F32200D99444 /* RecentSearchVC.xib */,
 				E8A078602690F32200D99444 /* RecentSearchVC.swift */,
+				92BC7DE72695D9230088E4EE /* RecentSearchVC.storyboard */,
 				E8A078642690F35100D99444 /* FilterVC.swift */,
-				E8A078652690F35100D99444 /* FilterVC.xib */,
+				92BC7DE92695DB1B0088E4EE /* FIlterVC.storyboard */,
 				E8C9A4392690AD1000E5BD9D /* SearchVC.swift */,
 				E8C9A43B2690B97C00E5BD9D /* SearchTabBar.swift */,
-				92BC7DE72695D9230088E4EE /* RecentSearchVC.storyboard */,
-				92BC7DE92695DB1B0088E4EE /* FIlterVC.storyboard */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -882,7 +876,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8A078672690F35100D99444 /* FilterVC.xib in Resources */,
 				F83DBBFD268EE0C900E47B15 /* Login.storyboard in Resources */,
 				92E55FBD268C72EA0081D3A9 /* FirstOnboarding.storyboard in Resources */,
 				F83BA02B268C476C00E94E74 /* LaunchScreen.storyboard in Resources */,
@@ -902,7 +895,6 @@
 				E82DE8EE268C5CC700296B53 /* ThirdOnboarding.storyboard in Resources */,
 				F824590A268E1F3A0048BE84 /* TimeCVC.xib in Resources */,
 				F8B91F73268E207A006114CD /* Roboto-Italic.ttf in Resources */,
-				E8A078632690F32200D99444 /* RecentSearchVC.xib in Resources */,
 				92A889D52692EC2800AC1B81 /* LastBannerTVC.xib in Resources */,
 				9261599226921B6600E1E87F /* SeasonCVC.xib in Resources */,
 				9261598E26921B4700E1E87F /* OneMinCVC.xib in Resources */,

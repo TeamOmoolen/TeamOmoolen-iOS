@@ -84,6 +84,8 @@
                         <outlet property="homeHeaderView" destination="9VZ-nr-Ie2" id="Vxi-Ge-sYv"/>
                         <outlet property="homeTableView" destination="uwf-c7-5fA" id="A0Q-FI-ISp"/>
                         <outlet property="logoImageView" destination="6kh-rT-Suh" id="4gQ-7f-O5k"/>
+                        <outlet property="searchIcon" destination="u1V-F5-8jU" id="cTl-xZ-ScJ"/>
+                        <outlet property="searchLabel" destination="9UT-sh-riK" id="YcW-mH-MWM"/>
                         <outlet property="searchView" destination="YgU-oU-BSu" id="1A3-wt-dE8"/>
                         <outlet property="tableViewTopConstraint" destination="QBe-XG-lL5" id="Qut-Ww-XuU"/>
                     </connections>

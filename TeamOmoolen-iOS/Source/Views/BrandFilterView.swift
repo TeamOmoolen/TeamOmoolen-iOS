@@ -8,7 +8,7 @@
 import UIKit
 
 class BrandFilterView: UIView {
-    
+
     // MARK: - UI Components
     
     @IBOutlet weak var filterLabel: UILabel!
@@ -47,12 +47,13 @@ class BrandFilterView: UIView {
         setList()
         registerXib()
         setCollectionView()
+        
     }
 }
 
 extension BrandFilterView {
     func setUI() {
-        filterLabel.text = "컬러"
+        filterLabel.text = "브랜드"
         filterLabel.textColor = .omMainBlack
         filterLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
         
@@ -149,6 +150,6 @@ extension BrandFilterView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+        return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
 }

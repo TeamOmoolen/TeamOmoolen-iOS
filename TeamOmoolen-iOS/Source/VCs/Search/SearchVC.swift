@@ -21,7 +21,6 @@ class SearchVC: UIViewController {
         let sTB = SearchTabBar()
         sTB.searchviewcontroller = self
         return sTB
-        
     }()
     
     
@@ -34,24 +33,14 @@ class SearchVC: UIViewController {
         registerNib()
         setCollectionViewDelegate()
         setVCs()
-
     }
 
     func setVCs(){
-        let searchVC = RecentSearchVC(nibName: "RecentSearchVC", bundle: nil)
-        
         let storyboard = UIStoryboard(name: "RecentSearchVC", bundle: nil)
         guard let vc = storyboard.instantiateViewController(identifier: "RecentSearchVC") as? RecentSearchVC else {return}
         
         let storyboard2 = UIStoryboard(name: "FIlterVC", bundle: nil)
-        
         guard let vc2 = storyboard2.instantiateViewController(identifier: "FilterVC") as? FilterVC else {return}
-        
-        
-        
-        
-        
-        let filterVC = FilterVC(nibName: "FilterVC", bundle: nil)
         
         searchViews.append(vc)
         searchViews.append(vc2)
@@ -131,9 +120,8 @@ extension SearchVC : UICollectionViewDelegate, UICollectionViewDataSource, UICol
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchHomeCVC", for: indexPath) as! SearchHomeCVC
         self.addChild(searchViews[indexPath.item])
         
-        print("야호",searchViews[0].view.frame.width)
-        print("야22호",searchViews[1].view.frame.width)
-
+        print("최근검색뷰",searchViews[0].view.frame.width)
+        print("필터검색뷰",searchViews[1].view.frame.width)
         
         cell.addSubview(searchViews[indexPath.item].view)
         cell.translatesAutoresizingMaskIntoConstraints = true
