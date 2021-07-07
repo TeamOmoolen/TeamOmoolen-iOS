@@ -161,6 +161,8 @@ extension BrandFilterView: UICollectionViewDelegateFlowLayout {
 extension BrandFilterView {
     private func setNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(postData), name: NSNotification.Name("touchUpSearchButton"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(resetData), name: NSNotification.Name("touchUpBrandReset"), object: nil)
     }
     
     @objc
@@ -223,4 +225,14 @@ extension BrandFilterView {
         }
         NotificationCenter.default.post(name: NSNotification.Name("postBrandList"), object: lensBrand)
     }
+    
+    @objc
+    func resetData(_ notification: Notification) {
+        lensBrand = []
+        
+        brandListCollectionView.deselectAll(animated: true)
+        
+        NotificationCenter.default.post(name: NSNotification.Name("resetBrandList"), object: lensBrand)
+    }
 }
+

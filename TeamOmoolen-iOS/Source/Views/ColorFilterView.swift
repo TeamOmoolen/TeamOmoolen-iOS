@@ -158,6 +158,8 @@ extension ColorFilterView: UICollectionViewDelegateFlowLayout {
 extension ColorFilterView {
     private func setNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(postData), name: NSNotification.Name("touchUpSearchButton"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(resetData), name: NSNotification.Name("touchUpColorReset"), object: nil)
     }
     
     @objc
@@ -205,6 +207,15 @@ extension ColorFilterView {
         }
         
         NotificationCenter.default.post(name: NSNotification.Name("postColorList"), object: lensColor)
+    }
+    
+    @objc
+    func resetData(_ notification: Notification) {
+        lensColor = []
+        
+        colorCollectionView.deselectAll(animated: true)
+        
+        NotificationCenter.default.post(name: NSNotification.Name("resetColorList"), object: lensColor)
     }
     
 }
