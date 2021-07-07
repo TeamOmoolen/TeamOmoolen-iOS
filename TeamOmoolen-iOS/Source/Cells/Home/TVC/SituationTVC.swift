@@ -7,8 +7,8 @@
 
 import UIKit
 
-class TimeRecommendTVC: UITableViewCell {
-    static let identifier = "TimeRecommendTVC"
+class SituationTVC: UITableViewCell {
+    static let identifier = "SituationTVC"
     
     // MARK: - UI Components
     
@@ -41,7 +41,7 @@ class TimeRecommendTVC: UITableViewCell {
     
 }
 
-extension TimeRecommendTVC {
+extension SituationTVC {
     func setUI() {
         contentView.backgroundColor = .white
         
@@ -58,6 +58,8 @@ extension TimeRecommendTVC {
     
     func setList() {
         recommendList.append(contentsOf: [
+            RecommendLens(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: "1Day(10p)", price: 18000),
+            RecommendLens(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: "1Day(10p)", price: 18000),
             RecommendLens(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: "1Day(10p)", price: 18000),
             RecommendLens(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: "1Day(10p)", price: 18000),
             RecommendLens(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: "1Day(10p)", price: 18000),
@@ -82,7 +84,7 @@ extension TimeRecommendTVC {
     }
 }
 
-extension TimeRecommendTVC: UICollectionViewDelegateFlowLayout {
+extension SituationTVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (UIScreen.main.bounds.size.width - 40 - 15) / 2
         return CGSize(width: width, height: 275)
@@ -101,9 +103,9 @@ extension TimeRecommendTVC: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension TimeRecommendTVC: UICollectionViewDataSource {
+extension SituationTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
