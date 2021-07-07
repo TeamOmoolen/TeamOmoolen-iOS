@@ -1,18 +1,18 @@
 {
   "images" : [
     {
-      "filename" : "icToggle.png",
+      "filename" : "icToggleBrandselectNormal.png",
       "scale" : "1x",
       "idiom" : "universal"
     },
     {
       "scale" : "2x",
-      "filename" : "icToggle@2x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "icToggleBrandselectNormal@2x.png"
     },
     {
-      "filename" : "icToggle@3x.png",
       "scale" : "3x",
+      "filename" : "icToggleBrandselectNormal@3x.png",
       "idiom" : "universal"
     }
   ],
