@@ -65,7 +65,6 @@ extension OneMinTVC {
 
 extension OneMinTVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let width = (UIScreen.main.bounds.size.width - 80) / 3
         return CGSize(width: 310, height: 420)
     }
     
@@ -84,7 +83,7 @@ extension OneMinTVC: UICollectionViewDelegateFlowLayout {
 
 extension OneMinTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

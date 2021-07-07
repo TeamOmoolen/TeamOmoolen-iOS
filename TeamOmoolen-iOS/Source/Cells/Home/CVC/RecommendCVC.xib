@@ -22,6 +22,13 @@
                             <constraint firstAttribute="height" constant="138" id="Jmf-Zm-bqr"/>
                         </constraints>
                     </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hZI-hU-RgN">
+                        <rect key="frame" x="98" y="98" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="EcY-gl-GDe"/>
+                            <constraint firstAttribute="width" constant="40" id="ubK-NP-miw"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIk-i5-rTB">
                         <rect key="frame" x="0.0" y="152" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -50,7 +57,9 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="hZI-hU-RgN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="98" id="1l7-Xo-vEQ"/>
                 <constraint firstItem="bWc-4v-zH4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="821-zN-JPm"/>
+                <constraint firstItem="hZI-hU-RgN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="98" id="8Wq-Un-7Kb"/>
                 <constraint firstAttribute="trailing" secondItem="bWc-4v-zH4" secondAttribute="trailing" id="Hbd-DS-81u"/>
                 <constraint firstItem="4Ki-Fw-L8y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="S7I-1o-BEc"/>
                 <constraint firstItem="nIk-i5-rTB" firstAttribute="top" secondItem="bWc-4v-zH4" secondAttribute="bottom" constant="14" id="VGX-a4-EXk"/>
@@ -64,10 +73,11 @@
             </constraints>
             <connections>
                 <outlet property="brandNameLabel" destination="nIk-i5-rTB" id="DVv-tm-zhk"/>
+                <outlet property="lensImageView" destination="hZI-hU-RgN" id="Vga-Ds-6ch"/>
                 <outlet property="lensInfoLabel" destination="aD3-j0-9QB" id="RwV-eI-3e7"/>
                 <outlet property="lensNameLabel" destination="MqA-Cw-ysX" id="HuF-AQ-GlD"/>
+                <outlet property="modelImageView" destination="bWc-4v-zH4" id="Wjh-Yd-ONG"/>
                 <outlet property="priceLabel" destination="4Ki-Fw-L8y" id="4Um-Au-M3x"/>
-                <outlet property="recommendImageView" destination="bWc-4v-zH4" id="NFN-1r-7o3"/>
             </connections>
             <point key="canvasLocation" x="73.913043478260875" y="84.040178571428569"/>
         </collectionViewCell>

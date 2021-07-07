@@ -12,7 +12,9 @@ class RecommendCVC: UICollectionViewCell {
     
     // MARK: - UI Components
     
-    @IBOutlet weak var recommendImageView: UIImageView!
+    @IBOutlet weak var modelImageView: UIImageView!
+    @IBOutlet weak var lensImageView: UIImageView!
+    
     @IBOutlet weak var brandNameLabel: UILabel!
     @IBOutlet weak var lensNameLabel: UILabel!
     @IBOutlet weak var lensInfoLabel: UILabel!
@@ -29,7 +31,8 @@ class RecommendCVC: UICollectionViewCell {
 extension RecommendCVC {
     func setUI() {
         contentView.backgroundColor = .white
-        recommendImageView.image = UIImage(named: "abc")
+        modelImageView.image = UIImage(named: "abc")
+        lensImageView.image = UIImage(named: "abc")
         
         brandNameLabel.text
          = "브랜드명"

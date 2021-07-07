@@ -11,7 +11,8 @@ class SeasonCVC: UICollectionViewCell {
     static let identifier = "SeasonCVC"
 
     // MARK: - UI Components
-    @IBOutlet weak var seasonImageView: UIImageView!
+    @IBOutlet weak var modelImageView: UIImageView!
+    @IBOutlet weak var lensImageView: UIImageView!
     
     @IBOutlet weak var brandNameLabel: UILabel!
     @IBOutlet weak var lensNameLabel: UILabel!
@@ -29,7 +30,8 @@ class SeasonCVC: UICollectionViewCell {
 extension SeasonCVC {
     func setUI() {
         contentView.backgroundColor = .white
-        seasonImageView.image = UIImage(named: "abc")
+        modelImageView.image = UIImage(named: "abc")
+        lensImageView.image = UIImage(named: "abc")
         
         brandNameLabel.text
          = "브랜드명"
