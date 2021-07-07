@@ -34,6 +34,13 @@ class SearchVC: UIViewController {
 
     }
     
+    //Mark: - IBAction Methods
+    //검색어 입력을 완료하고 리턴키를 입력했을 때
+    @IBAction func searchEditingEnded(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("search"), object: searchTextField.text)
+    }
+    
+    
     //Mark: - Methods
     private func setUpTabBar(){
         view.addSubview(searchTabBar)
