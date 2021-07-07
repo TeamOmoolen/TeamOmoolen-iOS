@@ -8,7 +8,7 @@
 import UIKit
 
 class BrandFilterView: UIView {
-    
+
     // MARK: - UI Components
     
     @IBOutlet weak var filterLabel: UILabel!
@@ -47,12 +47,13 @@ class BrandFilterView: UIView {
         setList()
         registerXib()
         setCollectionView()
+        
     }
 }
 
 extension BrandFilterView {
     func setUI() {
-        filterLabel.text = "컬러"
+        filterLabel.text = "브랜드"
         filterLabel.textColor = .omMainBlack
         filterLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
         
