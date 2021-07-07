@@ -133,7 +133,7 @@ extension ColorFilterView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width
         let height = collectionView.frame.height
-        let cellWidth = (width - 7) / 2
+        let cellWidth = (width - 47) / 2
         let cellHeight = (height - 100) / 6
         return CGSize(width: cellWidth, height: cellHeight)
     }
@@ -147,6 +147,6 @@ extension ColorFilterView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+        return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
 }

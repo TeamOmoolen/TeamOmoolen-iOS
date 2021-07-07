@@ -11,6 +11,7 @@ class FilterVC: UIViewController {
     
     // MARK: - UI Components
     
+    // 카테고리 뷰
     @IBOutlet weak var filterView: UIView!
     
     @IBOutlet weak var brandView: UIView!
@@ -19,6 +20,19 @@ class FilterVC: UIViewController {
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var colorLabel: UILabel!
     
+    @IBOutlet weak var diameterView: UIView!
+    @IBOutlet weak var diameterLabel: UILabel!
+    
+    @IBOutlet weak var cycleView: UIView!
+    @IBOutlet weak var cycleLabel: UILabel!
+    
+    // 버튼 뷰
+    @IBOutlet weak var buttonView: UIView!
+    
+    @IBOutlet weak var resetBackView: UIView!
+    @IBOutlet weak var resetImageView: UIImageView!
+    
+    @IBOutlet weak var searchButton: UIButton!
     
     // MARK: - Custom Views
     
@@ -36,6 +50,7 @@ class FilterVC: UIViewController {
         
         setCategoryView()
         setCustomView()
+        setButtonView()
     }
    
 }
@@ -73,8 +88,28 @@ extension FilterVC {
         colorView.addGestureRecognizer(colorTapGesture)
         
         // 직경 필터
+        diameterView.backgroundColor = .omWhite
+        diameterView.layer.borderWidth = 1
+        diameterView.layer.borderColor = UIColor.omFifthGray.cgColor
+        
+        diameterView.layer.cornerRadius = 15
+        diameterView.layer.masksToBounds = true
+        
+        diameterLabel.text = "직경"
+        diameterLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 13)
+        diameterLabel.textColor = .omFourthGray
         
         // 주기 필터
+        cycleView.backgroundColor = .omWhite
+        cycleView.layer.borderWidth = 1
+        cycleView.layer.borderColor = UIColor.omFifthGray.cgColor
+        
+        cycleView.layer.cornerRadius = 15
+        cycleView.layer.masksToBounds = true
+        
+        cycleLabel.text = "주기"
+        cycleLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 13)
+        cycleLabel.textColor = .omFourthGray
     }
     
     func setCustomView() {
@@ -84,8 +119,8 @@ extension FilterVC {
         view.addSubview(brandFilterView)
         
         brandFilterView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.top.equalToSuperview().offset(200)
+            make.leading.trailing.equalToSuperview().inset(0)
+            make.top.equalTo(filterView.snp.bottom).offset(1)
             make.height.equalTo(472)
         }
         brandFilterView.isHidden = false
@@ -93,11 +128,26 @@ extension FilterVC {
         
         colorFilterView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(0)
-            make.top.equalToSuperview().offset(200)
+            make.top.equalTo(filterView.snp.bottom).offset(1)
             make.height.equalTo(472)
         }
         colorFilterView.isHidden = true
+    }
+    
+    func setButtonView() {
+        buttonView.backgroundColor = .omWhite
         
+        resetBackView.backgroundColor = .omFifthGray
+        resetBackView.layer.cornerRadius = 10
+        resetBackView.layer.masksToBounds = true
+        
+        searchButton.layer.backgroundColor = UIColor.omMainBlack.cgColor
+        searchButton.layer.cornerRadius = 10
+        searchButton.layer.masksToBounds = true
+        
+        searchButton.setTitle("필터 검색", for: .normal)
+        searchButton.tintColor = .omWhite
+        searchButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Medium", size: 18)
     }
 }
 
