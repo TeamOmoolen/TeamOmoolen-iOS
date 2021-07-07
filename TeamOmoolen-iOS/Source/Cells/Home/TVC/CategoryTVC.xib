@@ -99,7 +99,7 @@
                 <outlet property="newImageView" destination="Efq-db-3Ub" id="2g2-B9-u1b"/>
                 <outlet property="newLabel" destination="zrR-gW-Tcg" id="HGw-rO-1Dp"/>
             </connections>
-            <point key="canvasLocation" x="16" y="87"/>
+            <point key="canvasLocation" x="15.217391304347828" y="86.71875"/>
         </tableViewCell>
     </objects>
 </document>

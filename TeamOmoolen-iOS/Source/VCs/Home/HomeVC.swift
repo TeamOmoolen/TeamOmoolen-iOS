@@ -17,7 +17,10 @@ class HomeVC: UIViewController {
     @IBOutlet weak var homeTableView: UITableView!
     
     @IBOutlet weak var logoImageView: UIImageView!
+    
     @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var searchIcon: UIImageView!
+    @IBOutlet weak var searchLabel: UILabel!
     
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     
@@ -90,6 +93,11 @@ extension HomeVC {
         searchView.layer.cornerRadius = 8
         searchView.layer.masksToBounds = true
         
+        searchIcon.image = UIImage(named: "abc")
+        searchLabel.text = "오늘은 무슨 렌즈끼지?"
+        searchLabel.textColor = .omFourthGray
+        searchLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 13)
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpSearchView))
         searchView.addGestureRecognizer(tapGesture)
     }
@@ -146,6 +154,7 @@ extension HomeVC {
     @objc
     func touchUpSearchView(_ sender: UITapGestureRecognizer) {
         print("SearchVC로 이동")
+        searchLabel.isHidden = true
     }
 }
 
