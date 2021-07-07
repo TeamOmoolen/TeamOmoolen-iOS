@@ -49,6 +49,16 @@
 		92BAA052269500DA004A155A /* LensInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BAA051269500DA004A155A /* LensInfo.swift */; };
 		92BC7DE82695D9230088E4EE /* RecentSearchVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BC7DE72695D9230088E4EE /* RecentSearchVC.storyboard */; };
 		92BC7DEA2695DB1B0088E4EE /* FIlterVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BC7DE92695DB1B0088E4EE /* FIlterVC.storyboard */; };
+		92BC7DEC269641A10088E4EE /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BC7DEB269641A10088E4EE /* Detail.storyboard */; };
+		92BC7DEF269641BE0088E4EE /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC7DEE269641BE0088E4EE /* DetailVC.swift */; };
+		92BC7DF3269645450088E4EE /* DetailTopTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC7DF1269645450088E4EE /* DetailTopTVC.swift */; };
+		92BC7DF4269645450088E4EE /* DetailTopTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BC7DF2269645450088E4EE /* DetailTopTVC.xib */; };
+		92BC7DF726964D4E0088E4EE /* ReviewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC7DF526964D4E0088E4EE /* ReviewTVC.swift */; };
+		92BC7DF826964D4E0088E4EE /* ReviewTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BC7DF626964D4E0088E4EE /* ReviewTVC.xib */; };
+		92BC7DFB26964EF00088E4EE /* DetailSimilarTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC7DF926964EF00088E4EE /* DetailSimilarTVC.swift */; };
+		92BC7DFC26964EF00088E4EE /* DetailSimilarTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BC7DFA26964EF00088E4EE /* DetailSimilarTVC.xib */; };
+		92BC7DFF269653D50088E4EE /* DetailNewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC7DFD269653D50088E4EE /* DetailNewTVC.swift */; };
+		92BC7E00269653D50088E4EE /* DetailNewTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BC7DFE269653D50088E4EE /* DetailNewTVC.xib */; };
 		92BF879D268CCC8100706384 /* AgeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF879C268CCC8100706384 /* AgeDataModel.swift */; };
 		92BF87A2268D908C00706384 /* GenderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF87A0268D908C00706384 /* GenderCVC.swift */; };
 		92BF87A3268D908C00706384 /* GenderCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BF87A1268D908C00706384 /* GenderCVC.xib */; };
@@ -199,6 +209,16 @@
 		92BAA051269500DA004A155A /* LensInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensInfo.swift; sourceTree = "<group>"; };
 		92BC7DE72695D9230088E4EE /* RecentSearchVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecentSearchVC.storyboard; sourceTree = "<group>"; };
 		92BC7DE92695DB1B0088E4EE /* FIlterVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FIlterVC.storyboard; sourceTree = "<group>"; };
+		92BC7DEB269641A10088E4EE /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		92BC7DEE269641BE0088E4EE /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		92BC7DF1269645450088E4EE /* DetailTopTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTopTVC.swift; sourceTree = "<group>"; };
+		92BC7DF2269645450088E4EE /* DetailTopTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTopTVC.xib; sourceTree = "<group>"; };
+		92BC7DF526964D4E0088E4EE /* ReviewTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTVC.swift; sourceTree = "<group>"; };
+		92BC7DF626964D4E0088E4EE /* ReviewTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTVC.xib; sourceTree = "<group>"; };
+		92BC7DF926964EF00088E4EE /* DetailSimilarTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSimilarTVC.swift; sourceTree = "<group>"; };
+		92BC7DFA26964EF00088E4EE /* DetailSimilarTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailSimilarTVC.xib; sourceTree = "<group>"; };
+		92BC7DFD269653D50088E4EE /* DetailNewTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewTVC.swift; sourceTree = "<group>"; };
+		92BC7DFE269653D50088E4EE /* DetailNewTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailNewTVC.xib; sourceTree = "<group>"; };
 		92BF879C268CCC8100706384 /* AgeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeDataModel.swift; sourceTree = "<group>"; };
 		92BF87A0268D908C00706384 /* GenderCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCVC.swift; sourceTree = "<group>"; };
 		92BF87A1268D908C00706384 /* GenderCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenderCVC.xib; sourceTree = "<group>"; };
@@ -413,6 +433,29 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		92BC7DED269641AB0088E4EE /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				92BC7DEE269641BE0088E4EE /* DetailVC.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		92BC7DF02696451D0088E4EE /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				92BC7DF1269645450088E4EE /* DetailTopTVC.swift */,
+				92BC7DF2269645450088E4EE /* DetailTopTVC.xib */,
+				92BC7DF526964D4E0088E4EE /* ReviewTVC.swift */,
+				92BC7DF626964D4E0088E4EE /* ReviewTVC.xib */,
+				92BC7DF926964EF00088E4EE /* DetailSimilarTVC.swift */,
+				92BC7DFA26964EF00088E4EE /* DetailSimilarTVC.xib */,
+				92BC7DFD269653D50088E4EE /* DetailNewTVC.swift */,
+				92BC7DFE269653D50088E4EE /* DetailNewTVC.xib */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		92BF879B268CCC5A00706384 /* FirstOnboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,6 +636,7 @@
 				F86F7AC726900A2F0037081D /* Home.storyboard */,
 				F86F7AC9269068960037081D /* Splash.storyboard */,
 				92A889DA2692FD4D00AC1B81 /* Tabbar.storyboard */,
+				92BC7DEB269641A10088E4EE /* Detail.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -608,6 +652,7 @@
 		F83BA037268C491900E94E74 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				92BC7DED269641AB0088E4EE /* Detail */,
 				F86F7ACB269068A30037081D /* Splash */,
 				F83BA053268C4D3B00E94E74 /* Login */,
 				E8C9A4292690934C00E5BD9D /* Search */,
@@ -632,6 +677,7 @@
 		F83BA039268C492700E94E74 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				92BC7DF02696451D0088E4EE /* Detail */,
 				E8C9A4302690A8D500E5BD9D /* Search */,
 				92979F1C269035B00059AEEB /* Home */,
 				924751AA268E2D3A00924891 /* FourthOnboarding */,
@@ -902,6 +948,7 @@
 				F83DBBFD268EE0C900E47B15 /* Login.storyboard in Resources */,
 				92E55FBD268C72EA0081D3A9 /* FirstOnboarding.storyboard in Resources */,
 				F83BA02B268C476C00E94E74 /* LaunchScreen.storyboard in Resources */,
+				92BC7DEC269641A10088E4EE /* Detail.storyboard in Resources */,
 				F8B91F72268E207A006114CD /* Roboto-LightItalic.ttf in Resources */,
 				F83BA028268C476C00E94E74 /* Assets.xcassets in Resources */,
 				92BF87A7268D94F700706384 /* AgeCVC.xib in Resources */,
@@ -937,6 +984,7 @@
 				F8B91F6C268E207A006114CD /* Roboto-ThinItalic.ttf in Resources */,
 				92BF87A3268D908C00706384 /* GenderCVC.xib in Resources */,
 				E8C9A4462690D56000E5BD9D /* SearchHomeCVC.xib in Resources */,
+				92BC7DFC26964EF00088E4EE /* DetailSimilarTVC.xib in Resources */,
 				F8B91F6E268E207A006114CD /* Roboto-Bold.ttf in Resources */,
 				9261598A26920EBE00E1E87F /* RecommendCVC.xib in Resources */,
 				9276926B2694E28100201EE1 /* CategoryTVC.xib in Resources */,
@@ -950,11 +998,14 @@
 				F8B91F59268E205E006114CD /* NotoSansMonoCJKkr-Regular.otf in Resources */,
 				92BC7DEA2695DB1B0088E4EE /* FIlterVC.storyboard in Resources */,
 				92A889ED2693B18A00AC1B81 /* ColorFilterView.xib in Resources */,
+				92BC7DF4269645450088E4EE /* DetailTopTVC.xib in Resources */,
 				F8B91F77268E207A006114CD /* Roboto-Thin.ttf in Resources */,
 				924751A9268E2CFE00924891 /* FourthOnboarding.storyboard in Resources */,
+				92BC7DF826964D4E0088E4EE /* ReviewTVC.xib in Resources */,
 				F8B91F6F268E207A006114CD /* Roboto-BlackItalic.ttf in Resources */,
 				925644182692C1DB00A45945 /* NewLensTVC.xib in Resources */,
 				92BAA0502694FDE7004A155A /* OneMinDetailTVC.xib in Resources */,
+				92BC7E00269653D50088E4EE /* DetailNewTVC.xib in Resources */,
 				F83BA06B268C7DEF00E94E74 /* LensColorCVC.xib in Resources */,
 				F8B91F6D268E207A006114CD /* Roboto-Black.ttf in Resources */,
 				92BC7DE82695D9230088E4EE /* RecentSearchVC.storyboard in Resources */,
@@ -1024,6 +1075,7 @@
 				924751B9268E672300924891 /* LensBrandCVC.swift in Sources */,
 				E82DE8F1268C5D5600296B53 /* ThirdOnboardingVC.swift in Sources */,
 				E8A6602826959BAE00EB7EEA /* AllClearTVC.swift in Sources */,
+				92BC7DEF269641BE0088E4EE /* DetailVC.swift in Sources */,
 				92F994FF26918C8C0053ABD8 /* OneMinTVC.swift in Sources */,
 				92A889D42692EC2800AC1B81 /* LastBannerTVC.swift in Sources */,
 				E82DE8FE268C748900296B53 /* FunctionDataModel.swift in Sources */,
@@ -1057,8 +1109,10 @@
 				F8CB27ED2691FB8800DEFA75 /* GeneralAPI.swift in Sources */,
 				F86F7AD326918AC50037081D /* UIViewController+Extension.swift in Sources */,
 				9261598926920EBE00E1E87F /* RecommendCVC.swift in Sources */,
+				92BC7DF726964D4E0088E4EE /* ReviewTVC.swift in Sources */,
 				92A889EB2693B14400AC1B81 /* ColorFilterView.swift in Sources */,
 				F83BA01F268C476B00E94E74 /* AppDelegate.swift in Sources */,
+				92BC7DF3269645450088E4EE /* DetailTopTVC.swift in Sources */,
 				92A889DE26931A6900AC1B81 /* RecommendLens.swift in Sources */,
 				F8514795269366C300C8532F /* HomeDataModel.swift in Sources */,
 				F83BA072268CEB5D00E94E74 /* UIColor+Addition.swift in Sources */,
@@ -1086,9 +1140,11 @@
 				E8C9A4422690D06100E5BD9D /* UIView.swift in Sources */,
 				F85147972695839500C8532F /* SearchService.swift in Sources */,
 				F86F7ACD269068B20037081D /* SplashVC.swift in Sources */,
+				92BC7DFB26964EF00088E4EE /* DetailSimilarTVC.swift in Sources */,
 				9276925F2693CB7D00201EE1 /* BrandFilterView.swift in Sources */,
 				92A889CC2692E11A00AC1B81 /* SituationTVC.swift in Sources */,
 				92BF87A2268D908C00706384 /* GenderCVC.swift in Sources */,
+				92BC7DFF269653D50088E4EE /* DetailNewTVC.swift in Sources */,
 				9261599126921B6600E1E87F /* SeasonCVC.swift in Sources */,
 				92BF879D268CCC8100706384 /* AgeDataModel.swift in Sources */,
 				92A889E02693227000AC1B81 /* NewLens.swift in Sources */,
