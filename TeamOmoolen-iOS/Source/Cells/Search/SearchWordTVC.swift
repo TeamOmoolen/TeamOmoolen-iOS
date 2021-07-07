@@ -32,6 +32,6 @@ class SearchWordTVC: UITableViewCell {
     
     @IBAction func sendRemoveNotification(_ sender: Any) {
         NotificationCenter.default
-            .post(name: NSNotification.Name("RemoveWord"), object: nil)
+            .post(name: NSNotification.Name("RemoveWord"), object: searchLabel.text)
     }
 }

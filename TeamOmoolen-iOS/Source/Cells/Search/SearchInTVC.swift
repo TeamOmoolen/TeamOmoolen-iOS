@@ -18,20 +18,23 @@ class SearchInTVC: UITableViewCell {
     //Mark: - Variables
     var enteredText: String?
     var realm: Realm?
-    var firstRecentSearch: String!
-    var secondRecentSearch: String!
-    var thirdRecentSearch: String!
+    var searchList: Array<String> = []
+    var resultArray: Array<String> = []
 
     
     //Mark: - Life Cycle Methods
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         realm = try? Realm()
+        print(realm?.objects(RecentSearch.self))
+        print("db 카운트")
+        print(realm?.objects(RecentSearch.self).count)
         registerXib()
+        setSearchList()
         setSearchHistoryTable()
-       // setSearchWords()
         checkNotification()
-        checkSearchHistory()
+        print(searchList.count)
       
     }
 
@@ -52,8 +55,28 @@ class SearchInTVC: UITableViewCell {
         searchHistoryTableView.register(SearchWordNib, forCellReuseIdentifier: SearchWordTVC.identifier)
         searchHistoryTableView.register(NoRecentNib, forCellReuseIdentifier: NoRecentTVC.identifier)
         searchHistoryTableView.register(AllClearNib, forCellReuseIdentifier: AllClearTVC.identifier)
-
+    }
+    
+    func setSearchList(){
         
+        let savedWords = realm?.objects(RecentSearch.self)
+        let Results: Results<RecentSearch> = (savedWords)!
+        let ResultArray = Results.toArray()
+        
+        
+        if (ResultArray.count == 0) {
+            return
+        } else if (ResultArray.count == 1){
+            searchList.append(ResultArray[ResultArray.count-1].word)
+        } else if (ResultArray.count == 2){
+            searchList.append(ResultArray[ResultArray.count-1].word)
+            searchList.append(ResultArray[ResultArray.count-2].word)
+        } else {
+            searchList.append(ResultArray[ResultArray.count-1].word)
+            searchList.append(ResultArray[ResultArray.count-2].word)
+            searchList.append(ResultArray[ResultArray.count-3].word)
+        }
+        //print(searchList)
     }
     
     func setSearchHistoryTable() {
@@ -64,6 +87,8 @@ class SearchInTVC: UITableViewCell {
    
     func checkNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(searchEntered), name: NSNotification.Name("search"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(removeWord), name: NSNotification.Name("RemoveWord"), object: nil)
     }
     
     @objc func searchEntered(notification: NSNotification) {
@@ -73,23 +98,20 @@ class SearchInTVC: UITableViewCell {
         if enteredText.isEmpty {
             //Alert 보내주기?
             print("검색어를 입력해 주세요")
+
         }
         //검색어 목록 배열로 전환
-        let savedWords = realm?.objects(RecentSearch.self)
-        let Results: Results<RecentSearch> = (savedWords)!
-        let resultArray: [RecentSearch] = Results.toArray()
-        let count = resultArray.count
         
         do {
             try realm!.write {
                 let searchWord = RecentSearch()
                 searchWord.word = enteredText
-                if (count == 0) {
+                if (realm?.objects(RecentSearch.self).count == 0) {
                     //처음 입력 받았을때
                     realm?.add(searchWord)
                     print("검색어를 입력해 주세요")
                 }
-                else if (count >= 3 && (resultArray[count-1].word == enteredText || resultArray[count-2].word == enteredText || resultArray[count-3].word == enteredText)) {
+                else if (searchList.contains(searchWord.word)) {
                     //같은게 이미 db에 존재한다면
                     print("db 추가할 필요 없음")
                 } else {
@@ -109,32 +131,29 @@ class SearchInTVC: UITableViewCell {
         return database
     }
     
-    func checkSearchHistory(){
-        let savedWords = realm?.objects(RecentSearch.self)
-        let Results: Results<RecentSearch> = (savedWords)!
-        let resultArray: [RecentSearch] = Results.toArray()
-        let count = resultArray.count
-        if (savedWords?.isEmpty == true) {
-            //저장된 검색어가 아예 없는 경우
-        } else if (savedWords?.count == 1) {
-            //검색어 하나만 존재
-            firstRecentSearch = resultArray[0].word
-            //NotificationCenter.default.post(name: NSNotification.Name("OneSearch"), object: firstRecentSearch)
-            
-        } else if (savedWords?.count == 2) {
-            //검색어 두개 존재 stack view 3개 적용
-            firstRecentSearch = resultArray[0].word
-            secondRecentSearch = resultArray[1].word
-            let myWords = [firstRecentSearch, secondRecentSearch]
-            //NotificationCenter.default.post(name: NSNotification.Name("TwoSearch"), object: firstRecentSearch)
-            
-        } else {
-            //realm에서 끝에 세 개 가져오기 -
-            firstRecentSearch = resultArray[count-1].word
-            secondRecentSearch = resultArray[count-2].word
-            thirdRecentSearch = resultArray[count-3].word
-            //let myWords = [firstRecentSearch,]
+    @objc func removeWord(notification: NSNotification){
+        //realm에서 해당 검색어 지워주기
+        //tableView 리로드
+        if let word = notification.object as? String {
+            print(word)
+            do {
+                let targetWord = realm?.objects(RecentSearch.self).filter("word CONTAINS[c] %@", word)
+                try! realm?.write {
+                    if let obj = targetWord {
+                        //db에서 지워주기
+                        realm?.delete(obj)
+                        let idx = searchList.firstIndex(of: word)!
+                        searchList.remove(at: idx)
+                        //tableView Reload
+                        searchHistoryTableView.reloadData()
+                    }
+                    print(searchList)
+                }
+               } catch  {
+                   print("지워지지 않았습니다")
+               }
         }
+        
     }
 }
 
@@ -147,7 +166,7 @@ extension Results {
 extension SearchInTVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (realm?.objects(RecentSearch.self).count == 0) {
+        if (searchList.count == 0) {
             switch indexPath.section {
             case 0:
                 return 80 //최근검색어 없음
@@ -158,7 +177,7 @@ extension SearchInTVC: UITableViewDelegate {
             default:
                 return 50 //나중에 변경
             }
-        } else if (realm?.objects(RecentSearch.self).count == 1) {
+        } else if (searchList.count == 1) {
             switch indexPath.section {
             case 0:
                 return 50 //단어 1
@@ -167,7 +186,7 @@ extension SearchInTVC: UITableViewDelegate {
             default:
                 return 50
             }
-        } else if (realm?.objects(RecentSearch.self).count == 2) {
+        } else if (searchList.count == 2) {
             switch indexPath.section {
             case 0:
                 return 50 //단어 1
@@ -204,11 +223,11 @@ extension SearchInTVC: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         //검색어 저장된 게 없음
-        if (realm?.objects(RecentSearch.self).count == 0){
+        if (searchList.count == 0){
             return 2
-        } else if (realm?.objects(RecentSearch.self).count == 1){
+        } else if (searchList.count == 1){
             return 2
-        } else if (realm?.objects(RecentSearch.self).count == 2){
+        } else if (searchList.count == 2){
             return 3
         }
         return 4
@@ -216,7 +235,7 @@ extension SearchInTVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if (realm?.objects(RecentSearch.self).count == 0) {
+        if (searchList.count == 0) {
             switch indexPath.section {
             case 0: //최근검색어 없음
                 guard let cell = tableView.dequeueReusableCell(withIdentifier:  NoRecentTVC.identifier, for: indexPath) as? NoRecentTVC else {
@@ -231,12 +250,13 @@ extension SearchInTVC: UITableViewDataSource {
             default:
                 return UITableViewCell()
             }
-        } else if (realm?.objects(RecentSearch.self).count == 1) {
+        } else if (searchList.count == 1) {
             switch indexPath.section {
             case 0: //단어 1
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
                     return UITableViewCell()
                 }
+                cell.searchLabel.text = searchList[0]
                 return cell
             case 1: //전체삭제 버튼
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AllClearTVC.identifier, for: indexPath) as? AllClearTVC else {
@@ -246,18 +266,20 @@ extension SearchInTVC: UITableViewDataSource {
             default:
                 return UITableViewCell()
             }
-        } else if (realm?.objects(RecentSearch.self).count == 2){
+        } else if (searchList.count == 2){
             switch indexPath.section {
             case 0: //단어 1
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
                     return UITableViewCell()
                 }
+                cell.searchLabel.text = searchList[0]
                 return cell
 
             case 1: //단어 2
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
                     return UITableViewCell()
                 }
+                cell.searchLabel.text = searchList[1]
                 return cell
             
             case 2: //전체삭제
@@ -274,21 +296,22 @@ extension SearchInTVC: UITableViewDataSource {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
                     return UITableViewCell()
                 }
-                cell.searchLabel.text = firstRecentSearch
+                cell.searchLabel.text = searchList[0]
                 return cell
             
             case 1: //단어 2
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
                     return UITableViewCell()
                 }
-                cell.searchLabel.text = secondRecentSearch
+                cell.searchLabel.text = searchList[1]
                 return cell
                 
             case 2: //단어 3
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
                     return UITableViewCell()
                 }
-                cell.searchLabel.text = thirdRecentSearch
+                cell.searchLabel.text = searchList[2]
+                
                 return cell
                 
             case 3: //전체삭제
