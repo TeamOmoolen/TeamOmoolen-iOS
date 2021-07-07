@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <point key="canvasLocation" x="91" y="62"/>
+            <point key="canvasLocation" x="89.855072463768124" y="61.607142857142854"/>
         </collectionViewCell>
     </objects>
 </document>

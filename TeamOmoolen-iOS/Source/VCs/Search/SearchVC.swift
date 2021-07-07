@@ -48,6 +48,7 @@ class SearchVC: UIViewController {
         
         layout.itemSize = CGSize(width: view.frame.width, height: view.frame.height)
         layout.scrollDirection = .horizontal
+        
         layout.minimumLineSpacing = 0
         collectionView.collectionViewLayout = layout
         collectionView.isPagingEnabled = true
@@ -113,5 +114,12 @@ extension SearchVC : UICollectionViewDelegate, UICollectionViewDataSource, UICol
         return CGSize(width: view.frame.width, height: view.frame.height)
 //        return self.collectionView.frame.size
     }
+    
+    
+    /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }*/
+    
+    
     
 }

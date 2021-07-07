@@ -18,7 +18,8 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ONP-XA-ib6">
                                 <rect key="frame" x="0.0" y="149" width="375" height="629"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sLF-8q-9ER">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sLF-8q-9ER">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -53,13 +54,14 @@
                         <constraints>
                             <constraint firstItem="c78-wW-gZH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="1AW-qs-FG1"/>
                             <constraint firstItem="ONP-XA-ib6" firstAttribute="top" secondItem="c78-wW-gZH" secondAttribute="bottom" constant="55" id="1Nd-yk-8Mk"/>
+                            <constraint firstItem="ONP-XA-ib6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="3Vd-nd-dMG"/>
                             <constraint firstItem="V8S-5U-p4n" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="5rR-Ml-5wq"/>
                             <constraint firstItem="V8S-5U-p4n" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="7" id="GyW-p4-9Ta"/>
                             <constraint firstItem="ONP-XA-ib6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="NC2-pP-rpS"/>
-                            <constraint firstItem="ONP-XA-ib6" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="105" id="okg-fg-upo"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ONP-XA-ib6" secondAttribute="trailing" id="qpQ-IK-2r3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="c78-wW-gZH" secondAttribute="trailing" constant="20" id="rPB-yM-xXa"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ONP-XA-ib6" secondAttribute="bottom" id="vKT-Xe-i0h"/>
+                            <constraint firstItem="ONP-XA-ib6" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="x4N-80-pgt"/>
                         </constraints>
                     </view>
                     <connections>
