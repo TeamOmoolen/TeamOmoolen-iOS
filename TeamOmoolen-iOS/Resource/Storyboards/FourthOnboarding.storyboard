@@ -89,6 +89,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icToggleBrandselectNormal" translatesAutoresizingMaskIntoConstraints="NO" id="dkb-fv-FFd">
+                                        <rect key="frame" x="338" y="23" width="12" height="8.5"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
@@ -176,6 +179,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icToggleBrandselectNormal" width="12" height="8.5"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
