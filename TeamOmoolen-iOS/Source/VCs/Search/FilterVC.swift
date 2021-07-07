@@ -42,6 +42,8 @@ class FilterVC: UIViewController {
     
     // MARK: - Local Variables
     
+    private var lensBrand = [String]()
+    private var lensColor = [String]()
     
     // MARK: - View Life Cycle Methods
     
@@ -51,8 +53,14 @@ class FilterVC: UIViewController {
         setCategoryView()
         setCustomView()
         setButtonView()
+        
+        setNotification()
     }
-   
+    
+    // 필터 검색 버튼 눌렀을 때
+    @IBAction func touchUpSearchButton(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("touchUpSearchButton"), object: nil)
+    }
 }
 
 extension FilterVC {
@@ -141,6 +149,9 @@ extension FilterVC {
         resetBackView.layer.cornerRadius = 10
         resetBackView.layer.masksToBounds = true
         
+        let resetTapGesture =  UITapGestureRecognizer(target: self, action: #selector(touchUpReset))
+        resetBackView.addGestureRecognizer(resetTapGesture)
+        
         searchButton.layer.backgroundColor = UIColor.omMainBlack.cgColor
         searchButton.layer.cornerRadius = 10
         searchButton.layer.masksToBounds = true
@@ -184,5 +195,57 @@ extension FilterVC {
     @objc
     func touchUpCycleFilter(_ sender: UITapGestureRecognizer) {
         
+    }
+    
+    @objc
+    func touchUpReset(_ sender: UITapGestureRecognizer) {
+        if !brandFilterView.isHidden {
+            print("브랜드 초기화")
+            NotificationCenter.default.post(name: NSNotification.Name("touchUpBrandReset"), object: nil)
+        }
+        if !colorFilterView.isHidden {
+            print("컬러 초기화")
+            NotificationCenter.default.post(name: NSNotification.Name("touchUpColorReset"), object: nil)
+        }
+        
+    }
+}
+
+// MARK: - Notification
+
+extension FilterVC {
+    private func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(searchBrandData), name: NSNotification.Name("postBrandList"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resetBrandData), name: NSNotification.Name("resetBrandList"), object: nil)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(searchColorData), name: NSNotification.Name("postColorList"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resetColorData), name: NSNotification.Name("resetColorList"), object: nil)
+    }
+    
+    @objc
+    func searchBrandData(_ notification: Notification) {
+        print("🍏 브랜드 정보 받았다")
+        lensBrand = notification.object as! [String]
+        print(lensBrand)
+    }
+    @objc
+    func resetBrandData(_ notification: Notification) {
+        print("🍏 브랜드 정보 초기화!!")
+        lensBrand = notification.object as! [String]
+        print(lensBrand)
+    }
+    
+    @objc
+    func searchColorData(_ notification: Notification) {
+        print("🍎 컬러 정보 받았다")
+        lensColor = notification.object as! [String]
+        print(lensColor)
+    }
+    @objc
+    func resetColorData(_ notification: Notification) {
+        print("🍎 컬러 정보 초기화!!")
+        lensColor = notification.object as! [String]
+        print(lensColor)
     }
 }

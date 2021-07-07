@@ -19,7 +19,7 @@ class BrandFilterView: UIView {
     // MARK: - Local Variables
     
     private var brandList: [LensBrandDataModel] = []
-    var lensBrand = [String]()
+    private var lensBrand = [String]()
     var isAllSelected = false
     
     // MARK: - init Methods
@@ -48,6 +48,7 @@ class BrandFilterView: UIView {
         registerXib()
         setCollectionView()
         
+        setNotification()
     }
 }
 
@@ -153,3 +154,85 @@ extension BrandFilterView: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
 }
+
+
+// MARK: - Notification
+
+extension BrandFilterView {
+    private func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(postData), name: NSNotification.Name("touchUpSearchButton"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(resetData), name: NSNotification.Name("touchUpBrandReset"), object: nil)
+    }
+    
+    @objc
+    func postData(_ notification: Notification) {
+        lensBrand = []
+        
+        guard let lensBrandList = brandListCollectionView.indexPathsForSelectedItems else {
+            return
+        }
+        if lensBrandList.contains([0,0]) {
+            lensBrand.append("오렌즈")
+        }
+        if lensBrandList.contains([0,1]) {
+            lensBrand.append("렌즈미")
+        }
+        if lensBrandList.contains([0,2]) {
+            lensBrand.append("렌즈베리")
+        }
+        if lensBrandList.contains([0,3]) {
+            lensBrand.append("앤365")
+        }
+        if lensBrandList.contains([0,4]) {
+            lensBrand.append("렌즈타운")
+        }
+        if lensBrandList.contains([0,5]) {
+            lensBrand.append("다비치")
+        }
+        if lensBrandList.contains([0,6]) {
+            lensBrand.append("아이돌렌즈")
+        }
+        if lensBrandList.contains([0,7]) {
+            lensBrand.append("렌즈나인")
+        }
+        if lensBrandList.contains([0,8]) {
+            lensBrand.append("렌즈디바")
+        }
+        if lensBrandList.contains([0,9]) {
+            lensBrand.append("아큐브")
+        }
+        if lensBrandList.contains([0,10]) {
+            lensBrand.append("바슈롬")
+        }
+        if lensBrandList.contains([0,11]) {
+            lensBrand.append("클라렌")
+        }
+        if lensBrandList.contains([0,12]) {
+            lensBrand.append("알콘")
+        }
+        if lensBrandList.contains([0,13]) {
+            lensBrand.append("뉴바이오")
+        }
+        if lensBrandList.contains([0,14]) {
+            lensBrand.append("프레쉬콘")
+        }
+        if lensBrandList.contains([0,15]) {
+            lensBrand.append("쿠퍼비전")
+        }
+        if lensBrandList.contains([0,16]) {
+            lensBrand.append("그 외")
+        }
+        NotificationCenter.default.post(name: NSNotification.Name("postBrandList"), object: lensBrand)
+    }
+    
+    @objc
+    func resetData(_ notification: Notification) {
+        lensBrand = []
+        
+        brandListCollectionView.deselectAll(animated: true)
+        
+        NotificationCenter.default.post(name: NSNotification.Name("resetBrandList"), object: lensBrand)
+    }
+}
+
