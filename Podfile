@@ -6,8 +6,9 @@ target 'TeamOmoolen-iOS' do
   use_frameworks!
 pod 'Moya', '~> 14.0'
 pod 'SnapKit', '~> 5.0.0'
-
+pod 'Kingfisher'
 
   # Pods for TeamOmoolen-iOS
+pod 'RealmSwift'
 
 end

@@ -25,12 +25,12 @@ class TabBarController: UITabBarController {
         let homeTab = homeStoryboard.instantiateViewController(identifier: "HomeVC")
         homeTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "abc"), selectedImage: UIImage(named: "abc"))
         
-        // 탭 생성
-//        let searchTab = homeStoryboard.instantiateViewController(identifier: "VC")
-//        searchTab.tabBarItem = UITabBarItem(title: "발견", image: UIImage(named: "abc"), selectedImage: UIImage(named: "abc"))
+        let searchStoryboard = UIStoryboard.init(name: "Search", bundle: nil)
+        let searchTab = searchStoryboard.instantiateViewController(identifier: "SearchVC")
+        searchTab.tabBarItem = UITabBarItem(title: "발견", image: UIImage(named: "abc"), selectedImage: UIImage(named: "abc"))
         
         // 탭 연결
-        let tabs =  [homeTab]
+        let tabs =  [homeTab, searchTab]
         
         self.setViewControllers(tabs, animated: false)
         self.selectedViewController = homeTab
