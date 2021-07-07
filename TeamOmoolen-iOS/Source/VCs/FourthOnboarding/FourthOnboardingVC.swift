@@ -14,6 +14,7 @@ class FourthOnboardingVC: UIViewController {
     // MARK: - UI Components
     @IBOutlet weak var customNavigationBarView: UIView!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var icToggleImageView: UIImageView!
     @IBOutlet weak var progressLabel: UILabel!
     
     @IBOutlet weak var guideLabel1: UILabel!
@@ -243,8 +244,8 @@ extension FourthOnboardingVC {
         guideLabel2.textColor = .omFourthGray
         guideLabel2.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
         
-        warningLabel.text = "렌즈 정보를 입력하지 않았습니다."
-        warningLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 12)
+        warningLabel.text = "* 렌즈 정보를 입력하지 않았습니다."
+        warningLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 10)
         warningLabel.textColor = .omMainRed
         warningLabel.isHidden = true
         
@@ -264,7 +265,7 @@ extension FourthOnboardingVC {
         lensTextView.layer.cornerRadius = 10
         lensTextView.layer.masksToBounds = true
         lensTextView.layer.applyShadow(color: .black, alpha: 0.14, x: 2, y: 2, blur: 7, spread: 0)
-//        lensTextView.isEditable = false
+        lensTextView.isEditable = false
         
         lensTextView.backgroundColor = .omAlmostwhite
         lensTextView.font = UIFont(name: "NotoSansCJKKR-DemiLight", size: 15)

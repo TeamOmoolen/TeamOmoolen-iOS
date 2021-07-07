@@ -17,8 +17,10 @@ class HomeVC: UIViewController {
     @IBOutlet weak var homeTableView: UITableView!
     
     @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var searchTextField: UITextField!
     
+    @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var searchIcon: UIImageView!
+    @IBOutlet weak var searchLabel: UILabel!
     
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     
@@ -53,7 +55,7 @@ class HomeVC: UIViewController {
         
         setUI()
         setList()
-        
+        setNotificationLoginErr()
         registerXib()
         setHomeTableView()
         getHomeWithAPI()
@@ -69,29 +71,35 @@ extension HomeVC {
         homeHeaderView.backgroundColor = .white
         homeTableView.backgroundColor = .white
         
-        view.addSubview(categoryView)
+//        view.addSubview(categoryView)
         view.addSubview(topButton)
         
-        categoryView.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.height.equalTo(121)
-            make.top.equalTo(homeHeaderView.snp.bottom).offset(5)
-        }
+//        categoryView.snp.makeConstraints { make in
+//            make.width.equalToSuperview()
+//            make.height.equalTo(121)
+//            make.top.equalTo(homeHeaderView.snp.bottom).offset(5)
+//        }
         
         topButton.snp.makeConstraints { make in
             make.width.height.equalTo(60)
-            make.trailing.equalToSuperview().inset(20)
+            make.trailing.equalToSuperview().inset(25)
             make.bottom.equalToSuperview().inset(-100)
         }
         
         logoImageView.image = UIImage(named: "abc")
         
-        searchTextField.borderStyle = .roundedRect
-        searchTextField.layer.borderColor = UIColor.omMainOrange.cgColor
-        searchTextField.layer.borderWidth = 1
-        searchTextField.layer.cornerRadius = 5
-        searchTextField.layer.masksToBounds = true
-        searchTextField.placeholder = "오늘 무슨 렌즈 끼지?"
+        searchView.layer.borderColor = UIColor.omMainOrange.cgColor
+        searchView.layer.borderWidth = 1
+        searchView.layer.cornerRadius = 8
+        searchView.layer.masksToBounds = true
+        
+        searchIcon.image = UIImage(named: "abc")
+        searchLabel.text = "오늘은 무슨 렌즈끼지?"
+        searchLabel.textColor = .omFourthGray
+        searchLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 13)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpSearchView))
+        searchView.addGestureRecognizer(tapGesture)
     }
     
     func setList() {
@@ -99,6 +107,9 @@ extension HomeVC {
     }
     
     func registerXib() {
+        let categoryNib = UINib(nibName: CategoryTVC.identifier, bundle: nil)
+        homeTableView.register(categoryNib, forCellReuseIdentifier: CategoryTVC.identifier)
+        
         let recommedNib = UINib(nibName: RecommendTVC.identifier, bundle: nil)
         homeTableView.register(recommedNib, forCellReuseIdentifier: RecommendTVC.identifier)
         
@@ -111,8 +122,8 @@ extension HomeVC {
         let newLensNib = UINib(nibName: NewLensTVC.identifier, bundle: nil)
         homeTableView.register(newLensNib, forCellReuseIdentifier: NewLensTVC.identifier)
         
-        let timeRecommendNib = UINib(nibName: TimeRecommendTVC.identifier, bundle: nil)
-        homeTableView.register(timeRecommendNib, forCellReuseIdentifier: TimeRecommendTVC.identifier)
+        let timeRecommendNib = UINib(nibName: SituationTVC.identifier, bundle: nil)
+        homeTableView.register(timeRecommendNib, forCellReuseIdentifier: SituationTVC.identifier)
         
         let lastBannerNib = UINib(nibName: LastBannerTVC.identifier, bundle: nil)
         homeTableView.register(lastBannerNib, forCellReuseIdentifier: LastBannerTVC.identifier)
@@ -139,6 +150,12 @@ extension HomeVC {
         let topIndex = IndexPath(row: 0, section: 0)
         homeTableView.scrollToRow(at: topIndex, at: .top, animated: true)
     }
+    
+    @objc
+    func touchUpSearchView(_ sender: UITapGestureRecognizer) {
+        print("SearchVC로 이동")
+        searchLabel.isHidden = true
+    }
 }
 
 // MARK: - UITableView Delegate
@@ -147,18 +164,20 @@ extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section{
         case 0:
-            return 371
+            return 121
         case 1:
-            return 551
+            return 371
         case 2:
-            return 1083
+            return 551
         case 3:
-            return 180
+            return 1083
         case 4:
-            return 807
+            return 180
         case 5:
-            return 780
+            return 807
         case 6:
+            return 1085
+        case 7:
             return 230
         default:
             return UITableView.automaticDimension
@@ -169,11 +188,11 @@ extension HomeVC: UITableViewDelegate {
         if scrollView.contentOffset.y > 10 {
             topButton.isHidden = false
             
-            categoryView.snp.updateConstraints { make in
-                make.height.equalTo(60)
-            }
-            
-            tableViewTopConstraint.constant = 60
+//            categoryView.snp.updateConstraints { make in
+//                make.height.equalTo(60)
+//            }
+//
+//            tableViewTopConstraint.constant = 60
             
             topButton.snp.updateConstraints { make in
                 make.bottom.equalToSuperview().inset(100)
@@ -181,11 +200,11 @@ extension HomeVC: UITableViewDelegate {
         } else {
             topButton.isHidden = true
             
-            categoryView.snp.updateConstraints { make in
-                make.height.equalTo(121)
-            }
-            
-            tableViewTopConstraint.constant = 121
+//            categoryView.snp.updateConstraints { make in
+//                make.height.equalTo(121)
+//            }
+//            
+//            tableViewTopConstraint.constant = 121
             
             topButton.snp.updateConstraints { make in
                 make.bottom.equalToSuperview().inset(-100)
@@ -206,45 +225,50 @@ extension HomeVC: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 7
+        return 8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath.section {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier:  RecommendTVC.identifier, for: indexPath) as? RecommendTVC else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:  CategoryTVC.identifier, for: indexPath) as? CategoryTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
             return cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier:  OneMinTVC.identifier, for: indexPath) as? OneMinTVC else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:  RecommendTVC.identifier, for: indexPath) as? RecommendTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
             return cell
         case 2:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier:  SeasonTVC.identifier, for: indexPath) as? SeasonTVC else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:  OneMinTVC.identifier, for: indexPath) as? OneMinTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
             return cell
         case 3:
-            return UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:  SeasonTVC.identifier, for: indexPath) as? SeasonTVC else {
+                return UITableViewCell()
+            }
+            cell.selectionStyle = .none
+            return cell
         case 4:
+            return UITableViewCell()
+        case 5:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  NewLensTVC.identifier, for: indexPath) as? NewLensTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
             return cell
-        case 5:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier:  TimeRecommendTVC.identifier, for: indexPath) as? TimeRecommendTVC else {
+        case 6:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:  SituationTVC.identifier, for: indexPath) as? SituationTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
             return cell
-        case 6:
+        case 7:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  LastBannerTVC.identifier, for: indexPath) as? LastBannerTVC else {
                 return UITableViewCell()
             }

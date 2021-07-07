@@ -38,7 +38,7 @@ extension OnboardingService: TargetType {
     }
     
     public var sampleData: Data {
-        return  "sampleData".data(using: .utf8)!
+        return  "sampleData".data(using: .utf8)! 
     }
     
     public var task: Task {
