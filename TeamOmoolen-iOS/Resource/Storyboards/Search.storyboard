@@ -35,7 +35,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="searchEditingEnded:" destination="Y6W-OH-hqX" eventType="editingDidEndOnExit" id="ANV-Gh-dzZ"/>
+                                            <action selector="searchDidEnd:" destination="Y6W-OH-hqX" eventType="editingDidEndOnExit" id="shs-Ks-aUm"/>
                                         </connections>
                                     </textField>
                                 </subviews>

@@ -47,6 +47,12 @@ class SearchVC: UIViewController {
         collectionView.reloadData()
     }
 
+    //Mark: - IBAction Methods
+    @IBAction func searchDidEnd(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("search"), object: searchTextField.text)
+    }
+    
+    
     //Mark: - Methods
     private func setUpTabBar(){
         view.addSubview(searchTabBar)

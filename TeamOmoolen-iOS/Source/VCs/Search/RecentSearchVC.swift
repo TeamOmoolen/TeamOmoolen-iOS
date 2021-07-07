@@ -104,11 +104,6 @@ extension RecentSearchVC: UITableViewDataSource {
             return UITableViewCell()
         }
     }
-    
-    
-    
-
-    
 }
 
 

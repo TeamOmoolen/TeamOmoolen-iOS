@@ -25,6 +25,9 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igY-IW-ODr">
                         <rect key="frame" x="325" y="10.5" width="30" height="30"/>
                         <state key="normal" title="rm"/>
+                        <connections>
+                            <action selector="sendRemoveNotification:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1aT-l3-dnC"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

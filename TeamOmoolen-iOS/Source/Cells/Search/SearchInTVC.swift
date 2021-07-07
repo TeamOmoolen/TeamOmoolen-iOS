@@ -28,6 +28,8 @@ class SearchInTVC: UITableViewCell {
         super.awakeFromNib()
         realm = try? Realm()
         registerXib()
+        setSearchHistoryTable()
+       // setSearchWords()
         checkNotification()
         checkSearchHistory()
       
@@ -54,6 +56,12 @@ class SearchInTVC: UITableViewCell {
         
     }
     
+    func setSearchHistoryTable() {
+        searchHistoryTableView.delegate = self
+        searchHistoryTableView.dataSource = self
+        searchHistoryTableView.separatorStyle = .none
+    }
+   
     func checkNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(searchEntered), name: NSNotification.Name("search"), object: nil)
     }
@@ -111,18 +119,21 @@ class SearchInTVC: UITableViewCell {
         } else if (savedWords?.count == 1) {
             //검색어 하나만 존재
             firstRecentSearch = resultArray[0].word
+            //NotificationCenter.default.post(name: NSNotification.Name("OneSearch"), object: firstRecentSearch)
             
         } else if (savedWords?.count == 2) {
             //검색어 두개 존재 stack view 3개 적용
             firstRecentSearch = resultArray[0].word
             secondRecentSearch = resultArray[1].word
+            let myWords = [firstRecentSearch, secondRecentSearch]
+            //NotificationCenter.default.post(name: NSNotification.Name("TwoSearch"), object: firstRecentSearch)
             
         } else {
-            //세개보다 많거나 적을 경우 - stack view 3개 적용
             //realm에서 끝에 세 개 가져오기 -
             firstRecentSearch = resultArray[count-1].word
             secondRecentSearch = resultArray[count-2].word
             thirdRecentSearch = resultArray[count-3].word
+            //let myWords = [firstRecentSearch,]
         }
     }
 }
@@ -134,19 +145,159 @@ extension Results {
 }
 
 extension SearchInTVC: UITableViewDelegate {
-    /* func tableView func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        switch indexPath.section{
-        case 0:
-            return 334
-        case 1:
-            return 537
-     case 2: break
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (realm?.objects(RecentSearch.self).count == 0) {
+            switch indexPath.section {
+            case 0:
+                return 80 //최근검색어 없음
             
-        default:
-            return UITableView.automaticDimension
+            case 1:
+                return 48 //전체삭제
+        
+            default:
+                return 50 //나중에 변경
+            }
+        } else if (realm?.objects(RecentSearch.self).count == 1) {
+            switch indexPath.section {
+            case 0:
+                return 50 //단어 1
+            case 1:
+                return 48 //전체삭제
+            default:
+                return 50
+            }
+        } else if (realm?.objects(RecentSearch.self).count == 2) {
+            switch indexPath.section {
+            case 0:
+                return 50 //단어 1
+            case 1:
+                return 50 //단어 2
+            case 2:
+                return 48 //전체삭제
+            default:
+                return 50
+            }
+        } else {
+            //검색어 세개 다 꽉 찬 경우
+            switch indexPath.section {
+            case 0:
+                return 50
+            case 1:
+                return 50
+            case 2:
+                return 50
+            case 3:
+                return 48
+            default:
+                return 50
+            }
         }
-    }*/
+    }
 }
 
 
+extension SearchInTVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        //검색어 저장된 게 없음
+        if (realm?.objects(RecentSearch.self).count == 0){
+            return 2
+        } else if (realm?.objects(RecentSearch.self).count == 1){
+            return 2
+        } else if (realm?.objects(RecentSearch.self).count == 2){
+            return 3
+        }
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if (realm?.objects(RecentSearch.self).count == 0) {
+            switch indexPath.section {
+            case 0: //최근검색어 없음
+                guard let cell = tableView.dequeueReusableCell(withIdentifier:  NoRecentTVC.identifier, for: indexPath) as? NoRecentTVC else {
+                    return UITableViewCell()
+                }
+                return cell
+            case 1: //전체삭제 버튼
+                guard let cell = tableView.dequeueReusableCell(withIdentifier:  AllClearTVC.identifier, for: indexPath) as? AllClearTVC else {
+                    return UITableViewCell()
+                }
+                return cell
+            default:
+                return UITableViewCell()
+            }
+        } else if (realm?.objects(RecentSearch.self).count == 1) {
+            switch indexPath.section {
+            case 0: //단어 1
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
+                    return UITableViewCell()
+                }
+                return cell
+            case 1: //전체삭제 버튼
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: AllClearTVC.identifier, for: indexPath) as? AllClearTVC else {
+                    return UITableViewCell()
+                }
+                return cell
+            default:
+                return UITableViewCell()
+            }
+        } else if (realm?.objects(RecentSearch.self).count == 2){
+            switch indexPath.section {
+            case 0: //단어 1
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
+                    return UITableViewCell()
+                }
+                return cell
+
+            case 1: //단어 2
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
+                    return UITableViewCell()
+                }
+                return cell
+            
+            case 2: //전체삭제
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: AllClearTVC.identifier, for: indexPath) as? AllClearTVC else {
+                    return UITableViewCell()
+                }
+                return cell
+            default:
+                return UITableViewCell()
+            }
+        } //3개 이상일 경우
+            switch indexPath.section {
+            case 0: //단어 1
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
+                    return UITableViewCell()
+                }
+                cell.searchLabel.text = firstRecentSearch
+                return cell
+            
+            case 1: //단어 2
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
+                    return UITableViewCell()
+                }
+                cell.searchLabel.text = secondRecentSearch
+                return cell
+                
+            case 2: //단어 3
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
+                    return UITableViewCell()
+                }
+                cell.searchLabel.text = thirdRecentSearch
+                return cell
+                
+            case 3: //전체삭제
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: AllClearTVC.identifier, for: indexPath) as? SearchWordTVC else {
+                return UITableViewCell()
+                }
+                return cell
+            default:
+                return UITableViewCell()
+            }
+        }
+}
