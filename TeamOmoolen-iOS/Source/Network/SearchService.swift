@@ -10,6 +10,7 @@ import Moya
 
 enum SearchService {
     case searchResult
+    case popular
 }
 
 extension SearchService: TargetType {
@@ -21,12 +22,17 @@ extension SearchService: TargetType {
         switch self {
         case .searchResult:
             return "/searchResult"
+        case .popular:
+            return "/popular"
         }
+
     }
     
     var method: Moya.Method {
         switch self {
         case .searchResult:
+            return .get
+        case .popular:
             return .get
         }
     }
@@ -38,6 +44,8 @@ extension SearchService: TargetType {
     var task: Task {
         switch self {
         case .searchResult:
+            return .requestPlain
+        case .popular:
             return .requestPlain
         }
     }
