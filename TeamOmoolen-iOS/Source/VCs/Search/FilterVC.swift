@@ -206,7 +206,7 @@ extension FilterVC {
         diameterView.backgroundColor = .omWhite
         diameterLabel.textColor = .omFourthGray
         
-        cycleFilterView.backgroundColor = .omWhite
+        cycleView.backgroundColor = .omWhite
         cycleLabel.textColor = .omFourthGray
     }
     
@@ -226,7 +226,7 @@ extension FilterVC {
         diameterView.backgroundColor = .omWhite
         diameterLabel.textColor = .omFourthGray
         
-        cycleFilterView.backgroundColor = .omWhite
+        cycleView.backgroundColor = .omWhite
         cycleLabel.textColor = .omFourthGray
     }
     
