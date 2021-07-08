@@ -23,9 +23,9 @@ extension OnboardingService: TargetType {
     public var path: String {
         switch self {
         case .onboarding:
-            return "/onboarding"
+            return "/api/onboarding"
         case .home:
-            return "/home"
+            return "/api/home"
         }
     }
     public var method: Moya.Method {

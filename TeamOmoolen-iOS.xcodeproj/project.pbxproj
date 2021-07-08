@@ -116,10 +116,10 @@
 		F83BA05D268C579100E94E74 /* SecondOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA05C268C579100E94E74 /* SecondOnboardingVC.swift */; };
 		F83BA064268C6DA700E94E74 /* LensKindCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA062268C6DA700E94E74 /* LensKindCVC.swift */; };
 		F83BA065268C6DA700E94E74 /* LensKindCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F83BA063268C6DA700E94E74 /* LensKindCVC.xib */; };
-		F83BA067268C754A00E94E74 /* LensKindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA066268C754A00E94E74 /* LensKindModel.swift */; };
+		F83BA067268C754A00E94E74 /* LensKindDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA066268C754A00E94E74 /* LensKindDataModel.swift */; };
 		F83BA06A268C7DEF00E94E74 /* LensColorCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA068268C7DEF00E94E74 /* LensColorCVC.swift */; };
 		F83BA06B268C7DEF00E94E74 /* LensColorCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F83BA069268C7DEF00E94E74 /* LensColorCVC.xib */; };
-		F83BA06D268C81B200E94E74 /* LensColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA06C268C81B200E94E74 /* LensColorModel.swift */; };
+		F83BA06D268C81B200E94E74 /* LensColorDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA06C268C81B200E94E74 /* LensColorDataModel.swift */; };
 		F83BA06F268CE4FD00E94E74 /* CALayer+applyShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA06E268CE4FD00E94E74 /* CALayer+applyShadow.swift */; };
 		F83BA072268CEB5D00E94E74 /* UIColor+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA071268CEB5D00E94E74 /* UIColor+Addition.swift */; };
 		F83BA076268D760000E94E74 /* OnboardingImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA075268D760000E94E74 /* OnboardingImage.xcassets */; };
@@ -130,6 +130,7 @@
 		F851479C2695C5C300C8532F /* SearchDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F851479B2695C5C300C8532F /* SearchDataModel.swift */; };
 		F85147A02695CE5800C8532F /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F851479F2695CE5800C8532F /* SearchResultVC.swift */; };
 		F85147A22696AC9800C8532F /* PopularDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85147A12696AC9800C8532F /* PopularDataModel.swift */; };
+		F85147A52696EA1D00C8532F /* SearchResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F85147A42696EA1D00C8532F /* SearchResult.storyboard */; };
 		F86F7AC626900A030037081D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F7AC526900A030037081D /* HomeVC.swift */; };
 		F86F7AC826900A2F0037081D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F86F7AC726900A2F0037081D /* Home.storyboard */; };
 		F86F7ACA269068960037081D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F86F7AC9269068960037081D /* Splash.storyboard */; };
@@ -282,10 +283,10 @@
 		F83BA05C268C579100E94E74 /* SecondOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingVC.swift; sourceTree = "<group>"; };
 		F83BA062268C6DA700E94E74 /* LensKindCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensKindCVC.swift; sourceTree = "<group>"; };
 		F83BA063268C6DA700E94E74 /* LensKindCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LensKindCVC.xib; sourceTree = "<group>"; };
-		F83BA066268C754A00E94E74 /* LensKindModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensKindModel.swift; sourceTree = "<group>"; };
+		F83BA066268C754A00E94E74 /* LensKindDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensKindDataModel.swift; sourceTree = "<group>"; };
 		F83BA068268C7DEF00E94E74 /* LensColorCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensColorCVC.swift; sourceTree = "<group>"; };
 		F83BA069268C7DEF00E94E74 /* LensColorCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LensColorCVC.xib; sourceTree = "<group>"; };
-		F83BA06C268C81B200E94E74 /* LensColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensColorModel.swift; sourceTree = "<group>"; };
+		F83BA06C268C81B200E94E74 /* LensColorDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensColorDataModel.swift; sourceTree = "<group>"; };
 		F83BA06E268CE4FD00E94E74 /* CALayer+applyShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+applyShadow.swift"; sourceTree = "<group>"; };
 		F83BA070268CE8E200E94E74 /* TeamOmoolen-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TeamOmoolen-iOS.entitlements"; sourceTree = "<group>"; };
 		F83BA071268CEB5D00E94E74 /* UIColor+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Addition.swift"; sourceTree = "<group>"; };
@@ -296,6 +297,7 @@
 		F851479B2695C5C300C8532F /* SearchDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataModel.swift; sourceTree = "<group>"; };
 		F851479F2695CE5800C8532F /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
 		F85147A12696AC9800C8532F /* PopularDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDataModel.swift; sourceTree = "<group>"; };
+		F85147A42696EA1D00C8532F /* SearchResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResult.storyboard; sourceTree = "<group>"; };
 		F86F7AC526900A030037081D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		F86F7AC726900A2F0037081D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F86F7AC9269068960037081D /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
@@ -637,6 +639,7 @@
 				F86F7AC9269068960037081D /* Splash.storyboard */,
 				92A889DA2692FD4D00AC1B81 /* Tabbar.storyboard */,
 				92BC7DEB269641A10088E4EE /* Detail.storyboard */,
+				F85147A42696EA1D00C8532F /* SearchResult.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 		F83BA037268C491900E94E74 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				F85147A72696EA5100C8532F /* SearchResult */,
 				92BC7DED269641AB0088E4EE /* Detail */,
 				F86F7ACB269068A30037081D /* Splash */,
 				F83BA053268C4D3B00E94E74 /* Login */,
@@ -661,7 +665,6 @@
 				E82DE8EF268C5D0400296B53 /* ThirdOnboarding */,
 				924751A6268E2C6900924891 /* FourthOnboarding */,
 				F86F7AC4269009EB0037081D /* Home */,
-				F851479F2695CE5800C8532F /* SearchResultVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -787,11 +790,19 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		F85147A72696EA5100C8532F /* SearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				F851479F2695CE5800C8532F /* SearchResultVC.swift */,
+			);
+			path = SearchResult;
+			sourceTree = "<group>";
+		};
 		F85CD050268DB0F3005A3C95 /* SecondOnboarding */ = {
 			isa = PBXGroup;
 			children = (
-				F83BA066268C754A00E94E74 /* LensKindModel.swift */,
-				F83BA06C268C81B200E94E74 /* LensColorModel.swift */,
+				F83BA066268C754A00E94E74 /* LensKindDataModel.swift */,
+				F83BA06C268C81B200E94E74 /* LensColorDataModel.swift */,
 			);
 			path = SecondOnboarding;
 			sourceTree = "<group>";
@@ -1015,6 +1026,7 @@
 				925644182692C1DB00A45945 /* NewLensTVC.xib in Resources */,
 				92BAA0502694FDE7004A155A /* OneMinDetailTVC.xib in Resources */,
 				92BC7E00269653D50088E4EE /* DetailNewTVC.xib in Resources */,
+				F85147A52696EA1D00C8532F /* SearchResult.storyboard in Resources */,
 				F83BA06B268C7DEF00E94E74 /* LensColorCVC.xib in Resources */,
 				F8B91F6D268E207A006114CD /* Roboto-Black.ttf in Resources */,
 				92BC7DE82695D9230088E4EE /* RecentSearchVC.storyboard in Resources */,
@@ -1111,7 +1123,7 @@
 				E8C9A43C2690B97C00E5BD9D /* SearchTabBar.swift in Sources */,
 				F824590B268E1F3A0048BE84 /* FunctionCVC.swift in Sources */,
 				E8C9A4372690AA3100E5BD9D /* SearchTabBarCVC.swift in Sources */,
-				F83BA06D268C81B200E94E74 /* LensColorModel.swift in Sources */,
+				F83BA06D268C81B200E94E74 /* LensColorDataModel.swift in Sources */,
 				F83BA064268C6DA700E94E74 /* LensKindCVC.swift in Sources */,
 				E82C5DC826938926000EF460 /* PopularWordTVC.swift in Sources */,
 				92BAA04F2694FDE7004A155A /* OneMinDetailTVC.swift in Sources */,
@@ -1140,7 +1152,7 @@
 				F8CB27E92691FB3B00DEFA75 /* OnboardingService.swift in Sources */,
 				F83BA06A268C7DEF00E94E74 /* LensColorCVC.swift in Sources */,
 				9261598D26921B4700E1E87F /* OneMinCVC.swift in Sources */,
-				F83BA067268C754A00E94E74 /* LensKindModel.swift in Sources */,
+				F83BA067268C754A00E94E74 /* LensKindDataModel.swift in Sources */,
 				92BF87A6268D94F700706384 /* AgeCVC.swift in Sources */,
 				E8C9A4452690D56000E5BD9D /* SearchHomeCVC.swift in Sources */,
 				F851479C2695C5C300C8532F /* SearchDataModel.swift in Sources */,
