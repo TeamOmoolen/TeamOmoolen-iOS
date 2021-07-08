@@ -14,6 +14,7 @@ class SearchInTVC: UITableViewCell {
     
     //Mark: - IB Outlets
     @IBOutlet weak var searchHistoryTableView: UITableView!
+    @IBOutlet weak var tableViewWidth: NSLayoutConstraint!
     
     //Mark: - Variables
     var enteredText: String?
@@ -21,27 +22,48 @@ class SearchInTVC: UITableViewCell {
     var searchList: Array<String> = []
     var resultArray: Array<String> = []
 
-    
     //Mark: - Life Cycle Methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         realm = try? Realm()
-        print(realm?.objects(RecentSearch.self))
-        print("db 카운트")
-        print(realm?.objects(RecentSearch.self).count)
         registerXib()
         setSearchList()
         setSearchHistoryTable()
         checkNotification()
-        print(searchList.count)
-      
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    //Mark: - objc Methods
+    @objc func removeWord(notification: NSNotification){
+        if let word = notification.object as? String {
+            do {
+                removeFromRealm(target: word)
+                searchHistoryTableView.reloadData()
+                print(searchList)
+            } catch  {
+                print("지워지지 않았습니다")
+            }
+        }
+    }
+    
+    @objc func allClear() {
+        if (searchList.count == 0) {
+            print("지울 단어가 없어요")
+        }
+        do {
+            try! realm?.write {
+                realm?.deleteAll()
+                searchList.removeAll()
+                searchList.removeAll()
+                searchHistoryTableView.reloadData()
+                
+            }
+        } catch {
+            print("지워지지 않았습니다" )
+        }
     }
     
     //Mark: - Methods
@@ -58,11 +80,9 @@ class SearchInTVC: UITableViewCell {
     }
     
     func setSearchList(){
-        
         let savedWords = realm?.objects(RecentSearch.self)
         let Results: Results<RecentSearch> = (savedWords)!
         let ResultArray = Results.toArray()
-        
         
         if (ResultArray.count == 0) {
             return
@@ -76,7 +96,6 @@ class SearchInTVC: UITableViewCell {
             searchList.append(ResultArray[ResultArray.count-2].word)
             searchList.append(ResultArray[ResultArray.count-3].word)
         }
-        //print(searchList)
     }
     
     func setSearchHistoryTable() {
@@ -89,19 +108,16 @@ class SearchInTVC: UITableViewCell {
         NotificationCenter.default.addObserver(self, selector: #selector(searchEntered), name: NSNotification.Name("search"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(removeWord), name: NSNotification.Name("RemoveWord"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(allClear), name: NSNotification.Name("AllClear"), object: nil)
     }
     
     @objc func searchEntered(notification: NSNotification) {
         let enteredText = notification.object as! String
-        
-        
+    
         if enteredText.isEmpty {
-            //Alert 보내주기?
             print("검색어를 입력해 주세요")
-
         }
-        //검색어 목록 배열로 전환
-        
         do {
             try realm!.write {
                 let searchWord = RecentSearch()
@@ -112,11 +128,9 @@ class SearchInTVC: UITableViewCell {
                     print("검색어를 입력해 주세요")
                 }
                 else if (searchList.contains(searchWord.word)) {
-                    //같은게 이미 db에 존재한다면
                     print("db 추가할 필요 없음")
                 } else {
                     realm?.add(searchWord)
-                    print(realm?.objects(RecentSearch.self))
                 }
             }
         } catch {
@@ -131,32 +145,20 @@ class SearchInTVC: UITableViewCell {
         return database
     }
     
-    @objc func removeWord(notification: NSNotification){
-        //realm에서 해당 검색어 지워주기
-        //tableView 리로드
-        if let word = notification.object as? String {
-            print(word)
-            do {
-                let targetWord = realm?.objects(RecentSearch.self).filter("word CONTAINS[c] %@", word)
-                try! realm?.write {
-                    if let obj = targetWord {
-                        //db에서 지워주기
-                        realm?.delete(obj)
-                        let idx = searchList.firstIndex(of: word)!
-                        searchList.remove(at: idx)
-                        //tableView Reload
-                        searchHistoryTableView.reloadData()
-                    }
-                    print(searchList)
+    func removeFromRealm(target: String) {
+            let targetWord = realm?.objects(RecentSearch.self).filter("word CONTAINS[c] %@", target)
+            try! realm?.write {
+                if let obj = targetWord {
+                    //db에서 지워주기
+                    realm?.delete(obj)
+                    let idx = searchList.firstIndex(of: target)!
+                    searchList.remove(at: idx)
                 }
-               } catch  {
-                   print("지워지지 않았습니다")
-               }
-        }
-        
+            }
     }
 }
 
+//Mark: - Extensions
 extension Results {
     func toArray() -> Array<Element> {
         return self.map{$0}
@@ -164,16 +166,13 @@ extension Results {
 }
 
 extension SearchInTVC: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (searchList.count == 0) {
             switch indexPath.section {
             case 0:
                 return 80 //최근검색어 없음
-            
             case 1:
                 return 48 //전체삭제
-        
             default:
                 return 50 //나중에 변경
             }
@@ -220,17 +219,20 @@ extension SearchInTVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
     }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        //검색어 저장된 게 없음
-        if (searchList.count == 0){
+        
+        if (searchList.count == 0){ //검색어 3개에서 전체 삭제 했을 때 여기로 들어옴
+            tableViewWidth.constant = 129
             return 2
         } else if (searchList.count == 1){
+            tableViewWidth.constant = 125
             return 2
         } else if (searchList.count == 2){
+            tableViewWidth.constant = 164
             return 3
         }
-        return 4
+            tableViewWidth.constant = 225
+            return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -311,7 +313,6 @@ extension SearchInTVC: UITableViewDataSource {
                     return UITableViewCell()
                 }
                 cell.searchLabel.text = searchList[2]
-                
                 return cell
                 
             case 3: //전체삭제

@@ -20,18 +20,21 @@
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="okf-h8-yfg">
                         <rect key="frame" x="20" y="11" width="335" height="254"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="254" id="gdX-2r-vaE"/>
+                        </constraints>
                     </tableView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="okf-h8-yfg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="ARo-7e-JIb"/>
                     <constraint firstItem="okf-h8-yfg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Egs-93-GjS"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="okf-h8-yfg" secondAttribute="bottom" id="uJI-w6-Ox7"/>
                     <constraint firstAttribute="trailingMargin" secondItem="okf-h8-yfg" secondAttribute="trailing" id="zKQ-N7-Xma"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="searchHistoryTableView" destination="okf-h8-yfg" id="p0N-mm-0lt"/>
+                <outlet property="tableViewWidth" destination="gdX-2r-vaE" id="RQD-gD-EJn"/>
             </connections>
             <point key="canvasLocation" x="-123.91304347826087" y="133.92857142857142"/>
         </tableViewCell>
