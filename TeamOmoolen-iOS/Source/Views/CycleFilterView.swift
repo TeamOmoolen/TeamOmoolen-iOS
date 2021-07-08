@@ -1,5 +1,5 @@
 //
-//  DiameterFilterView.swift
+//  CycleFilterView.swift
 //  TeamOmoolen-iOS
 //
 //  Created by soyeon on 2021/07/08.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DiameterFilterView: UIView {
+class CycleFilterView: UIView {
     
     // MARK: - UI Components
     
@@ -16,12 +16,13 @@ class DiameterFilterView: UIView {
     @IBOutlet weak var selectImage: UIImageView!
     @IBOutlet weak var selectButton: UIButton!
     
-    @IBOutlet weak var diameterCollectionView: UICollectionView!
+    @IBOutlet weak var cycleCollectionView: UICollectionView!
+    
     
     // MARK: - Local Variables
     
-//    private var lensDiameterList = [LensDiameterDataModel]()
-    var lensDiameter = [String]()
+//    private var lensCycleList = [LensCycleDataModel]()
+    var lensCycle = [String]()
     var isAllSelected = false
 
     // MARK: - init Methods
@@ -45,6 +46,7 @@ class DiameterFilterView: UIView {
         self.addSubview(customView)
         
         setUI()
+        setButton()
         setList()
         registerXib()
 //        setCollectionView()
@@ -54,9 +56,9 @@ class DiameterFilterView: UIView {
 
 }
 
-extension DiameterFilterView {
+extension CycleFilterView {
     func setUI() {
-        filterLabel.text = "직경"
+        filterLabel.text = "주기"
         filterLabel.textColor = .omMainBlack
         filterLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
         
@@ -74,26 +76,26 @@ extension DiameterFilterView {
     }
     
 //    func setCollectionView() {
-//        diameterCollectionView.delegate = self
-//        diameterCollectionView.dataSource = self
+//        cycleCollectionView.delegate = self
+//        cycleCollectionView.dataSource = self
 //
-//        diameterCollectionView.allowsMultipleSelection = true
+//        cycleCollectionView.allowsMultipleSelection = true
 //    }
 }
 
 // MARK: - Action Methods
 
-extension DiameterFilterView {
+extension CycleFilterView {
     func setButton() {
         let allSelectAction = UIAction { _ in
             if !self.isAllSelected {
                 self.isAllSelected = true
                 self.selectButton.tintColor = .omMainOrange
-                self.diameterCollectionView.selectAll(animated: true)
+                self.cycleCollectionView.selectAll(animated: true)
             } else {
                 self.isAllSelected = false
                 self.selectButton.tintColor = .omFourthGray
-                self.diameterCollectionView.deselectAll(animated: true)
+                self.cycleCollectionView.deselectAll(animated: true)
             }
         }
         selectButton.addAction(allSelectAction, for: .touchUpInside)
@@ -102,9 +104,9 @@ extension DiameterFilterView {
 
 // MARK: - UI CollectionViewDataSource
 
-extension DiameterFilterView: UICollectionViewDataSource {
+extension CycleFilterView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -114,7 +116,7 @@ extension DiameterFilterView: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension DiameterFilterView: UICollectionViewDelegateFlowLayout {
+extension CycleFilterView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width
         let height = collectionView.frame.height
@@ -138,32 +140,33 @@ extension DiameterFilterView: UICollectionViewDelegateFlowLayout {
 
 // MARK: - Notification
 
-extension DiameterFilterView {
+extension CycleFilterView {
     private func setNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(postData), name: NSNotification.Name("touchUpSearchButton"), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(resetData), name: NSNotification.Name("touchUpDiameterReset"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resetData), name: NSNotification.Name("touchUpCycleReset"), object: nil)
     }
     
     @objc
     func postData(_ notification: Notification) {
-        lensDiameter = []
+        lensCycle = []
         
         // list에 담기
         
-        NotificationCenter.default.post(name: NSNotification.Name("postDiameterList"), object: lensDiameter)
+        NotificationCenter.default.post(name: NSNotification.Name("postCycleList"), object: lensCycle)
     }
     
     @objc
     func resetData(_ notification: Notification) {
         selectButton.tintColor = .omFourthGray
         
-        lensDiameter = []
+        lensCycle = []
         
-        diameterCollectionView.deselectAll(animated: true)
+        cycleCollectionView.deselectAll(animated: true)
         
-        NotificationCenter.default.post(name: NSNotification.Name("resetDiameterList"), object: lensDiameter)
+        NotificationCenter.default.post(name: NSNotification.Name("resetCycleList"), object: lensCycle)
     }
     
 }
+
 

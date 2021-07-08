@@ -211,6 +211,8 @@ extension ColorFilterView {
     
     @objc
     func resetData(_ notification: Notification) {
+        selectButton.tintColor = .omFourthGray
+        
         lensColor = []
         
         colorCollectionView.deselectAll(animated: true)
