@@ -29,7 +29,7 @@ class SearchWordTVC: UITableViewCell {
     
     func setUI(){
         searchLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
-        searchLabel.textColor = .omSecondGray
+        searchLabel.textColor = .omMainBlack
     }
     
     func setTapGesture(){

@@ -17,12 +17,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8Z-C6-iio">
-                        <rect key="frame" x="6" y="10" width="42" height="20.5"/>
+                        <rect key="frame" x="26" y="10" width="42" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icBack" translatesAutoresizingMaskIntoConstraints="NO" id="dZt-lH-Aqq">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icClose" translatesAutoresizingMaskIntoConstraints="NO" id="dZt-lH-Aqq">
                         <rect key="frame" x="329" y="0.0" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="dZt-lH-Aqq" secondAttribute="height" multiplier="1:1" id="L8u-11-xGf"/>
@@ -30,7 +30,7 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="O8Z-C6-iio" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="CFj-eQ-KrD"/>
+                    <constraint firstItem="O8Z-C6-iio" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="26" id="CFj-eQ-KrD"/>
                     <constraint firstItem="O8Z-C6-iio" firstAttribute="centerY" secondItem="dZt-lH-Aqq" secondAttribute="centerY" id="Kb0-jg-LTk"/>
                     <constraint firstItem="dZt-lH-Aqq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="YMX-Nk-9VF"/>
                     <constraint firstAttribute="trailing" secondItem="dZt-lH-Aqq" secondAttribute="trailing" constant="6" id="k6g-Md-w4d"/>
@@ -45,6 +45,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icBack" width="40" height="40"/>
+        <image name="icClose" width="40" height="40"/>
     </resources>
 </document>

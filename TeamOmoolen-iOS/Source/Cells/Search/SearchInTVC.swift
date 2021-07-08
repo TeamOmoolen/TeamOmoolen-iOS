@@ -172,7 +172,7 @@ extension SearchInTVC: UITableViewDelegate {
             case 0:
                 return 80 //최근검색어 없음
             case 1:
-                return 48 //전체삭제
+                return 55 //전체삭제
             default:
                 return 50 //나중에 변경
             }
@@ -181,7 +181,7 @@ extension SearchInTVC: UITableViewDelegate {
             case 0:
                 return 50 //단어 1
             case 1:
-                return 48 //전체삭제
+                return 55 //전체삭제
             default:
                 return 50
             }
@@ -192,9 +192,9 @@ extension SearchInTVC: UITableViewDelegate {
             case 1:
                 return 50 //단어 2
             case 2:
-                return 48 //전체삭제
+                return 55 //전체삭제
             default:
-                return 50
+                return 55
             }
         } else {
             //검색어 세개 다 꽉 찬 경우
@@ -206,9 +206,9 @@ extension SearchInTVC: UITableViewDelegate {
             case 2:
                 return 50
             case 3:
-                return 48
+                return 55
             default:
-                return 50
+                return 55
             }
         }
     }
@@ -223,16 +223,20 @@ extension SearchInTVC: UITableViewDataSource {
         
         var num = 0
         if (searchList.count == 0){ //검색어 3개에서 전체 삭제 했을 때 여기로 들어옴
-            tableViewHeight.constant = 129
+            //tableViewHeight.constant = 129
+            tableViewHeight.constant = 135
             num = 2
         } else if (searchList.count == 1){
-            tableViewHeight.constant = 125
+            //tableViewHeight.constant = 125
+            tableViewHeight.constant = 131
             num = 2
         } else if (searchList.count == 2){
-            tableViewHeight.constant = 164
+            //tableViewHeight.constant = 164
+            tableViewHeight.constant = 169
             num = 3
         } else { //검색어 3개
-            tableViewHeight.constant = 225
+           // tableViewHeight.constant = 225
+            tableViewHeight.constant = 231
             num = 4
         }
         // print("this is height")

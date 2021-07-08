@@ -17,33 +17,34 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nn-df-ps7">
-                        <rect key="frame" x="6" y="14" width="42" height="27"/>
+                        <rect key="frame" x="6" y="14" width="10" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="19" id="Li5-uM-K2a"/>
+                            <constraint firstAttribute="width" constant="10" id="i3F-yb-5pw"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Je-HU-S9E">
-                        <rect key="frame" x="65" y="17" width="42" height="21"/>
+                        <rect key="frame" x="33" y="13" width="42" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="k2b-f0-LT2"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ewK-bI-Umt">
-                        <rect key="frame" x="310" y="21.5" width="15" height="12"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="ewK-bI-Umt" secondAttribute="height" multiplier="15:12" id="BQI-iL-eCh"/>
-                            <constraint firstAttribute="height" constant="12" id="rBa-4z-fDl"/>
-                        </constraints>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ewK-bI-Umt">
+                        <rect key="frame" x="310" y="17.5" width="15" height="12"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="4Je-HU-S9E" firstAttribute="leading" secondItem="6Nn-df-ps7" secondAttribute="trailing" constant="17" id="0ec-8u-f7X"/>
-                    <constraint firstItem="4Je-HU-S9E" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="GH2-p5-aju"/>
-                    <constraint firstItem="6Nn-df-ps7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="Iii-mv-aM6"/>
-                    <constraint firstItem="ewK-bI-Umt" firstAttribute="centerY" secondItem="4Je-HU-S9E" secondAttribute="centerY" id="JP6-CU-Idl"/>
-                    <constraint firstItem="6Nn-df-ps7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="PAF-AX-Nx8"/>
-                    <constraint firstAttribute="trailing" secondItem="ewK-bI-Umt" secondAttribute="trailing" constant="10" id="Sxd-2e-hXO"/>
-                    <constraint firstItem="4Je-HU-S9E" firstAttribute="centerY" secondItem="6Nn-df-ps7" secondAttribute="centerY" id="kYG-Qy-SF1"/>
+                    <constraint firstItem="6Nn-df-ps7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="7rz-0Q-WOn"/>
+                    <constraint firstItem="4Je-HU-S9E" firstAttribute="leading" secondItem="6Nn-df-ps7" secondAttribute="trailing" constant="17" id="HTN-5h-htm"/>
+                    <constraint firstItem="4Je-HU-S9E" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="HfJ-p1-sbo"/>
+                    <constraint firstItem="6Nn-df-ps7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="N3l-6g-zNy"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

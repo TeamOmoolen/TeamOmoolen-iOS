@@ -20,7 +20,6 @@ class PopularWordTVC: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setUI()
-        registerXib()
     }
 
     //Mark: - Methods
@@ -33,8 +32,16 @@ class PopularWordTVC: UITableViewCell {
         searchWordLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
     }
     
-    func registerXib(){
-        let PopularWordNib = UINib(nibName: PopularWordTVC.identifier, bundle: nil)
+    func initCell(rank: Int, name: String) {
+        if rank <= 3 {
+            rankLabel.textColor = .omMainOrange
+        } else {
+            rankLabel.textColor = .omFourthGray
+            searchWordLabel.textColor = .omThirdGray
+        }
+        rankLabel.text = String(rank)
+        searchWordLabel.text = name
     }
+
     
 }

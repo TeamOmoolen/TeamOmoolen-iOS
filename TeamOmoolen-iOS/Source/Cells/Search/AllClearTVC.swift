@@ -35,8 +35,8 @@ class AllClearTVC: UITableViewCell {
         allClearLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
         allClearLabel.textColor = .omFourthGray
         
-        topView.backgroundColor = .omAlmostwhite
-        bottomView.backgroundColor = .omAlmostwhite
+        topView.backgroundColor = .omFifthGray
+        bottomView.backgroundColor = .omFifthGray
     }
     
     func setTapGesture(){

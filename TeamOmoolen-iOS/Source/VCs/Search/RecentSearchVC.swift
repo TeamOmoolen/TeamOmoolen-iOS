@@ -8,10 +8,7 @@
 import UIKit
 
 class RecentSearchVC: UIViewController {
-    
-    // MARK: - Properteis
-    private var popularSearchList = [PopularResponse]()
-
+        
     //Mark: - UI Components
     @IBOutlet weak var searchInTableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
@@ -24,10 +21,7 @@ class RecentSearchVC: UIViewController {
         registerXib()
         setSearchInTableView()
         checkNotification()
-        getPopularSearchWithAPI()
-
         print(searchInTableView.frame.width)
-
         // Do any additional setup after loading the view.
     }
     
@@ -56,16 +50,8 @@ class RecentSearchVC: UIViewController {
         if let height = notification.object as? Int {
             recentSearchCellHeight = height
             searchInTableView.reloadData()
-    }
-
-    func getPopularSearchWithAPI() {
-        SearchAPI.shared.getPopularSearch() { response in
-            self.popularSearchList = response
-            print(self.popularSearchList)
         }
     }
-   }
-
 }
 
 extension RecentSearchVC: UITableViewDelegate {
@@ -74,9 +60,11 @@ extension RecentSearchVC: UITableViewDelegate {
         
         switch indexPath.section{
         case 0:
-            return CGFloat(recentSearchCellHeight)
+            return CGFloat(recentSearchCellHeight) + 10
         case 1:
-            return tableViewHeight.constant - CGFloat(recentSearchCellHeight)
+           return 660
+            
+        
         default:
             return UITableView.automaticDimension
         }
