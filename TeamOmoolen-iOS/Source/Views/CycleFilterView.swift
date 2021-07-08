@@ -21,7 +21,7 @@ class CycleFilterView: UIView {
     
     // MARK: - Local Variables
     
-//    private var lensCycleList = [LensCycleDataModel]()
+    private var lensCycleList = [FilterDataModel]()
     var lensCycle = [String]()
     var isAllSelected = false
 
@@ -49,7 +49,7 @@ class CycleFilterView: UIView {
         setButton()
         setList()
         registerXib()
-//        setCollectionView()
+        setCollectionView()
         
         setNotification()
     }
@@ -68,19 +68,28 @@ extension CycleFilterView {
     }
     
     func setList() {
-        
+        lensCycleList.append(contentsOf:[
+            FilterDataModel(filter: "1 day"),
+            FilterDataModel(filter: "2 ~ 6 days"),
+            FilterDataModel(filter: "1 week"),
+            FilterDataModel(filter: "1 month"),
+            FilterDataModel(filter: "2 ~ 3 months"),
+            FilterDataModel(filter: "3 ~ 6 months"),
+            FilterDataModel(filter: "6 months")
+        ])
     }
     
     func registerXib() {
-        
+        let nib = UINib(nibName: FilterCVC.identifier, bundle: nil)
+        cycleCollectionView.register(nib, forCellWithReuseIdentifier: FilterCVC.identifier)
     }
     
-//    func setCollectionView() {
-//        cycleCollectionView.delegate = self
-//        cycleCollectionView.dataSource = self
-//
-//        cycleCollectionView.allowsMultipleSelection = true
-//    }
+    func setCollectionView() {
+        cycleCollectionView.delegate = self
+        cycleCollectionView.dataSource = self
+
+        cycleCollectionView.allowsMultipleSelection = true
+    }
 }
 
 // MARK: - Action Methods
@@ -106,11 +115,15 @@ extension CycleFilterView {
 
 extension CycleFilterView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return lensCycleList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCVC.identifier, for: indexPath) as? FilterCVC else {
+            return UICollectionViewCell()
+        }
+        cell.initCell(filter: lensCycleList[indexPath.row].filter)
+        return cell
     }
 }
 
@@ -120,17 +133,9 @@ extension CycleFilterView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width
         let height = collectionView.frame.height
-        let cellWidth = (width - 47) / 2
+        let cellWidth = (width - 40 - 9) / 2
         let cellHeight = (height - 100) / 6
         return CGSize(width: cellWidth, height: cellHeight)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 12
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -151,7 +156,27 @@ extension CycleFilterView {
     func postData(_ notification: Notification) {
         lensCycle = []
         
-        // list에 담기
+        guard let lensCycleList = cycleCollectionView.indexPathsForSelectedItems else {
+            return
+        }
+        if lensCycleList.contains([0,0]) {
+            lensCycle.append("1 day")
+        }
+        if lensCycleList.contains([0,1]) {
+            lensCycle.append("2 ~ 6 days")
+        }
+        if lensCycleList.contains([0,2]) {
+            lensCycle.append("1 week")
+        }
+        if lensCycleList.contains([0,3]) {
+            lensCycle.append("1 month")
+        }
+        if lensCycleList.contains([0,4]) {
+            lensCycle.append("2 ~ 3 months")
+        }
+        if lensCycleList.contains([0,5]) {
+            lensCycle.append("6 months")
+        }
         
         NotificationCenter.default.post(name: NSNotification.Name("postCycleList"), object: lensCycle)
     }

@@ -20,7 +20,7 @@ class DiameterFilterView: UIView {
     
     // MARK: - Local Variables
     
-//    private var lensDiameterList = [LensDiameterDataModel]()
+    private var lensDiameterList = [FilterDataModel]()
     var lensDiameter = [String]()
     var isAllSelected = false
 
@@ -46,8 +46,10 @@ class DiameterFilterView: UIView {
         
         setUI()
         setList()
+        setButton()
+        
         registerXib()
-//        setCollectionView()
+        setCollectionView()
         
         setNotification()
     }
@@ -66,19 +68,27 @@ extension DiameterFilterView {
     }
     
     func setList() {
-        
+        lensDiameterList.append(contentsOf:[
+            FilterDataModel(filter: "12.6 이하"),
+            FilterDataModel(filter: "12.7 ~ 13.0"),
+            FilterDataModel(filter: "13.1 ~ 13.3"),
+            FilterDataModel(filter: "13.4 ~ 13.6"),
+            FilterDataModel(filter: "13.7 ~ 13.9"),
+            FilterDataModel(filter: "14.0 이상")
+        ])
     }
     
     func registerXib() {
-        
+        let nib = UINib(nibName: FilterCVC.identifier, bundle: nil)
+        diameterCollectionView.register(nib, forCellWithReuseIdentifier: FilterCVC.identifier)
     }
     
-//    func setCollectionView() {
-//        diameterCollectionView.delegate = self
-//        diameterCollectionView.dataSource = self
-//
-//        diameterCollectionView.allowsMultipleSelection = true
-//    }
+    func setCollectionView() {
+        diameterCollectionView.delegate = self
+        diameterCollectionView.dataSource = self
+
+        diameterCollectionView.allowsMultipleSelection = true
+    }
 }
 
 // MARK: - Action Methods
@@ -104,11 +114,15 @@ extension DiameterFilterView {
 
 extension DiameterFilterView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return lensDiameterList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCVC.identifier, for: indexPath) as? FilterCVC else {
+            return UICollectionViewCell()
+        }
+        cell.initCell(filter: lensDiameterList[indexPath.row].filter)
+        return cell
     }
 }
 
@@ -117,18 +131,18 @@ extension DiameterFilterView: UICollectionViewDataSource {
 extension DiameterFilterView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width
-        let height = collectionView.frame.height
-        let cellWidth = (width - 47) / 2
-        let cellHeight = (height - 100) / 6
-        return CGSize(width: cellWidth, height: cellHeight)
+//        let height = collectionView.frame.height
+        let cellWidth = (width - 40 - 9) / 2
+//        let cellHeight = (height - 100) / 6
+        return CGSize(width: cellWidth, height: 50)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 9
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 12
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -149,7 +163,27 @@ extension DiameterFilterView {
     func postData(_ notification: Notification) {
         lensDiameter = []
         
-        // list에 담기
+        guard let lensDiameterList = diameterCollectionView.indexPathsForSelectedItems else {
+            return
+        }
+        if lensDiameterList.contains([0,0]) {
+            lensDiameter.append("12.6 이하")
+        }
+        if lensDiameterList.contains([0,1]) {
+            lensDiameter.append("12.7 ~ 13.0")
+        }
+        if lensDiameterList.contains([0,2]) {
+            lensDiameter.append("13.1 ~ 13.3")
+        }
+        if lensDiameterList.contains([0,3]) {
+            lensDiameter.append("13.4 ~ 13.6")
+        }
+        if lensDiameterList.contains([0,4]) {
+            lensDiameter.append("13.7 ~ 13.9")
+        }
+        if lensDiameterList.contains([0,5]) {
+            lensDiameter.append("14.0 이상")
+        }
         
         NotificationCenter.default.post(name: NSNotification.Name("postDiameterList"), object: lensDiameter)
     }
