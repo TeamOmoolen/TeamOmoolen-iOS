@@ -46,7 +46,7 @@ extension SearchService: TargetType {
         case .searchResult:
             return .requestPlain
         case .popular:
-            return requestPlain
+            return .requestPlain
         }
     }
     
