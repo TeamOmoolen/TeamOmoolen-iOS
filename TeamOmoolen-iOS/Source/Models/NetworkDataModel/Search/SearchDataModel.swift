@@ -30,11 +30,12 @@ struct SearchDataModel: Codable {
         message = (try? values.decode(String.self, forKey: .message)) ?? ""
         data = (try? values.decode(SearchResponse.self, forKey: .data)) ?? SearchResponse(name: "")
     }
-    struct SearchResponse: Codable {
-        let name: String
+}
 
-        enum CodingKeys: String, CodingKey {
-            case name
-        }
+struct SearchResponse: Codable {
+    let name: String
+
+    enum CodingKeys: String, CodingKey {
+        case name
     }
 }
