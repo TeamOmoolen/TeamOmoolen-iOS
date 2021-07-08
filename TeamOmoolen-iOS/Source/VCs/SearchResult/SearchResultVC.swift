@@ -10,7 +10,7 @@ import UIKit
 class SearchResultVC: UIViewController {
 
     // MARK: - Properties
-    private let resultList = [RecommendLens]()
+    private let resultList = [RecommendLensDataModel]()
     
     @IBOutlet weak var searchBarView: UIView!
     @IBOutlet weak var resultCollectionView: UICollectionView!
