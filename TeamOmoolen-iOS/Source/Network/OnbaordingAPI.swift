@@ -12,7 +12,7 @@ class OnboardingAPI {
     static let shared = OnboardingAPI()
     static let provider = MoyaProvider<OnboardingService>()
 
-    func postOnboardingWithAPI(param: OnboardingRequest, completion: @escaping (OnBoardingDataModel) -> ()) {
+    func postOnboarding(param: OnboardingRequest, completion: @escaping (OnBoardingDataModel) -> ()) {
         OnboardingAPI.provider.request(.onboarding(param: param)) { response in
             switch response {
             case .success(let result):
@@ -31,7 +31,7 @@ class OnboardingAPI {
         }
     }
     
-    func getHomeWithAPI(completion: @escaping (HomeResponse) -> ()) {
+    func getHome(completion: @escaping (HomeResponse) -> ()) {
         OnboardingAPI.provider.request(.home) { response in
             switch response {
             case .success(let result):

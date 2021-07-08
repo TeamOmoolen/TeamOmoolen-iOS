@@ -19,6 +19,7 @@ class SearchResultVC: UIViewController {
         super.viewDidLoad()
         setUI()
         setCollectionViewDelegate()
+        getSearchResultWithAPI()
         // Do any additional setup after loading the view.
     }
     
@@ -39,8 +40,8 @@ class SearchResultVC: UIViewController {
         
     }
     
-    func getHomeWithAPI() {
-        SearchAPI.shared.getSearchResultWithAPI() { response in
+    func getSearchResultWithAPI() {
+        SearchAPI.shared.getSearchResult() { response in
 //            response.
         }
     }

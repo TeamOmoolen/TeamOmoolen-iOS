@@ -10,7 +10,7 @@ import UIKit
 class RecentSearchVC: UIViewController {
     
     // MARK: - Properteis
-    private var popularSearchList = PopularResponse(id: 0, name: "")
+    private var popularSearchList = [PopularResponse]()
 
     //Mark: - UI Components
     @IBOutlet weak var searchInTableView: UITableView!

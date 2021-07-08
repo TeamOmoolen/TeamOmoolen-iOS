@@ -135,7 +135,7 @@ extension HomeVC {
     }
     
     func getHomeWithAPI() {
-        OnboardingAPI.shared.getHomeWithAPI() { response in
+        OnboardingAPI.shared.getHome() { response in
             self.homeList = response
             print(self.homeList)
         }
