@@ -159,7 +159,7 @@ class FourthOnboardingVC: UIViewController {
         
         print(param)
         
-        OnboardingAPI.shared.postOnboardingWithAPI(param: param) { response in
+        OnboardingAPI.shared.postOnboarding(param: param) { response in
             print("data: \(response.success)")
             if response.success {
                 print("postOnboardingWithAPI: post success")
