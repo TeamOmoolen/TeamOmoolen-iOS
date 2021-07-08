@@ -11,36 +11,53 @@ class PopularTVC: UITableViewCell {
 
     static let identifier = "PopularTVC"
     
+    //Mark: - Properties
+    private var popularSearchList = [PopularResponse]()
+    private var popularCellList = [PopularCellDataModel]()
+
+    //Mark: - IB Outlets
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var popularTableView: UITableView!
+    
     
     //Mark: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         setUI()
-        registerXib()
         setPopularTable()
+        registerXib()
+        getPopularSearchWithAPI()
+        initPopularSearchList()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
+    //Mark: - Methods
     func setUI() {
         headerLabel.text = "인기검색어"
         headerLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
         //나중에 여기 시간 변수로 설정해야 할듯
         timeLabel.text = "오전 12:00 기준"
+        timeLabel.textColor = .omFourthGray
         timeLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
         
     }
     
-    //Mark: - Methods
+    func initPopularSearchList(){
+        for i in 0..<9 {
+            popularCellList.append(contentsOf: [
+                PopularCellDataModel(rank: i+1, name: "스페이스 그레이")
+            ])
+        }
+    }
+    
     func registerXib() {
-        let PopularWordNib = UINib(nibName: PopularWordTVC.identifier, bundle: nil)
+        let popularWordNib = UINib(nibName: PopularWordTVC.identifier, bundle: nil)
         
-        popularTableView.register(PopularWordNib, forCellReuseIdentifier: PopularWordTVC.identifier)
+        popularTableView.register(popularWordNib, forCellReuseIdentifier: PopularWordTVC.identifier)
     }
     
     func setPopularTable(){
@@ -49,35 +66,33 @@ class PopularTVC: UITableViewCell {
         popularTableView.separatorStyle = .none
     }
     
-
+    func getPopularSearchWithAPI() {
+        SearchAPI.shared.getPopularSearch() { response in
+            self.popularSearchList = response
+        }
+    }
 }
 
+//Mark: - Extensions
 extension PopularTVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 48
     }
     
-    /*func tableView(_ tableView: UITableView, widthForRowAt indexPath: IndexPath) -> CGFloat {
-        return 335
-    }*/
 }
 
 extension PopularTVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        return popularCellList.count
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 9
-    }
-    
+ 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier:  PopularWordTVC.identifier, for: indexPath) as? PopularWordTVC else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PopularWordTVC.identifier, for: indexPath) as? PopularWordTVC else {
             return UITableViewCell()
         }
+        cell.initCell(rank: popularCellList[indexPath.row].rank, name: popularCellList[indexPath.row].name)
         cell.selectionStyle = .none
-        cell.backgroundColor = .omAlmostwhite
+        
         return cell
     }
 }
