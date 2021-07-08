@@ -85,7 +85,6 @@
 		E82DE904268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DE903268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift */; };
 		E8A078622690F32200D99444 /* RecentSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A078602690F32200D99444 /* RecentSearchVC.swift */; };
 		E8A078662690F35100D99444 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A078642690F35100D99444 /* FilterVC.swift */; };
-		E8A078672690F35100D99444 /* FilterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8A078652690F35100D99444 /* FilterVC.xib */; };
 		E8A660152695821B00EB7EEA /* RecentSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A660142695821B00EB7EEA /* RecentSearch.swift */; };
 		E8A6602026959B8100EB7EEA /* SearchWordTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A6601E26959B8100EB7EEA /* SearchWordTVC.swift */; };
 		E8A6602126959B8100EB7EEA /* SearchWordTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8A6601F26959B8100EB7EEA /* SearchWordTVC.xib */; };
@@ -130,6 +129,7 @@
 		F85147992695839D00C8532F /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85147982695839D00C8532F /* SearchAPI.swift */; };
 		F851479C2695C5C300C8532F /* SearchDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F851479B2695C5C300C8532F /* SearchDataModel.swift */; };
 		F85147A02695CE5800C8532F /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F851479F2695CE5800C8532F /* SearchResultVC.swift */; };
+		F85147A22696AC9800C8532F /* PopularDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85147A12696AC9800C8532F /* PopularDataModel.swift */; };
 		F86F7AC626900A030037081D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F7AC526900A030037081D /* HomeVC.swift */; };
 		F86F7AC826900A2F0037081D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F86F7AC726900A2F0037081D /* Home.storyboard */; };
 		F86F7ACA269068960037081D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F86F7AC9269068960037081D /* Splash.storyboard */; };
@@ -247,7 +247,6 @@
 		E82DE903268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCVFlowLayout.swift; sourceTree = "<group>"; };
 		E8A078602690F32200D99444 /* RecentSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchVC.swift; sourceTree = "<group>"; };
 		E8A078642690F35100D99444 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
-		E8A078652690F35100D99444 /* FilterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterVC.xib; sourceTree = "<group>"; };
 		E8A660142695821B00EB7EEA /* RecentSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearch.swift; sourceTree = "<group>"; };
 		E8A6601E26959B8100EB7EEA /* SearchWordTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWordTVC.swift; sourceTree = "<group>"; };
 		E8A6601F26959B8100EB7EEA /* SearchWordTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchWordTVC.xib; sourceTree = "<group>"; };
@@ -296,6 +295,7 @@
 		F85147982695839D00C8532F /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
 		F851479B2695C5C300C8532F /* SearchDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataModel.swift; sourceTree = "<group>"; };
 		F851479F2695CE5800C8532F /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
+		F85147A12696AC9800C8532F /* PopularDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDataModel.swift; sourceTree = "<group>"; };
 		F86F7AC526900A030037081D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		F86F7AC726900A2F0037081D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F86F7AC9269068960037081D /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
@@ -773,8 +773,18 @@
 			isa = PBXGroup;
 			children = (
 				F851479B2695C5C300C8532F /* SearchDataModel.swift */,
+				F85147A12696AC9800C8532F /* PopularDataModel.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		F85147A32696AC9D00C8532F /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F8CB27F02692C1F700DEFA75 /* OnboardingDataModel.swift */,
+				F8CB27F426931FF700DEFA75 /* OnboardingRequest.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		F85CD050268DB0F3005A3C95 /* SecondOnboarding */ = {
@@ -879,9 +889,8 @@
 		F8CB27F72693367E00DEFA75 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				F85147A32696AC9D00C8532F /* Onboarding */,
 				F8514793269366AC00C8532F /* Home */,
-				F8CB27F426931FF700DEFA75 /* OnboardingRequest.swift */,
-				F8CB27F02692C1F700DEFA75 /* OnboardingDataModel.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -1124,6 +1133,7 @@
 				E8A6602026959B8100EB7EEA /* SearchWordTVC.swift in Sources */,
 				E82DE904268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift in Sources */,
 				924751B5268E49B500924891 /* PurposeCVC.swift in Sources */,
+				F85147A22696AC9800C8532F /* PopularDataModel.swift in Sources */,
 				E82C5DC026936643000EF460 /* SearchInTVC.swift in Sources */,
 				F824590C268E1F3A0048BE84 /* TimeCVC.swift in Sources */,
 				92E55FBB268C72BA0081D3A9 /* FirstOnboardingVC.swift in Sources */,
