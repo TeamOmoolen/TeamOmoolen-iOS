@@ -9,6 +9,7 @@ import UIKit
 
 class GenderCVC: UICollectionViewCell {
     static let identifier = "GenderCVC"
+    private var imagePath = ""
     
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var genderImageView: UIImageView!
@@ -27,10 +28,12 @@ class GenderCVC: UICollectionViewCell {
                 backView.layer.borderColor = UIColor.omMainOrange.cgColor
                 backView.layer.borderWidth = 1
                 genderLabel.textColor = UIColor.omMainOrange
+                genderImageView.image = UIImage(named: "\(imagePath)Pressed")
             } else {
                 backView.layer.borderColor = UIColor.omThirdGray.cgColor
                 backView.layer.borderWidth = 0
                 genderLabel.textColor = UIColor.omThirdGray
+                genderImageView.image = UIImage(named: "\(imagePath)")
             }
         }
     }
@@ -52,6 +55,7 @@ extension GenderCVC {
         {
             genderImageView.image = image
         }
+        imagePath = genderImageName
         genderLabel.text = gender
     }
 }

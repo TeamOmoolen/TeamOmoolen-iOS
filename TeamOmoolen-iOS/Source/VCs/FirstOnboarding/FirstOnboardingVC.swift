@@ -128,8 +128,8 @@ extension FirstOnboardingVC {
     
     func setList() {
         genderList.append(contentsOf: [
-            GenderDataModel(genderImage: "abc", gender: "여성"),
-            GenderDataModel(genderImage: "abc", gender: "남성")
+            GenderDataModel(genderImage: "imgFemaleOnboarding", gender: "여성"),
+            GenderDataModel(genderImage: "imgMaleOnboarding", gender: "남성")
         ])
         
         ageList.append(contentsOf: [
