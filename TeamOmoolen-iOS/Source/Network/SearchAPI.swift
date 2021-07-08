@@ -32,7 +32,7 @@ class SearchAPI {
         }
     }
     func getPopularSearch(completion: @escaping (PopularResponse) -> ()) {
-        SearchAPI.provider.request(.popular) { response in
+        SearchAPI.provider.request(.searchWindow) { response in
             switch response {
             case .success(let result):
                 do {

@@ -548,9 +548,7 @@
 			isa = PBXGroup;
 			children = (
 				E8A078602690F32200D99444 /* RecentSearchVC.swift */,
-				92BC7DE72695D9230088E4EE /* RecentSearchVC.storyboard */,
 				E8A078642690F35100D99444 /* FilterVC.swift */,
-				92BC7DE92695DB1B0088E4EE /* FIlterVC.storyboard */,
 				E8C9A4392690AD1000E5BD9D /* SearchVC.swift */,
 				E8C9A43B2690B97C00E5BD9D /* SearchTabBar.swift */,
 			);
@@ -664,6 +662,8 @@
 				92A889DA2692FD4D00AC1B81 /* Tabbar.storyboard */,
 				92BC7DEB269641A10088E4EE /* Detail.storyboard */,
 				F85147A42696EA1D00C8532F /* SearchResult.storyboard */,
+				92BC7DE72695D9230088E4EE /* RecentSearchVC.storyboard */,
+				92BC7DE92695DB1B0088E4EE /* FIlterVC.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";

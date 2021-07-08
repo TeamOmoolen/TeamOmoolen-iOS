@@ -26,16 +26,16 @@ struct PopularDataModel: Codable {
         status = (try? values.decode(Int.self, forKey: .status)) ?? 0
         success = (try? values.decode(Bool.self, forKey: .success)) ?? false
         message = (try? values.decode(String.self, forKey: .message)) ?? ""
-        data = (try? values.decode(PopularResponse.self, forKey: .data)) ?? PopularResponse(popular: "", lank: 0)
+        data = (try? values.decode(PopularResponse.self, forKey: .data)) ?? PopularResponse(id: 0, name: "")
     }
 }
 
 struct PopularResponse: Codable {
-    let popular: String
-    let lank: Int
+    let id: Int
+    let name: String
     
     enum CodingKeys: String, CodingKey {
-        case popular
-        case lank
+        case id
+        case name
     }
 }
