@@ -22,6 +22,8 @@ extension Const {
             static let Detail = "Detail"
             
             static let Tabbar = "Tabbar"
+            
+            static let SearchResult = "SearchResult"
         }
     }
 }

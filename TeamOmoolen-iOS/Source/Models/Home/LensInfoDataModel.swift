@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct LensInfo {
+struct LensInfoDataModel {
     var brandName: String
     var lensName: String
     var price: Int
 }
 
-struct LensDetailInfo {
+struct LensDetailInfoDataModel {
     var title: String
     var subTitle: String
 }

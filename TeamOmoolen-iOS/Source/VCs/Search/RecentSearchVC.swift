@@ -8,6 +8,9 @@
 import UIKit
 
 class RecentSearchVC: UIViewController {
+    
+    // MARK: - Properteis
+    private var popularSearchList = [PopularResponse]()
 
     //Mark: - UI Components
     @IBOutlet weak var searchInTableView: UITableView!
@@ -21,6 +24,8 @@ class RecentSearchVC: UIViewController {
         registerXib()
         setSearchInTableView()
         checkNotification()
+        getPopularSearchWithAPI()
+
         print(searchInTableView.frame.width)
 
         // Do any additional setup after loading the view.
@@ -53,6 +58,12 @@ class RecentSearchVC: UIViewController {
             searchInTableView.reloadData()
     }
 
+    func getPopularSearchWithAPI() {
+        SearchAPI.shared.getPopularSearch() { response in
+            self.popularSearchList = response
+            print(self.popularSearchList)
+        }
+    }
    }
 
 }
@@ -75,7 +86,6 @@ extension RecentSearchVC: UITableViewDelegate {
         return 335
     
     }
-    
 }
 
 extension RecentSearchVC: UITableViewDataSource {

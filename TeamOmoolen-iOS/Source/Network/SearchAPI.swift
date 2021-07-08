@@ -14,7 +14,7 @@ class SearchAPI {
 
     
     
-    func getSearchResultWithAPI(completion: @escaping (SearchResponse) -> ()) {
+    func getSearchResult(completion: @escaping (SearchResponse) -> ()) {
         SearchAPI.provider.request(.searchResult) { response in
             switch response {
             case .success(let result):
@@ -31,8 +31,8 @@ class SearchAPI {
             }
         }
     }
-    func getPopularSearch(completion: @escaping (PopularResponse) -> ()) {
-        SearchAPI.provider.request(.popular) { response in
+    func getPopularSearch(completion: @escaping ([PopularResponse]) -> ()) {
+        SearchAPI.provider.request(.searchWindow) { response in
             switch response {
             case .success(let result):
                 do {

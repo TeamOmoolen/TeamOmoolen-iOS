@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct LensKindModel {
+struct LensKindDataModel {
     let image: UIImage
     let title: String
     

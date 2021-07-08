@@ -22,7 +22,7 @@ class NewLensCVC: UICollectionViewCell {
     
     // MARK: - Local Variables
     
-    private var newLensList: [NewLens] = []
+    private var newLensList: [NewLensDataModel] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -57,9 +57,9 @@ extension NewLensCVC {
     
     func setList() {
         newLensList.append(contentsOf: [
-            NewLens(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
-            NewLens(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
-            NewLens(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000)
+            NewLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
+            NewLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
+            NewLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000)
         ])
     }
     

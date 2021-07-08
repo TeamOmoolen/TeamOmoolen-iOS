@@ -46,7 +46,7 @@ class HomeVC: UIViewController {
     }()
     
     // MARK: - Local Variables
-    
+    private var homeList = HomeResponse(username: "", findRecomendationByUser: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], guides: [Guide(id: 0, question: "", answer: "")], recommendationBySeason: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], deadlineEvent: [Event(id: 0, title: "", content: "", image: "")], newLens: NewLens1(brand1: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], brand2: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], brand3: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])]) , recommendationBySituation: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], lastestEvent: [Event(id: 0, title: "", content: "", image: "")])
     
     // MARK: - View Life Cycle Methods
     
@@ -135,8 +135,9 @@ extension HomeVC {
     }
     
     func getHomeWithAPI() {
-        OnboardingAPI.shared.getHomeWithAPI() { response in
-//            response.
+        OnboardingAPI.shared.getHome() { response in
+            self.homeList = response
+            print(self.homeList)
         }
     }
 }

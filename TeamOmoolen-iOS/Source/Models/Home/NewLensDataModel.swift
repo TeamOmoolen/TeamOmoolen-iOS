@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NewLens {
+struct NewLensDataModel {
     var brandName: String
     var lensName: String
     var price: Int
