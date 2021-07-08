@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,9 +16,68 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="353-6c-BSm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UYN-2A-OpS">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VS2-tt-rP2">
+                        <rect key="frame" x="172.5" y="218" width="4" height="4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="4" id="8UP-eL-qRi"/>
+                            <constraint firstAttribute="width" constant="4" id="aHJ-QS-lOR"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uu0-Xk-1UI">
+                        <rect key="frame" x="185.5" y="218" width="4" height="4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="4" id="NBS-5R-RKV"/>
+                            <constraint firstAttribute="width" constant="4" id="Qex-wN-rFN"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpB-Q6-M5R">
+                        <rect key="frame" x="198.5" y="218" width="4" height="4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="4" id="Bxz-Rg-bEY"/>
+                            <constraint firstAttribute="height" constant="4" id="iVo-Ui-yjK"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="uu0-Xk-1UI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="218" id="0Yb-vj-q4z"/>
+                    <constraint firstItem="BpB-Q6-M5R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="218" id="1tm-fP-Vyb"/>
+                    <constraint firstItem="353-6c-BSm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4V1-v5-8xr"/>
+                    <constraint firstAttribute="trailing" secondItem="353-6c-BSm" secondAttribute="trailing" id="Fs3-x0-dMF"/>
+                    <constraint firstItem="uu0-Xk-1UI" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="X7M-s0-xIk"/>
+                    <constraint firstItem="VS2-tt-rP2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="218" id="XnP-yc-aaJ"/>
+                    <constraint firstItem="353-6c-BSm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="b2I-GJ-RY6"/>
+                    <constraint firstItem="BpB-Q6-M5R" firstAttribute="leading" secondItem="uu0-Xk-1UI" secondAttribute="trailing" constant="9" id="bmu-Lf-oLU"/>
+                    <constraint firstItem="uu0-Xk-1UI" firstAttribute="leading" secondItem="VS2-tt-rP2" secondAttribute="trailing" constant="9" id="gyX-PD-pmn"/>
+                    <constraint firstAttribute="bottom" secondItem="353-6c-BSm" secondAttribute="bottom" id="hrx-qM-5Eb"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="35" y="84"/>
+            <connections>
+                <outlet property="collectionView" destination="353-6c-BSm" id="3pJ-ah-NlC"/>
+                <outlet property="firstIndicator" destination="VS2-tt-rP2" id="O3S-T2-eXD"/>
+                <outlet property="secondIndicator" destination="uu0-Xk-1UI" id="dXW-B7-Zmf"/>
+                <outlet property="thirdIndicator" destination="BpB-Q6-M5R" id="sgd-Du-3wA"/>
+            </connections>
+            <point key="canvasLocation" x="34.057971014492757" y="83.705357142857139"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

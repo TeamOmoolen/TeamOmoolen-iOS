@@ -25,7 +25,7 @@ class OneMinCVC: UICollectionViewCell {
     
     // MARK: - Local Variables
     
-    private var lensInfo: [LensInfo] = []
+    private var lensInfo: [LensInfoDataModel] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -11,6 +11,7 @@ class CategoryTVC: UITableViewCell {
     static let identifier = "CategoryTVC"
     
     // MARK: - UI Components
+    @IBOutlet weak var dividerView: UIView!
     
     @IBOutlet weak var colorImageView: UIImageView!
     @IBOutlet weak var colorLabel: UILabel!
@@ -37,6 +38,7 @@ class CategoryTVC: UITableViewCell {
 
 extension CategoryTVC {
     func setUI() {
+        dividerView.backgroundColor = .omAlmostwhite
         contentView.backgroundColor = .omWhite
         
         colorImageView.image = UIImage(named: "abc")
