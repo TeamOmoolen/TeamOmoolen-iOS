@@ -1,14 +1,14 @@
 //
-//  LastBannerTVC.swift
+//  MiddleBannerTVC.swift
 //  TeamOmoolen-iOS
 //
-//  Created by soyeon on 2021/07/05.
+//  Created by soyeon on 2021/07/08.
 //
 
 import UIKit
 
-class LastBannerTVC: UITableViewCell {
-    static let identifier = "LastBannerTVC"
+class MiddleBannerTVC: UITableViewCell {
+    static let identifier = "MiddleBannerTVC"
     
     // MARK: - UI Components
     
@@ -18,8 +18,8 @@ class LastBannerTVC: UITableViewCell {
     @IBOutlet weak var secondIndicator: UIView!
     @IBOutlet weak var thirdIndicator: UIView!
     
-    // MARK: - Life Cycle Methods
-    
+    // MARK: - Local Variables
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -33,7 +33,7 @@ class LastBannerTVC: UITableViewCell {
     }
 }
 
-extension LastBannerTVC {
+extension MiddleBannerTVC {
     func setUI() {
         collectionView.backgroundColor = .omWhite
         
@@ -64,7 +64,7 @@ extension LastBannerTVC {
     }
 }
 
-extension LastBannerTVC: UICollectionViewDelegateFlowLayout {
+extension MiddleBannerTVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .zero
     }
@@ -79,10 +79,8 @@ extension LastBannerTVC: UICollectionViewDelegateFlowLayout {
         return 0
     }
     
-    /// velocity - 스크롤하다 터치 해제 시 속도
-    /// targetContentOffset - 스크롤 속도가 줄어들어 정지될 때 예상되는 위치
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let spacing = contentView.frame.width
+        let spacing = contentView.frame.width 
         var offset = targetContentOffset.pointee
         let index = round((offset.x + scrollView.contentInset.left) / spacing)
 
@@ -105,7 +103,7 @@ extension LastBannerTVC: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension LastBannerTVC: UICollectionViewDataSource {
+extension MiddleBannerTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }

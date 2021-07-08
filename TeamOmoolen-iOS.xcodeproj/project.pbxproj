@@ -32,6 +32,10 @@
 		9276926A2694E28100201EE1 /* CategoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927692682694E28100201EE1 /* CategoryTVC.swift */; };
 		9276926B2694E28100201EE1 /* CategoryTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927692692694E28100201EE1 /* CategoryTVC.xib */; };
 		927F97FE268C840100E893F2 /* GenderDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927F97FD268C840100E893F2 /* GenderDataModel.swift */; };
+		929C84032696E18E00A879A7 /* MiddleBannerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C84012696E18E00A879A7 /* MiddleBannerTVC.swift */; };
+		929C84042696E18E00A879A7 /* MiddleBannerTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929C84022696E18E00A879A7 /* MiddleBannerTVC.xib */; };
+		929C84072696E5FC00A879A7 /* BannerCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C84052696E5FC00A879A7 /* BannerCVC.swift */; };
+		929C84082696E5FC00A879A7 /* BannerCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929C84062696E5FC00A879A7 /* BannerCVC.xib */; };
 		92A889CC2692E11A00AC1B81 /* SituationTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889CA2692E11A00AC1B81 /* SituationTVC.swift */; };
 		92A889CD2692E11A00AC1B81 /* SituationTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A889CB2692E11A00AC1B81 /* SituationTVC.xib */; };
 		92A889D42692EC2800AC1B81 /* LastBannerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889D22692EC2800AC1B81 /* LastBannerTVC.swift */; };
@@ -192,6 +196,10 @@
 		927692682694E28100201EE1 /* CategoryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTVC.swift; sourceTree = "<group>"; };
 		927692692694E28100201EE1 /* CategoryTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTVC.xib; sourceTree = "<group>"; };
 		927F97FD268C840100E893F2 /* GenderDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderDataModel.swift; sourceTree = "<group>"; };
+		929C84012696E18E00A879A7 /* MiddleBannerTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleBannerTVC.swift; sourceTree = "<group>"; };
+		929C84022696E18E00A879A7 /* MiddleBannerTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiddleBannerTVC.xib; sourceTree = "<group>"; };
+		929C84052696E5FC00A879A7 /* BannerCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCVC.swift; sourceTree = "<group>"; };
+		929C84062696E5FC00A879A7 /* BannerCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCVC.xib; sourceTree = "<group>"; };
 		92A889CA2692E11A00AC1B81 /* SituationTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SituationTVC.swift; sourceTree = "<group>"; };
 		92A889CB2692E11A00AC1B81 /* SituationTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SituationTVC.xib; sourceTree = "<group>"; };
 		92A889D22692EC2800AC1B81 /* LastBannerTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastBannerTVC.swift; sourceTree = "<group>"; };
@@ -399,6 +407,8 @@
 				9261599026921B6600E1E87F /* SeasonCVC.xib */,
 				925644192692C1EF00A45945 /* NewLensCVC.swift */,
 				9256441A2692C1EF00A45945 /* NewLensCVC.xib */,
+				929C84052696E5FC00A879A7 /* BannerCVC.swift */,
+				929C84062696E5FC00A879A7 /* BannerCVC.xib */,
 			);
 			path = CVC;
 			sourceTree = "<group>";
@@ -503,6 +513,8 @@
 				92A889E2269334DB00AC1B81 /* NewLensDetailTVC.xib */,
 				92A889CA2692E11A00AC1B81 /* SituationTVC.swift */,
 				92A889CB2692E11A00AC1B81 /* SituationTVC.xib */,
+				929C84012696E18E00A879A7 /* MiddleBannerTVC.swift */,
+				929C84022696E18E00A879A7 /* MiddleBannerTVC.xib */,
 				92A889D22692EC2800AC1B81 /* LastBannerTVC.swift */,
 				92A889D32692EC2800AC1B81 /* LastBannerTVC.xib */,
 			);
@@ -1006,6 +1018,7 @@
 				F8245909268E1F3A0048BE84 /* FunctionCVC.xib in Resources */,
 				F8B91F59268E205E006114CD /* NotoSansMonoCJKkr-Regular.otf in Resources */,
 				92BC7DEA2695DB1B0088E4EE /* FIlterVC.storyboard in Resources */,
+				929C84082696E5FC00A879A7 /* BannerCVC.xib in Resources */,
 				92A889ED2693B18A00AC1B81 /* ColorFilterView.xib in Resources */,
 				92BC7DF4269645450088E4EE /* DetailTopTVC.xib in Resources */,
 				F8B91F77268E207A006114CD /* Roboto-Thin.ttf in Resources */,
@@ -1013,6 +1026,7 @@
 				92BC7DF826964D4E0088E4EE /* ReviewTVC.xib in Resources */,
 				F8B91F6F268E207A006114CD /* Roboto-BlackItalic.ttf in Resources */,
 				925644182692C1DB00A45945 /* NewLensTVC.xib in Resources */,
+				929C84042696E18E00A879A7 /* MiddleBannerTVC.xib in Resources */,
 				92BAA0502694FDE7004A155A /* OneMinDetailTVC.xib in Resources */,
 				92BC7E00269653D50088E4EE /* DetailNewTVC.xib in Resources */,
 				F83BA06B268C7DEF00E94E74 /* LensColorCVC.xib in Resources */,
@@ -1100,6 +1114,7 @@
 				E8A078622690F32200D99444 /* RecentSearchVC.swift in Sources */,
 				92A889D92692FBD200AC1B81 /* TabBarController.swift in Sources */,
 				927692672694CABE00201EE1 /* UICollectionView+Extension.swift in Sources */,
+				929C84072696E5FC00A879A7 /* BannerCVC.swift in Sources */,
 				F83BA055268C4D5800E94E74 /* LoginVC.swift in Sources */,
 				F86F7AC626900A030037081D /* HomeVC.swift in Sources */,
 				F85147A02695CE5800C8532F /* SearchResultVC.swift in Sources */,
@@ -1157,6 +1172,7 @@
 				92BC7DFF269653D50088E4EE /* DetailNewTVC.swift in Sources */,
 				9261599126921B6600E1E87F /* SeasonCVC.swift in Sources */,
 				92BF879D268CCC8100706384 /* AgeDataModel.swift in Sources */,
+				929C84032696E18E00A879A7 /* MiddleBannerTVC.swift in Sources */,
 				92A889E02693227000AC1B81 /* NewLens.swift in Sources */,
 				924751AC268E329400924891 /* FourthOnboardingVC.swift in Sources */,
 				F83BA05D268C579100E94E74 /* SecondOnboardingVC.swift in Sources */,

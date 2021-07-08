@@ -54,7 +54,6 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         setUI()
-        setList()
         setNotificationLoginErr()
         registerXib()
         setHomeTableView()
@@ -66,7 +65,7 @@ class HomeVC: UIViewController {
 
 extension HomeVC {
     func setUI() {
-        view.backgroundColor = .omAlmostwhite
+        view.backgroundColor = .white
         
         homeHeaderView.backgroundColor = .white
         homeTableView.backgroundColor = .white
@@ -102,10 +101,6 @@ extension HomeVC {
         searchView.addGestureRecognizer(tapGesture)
     }
     
-    func setList() {
-        
-    }
-    
     func registerXib() {
         let categoryNib = UINib(nibName: CategoryTVC.identifier, bundle: nil)
         homeTableView.register(categoryNib, forCellReuseIdentifier: CategoryTVC.identifier)
@@ -118,6 +113,9 @@ extension HomeVC {
         
         let seasonNib = UINib(nibName: SeasonTVC.identifier, bundle: nil)
         homeTableView.register(seasonNib, forCellReuseIdentifier: SeasonTVC.identifier)
+        
+        let middleBannerNib = UINib(nibName: MiddleBannerTVC.identifier, bundle: nil)
+        homeTableView.register(middleBannerNib, forCellReuseIdentifier: MiddleBannerTVC.identifier)
         
         let newLensNib = UINib(nibName: NewLensTVC.identifier, bundle: nil)
         homeTableView.register(newLensNib, forCellReuseIdentifier: NewLensTVC.identifier)
@@ -164,7 +162,7 @@ extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section{
         case 0:
-            return 121
+            return 123
         case 1:
             return 371
         case 2:
@@ -255,7 +253,11 @@ extension HomeVC: UITableViewDataSource {
             cell.selectionStyle = .none
             return cell
         case 4:
-            return UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:  MiddleBannerTVC.identifier, for: indexPath) as? MiddleBannerTVC else {
+                return UITableViewCell()
+            }
+            cell.selectionStyle = .none
+            return cell
         case 5:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  NewLensTVC.identifier, for: indexPath) as? NewLensTVC else {
                 return UITableViewCell()
