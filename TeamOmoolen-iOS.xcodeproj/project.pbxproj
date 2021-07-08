@@ -36,6 +36,8 @@
 		929C84042696E18E00A879A7 /* MiddleBannerTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929C84022696E18E00A879A7 /* MiddleBannerTVC.xib */; };
 		929C84072696E5FC00A879A7 /* BannerCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C84052696E5FC00A879A7 /* BannerCVC.swift */; };
 		929C84082696E5FC00A879A7 /* BannerCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929C84062696E5FC00A879A7 /* BannerCVC.xib */; };
+		929C840A2697143700A879A7 /* DiameterFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C84092697143700A879A7 /* DiameterFilterView.swift */; };
+		929C840C2697145500A879A7 /* DiameterFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929C840B2697145500A879A7 /* DiameterFilterView.xib */; };
 		92A889CC2692E11A00AC1B81 /* SituationTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889CA2692E11A00AC1B81 /* SituationTVC.swift */; };
 		92A889CD2692E11A00AC1B81 /* SituationTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A889CB2692E11A00AC1B81 /* SituationTVC.xib */; };
 		92A889D42692EC2800AC1B81 /* LastBannerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889D22692EC2800AC1B81 /* LastBannerTVC.swift */; };
@@ -200,6 +202,8 @@
 		929C84022696E18E00A879A7 /* MiddleBannerTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiddleBannerTVC.xib; sourceTree = "<group>"; };
 		929C84052696E5FC00A879A7 /* BannerCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCVC.swift; sourceTree = "<group>"; };
 		929C84062696E5FC00A879A7 /* BannerCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCVC.xib; sourceTree = "<group>"; };
+		929C84092697143700A879A7 /* DiameterFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiameterFilterView.swift; sourceTree = "<group>"; };
+		929C840B2697145500A879A7 /* DiameterFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiameterFilterView.xib; sourceTree = "<group>"; };
 		92A889CA2692E11A00AC1B81 /* SituationTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SituationTVC.swift; sourceTree = "<group>"; };
 		92A889CB2692E11A00AC1B81 /* SituationTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SituationTVC.xib; sourceTree = "<group>"; };
 		92A889D22692EC2800AC1B81 /* LastBannerTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastBannerTVC.swift; sourceTree = "<group>"; };
@@ -439,6 +443,8 @@
 				927692602693CB9100201EE1 /* BrandFilterView.xib */,
 				92A889EA2693B14400AC1B81 /* ColorFilterView.swift */,
 				92A889EC2693B18A00AC1B81 /* ColorFilterView.xib */,
+				929C84092697143700A879A7 /* DiameterFilterView.swift */,
+				929C840B2697145500A879A7 /* DiameterFilterView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1005,6 +1011,7 @@
 				F8B91F6C268E207A006114CD /* Roboto-ThinItalic.ttf in Resources */,
 				92BF87A3268D908C00706384 /* GenderCVC.xib in Resources */,
 				E8C9A4462690D56000E5BD9D /* SearchHomeCVC.xib in Resources */,
+				929C840C2697145500A879A7 /* DiameterFilterView.xib in Resources */,
 				92BC7DFC26964EF00088E4EE /* DetailSimilarTVC.xib in Resources */,
 				F8B91F6E268E207A006114CD /* Roboto-Bold.ttf in Resources */,
 				9261598A26920EBE00E1E87F /* RecommendCVC.xib in Resources */,
@@ -1155,6 +1162,7 @@
 				F8CB27E92691FB3B00DEFA75 /* OnboardingService.swift in Sources */,
 				F83BA06A268C7DEF00E94E74 /* LensColorCVC.swift in Sources */,
 				9261598D26921B4700E1E87F /* OneMinCVC.swift in Sources */,
+				929C840A2697143700A879A7 /* DiameterFilterView.swift in Sources */,
 				F83BA067268C754A00E94E74 /* LensKindModel.swift in Sources */,
 				92BF87A6268D94F700706384 /* AgeCVC.swift in Sources */,
 				E8C9A4452690D56000E5BD9D /* SearchHomeCVC.swift in Sources */,
