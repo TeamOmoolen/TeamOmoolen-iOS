@@ -21,9 +21,9 @@ extension SearchService: TargetType {
     var path: String {
         switch self {
         case .searchResult:
-            return "/searchResult"
+            return "/api/searchResult"
         case .popular:
-            return "/popular"
+            return "/api/popular"
         }
 
     }

@@ -24,6 +24,8 @@ extension Const {
             static let Detail = "DetailVC"
             
             static let Tabbar = "TabBarController"
+            
+            static let SearchResult = "SearchResultVC"
         }
     }
 }

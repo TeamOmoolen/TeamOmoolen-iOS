@@ -18,7 +18,7 @@ class OnboardingAPI {
             case .success(let result):
                 do {
                     let results = try JSONDecoder().decode(OnBoardingDataModel.self, from: result.data)
-                    print(results.message)
+                    print("postOnboardingWithAPI\(results.message)")
                     completion(results)
                 } catch let err {
                     print("JSONDecode: \(err.localizedDescription)")
@@ -37,7 +37,7 @@ class OnboardingAPI {
             case .success(let result):
                 do {
                     let results = try JSONDecoder().decode(HomeDataModel.self, from: result.data)
-                    print(results.message)
+                    print("postOnboardingWithAPI\(results.message)")
                     completion(results.data)
                 } catch let err {
                     print("JSONDecode: \(err.localizedDescription)")

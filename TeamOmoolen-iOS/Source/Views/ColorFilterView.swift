@@ -17,7 +17,7 @@ class ColorFilterView: UIView {
     
     // MARK: - Local Variables
     
-    private var lensColorList = [LensColorModel]()
+    private var lensColorList = [LensColorDataModel]()
     var lensColor = [String]()
     var isAllSelected = false
     
@@ -65,18 +65,18 @@ extension ColorFilterView {
     
     func setList() {
         lensColorList.append(contentsOf: [
-            LensColorModel(image: "btnNoncolor"),
-            LensColorModel(image: "btnBlackcolor"),
-            LensColorModel(image: "btnGreycolor"),
-            LensColorModel(image: "btnChococolor"),
-            LensColorModel(image: "btnGreencolor"),
-            LensColorModel(image: "btnBrowncolor"),
-            LensColorModel(image: "btnPurplecolor"),
-            LensColorModel(image: "btnBluecolor"),
-            LensColorModel(image: "btnGoldcolor"),
-            LensColorModel(image: "btnPinkcolor"),
-            LensColorModel(image: "btnGlittercolor"),
-            LensColorModel(image: "btnEtccolor")
+            LensColorDataModel(image: "btnNoncolor"),
+            LensColorDataModel(image: "btnBlackcolor"),
+            LensColorDataModel(image: "btnGreycolor"),
+            LensColorDataModel(image: "btnChococolor"),
+            LensColorDataModel(image: "btnGreencolor"),
+            LensColorDataModel(image: "btnBrowncolor"),
+            LensColorDataModel(image: "btnPurplecolor"),
+            LensColorDataModel(image: "btnBluecolor"),
+            LensColorDataModel(image: "btnGoldcolor"),
+            LensColorDataModel(image: "btnPinkcolor"),
+            LensColorDataModel(image: "btnGlittercolor"),
+            LensColorDataModel(image: "btnEtccolor")
         ])
     }
     

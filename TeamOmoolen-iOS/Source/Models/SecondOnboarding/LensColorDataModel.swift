@@ -8,9 +8,6 @@
 import Foundation
 import UIKit
 
-struct LensColorModel {
+struct LensColorDataModel {
     let image: String
-//    init(image: String) {
-//        self.image = UIImage(named: image) ?? UIImage()
-//    }
 }
