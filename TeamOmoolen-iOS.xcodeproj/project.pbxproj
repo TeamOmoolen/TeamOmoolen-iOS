@@ -42,15 +42,15 @@
 		92A889D52692EC2800AC1B81 /* LastBannerTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A889D32692EC2800AC1B81 /* LastBannerTVC.xib */; };
 		92A889D92692FBD200AC1B81 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889D82692FBD200AC1B81 /* TabBarController.swift */; };
 		92A889DB2692FD4D00AC1B81 /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92A889DA2692FD4D00AC1B81 /* Tabbar.storyboard */; };
-		92A889DE26931A6900AC1B81 /* RecommendLens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889DD26931A6900AC1B81 /* RecommendLens.swift */; };
-		92A889E02693227000AC1B81 /* NewLens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889DF2693227000AC1B81 /* NewLens.swift */; };
+		92A889DE26931A6900AC1B81 /* RecommendLensDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889DD26931A6900AC1B81 /* RecommendLensDataModel.swift */; };
+		92A889E02693227000AC1B81 /* NewLensDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889DF2693227000AC1B81 /* NewLensDataModel.swift */; };
 		92A889E3269334DB00AC1B81 /* NewLensDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889E1269334DB00AC1B81 /* NewLensDetailTVC.swift */; };
 		92A889E4269334DB00AC1B81 /* NewLensDetailTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A889E2269334DB00AC1B81 /* NewLensDetailTVC.xib */; };
 		92A889EB2693B14400AC1B81 /* ColorFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A889EA2693B14400AC1B81 /* ColorFilterView.swift */; };
 		92A889ED2693B18A00AC1B81 /* ColorFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A889EC2693B18A00AC1B81 /* ColorFilterView.xib */; };
 		92BAA04F2694FDE7004A155A /* OneMinDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BAA04D2694FDE7004A155A /* OneMinDetailTVC.swift */; };
 		92BAA0502694FDE7004A155A /* OneMinDetailTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BAA04E2694FDE7004A155A /* OneMinDetailTVC.xib */; };
-		92BAA052269500DA004A155A /* LensInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BAA051269500DA004A155A /* LensInfo.swift */; };
+		92BAA052269500DA004A155A /* LensInfoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BAA051269500DA004A155A /* LensInfoDataModel.swift */; };
 		92BC7DE82695D9230088E4EE /* RecentSearchVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BC7DE72695D9230088E4EE /* RecentSearchVC.storyboard */; };
 		92BC7DEA2695DB1B0088E4EE /* FIlterVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BC7DE92695DB1B0088E4EE /* FIlterVC.storyboard */; };
 		92BC7DEC269641A10088E4EE /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BC7DEB269641A10088E4EE /* Detail.storyboard */; };
@@ -206,15 +206,15 @@
 		92A889D32692EC2800AC1B81 /* LastBannerTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastBannerTVC.xib; sourceTree = "<group>"; };
 		92A889D82692FBD200AC1B81 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		92A889DA2692FD4D00AC1B81 /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabbar.storyboard; sourceTree = "<group>"; };
-		92A889DD26931A6900AC1B81 /* RecommendLens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendLens.swift; sourceTree = "<group>"; };
-		92A889DF2693227000AC1B81 /* NewLens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLens.swift; sourceTree = "<group>"; };
+		92A889DD26931A6900AC1B81 /* RecommendLensDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendLensDataModel.swift; sourceTree = "<group>"; };
+		92A889DF2693227000AC1B81 /* NewLensDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLensDataModel.swift; sourceTree = "<group>"; };
 		92A889E1269334DB00AC1B81 /* NewLensDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLensDetailTVC.swift; sourceTree = "<group>"; };
 		92A889E2269334DB00AC1B81 /* NewLensDetailTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewLensDetailTVC.xib; sourceTree = "<group>"; };
 		92A889EA2693B14400AC1B81 /* ColorFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFilterView.swift; sourceTree = "<group>"; };
 		92A889EC2693B18A00AC1B81 /* ColorFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorFilterView.xib; sourceTree = "<group>"; };
 		92BAA04D2694FDE7004A155A /* OneMinDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMinDetailTVC.swift; sourceTree = "<group>"; };
 		92BAA04E2694FDE7004A155A /* OneMinDetailTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneMinDetailTVC.xib; sourceTree = "<group>"; };
-		92BAA051269500DA004A155A /* LensInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensInfo.swift; sourceTree = "<group>"; };
+		92BAA051269500DA004A155A /* LensInfoDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensInfoDataModel.swift; sourceTree = "<group>"; };
 		92BC7DE72695D9230088E4EE /* RecentSearchVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecentSearchVC.storyboard; sourceTree = "<group>"; };
 		92BC7DE92695DB1B0088E4EE /* FIlterVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FIlterVC.storyboard; sourceTree = "<group>"; };
 		92BC7DEB269641A10088E4EE /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
@@ -425,9 +425,9 @@
 		92A889DC26931A3D00AC1B81 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				92A889DD26931A6900AC1B81 /* RecommendLens.swift */,
-				92A889DF2693227000AC1B81 /* NewLens.swift */,
-				92BAA051269500DA004A155A /* LensInfo.swift */,
+				92A889DD26931A6900AC1B81 /* RecommendLensDataModel.swift */,
+				92A889DF2693227000AC1B81 /* NewLensDataModel.swift */,
+				92BAA051269500DA004A155A /* LensInfoDataModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1121,7 +1121,7 @@
 				E82DE900268C749800296B53 /* TimeDataModel.swift in Sources */,
 				9256441B2692C1EF00A45945 /* NewLensCVC.swift in Sources */,
 				92F994FB26918BC30053ABD8 /* RecommendTVC.swift in Sources */,
-				92BAA052269500DA004A155A /* LensInfo.swift in Sources */,
+				92BAA052269500DA004A155A /* LensInfoDataModel.swift in Sources */,
 				924751B2268E48CE00924891 /* PurposeDataModel.swift in Sources */,
 				E8C9A43C2690B97C00E5BD9D /* SearchTabBar.swift in Sources */,
 				F824590B268E1F3A0048BE84 /* FunctionCVC.swift in Sources */,
@@ -1137,7 +1137,7 @@
 				92A889EB2693B14400AC1B81 /* ColorFilterView.swift in Sources */,
 				F83BA01F268C476B00E94E74 /* AppDelegate.swift in Sources */,
 				92BC7DF3269645450088E4EE /* DetailTopTVC.swift in Sources */,
-				92A889DE26931A6900AC1B81 /* RecommendLens.swift in Sources */,
+				92A889DE26931A6900AC1B81 /* RecommendLensDataModel.swift in Sources */,
 				F8514795269366C300C8532F /* HomeDataModel.swift in Sources */,
 				F83BA072268CEB5D00E94E74 /* UIColor+Addition.swift in Sources */,
 				925644172692C1DB00A45945 /* NewLensTVC.swift in Sources */,
@@ -1173,7 +1173,7 @@
 				9261599126921B6600E1E87F /* SeasonCVC.swift in Sources */,
 				92BF879D268CCC8100706384 /* AgeDataModel.swift in Sources */,
 				929C84032696E18E00A879A7 /* MiddleBannerTVC.swift in Sources */,
-				92A889E02693227000AC1B81 /* NewLens.swift in Sources */,
+				92A889E02693227000AC1B81 /* NewLensDataModel.swift in Sources */,
 				924751AC268E329400924891 /* FourthOnboardingVC.swift in Sources */,
 				F83BA05D268C579100E94E74 /* SecondOnboardingVC.swift in Sources */,
 				F8CB27F526931FF700DEFA75 /* OnboardingRequest.swift in Sources */,

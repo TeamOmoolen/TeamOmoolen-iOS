@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RecommendLens {
+struct RecommendLensDataModel {
     var brandName: String
     var lensName: String
     var diameter: Float
