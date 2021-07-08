@@ -7,6 +7,7 @@
 
 import UIKit
 import AuthenticationServices
+import Moya
 
 class LoginVC: UIViewController {
     
@@ -74,16 +75,20 @@ class LoginVC: UIViewController {
         print("try login with apple")
         
         let appleIDProvider = ASAuthorizationAppleIDProvider()
-//        let request = [ASAuthorizationAppleIDProvider().createRequest(),ASAuthorizationPasswordProvider().createRequest()]
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
         
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-//        let authorizationController = ASAuthorizationController(authorizationRequests: request)
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
         
+    }
+    
+    func postAppleLoginWithAPI(param: AppleLoginRequest) {
+        LoginAPI.shared.postAppleLogin(param: param) { response in
+            print(response.accessToken)
+        }
     }
 }
 
@@ -106,12 +111,15 @@ extension LoginVC: ASAuthorizationControllerDelegate {
                 print("identityToken: \(identityToken)")
                 print("authString: \(authString)")
                 print("tokenString: \(tokenString)")
+                
+                print("useridentifier: \(userIdentifier)")
+                print("fullName: \(fullName)")
+                print("email: \(email)")
 
+                let appleLoginRequest = AppleLoginRequest(email ?? "", fullName?.familyName ?? "", fullName?.givenName ?? "")
+                postAppleLoginWithAPI(param: appleLoginRequest)
             }
-            print("useridentifier: \(userIdentifier)")
-            print("fullName: \(fullName)")
-            print("email: \(email)")
-
+            
         case let passwordCredential as ASPasswordCredential:
 
             // Sign in using an existing iCloud Keychain credential.

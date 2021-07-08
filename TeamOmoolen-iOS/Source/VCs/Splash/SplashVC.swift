@@ -14,12 +14,12 @@ class SplashVC: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("SplashVC: viewDidLoad()")
+//        print("SplashVC: viewDidLoad()")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("SplashVC: viewDidAppaer()")
+//        print("SplashVC: viewDidAppaer()")
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             self.setIsLogin()
         }
