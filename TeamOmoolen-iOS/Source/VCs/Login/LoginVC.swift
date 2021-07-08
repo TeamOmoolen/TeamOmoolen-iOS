@@ -23,7 +23,7 @@ class LoginVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        setNavigationBarDidLoad()
+        setNavigationBarWillLoad()
     }
     
     // MARK: - Methods
@@ -42,12 +42,12 @@ class LoginVC: UIViewController {
     }
     func setNavigationBarDidLoad() {
         self.navigationController?.navigationBar.isHidden = true
-        self.navigationItem.title = "맞춤 정보 설정"
-        self.navigationController?.navigationBar.tintColor = .omSecondGray
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.omSecondGray, .font: UIFont(name: "NotoSansCJKKR-Medium", size: 16) as Any]
+//        self.navigationItem.title = "맞춤 정보 설정"
+//        self.navigationController?.navigationBar.tintColor = .omSecondGray
+//        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.omSecondGray, .font: UIFont(name: "NotoSansCJKKR-Medium", size: 16) as Any]
 //        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "icBack")
 //        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "icBack")
-        self.navigationItem.backButtonTitle = ""
+//        self.navigationItem.backButtonTitle = ""
     }
     func setNavigationBarWillLoad() {
         self.navigationController?.navigationBar.isHidden = true
