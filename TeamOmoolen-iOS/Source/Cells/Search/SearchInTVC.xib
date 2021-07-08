@@ -17,8 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="276"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="okf-h8-yfg">
-                        <rect key="frame" x="20" y="11" width="335" height="254"/>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="okf-h8-yfg">
+                        <rect key="frame" x="0.0" y="11" width="375" height="254"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="254" id="gdX-2r-vaE"/>
@@ -26,15 +26,15 @@
                     </tableView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="okf-h8-yfg" secondAttribute="trailing" id="167-lf-70T"/>
                     <constraint firstItem="okf-h8-yfg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="ARo-7e-JIb"/>
-                    <constraint firstItem="okf-h8-yfg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Egs-93-GjS"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="okf-h8-yfg" secondAttribute="trailing" id="zKQ-N7-Xma"/>
+                    <constraint firstItem="okf-h8-yfg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vkA-JJ-PBe"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="searchHistoryTableView" destination="okf-h8-yfg" id="p0N-mm-0lt"/>
-                <outlet property="tableViewWidth" destination="gdX-2r-vaE" id="RQD-gD-EJn"/>
+                <outlet property="tableViewHeight" destination="gdX-2r-vaE" id="4oy-XZ-oxO"/>
             </connections>
             <point key="canvasLocation" x="-123.91304347826087" y="133.92857142857142"/>
         </tableViewCell>

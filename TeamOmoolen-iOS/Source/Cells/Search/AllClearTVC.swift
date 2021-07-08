@@ -13,11 +13,15 @@ class AllClearTVC: UITableViewCell {
     
     //Mark: - IB Outlets
     @IBOutlet weak var allClearView: UIView!
+    @IBOutlet weak var allClearLabel: UILabel!
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var bottomView: UIView!
     
     //Mark: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setUI()
         setTapGesture()
     }
 
@@ -27,6 +31,14 @@ class AllClearTVC: UITableViewCell {
     }
     
     //Mark: - Methods
+    func setUI(){
+        allClearLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
+        allClearLabel.textColor = .omFourthGray
+        
+        topView.backgroundColor = .omAlmostwhite
+        bottomView.backgroundColor = .omAlmostwhite
+    }
+    
     func setTapGesture(){
         let allClearTap = UITapGestureRecognizer(target: self, action: #selector(allClear))
         allClearView.isUserInteractionEnabled = true
