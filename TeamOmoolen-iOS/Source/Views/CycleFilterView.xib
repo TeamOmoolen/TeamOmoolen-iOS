@@ -32,10 +32,10 @@
                     <state key="normal" title="Button"/>
                 </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IB2-HR-i0Y">
-                    <rect key="frame" x="0.0" y="89.5" width="414" height="422"/>
+                    <rect key="frame" x="0.0" y="89.5" width="414" height="276"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="422" id="bSG-Uw-Lc4"/>
+                        <constraint firstAttribute="height" constant="276" id="bSG-Uw-Lc4"/>
                     </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mq2-H2-Owq">
                         <size key="itemSize" width="128" height="128"/>

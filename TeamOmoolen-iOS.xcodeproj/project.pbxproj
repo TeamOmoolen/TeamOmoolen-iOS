@@ -55,6 +55,7 @@
 		92B46AB62697417600217CD9 /* FilterCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B46AB42697417600217CD9 /* FilterCVC.swift */; };
 		92B46AB72697417600217CD9 /* FilterCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B46AB52697417600217CD9 /* FilterCVC.xib */; };
 		92B46ABA269742F100217CD9 /* FilterDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B46AB9269742F100217CD9 /* FilterDataModel.swift */; };
+		92B46ABC2697678100217CD9 /* SearchFilterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B46ABB2697678100217CD9 /* SearchFilterRequest.swift */; };
 		92BAA04F2694FDE7004A155A /* OneMinDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BAA04D2694FDE7004A155A /* OneMinDetailTVC.swift */; };
 		92BAA0502694FDE7004A155A /* OneMinDetailTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BAA04E2694FDE7004A155A /* OneMinDetailTVC.xib */; };
 		92BAA052269500DA004A155A /* LensInfoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BAA051269500DA004A155A /* LensInfoDataModel.swift */; };
@@ -227,6 +228,7 @@
 		92B46AB42697417600217CD9 /* FilterCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCVC.swift; sourceTree = "<group>"; };
 		92B46AB52697417600217CD9 /* FilterCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCVC.xib; sourceTree = "<group>"; };
 		92B46AB9269742F100217CD9 /* FilterDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDataModel.swift; sourceTree = "<group>"; };
+		92B46ABB2697678100217CD9 /* SearchFilterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterRequest.swift; sourceTree = "<group>"; };
 		92BAA04D2694FDE7004A155A /* OneMinDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMinDetailTVC.swift; sourceTree = "<group>"; };
 		92BAA04E2694FDE7004A155A /* OneMinDetailTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneMinDetailTVC.xib; sourceTree = "<group>"; };
 		92BAA051269500DA004A155A /* LensInfoDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensInfoDataModel.swift; sourceTree = "<group>"; };
@@ -742,8 +744,8 @@
 		F83BA03A268C49DB00E94E74 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				92B46AB8269742D600217CD9 /* SearchFilter */,
 				F8CB27EF2692C1DA00DEFA75 /* NetworkDataModel */,
+				92B46AB8269742D600217CD9 /* SearchFilter */,
 				F8CB27F626932EB100DEFA75 /* ThirdOnboarding */,
 				92A889DC26931A3D00AC1B81 /* Home */,
 				924751A7268E2CC500924891 /* FourthOnboarding */,
@@ -826,6 +828,7 @@
 			children = (
 				F851479B2695C5C300C8532F /* SearchDataModel.swift */,
 				F85147A12696AC9800C8532F /* PopularDataModel.swift */,
+				92B46ABB2697678100217CD9 /* SearchFilterRequest.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1156,6 +1159,7 @@
 				92B46ABA269742F100217CD9 /* FilterDataModel.swift in Sources */,
 				E82DE8FE268C748900296B53 /* FunctionDataModel.swift in Sources */,
 				F85147992695839D00C8532F /* SearchAPI.swift in Sources */,
+				92B46ABC2697678100217CD9 /* SearchFilterRequest.swift in Sources */,
 				E8A078662690F35100D99444 /* FilterVC.swift in Sources */,
 				E82C5DC426937B87000EF460 /* PopularTVC.swift in Sources */,
 				E8C9A43A2690AD1000E5BD9D /* SearchVC.swift in Sources */,

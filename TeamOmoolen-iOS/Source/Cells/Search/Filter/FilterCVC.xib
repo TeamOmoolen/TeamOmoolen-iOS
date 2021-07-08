@@ -22,7 +22,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtB-BU-rto">
-                        <rect key="frame" x="60.5" y="15" width="42" height="21"/>
+                        <rect key="frame" x="60.5" y="14.5" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -32,11 +32,11 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="WtB-BU-rto" firstAttribute="centerX" secondItem="Jik-TW-Xqr" secondAttribute="centerX" id="5AI-YM-Lnu"/>
-                <constraint firstItem="WtB-BU-rto" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="BO1-EY-Odt"/>
                 <constraint firstItem="Jik-TW-Xqr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Hmz-Jr-Xux"/>
                 <constraint firstAttribute="bottom" secondItem="Jik-TW-Xqr" secondAttribute="bottom" id="cQC-Rp-1PV"/>
                 <constraint firstItem="Jik-TW-Xqr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fAQ-wM-Ta0"/>
                 <constraint firstAttribute="trailing" secondItem="Jik-TW-Xqr" secondAttribute="trailing" id="gy3-Mh-FIE"/>
+                <constraint firstItem="WtB-BU-rto" firstAttribute="centerY" secondItem="Jik-TW-Xqr" secondAttribute="centerY" id="ppg-gD-RYb"/>
             </constraints>
             <connections>
                 <outlet property="backView" destination="Jik-TW-Xqr" id="XkX-Ok-5gK"/>

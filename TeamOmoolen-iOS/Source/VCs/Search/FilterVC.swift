@@ -312,47 +312,55 @@ extension FilterVC {
     @objc
     func searchBrandData(_ notification: Notification) {
         lensBrand = notification.object as! [String]
-        print(lensBrand)
+        requestAPI()
     }
     @objc
     func resetBrandData(_ notification: Notification) {
         lensBrand = notification.object as! [String]
-        print(lensBrand)
     }
     
     // 컬러 검색, 초기화
     @objc
     func searchColorData(_ notification: Notification) {
         lensColor = notification.object as! [String]
-        print(lensColor)
+        requestAPI()
     }
     @objc
     func resetColorData(_ notification: Notification) {
         lensColor = notification.object as! [String]
-        print(lensColor)
     }
     
     // 직경 검색, 초기화
     @objc
     func searchDiameterData(_ notification: Notification) {
         lensDiameter = notification.object as! [String]
-        print(lensDiameter)
+        requestAPI()
     }
     @objc
     func resetDiameterData(_ notification: Notification) {
         lensDiameter = notification.object as! [String]
-        print(lensDiameter)
     }
     
     // 주기 검색, 초기화
     @objc
     func searchCycleData(_ notification: Notification) {
         lensCycle = notification.object as! [String]
-        print(lensCycle)
+        requestAPI()
     }
     @objc
     func resetCycleData(_ notification: Notification) {
         lensCycle = notification.object as! [String]
-        print(lensCycle)
+    }
+}
+
+// MARK: - Request API
+
+extension FilterVC {
+    func requestAPI() {
+        let param = SearchFilterRequest(lensBrand, lensColor, lensDiameter, lensCycle, "")
+        
+        print(param)
+        
+        // 서버에 요청하기
     }
 }

@@ -131,10 +131,10 @@ extension DiameterFilterView: UICollectionViewDataSource {
 extension DiameterFilterView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width
-//        let height = collectionView.frame.height
-        let cellWidth = (width - 40 - 9) / 2
-//        let cellHeight = (height - 100) / 6
-        return CGSize(width: cellWidth, height: 50)
+        let height = collectionView.frame.height
+        let cellWidth = (width - 50) / 2
+        let cellHeight = (height - 24 - 40) / 3
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

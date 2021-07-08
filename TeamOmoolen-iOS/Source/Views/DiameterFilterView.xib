@@ -39,10 +39,10 @@
                     <state key="normal" title="Button"/>
                 </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9P7-Y2-pcO">
-                    <rect key="frame" x="0.0" y="89.5" width="414" height="422"/>
+                    <rect key="frame" x="0.0" y="89.5" width="414" height="214"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="422" id="1X7-Bt-h2X"/>
+                        <constraint firstAttribute="height" constant="214" id="1X7-Bt-h2X"/>
                     </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CFN-YY-af0">
                         <size key="itemSize" width="128" height="128"/>
