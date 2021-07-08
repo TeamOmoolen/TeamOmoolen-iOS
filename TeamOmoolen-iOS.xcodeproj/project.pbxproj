@@ -108,6 +108,10 @@
 		F824590A268E1F3A0048BE84 /* TimeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8245906268E1F3A0048BE84 /* TimeCVC.xib */; };
 		F824590B268E1F3A0048BE84 /* FunctionCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8245907268E1F3A0048BE84 /* FunctionCVC.swift */; };
 		F824590C268E1F3A0048BE84 /* TimeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8245908268E1F3A0048BE84 /* TimeCVC.swift */; };
+		F831304C2697670A004A247C /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831304B2697670A004A247C /* LoginService.swift */; };
+		F831304E26976714004A247C /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831304D26976714004A247C /* LoginAPI.swift */; };
+		F831305126976A7E004A247C /* AppleLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831305026976A7E004A247C /* AppleLoginRequest.swift */; };
+		F831305326976B8A004A247C /* AppleLoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831305226976B8A004A247C /* AppleLoginDataModel.swift */; };
 		F83BA01F268C476B00E94E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA01E268C476B00E94E74 /* AppDelegate.swift */; };
 		F83BA028268C476C00E94E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA027268C476C00E94E74 /* Assets.xcassets */; };
 		F83BA02B268C476C00E94E74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA029268C476C00E94E74 /* LaunchScreen.storyboard */; };
@@ -275,6 +279,10 @@
 		F8245906268E1F3A0048BE84 /* TimeCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCVC.xib; sourceTree = "<group>"; };
 		F8245907268E1F3A0048BE84 /* FunctionCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionCVC.swift; sourceTree = "<group>"; };
 		F8245908268E1F3A0048BE84 /* TimeCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCVC.swift; sourceTree = "<group>"; };
+		F831304B2697670A004A247C /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		F831304D26976714004A247C /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		F831305026976A7E004A247C /* AppleLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRequest.swift; sourceTree = "<group>"; };
+		F831305226976B8A004A247C /* AppleLoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginDataModel.swift; sourceTree = "<group>"; };
 		F83BA01B268C476B00E94E74 /* TeamOmoolen-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TeamOmoolen-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83BA01E268C476B00E94E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F83BA020268C476B00E94E74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -576,6 +584,15 @@
 				F8245908268E1F3A0048BE84 /* TimeCVC.swift */,
 			);
 			path = ThirdOnboarding;
+			sourceTree = "<group>";
+		};
+		F831304F26976A72004A247C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F831305026976A7E004A247C /* AppleLoginRequest.swift */,
+				F831305226976B8A004A247C /* AppleLoginDataModel.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		F83BA012268C476B00E94E74 = {
@@ -887,6 +904,8 @@
 				F8CB27EA2691FB6000DEFA75 /* OnbaordingAPI.swift */,
 				F85147962695839500C8532F /* SearchService.swift */,
 				F85147982695839D00C8532F /* SearchAPI.swift */,
+				F831304B2697670A004A247C /* LoginService.swift */,
+				F831304D26976714004A247C /* LoginAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -894,6 +913,7 @@
 		F8CB27EF2692C1DA00DEFA75 /* NetworkDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				F831304F26976A72004A247C /* Login */,
 				F851479A2695C5B300C8532F /* Search */,
 				F8CB27F72693367E00DEFA75 /* Onboarding */,
 			);
@@ -1116,6 +1136,7 @@
 				E82DE8FE268C748900296B53 /* FunctionDataModel.swift in Sources */,
 				F85147992695839D00C8532F /* SearchAPI.swift in Sources */,
 				E8A078662690F35100D99444 /* FilterVC.swift in Sources */,
+				F831304E26976714004A247C /* LoginAPI.swift in Sources */,
 				E82C5DC426937B87000EF460 /* PopularTVC.swift in Sources */,
 				E8C9A43A2690AD1000E5BD9D /* SearchVC.swift in Sources */,
 				F83BA04E268C4C3500E94E74 /* Storyboard.swift in Sources */,
@@ -1135,6 +1156,8 @@
 				92F994FB26918BC30053ABD8 /* RecommendTVC.swift in Sources */,
 				92BAA052269500DA004A155A /* LensInfoDataModel.swift in Sources */,
 				924751B2268E48CE00924891 /* PurposeDataModel.swift in Sources */,
+				F831305326976B8A004A247C /* AppleLoginDataModel.swift in Sources */,
+				F831304C2697670A004A247C /* LoginService.swift in Sources */,
 				E8C9A43C2690B97C00E5BD9D /* SearchTabBar.swift in Sources */,
 				F824590B268E1F3A0048BE84 /* FunctionCVC.swift in Sources */,
 				E8C9A4372690AA3100E5BD9D /* SearchTabBarCVC.swift in Sources */,
@@ -1160,6 +1183,7 @@
 				E8A6602026959B8100EB7EEA /* SearchWordTVC.swift in Sources */,
 				E82DE904268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift in Sources */,
 				924751B5268E49B500924891 /* PurposeCVC.swift in Sources */,
+				F831305126976A7E004A247C /* AppleLoginRequest.swift in Sources */,
 				F85147A22696AC9800C8532F /* PopularDataModel.swift in Sources */,
 				E82C5DC026936643000EF460 /* SearchInTVC.swift in Sources */,
 				F824590C268E1F3A0048BE84 /* TimeCVC.swift in Sources */,
