@@ -8,22 +8,20 @@
 import UIKit
 
 class RecentSearchVC: UIViewController {
-    
-    // MARK: - Properteis
-    private var popularSearchList = [PopularResponse]()
-
+        
     //Mark: - UI Components
     @IBOutlet weak var searchInTableView: UITableView!
-
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    
+    var recentSearchCellHeight = 120
+    
     //Mark: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         registerXib()
         setSearchInTableView()
-        getPopularSearchWithAPI()
-
+        checkNotification()
         print(searchInTableView.frame.width)
-
         // Do any additional setup after loading the view.
     }
     
@@ -35,7 +33,6 @@ class RecentSearchVC: UIViewController {
     
         let popularNib = UINib(nibName: PopularTVC.identifier, bundle: nil)
         searchInTableView.register(popularNib, forCellReuseIdentifier: PopularTVC.identifier)
-    
     }
     
     func setSearchInTableView() {
@@ -43,11 +40,16 @@ class RecentSearchVC: UIViewController {
         searchInTableView.dataSource = self
         searchInTableView.separatorStyle = .none
     }
-
-    func getPopularSearchWithAPI() {
-        SearchAPI.shared.getPopularSearch() { response in
-            self.popularSearchList = response
-            print(self.popularSearchList)
+    
+    func checkNotification(){
+        NotificationCenter.default.addObserver(self, selector: #selector(setCellHeight), name: NSNotification.Name("AdjustHeight"), object: nil)
+    }
+    
+    //Mark: - objc function
+   @objc func setCellHeight(notification: NSNotification){
+        if let height = notification.object as? Int {
+            recentSearchCellHeight = height
+            searchInTableView.reloadData()
         }
     }
 }
@@ -55,11 +57,14 @@ class RecentSearchVC: UIViewController {
 extension RecentSearchVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         switch indexPath.section{
         case 0:
-            return 222
+            return CGFloat(recentSearchCellHeight) + 10
         case 1:
-            return 537
+           return 660
+            
+        
         default:
             return UITableView.automaticDimension
         }
@@ -88,14 +93,15 @@ extension RecentSearchVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.backgroundColor = .omSecondGray
+            cell.backgroundColor = .omWhite
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  PopularTVC.identifier, for: indexPath) as? PopularTVC else {
                 return UITableViewCell()
             }
+            
             cell.selectionStyle = .none
-            cell.backgroundColor = .omMainOrange
+            cell.backgroundColor = .omWhite
             return cell
         default:
             return UITableViewCell()

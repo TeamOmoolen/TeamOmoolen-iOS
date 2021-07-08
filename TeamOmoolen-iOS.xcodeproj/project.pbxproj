@@ -89,6 +89,7 @@
 		E82DE904268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DE903268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift */; };
 		E8A078622690F32200D99444 /* RecentSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A078602690F32200D99444 /* RecentSearchVC.swift */; };
 		E8A078662690F35100D99444 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A078642690F35100D99444 /* FilterVC.swift */; };
+		E8A089D62697425C00089B6A /* PopularCellDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A089D52697425C00089B6A /* PopularCellDataModel.swift */; };
 		E8A660152695821B00EB7EEA /* RecentSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A660142695821B00EB7EEA /* RecentSearch.swift */; };
 		E8A6602026959B8100EB7EEA /* SearchWordTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A6601E26959B8100EB7EEA /* SearchWordTVC.swift */; };
 		E8A6602126959B8100EB7EEA /* SearchWordTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8A6601F26959B8100EB7EEA /* SearchWordTVC.xib */; };
@@ -260,6 +261,7 @@
 		E82DE903268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCVFlowLayout.swift; sourceTree = "<group>"; };
 		E8A078602690F32200D99444 /* RecentSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchVC.swift; sourceTree = "<group>"; };
 		E8A078642690F35100D99444 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
+		E8A089D52697425C00089B6A /* PopularCellDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCellDataModel.swift; sourceTree = "<group>"; };
 		E8A660142695821B00EB7EEA /* RecentSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearch.swift; sourceTree = "<group>"; };
 		E8A6601E26959B8100EB7EEA /* SearchWordTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWordTVC.swift; sourceTree = "<group>"; };
 		E8A6601F26959B8100EB7EEA /* SearchWordTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchWordTVC.xib; sourceTree = "<group>"; };
@@ -806,6 +808,7 @@
 			children = (
 				F851479B2695C5C300C8532F /* SearchDataModel.swift */,
 				F85147A12696AC9800C8532F /* PopularDataModel.swift */,
+				E8A089D52697425C00089B6A /* PopularCellDataModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1126,6 +1129,7 @@
 			files = (
 				F8CB27F12692C1F700DEFA75 /* OnboardingDataModel.swift in Sources */,
 				F8B91F7C268E2B15006114CD /* SceneDelegate.swift in Sources */,
+				E8A089D62697425C00089B6A /* PopularCellDataModel.swift in Sources */,
 				F83BA06F268CE4FD00E94E74 /* CALayer+applyShadow.swift in Sources */,
 				924751B9268E672300924891 /* LensBrandCVC.swift in Sources */,
 				E82DE8F1268C5D5600296B53 /* ThirdOnboardingVC.swift in Sources */,

@@ -16,11 +16,18 @@ class NoRecentTVC: UITableViewCell {
     //Mark: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        setUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+    }
+    
+    //Mark: - Methods
+    func setUI(){
+        noRecentLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
+        noRecentLabel.textColor = .omFourthGray
     }
     
 }

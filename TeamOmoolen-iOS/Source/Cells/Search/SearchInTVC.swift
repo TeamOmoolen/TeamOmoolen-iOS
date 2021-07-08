@@ -14,7 +14,7 @@ class SearchInTVC: UITableViewCell {
     
     //Mark: - IB Outlets
     @IBOutlet weak var searchHistoryTableView: UITableView!
-    @IBOutlet weak var tableViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     //Mark: - Variables
     var enteredText: String?
@@ -172,7 +172,7 @@ extension SearchInTVC: UITableViewDelegate {
             case 0:
                 return 80 //최근검색어 없음
             case 1:
-                return 48 //전체삭제
+                return 55 //전체삭제
             default:
                 return 50 //나중에 변경
             }
@@ -181,7 +181,7 @@ extension SearchInTVC: UITableViewDelegate {
             case 0:
                 return 50 //단어 1
             case 1:
-                return 48 //전체삭제
+                return 55 //전체삭제
             default:
                 return 50
             }
@@ -192,9 +192,9 @@ extension SearchInTVC: UITableViewDelegate {
             case 1:
                 return 50 //단어 2
             case 2:
-                return 48 //전체삭제
+                return 55 //전체삭제
             default:
-                return 50
+                return 55
             }
         } else {
             //검색어 세개 다 꽉 찬 경우
@@ -206,9 +206,9 @@ extension SearchInTVC: UITableViewDelegate {
             case 2:
                 return 50
             case 3:
-                return 48
+                return 55
             default:
-                return 50
+                return 55
             }
         }
     }
@@ -221,18 +221,28 @@ extension SearchInTVC: UITableViewDataSource {
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         
+        var num = 0
         if (searchList.count == 0){ //검색어 3개에서 전체 삭제 했을 때 여기로 들어옴
-            tableViewWidth.constant = 129
-            return 2
+            //tableViewHeight.constant = 129
+            tableViewHeight.constant = 135
+            num = 2
         } else if (searchList.count == 1){
-            tableViewWidth.constant = 125
-            return 2
+            //tableViewHeight.constant = 125
+            tableViewHeight.constant = 131
+            num = 2
         } else if (searchList.count == 2){
-            tableViewWidth.constant = 164
-            return 3
+            //tableViewHeight.constant = 164
+            tableViewHeight.constant = 169
+            num = 3
+        } else { //검색어 3개
+           // tableViewHeight.constant = 225
+            tableViewHeight.constant = 231
+            num = 4
         }
-            tableViewWidth.constant = 225
-            return 4
+        // print("this is height")
+        //print(tableViewHeight.constant)
+        NotificationCenter.default.post(name: NSNotification.Name("AdjustHeight"), object: tableViewHeight.constant)
+        return num
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -243,11 +253,13 @@ extension SearchInTVC: UITableViewDataSource {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier:  NoRecentTVC.identifier, for: indexPath) as? NoRecentTVC else {
                     return UITableViewCell()
                 }
+                cell.selectionStyle = .none
                 return cell
             case 1: //전체삭제 버튼
                 guard let cell = tableView.dequeueReusableCell(withIdentifier:  AllClearTVC.identifier, for: indexPath) as? AllClearTVC else {
                     return UITableViewCell()
                 }
+                cell.selectionStyle = .none
                 return cell
             default:
                 return UITableViewCell()
@@ -259,11 +271,14 @@ extension SearchInTVC: UITableViewDataSource {
                     return UITableViewCell()
                 }
                 cell.searchLabel.text = searchList[0]
+                cell.selectionStyle = .none
+
                 return cell
             case 1: //전체삭제 버튼
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AllClearTVC.identifier, for: indexPath) as? AllClearTVC else {
                     return UITableViewCell()
                 }
+                cell.selectionStyle = .none
                 return cell
             default:
                 return UITableViewCell()
@@ -275,6 +290,7 @@ extension SearchInTVC: UITableViewDataSource {
                     return UITableViewCell()
                 }
                 cell.searchLabel.text = searchList[0]
+                cell.selectionStyle = .none
                 return cell
 
             case 1: //단어 2
@@ -282,12 +298,14 @@ extension SearchInTVC: UITableViewDataSource {
                     return UITableViewCell()
                 }
                 cell.searchLabel.text = searchList[1]
+                cell.selectionStyle = .none
                 return cell
             
             case 2: //전체삭제
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AllClearTVC.identifier, for: indexPath) as? AllClearTVC else {
                     return UITableViewCell()
                 }
+                cell.selectionStyle = .none
                 return cell
             default:
                 return UITableViewCell()
@@ -299,6 +317,7 @@ extension SearchInTVC: UITableViewDataSource {
                     return UITableViewCell()
                 }
                 cell.searchLabel.text = searchList[0]
+                cell.selectionStyle = .none
                 return cell
             
             case 1: //단어 2
@@ -306,6 +325,7 @@ extension SearchInTVC: UITableViewDataSource {
                     return UITableViewCell()
                 }
                 cell.searchLabel.text = searchList[1]
+                cell.selectionStyle = .none
                 return cell
                 
             case 2: //단어 3
@@ -313,12 +333,14 @@ extension SearchInTVC: UITableViewDataSource {
                     return UITableViewCell()
                 }
                 cell.searchLabel.text = searchList[2]
+                cell.selectionStyle = .none
                 return cell
                 
             case 3: //전체삭제
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AllClearTVC.identifier, for: indexPath) as? SearchWordTVC else {
                 return UITableViewCell()
                 }
+                cell.selectionStyle = .none
                 return cell
             default:
                 return UITableViewCell()
