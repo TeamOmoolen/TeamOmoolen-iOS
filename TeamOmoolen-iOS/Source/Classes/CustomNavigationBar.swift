@@ -67,7 +67,7 @@ class CustomNavigationBar: UIView {
         
         NSLayoutConstraint.activate([
             backButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 7),
             
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),

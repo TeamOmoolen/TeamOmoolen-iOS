@@ -33,7 +33,7 @@ class AgeCVC: UICollectionViewCell {
                 backView.layer.borderColor = UIColor.omThirdGray.cgColor
                 backView.layer.borderWidth = 0
                 ageLabel.textColor = UIColor.omThirdGray
-                ageLabel.font = UIFont(name: "NotoSansCJKKR-DemiLight", size: 14)
+                ageLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
             }
         }
     }
@@ -47,7 +47,7 @@ extension AgeCVC {
         backView.layer.masksToBounds = true
         
         ageLabel.textColor = .omThirdGray
-        ageLabel.font = UIFont(name: "NotoSansCJKKR-DemiLight", size: 14)
+        ageLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
     }
     
     func initCell(age: String) {
