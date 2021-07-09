@@ -34,6 +34,7 @@ class HomeVC: UIViewController {
     }()
     
     // MARK: - Local Variables
+    
     private var homeList = HomeResponse(username: "", findRecomendationByUser: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], guides: [Guide(id: 0, question: "", answer: "")], recommendationBySeason: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], deadlineEvent: [Event(id: 0, title: "", content: "", image: "")], newLens: NewLens1(brand1: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], brand2: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], brand3: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])]) , recommendationBySituation: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], lastestEvent: [Event(id: 0, title: "", content: "", image: "")])
     
     // MARK: - View Life Cycle Methods
@@ -41,6 +42,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigationController()
         setUI()
         setNotificationLoginErr()
         registerXib()
@@ -66,14 +68,14 @@ extension HomeVC {
             make.bottom.equalToSuperview().inset(-100)
         }
         
-        logoImageView.image = UIImage(named: "abc")
+        logoImageView.image = UIImage(named: "imgLogo")
         
         searchView.layer.borderColor = UIColor.omMainOrange.cgColor
         searchView.layer.borderWidth = 1
         searchView.layer.cornerRadius = 8
         searchView.layer.masksToBounds = true
         
-        searchIcon.image = UIImage(named: "abc")
+        searchIcon.image = UIImage(named: "icSearchSmall")
         searchLabel.text = "오늘은 무슨 렌즈끼지?"
         searchLabel.textColor = .omFourthGray
         searchLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 13)
@@ -121,6 +123,10 @@ extension HomeVC {
 //            print(self.homeList)
         }
     }
+    
+    func setNavigationController() {
+        self.navigationController?.navigationBar.isHidden = true
+    }
 }
 
 // MARK: - Action Methods
@@ -133,8 +139,15 @@ extension HomeVC {
     
     @objc
     func touchUpSearchView(_ sender: UITapGestureRecognizer) {
-        print("SearchVC로 이동")
         searchLabel.isHidden = true
+        searchIcon.isHidden = true
+        
+        guard let searchVC = UIStoryboard(name: Const.Storyboard.Name.Search, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Search) as? SearchVC else {
+            return
+        }
+        searchVC.modalPresentationStyle = .fullScreen
+        searchVC.modalTransitionStyle = .crossDissolve
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
 }
 

@@ -67,8 +67,9 @@ extension NewLensTVC {
 
 extension NewLensTVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let width = (UIScreen.main.bounds.size.width - 80) / 3
-        return CGSize(width: 324, height: 640)
+        let width = (collectionView.frame.width - 20 - 31)
+        let height = collectionView.frame.height
+        return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

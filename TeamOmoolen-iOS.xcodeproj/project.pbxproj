@@ -36,6 +36,7 @@
 		928E5032269827790086FC31 /* SearchFilter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928E5031269827790086FC31 /* SearchFilter.xcassets */; };
 		928E503526982C3F0086FC31 /* ColorListCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E503326982C3F0086FC31 /* ColorListCVC.swift */; };
 		928E503626982C3F0086FC31 /* ColorListCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928E503426982C3F0086FC31 /* ColorListCVC.xib */; };
+		928E503826987CAB0086FC31 /* NaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E503726987CAB0086FC31 /* NaviController.swift */; };
 		929C84032696E18E00A879A7 /* MiddleBannerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C84012696E18E00A879A7 /* MiddleBannerTVC.swift */; };
 		929C84042696E18E00A879A7 /* MiddleBannerTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929C84022696E18E00A879A7 /* MiddleBannerTVC.xib */; };
 		929C84072696E5FC00A879A7 /* BannerCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C84052696E5FC00A879A7 /* BannerCVC.swift */; };
@@ -219,6 +220,7 @@
 		928E5031269827790086FC31 /* SearchFilter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SearchFilter.xcassets; sourceTree = "<group>"; };
 		928E503326982C3F0086FC31 /* ColorListCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListCVC.swift; sourceTree = "<group>"; };
 		928E503426982C3F0086FC31 /* ColorListCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorListCVC.xib; sourceTree = "<group>"; };
+		928E503726987CAB0086FC31 /* NaviController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviController.swift; sourceTree = "<group>"; };
 		929C84012696E18E00A879A7 /* MiddleBannerTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleBannerTVC.swift; sourceTree = "<group>"; };
 		929C84022696E18E00A879A7 /* MiddleBannerTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiddleBannerTVC.xib; sourceTree = "<group>"; };
 		929C84052696E5FC00A879A7 /* BannerCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCVC.swift; sourceTree = "<group>"; };
@@ -889,6 +891,7 @@
 			children = (
 				F86F7AC526900A030037081D /* HomeVC.swift */,
 				92A889D82692FBD200AC1B81 /* TabBarController.swift */,
+				928E503726987CAB0086FC31 /* NaviController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1276,6 +1279,7 @@
 				92BC7DFB26964EF00088E4EE /* DetailSimilarTVC.swift in Sources */,
 				9276925F2693CB7D00201EE1 /* BrandFilterView.swift in Sources */,
 				92A889CC2692E11A00AC1B81 /* SituationTVC.swift in Sources */,
+				928E503826987CAB0086FC31 /* NaviController.swift in Sources */,
 				92BF87A2268D908C00706384 /* GenderCVC.swift in Sources */,
 				92BC7DFF269653D50088E4EE /* DetailNewTVC.swift in Sources */,
 				9261599126921B6600E1E87F /* SeasonCVC.swift in Sources */,

@@ -19,11 +19,16 @@ class MiddleBannerTVC: UITableViewCell {
     @IBOutlet weak var thirdIndicator: UIView!
     
     // MARK: - Local Variables
+    
+    private var imageList = [String]()
 
+    // MARK: - Life Cycle Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setUI()
+        setList()
+        
         registerXib()
         setCollectionView()
     }
@@ -50,6 +55,12 @@ extension MiddleBannerTVC {
         thirdIndicator.layer.masksToBounds = true
     }
     
+    func setList() {
+        imageList.append("btnBluecolor")
+        imageList.append("btnBluecolor")
+        imageList.append("btnBluecolor")
+    }
+    
     func registerXib() {
         let nib = UINib(nibName: BannerCVC.identifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: BannerCVC.identifier)
@@ -63,6 +74,10 @@ extension MiddleBannerTVC {
         collectionView.decelerationRate = .fast
         
         collectionView.showsHorizontalScrollIndicator = false
+    }
+    
+    func initCell(ImageList: [String]) {
+        self.imageList = ImageList
     }
 }
 
@@ -114,7 +129,7 @@ extension MiddleBannerTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCVC.identifier, for: indexPath) as? BannerCVC else {
             return UICollectionViewCell()
         }
-        cell.initCell(idx: indexPath.row)
+        cell.initCell(image: imageList[indexPath.row])
         return cell
     }
 }

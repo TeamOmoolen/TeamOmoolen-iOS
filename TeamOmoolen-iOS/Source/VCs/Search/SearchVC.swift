@@ -33,6 +33,8 @@ class SearchVC: UIViewController {
         registerNib()
         setCollectionViewDelegate()
         setVCs()
+        
+        self.tabBarController?.tabBar.isHidden = true
     }
 
     func setVCs(){

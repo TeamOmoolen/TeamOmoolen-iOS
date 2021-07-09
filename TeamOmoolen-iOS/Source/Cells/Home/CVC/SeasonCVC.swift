@@ -39,7 +39,7 @@ class SeasonCVC: UICollectionViewCell {
 
 extension SeasonCVC {
     func setUI() {
-        contentView.backgroundColor = .blue
+        contentView.backgroundColor = .white
         modelImageView.image = UIImage(named: "abc")
         lensImageView.image = UIImage(named: "abc")
         
