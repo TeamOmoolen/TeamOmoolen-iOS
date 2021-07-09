@@ -23,7 +23,7 @@ class SeasonCVC: UICollectionViewCell {
     
     // MARK: - Local Variables
     
-    private var colorList = [String]()
+    private var colorList = [Int]()
     
     // MARK: - Life Cycle Methods
     
@@ -61,13 +61,13 @@ extension SeasonCVC {
         priceLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
     }
     
-    func initCell(brandName: String, lensName: String, diameter: Float, cycle: String, price: Int, colorList: [String]) {
+    func initCell(brandName: String, lensName: String, diameter: Double, cycle: Int, pieces: Int, price: Int, colorList: [Int]) {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         
         brandNameLabel.text = brandName
         lensNameLabel.text = lensName
-        lensInfoLabel.text = "\(diameter)mm / \(cycle)"
+        lensInfoLabel.text = "\(diameter)mm / \(cycle)Day(\(pieces)p)"
                          
         priceLabel.text = "\(formatter.string(from: NSNumber(value: price))!)원"
         
