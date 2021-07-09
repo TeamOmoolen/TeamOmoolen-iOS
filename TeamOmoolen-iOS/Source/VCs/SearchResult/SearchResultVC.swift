@@ -10,7 +10,7 @@ import UIKit
 class SearchResultVC: UIViewController {
 
     // MARK: - Properties
-    private let resultList = [RecommendLensDataModel]()
+    private var resultList = [SearchResultResponse]()
     
     @IBOutlet weak var searchBarView: UIView!
     @IBOutlet weak var resultCollectionView: UICollectionView!
@@ -42,7 +42,7 @@ class SearchResultVC: UIViewController {
     
     func getSearchResultWithAPI() {
         SearchAPI.shared.getSearchResult() { response in
-//            response.
+            self.resultList = response
         }
     }
 }
