@@ -46,7 +46,6 @@ class DiameterFilterView: UIView {
         
         setUI()
         setList()
-        setButton()
         
         registerXib()
         setCollectionView()
@@ -61,10 +60,6 @@ extension DiameterFilterView {
         filterLabel.text = "직경"
         filterLabel.textColor = .omMainBlack
         filterLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
-        
-        selectButton.setTitle("전체선택", for: .normal)
-        selectButton.tintColor = .omFourthGray
-        selectButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
     }
     
     func setList() {
@@ -86,29 +81,9 @@ extension DiameterFilterView {
     func setCollectionView() {
         diameterCollectionView.delegate = self
         diameterCollectionView.dataSource = self
-
-        diameterCollectionView.allowsMultipleSelection = true
     }
 }
 
-// MARK: - Action Methods
-
-extension DiameterFilterView {
-    func setButton() {
-        let allSelectAction = UIAction { _ in
-            if !self.isAllSelected {
-                self.isAllSelected = true
-                self.selectButton.tintColor = .omMainOrange
-                self.diameterCollectionView.selectAll(animated: true)
-            } else {
-                self.isAllSelected = false
-                self.selectButton.tintColor = .omFourthGray
-                self.diameterCollectionView.deselectAll(animated: true)
-            }
-        }
-        selectButton.addAction(allSelectAction, for: .touchUpInside)
-    }
-}
 
 // MARK: - UI CollectionViewDataSource
 

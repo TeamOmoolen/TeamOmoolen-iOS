@@ -68,7 +68,12 @@ class FilterVC: UIViewController {
     }
 }
 
+// MARK: - Custom Methods
+
 extension FilterVC {
+    
+    // MARK: - Category View
+    
     func setCategoryView() {
         // 브랜드 필터
         brandView.backgroundColor = .omMainOrange
@@ -131,6 +136,8 @@ extension FilterVC {
         cycleView.addGestureRecognizer(cycleTapGesture)
     }
     
+    // MARK: - Filter View
+    
     func setCustomView() {
         view.backgroundColor = .omAlmostwhite
         
@@ -169,6 +176,8 @@ extension FilterVC {
         cycleFilterView.isHidden = true
     }
     
+    // MARK: - Button View
+    
     func setButtonView() {
         buttonView.backgroundColor = .omWhite
         
@@ -188,6 +197,8 @@ extension FilterVC {
         searchButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Medium", size: 18)
     }
 }
+
+// MARK: - Action Methods
 
 extension FilterVC {
     @objc
@@ -356,6 +367,12 @@ extension FilterVC {
 // MARK: - Request API
 
 extension FilterVC {
+    func getSearchData() {
+        // 여기서 검색할 데이터를 하나로 모은다면 ?
+        
+        // 다 모아졌을 떄 서버에 정보 넘기기
+    }
+    
     func requestAPI() {
         let param = SearchFilterRequest(lensBrand, lensColor, lensDiameter, lensCycle, "")
         
