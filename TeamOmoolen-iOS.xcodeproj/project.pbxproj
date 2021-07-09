@@ -155,6 +155,7 @@
 		F86F7ACF2690A1C20037081D /* Search.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F86F7ACE2690A1C20037081D /* Search.xcassets */; };
 		F86F7AD1269187AE0037081D /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F7AD0269187AE0037081D /* CustomNavigationBar.swift */; };
 		F86F7AD326918AC50037081D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F7AD226918AC50037081D /* UIViewController+Extension.swift */; };
+		F885CB8A2698102300835B11 /* SearchResultDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F885CB892698102300835B11 /* SearchResultDataModel.swift */; };
 		F8B91F55268E205E006114CD /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F4C268E205B006114CD /* NotoSansCJKkr-Regular.otf */; };
 		F8B91F56268E205E006114CD /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F4D268E205B006114CD /* NotoSansCJKkr-Bold.otf */; };
 		F8B91F57268E205E006114CD /* NotoSansCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F4E268E205C006114CD /* NotoSansCJKkr-Light.otf */; };
@@ -339,6 +340,7 @@
 		F86F7ACE2690A1C20037081D /* Search.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Search.xcassets; sourceTree = "<group>"; };
 		F86F7AD0269187AE0037081D /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		F86F7AD226918AC50037081D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		F885CB892698102300835B11 /* SearchResultDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultDataModel.swift; sourceTree = "<group>"; };
 		F8B91F4C268E205B006114CD /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		F8B91F4D268E205B006114CD /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		F8B91F4E268E205C006114CD /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
@@ -853,15 +855,6 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		F85147A32696AC9D00C8532F /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				F8CB27F02692C1F700DEFA75 /* OnboardingDataModel.swift */,
-				F8CB27F426931FF700DEFA75 /* OnboardingRequest.swift */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
 		F85147A72696EA5100C8532F /* SearchResult */ = {
 			isa = PBXGroup;
 			children = (
@@ -894,6 +887,14 @@
 				F86F7ACC269068B20037081D /* SplashVC.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		F885CB882698101700835B11 /* SearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				F885CB892698102300835B11 /* SearchResultDataModel.swift */,
+			);
+			path = SearchResult;
 			sourceTree = "<group>";
 		};
 		F8B91F4B268E2028006114CD /* Fonts */ = {
@@ -956,6 +957,7 @@
 		F8CB27EF2692C1DA00DEFA75 /* NetworkDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				F885CB882698101700835B11 /* SearchResult */,
 				F831304F26976A72004A247C /* Login */,
 				F851479A2695C5B300C8532F /* Search */,
 				F8CB27F72693367E00DEFA75 /* Onboarding */,
@@ -975,7 +977,8 @@
 		F8CB27F72693367E00DEFA75 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				F85147A32696AC9D00C8532F /* Onboarding */,
+				F8CB27F02692C1F700DEFA75 /* OnboardingDataModel.swift */,
+				F8CB27F426931FF700DEFA75 /* OnboardingRequest.swift */,
 				F8514793269366AC00C8532F /* Home */,
 			);
 			path = Onboarding;
@@ -1201,6 +1204,7 @@
 				F86F7AC626900A030037081D /* HomeVC.swift in Sources */,
 				F85147A02695CE5800C8532F /* SearchResultVC.swift in Sources */,
 				E82DE900268C749800296B53 /* TimeDataModel.swift in Sources */,
+				F885CB8A2698102300835B11 /* SearchResultDataModel.swift in Sources */,
 				9256441B2692C1EF00A45945 /* NewLensCVC.swift in Sources */,
 				92F994FB26918BC30053ABD8 /* RecommendTVC.swift in Sources */,
 				92BAA052269500DA004A155A /* LensInfoDataModel.swift in Sources */,
