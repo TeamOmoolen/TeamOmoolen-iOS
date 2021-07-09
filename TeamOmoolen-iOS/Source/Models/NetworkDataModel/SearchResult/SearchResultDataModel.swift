@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct SearchResult: Codable {
+struct SearchResultDataModel: Codable {
     let status: Int
     let success: Bool
     let message: String
@@ -25,16 +25,23 @@ struct SearchResult: Codable {
         status = (try? values.decode(Int.self, forKey: .status)) ?? 0
         success = (try? values.decode(Bool.self, forKey: .success)) ?? false
         message = (try? values.decode(String.self, forKey: .message)) ?? ""
-        data = (try? values.decode([SearchResultResponse].self, forKey: .data)) ?? [SearchResultResponse(id: 0, name: "")]
+        data = (try? values.decode([SearchResultResponse].self, forKey: .data)) ?? [SearchResultResponse(brandName: "", lensName: "", diameter: 0, cycle: "", price: 0)]
     }
 }
 
 struct SearchResultResponse: Codable {
-    let id: Int
-    let name: String
+    let brandName: String
+    let lensName: String
+    let diameter: Float
+    let cycle: String
+    let price: Int
     
     enum CodingKeys: String, CodingKey {
-        case id
-        case name
+        case brandName
+        case lensName
+        case diameter
+        case cycle
+        case price
     }
+    
 }

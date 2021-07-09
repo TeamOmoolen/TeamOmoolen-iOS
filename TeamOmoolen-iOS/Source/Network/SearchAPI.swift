@@ -14,12 +14,12 @@ class SearchAPI {
 
     
     
-    func getSearchResult(completion: @escaping (SearchResponse) -> ()) {
+    func getSearchResult(completion: @escaping ([SearchResultResponse]) -> ()) {
         SearchAPI.provider.request(.searchResult) { response in
             switch response {
             case .success(let result):
                 do {
-                    let results = try JSONDecoder().decode(SearchDataModel.self, from: result.data)
+                    let results = try JSONDecoder().decode(SearchResultDataModel.self, from: result.data)
                     print(results.message)
                     completion(results.data)
                 } catch let err {
