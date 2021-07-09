@@ -89,7 +89,8 @@ extension NewLensCVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 104
+        let height = tableView.frame.height / 3
+        return height
     }
 }
 

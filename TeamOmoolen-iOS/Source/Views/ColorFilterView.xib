@@ -13,6 +13,7 @@
                 <outlet property="colorCollectionView" destination="uAM-KA-hNb" id="2wm-At-bgH"/>
                 <outlet property="filterLabel" destination="s8m-fV-Uav" id="suW-6N-nwa"/>
                 <outlet property="selectButton" destination="uiy-pK-G4e" id="bfS-9e-wyd"/>
+                <outlet property="selectImage" destination="lzO-xB-6NL" id="INN-93-cDD"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

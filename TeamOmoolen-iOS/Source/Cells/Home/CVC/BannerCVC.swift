@@ -10,14 +10,17 @@ import UIKit
 class BannerCVC: UICollectionViewCell {
     static let identifier = "BannerCVC"
     
-    private var label: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textColor = .white
+    // MARK: - UI Components
+    
+    private var bannerImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "abc")
         
-        return label
+        return imageView
     }()
 
+    // MARK: - Life Cycle Methods
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -28,19 +31,17 @@ class BannerCVC: UICollectionViewCell {
 
 extension BannerCVC {
     func setUI() {
-        label.translatesAutoresizingMaskIntoConstraints = false
+        bannerImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        [label].forEach { v in
+        [bannerImageView].forEach { v in
             contentView.addSubview(v)
         }
         
-        label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        
-        contentView.backgroundColor = .omAlmostwhite
+        bannerImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        bannerImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
     }
     
-    func initCell(idx: Int) {
-        label.text = "\(idx + 1) 번째"
+    func initCell(image: String) {
+        bannerImageView.image = UIImage(named: image)
     }
 }
