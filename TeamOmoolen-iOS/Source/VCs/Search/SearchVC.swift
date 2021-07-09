@@ -27,7 +27,7 @@ class SearchVC: UIViewController {
     //Mark: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        collectionView.scrollsToTop = false
         setUpTabBar()
         setUI()
         registerNib()
