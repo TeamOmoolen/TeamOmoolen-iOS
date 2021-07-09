@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rth-eo-KOw">
-                                <rect key="frame" x="0.0" y="137" width="414" height="759"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rth-eo-KOw">
+                                <rect key="frame" x="0.0" y="99" width="414" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="759" id="UAt-gf-BBE"/>
@@ -27,8 +27,8 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Rth-eo-KOw" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="93" id="ALv-SV-nbe"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Rth-eo-KOw" secondAttribute="trailing" id="DFf-gA-UG7"/>
+                            <constraint firstItem="Rth-eo-KOw" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="55" id="KBm-E0-puh"/>
                             <constraint firstItem="Rth-eo-KOw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="XLz-Lq-1g1"/>
                         </constraints>
                     </view>
