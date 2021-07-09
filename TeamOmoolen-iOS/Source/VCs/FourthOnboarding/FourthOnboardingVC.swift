@@ -12,14 +12,27 @@ import Moya
 class FourthOnboardingVC: UIViewController {
 
     // MARK: - UI Components
+    @IBOutlet weak var customNavigationBarViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var progressBarLeftAnchor: NSLayoutConstraint!
+    @IBOutlet weak var indexLabelLeftAnchor: NSLayoutConstraint!
+    @IBOutlet weak var indexLabelRightAnchor: NSLayoutConstraint!
+    @IBOutlet weak var guideLabel1TopAnchor: NSLayoutConstraint!
+    @IBOutlet weak var guideLabel1LeftAnchor: NSLayoutConstraint!
+    @IBOutlet weak var guideLabel1BottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var brandSelectTopAnchor: NSLayoutConstraint!
+    @IBOutlet weak var brandSelectLeftAnchor: NSLayoutConstraint!
+    @IBOutlet weak var brandSelectRightAnchor: NSLayoutConstraint!
+    @IBOutlet weak var guideLabel3TopAnchor: NSLayoutConstraint!
+    
     @IBOutlet weak var customNavigationBarView: UIView!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var icToggleImageView: UIImageView!
     @IBOutlet weak var progressLabel: UILabel!
-    
     @IBOutlet weak var guideLabel1: UILabel!
     @IBOutlet weak var guideLabel2: UILabel!
     @IBOutlet weak var guideLabel3: UILabel!
+    
+    @IBOutlet weak var nextButtonBottomAnchor: NSLayoutConstraint!
     
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var brandSelectView: UIView!
@@ -94,15 +107,13 @@ class FourthOnboardingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUI()
+        setPhoneResolution()
         setNavigationBar()
         setBrandListView()
-        setUI()
-        
         setList()
-        
         setCollectionViewDelegate()
         registerXib()
-        
         setNotification()
     }
     
@@ -220,6 +231,34 @@ extension FourthOnboardingVC {
         let brandTapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpBrandSelectView(_:)))
         brandSelectView.addGestureRecognizer(brandTapGesture)
     }
+    
+    func setPhoneResolution() {
+        if UIDevice.current.isiPhoneSE2{
+            
+            customNavigationBarViewHeight.constant = 50
+            
+            guideLabel1.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
+            
+            guideLabel3.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
+            
+            progressBarLeftAnchor.constant = 16
+            indexLabelRightAnchor.constant = 18
+            indexLabelLeftAnchor.constant = 9
+            
+            guideLabel1TopAnchor.constant = 29
+            guideLabel1LeftAnchor.constant = 16
+            guideLabel1BottomAnchor.constant = 6
+            
+            brandSelectTopAnchor.constant = 15
+            brandSelectLeftAnchor.constant = 11
+            brandSelectRightAnchor.constant = 11
+            
+            guideLabel3TopAnchor.constant = 5
+            
+            nextButtonBottomAnchor.constant = 28
+        }
+    }
+    
     
     func setUI() {
         
