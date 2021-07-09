@@ -188,6 +188,8 @@ extension FilterVC {
         let resetTapGesture =  UITapGestureRecognizer(target: self, action: #selector(touchUpReset))
         resetBackView.addGestureRecognizer(resetTapGesture)
         
+        resetImageView.image = UIImage(named: "icReset")
+        
         searchButton.layer.backgroundColor = UIColor.omMainBlack.cgColor
         searchButton.layer.cornerRadius = 10
         searchButton.layer.masksToBounds = true

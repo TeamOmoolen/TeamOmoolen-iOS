@@ -22,27 +22,15 @@ class HomeVC: UIViewController {
     @IBOutlet weak var searchIcon: UIImageView!
     @IBOutlet weak var searchLabel: UILabel!
     
-    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
-    
     private lazy var topButton: UIButton = {
         let button = UIButton()
-        button.layer.shadowColor  = UIColor.gray.cgColor
-        button.layer.shadowOpacity = 0.8
-        button.layer.shadowOffset = CGSize(width: 0, height: 2)
-        button.layer.shadowRadius = 2
-        button.setImage(UIImage(systemName: "circle.fill"), for: .normal)
+        button.setImage(UIImage(named: "icTop"), for: .normal)
         button.setPreferredSymbolConfiguration(.init(pointSize: 20,
                                                      weight: .light,
                                                      scale: .large),
                                                forImageIn: .normal)
         button.addTarget(self, action: #selector(touchUpTop), for: .touchUpInside)
         return button
-    }()
-    
-    private lazy var categoryView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .orange
-        return view
     }()
     
     // MARK: - Local Variables
@@ -70,14 +58,7 @@ extension HomeVC {
         homeHeaderView.backgroundColor = .white
         homeTableView.backgroundColor = .white
         
-//        view.addSubview(categoryView)
         view.addSubview(topButton)
-        
-//        categoryView.snp.makeConstraints { make in
-//            make.width.equalToSuperview()
-//            make.height.equalTo(121)
-//            make.top.equalTo(homeHeaderView.snp.bottom).offset(5)
-//        }
         
         topButton.snp.makeConstraints { make in
             make.width.height.equalTo(60)
@@ -163,13 +144,13 @@ extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section{
         case 0:
-            return 123
+            return 142
         case 1:
-            return 371
+            return 387
         case 2:
-            return 551
+            return 516
         case 3:
-            return 1083
+            return 1095
         case 4:
             return 180
         case 5:
@@ -187,23 +168,11 @@ extension HomeVC: UITableViewDelegate {
         if scrollView.contentOffset.y > 10 {
             topButton.isHidden = false
             
-//            categoryView.snp.updateConstraints { make in
-//                make.height.equalTo(60)
-//            }
-//
-//            tableViewTopConstraint.constant = 60
-            
             topButton.snp.updateConstraints { make in
                 make.bottom.equalToSuperview().inset(100)
             }
         } else {
             topButton.isHidden = true
-            
-//            categoryView.snp.updateConstraints { make in
-//                make.height.equalTo(121)
-//            }
-//            
-//            tableViewTopConstraint.constant = 121
             
             topButton.snp.updateConstraints { make in
                 make.bottom.equalToSuperview().inset(-100)

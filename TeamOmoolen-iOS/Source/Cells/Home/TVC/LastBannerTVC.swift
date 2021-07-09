@@ -61,6 +61,8 @@ extension LastBannerTVC {
         
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.decelerationRate = .fast
+        
+        collectionView.showsHorizontalScrollIndicator = false
     }
 }
 

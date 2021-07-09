@@ -13,6 +13,7 @@
                 <outlet property="brandListCollectionView" destination="MU1-5K-ghK" id="tNm-Po-qd5"/>
                 <outlet property="filterLabel" destination="I6a-ta-0yJ" id="4qc-ly-UOR"/>
                 <outlet property="selectButton" destination="LWx-q6-JiK" id="QZy-qa-iSc"/>
+                <outlet property="selectImage" destination="wUF-Yp-q56" id="QfE-no-7HA"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

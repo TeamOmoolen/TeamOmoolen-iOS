@@ -45,7 +45,7 @@ extension NewLensTVC {
         moreButton.setTitle("더보기", for: .normal)
         moreButton.tintColor = .omFourthGray
         
-        moreImageView.image = UIImage(named: "abc")
+        moreImageView.image = UIImage(named: "icFront")
     }
     
     func initCell() {
@@ -60,6 +60,8 @@ extension NewLensTVC {
     func setCollectionView() {
         newLensCollectionView.delegate = self
         newLensCollectionView.dataSource = self
+        
+        newLensCollectionView.showsHorizontalScrollIndicator = false
     }
 }
 

@@ -65,6 +65,8 @@ extension CycleFilterView {
         selectButton.setTitle("전체선택", for: .normal)
         selectButton.tintColor = .omFourthGray
         selectButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
+        
+        selectImage.image = UIImage(named: "icFilterNormal")
     }
     
     func setList() {
@@ -100,10 +102,12 @@ extension CycleFilterView {
             if !self.isAllSelected {
                 self.isAllSelected = true
                 self.selectButton.tintColor = .omMainOrange
+                self.selectImage.image = UIImage(named: "icFilterPressed")
                 self.cycleCollectionView.selectAll(animated: true)
             } else {
                 self.isAllSelected = false
                 self.selectButton.tintColor = .omFourthGray
+                self.selectImage.image = UIImage(named: "icFilterNormal")
                 self.cycleCollectionView.deselectAll(animated: true)
             }
         }
@@ -192,6 +196,7 @@ extension CycleFilterView {
     @objc
     func resetData(_ notification: Notification) {
         selectButton.tintColor = .omFourthGray
+        selectImage.image = UIImage(named: "icFilterNormal")
         
         lensCycle = []
         

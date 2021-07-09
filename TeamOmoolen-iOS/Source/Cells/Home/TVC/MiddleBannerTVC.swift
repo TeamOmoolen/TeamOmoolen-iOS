@@ -61,6 +61,8 @@ extension MiddleBannerTVC {
         
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.decelerationRate = .fast
+        
+        collectionView.showsHorizontalScrollIndicator = false
     }
 }
 
