@@ -12,6 +12,23 @@ class FirstOnboardingVC: UIViewController {
     var age = ""
     
     // MARK: - UIComponents
+    @IBOutlet weak var customNavigationBarViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var progressBarLeftAnchor: NSLayoutConstraint!
+    @IBOutlet weak var indexLeftAnchor: NSLayoutConstraint!
+    @IBOutlet weak var indexRightAnchor: NSLayoutConstraint!
+    @IBOutlet weak var guideLabel1LeftAnchor: NSLayoutConstraint!
+    @IBOutlet weak var guideLabel1BottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var guideLabel1TopAnchor: NSLayoutConstraint!
+    @IBOutlet weak var genderListCollectionViewTopAnchor: NSLayoutConstraint!
+    @IBOutlet weak var genderListCollectionViewLeftAnchor: NSLayoutConstraint!
+    @IBOutlet weak var genderListCollectionViewRightAnchor: NSLayoutConstraint!
+    @IBOutlet weak var guideLable3TopAnchor: NSLayoutConstraint!
+    @IBOutlet weak var nextButtonBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var genderListCollectionViewRatio: NSLayoutConstraint!
+    
+    
+    
+    
     @IBOutlet weak var customNavigationBarView: UIView!
     
     @IBOutlet weak var progressView: UIProgressView!
@@ -42,8 +59,8 @@ class FirstOnboardingVC: UIViewController {
         super.viewDidLoad()
 
         setUI()
+        setPhoneResolution()
         setNavigationController()
-//        setNotificationLoginErr()
         setList()
         setCollectionViewDelegate()
         registerXib()
@@ -84,6 +101,34 @@ extension FirstOnboardingVC {
         self.navigationController?.navigationBar.isHidden = true
         
         setupNavigationBar(customNavigationBarView: customNavigationBarView)
+    }
+    
+    func setPhoneResolution(){
+        if UIDevice.current.isiPhoneSE2 {
+            customNavigationBarViewHeight.constant = 50
+            
+            progressBarLeftAnchor.constant = 16
+            indexLeftAnchor.constant = 9
+            indexRightAnchor.constant = 18
+            
+            guideLabel1TopAnchor.constant = 29
+            guideLabel1LeftAnchor.constant = 16
+            guideLabel1BottomAnchor.constant = 6
+            
+            guideLabel1.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
+            
+            genderListCollectionViewTopAnchor.constant = 15
+            genderListCollectionViewLeftAnchor.constant = 11
+            genderListCollectionViewRightAnchor.constant = 11
+            
+            guideLable3TopAnchor.constant = 31
+            guideLabel3.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
+
+            nextButtonBottomAnchor.constant = 28
+
+            
+//            genderListCollectionViewRatio = 352:140
+        }
     }
     
     func setUI() {
@@ -227,16 +272,31 @@ extension FirstOnboardingVC: UICollectionViewDataSource {
 extension FirstOnboardingVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == genderListCollectionView {
-            let width = collectionView.frame.width
-            let height = collectionView.frame.height
-            let cellWidth = (width - 19) / 2
-            return CGSize(width: cellWidth, height: height - 10)
+            if UIDevice.current.isiPhoneSE2 {
+                let width = collectionView.frame.width
+                let height = collectionView.frame.height
+                let cellWidth = (width - 23) / 2
+                return CGSize(width: cellWidth, height: height - 10)
+            } else {
+                let width = collectionView.frame.width
+                let height = collectionView.frame.height
+                let cellWidth = (width - 19) / 2
+                return CGSize(width: cellWidth, height: height - 10)
+            }
         } else {
-            let width = collectionView.frame.width
-            let height = collectionView.frame.height
-            let cellWidth = (width - 19) / 2
-            let cellHeight = (height - 20) / 2
-            return CGSize(width: cellWidth, height: cellHeight)
+            if UIDevice.current.isiPhoneSE2 {
+                let width = collectionView.frame.width
+                let height = collectionView.frame.height
+                let cellWidth = (width - 19) / 2
+                let cellHeight = (height - 20) / 2
+                return CGSize(width: cellWidth, height: cellHeight)
+            } else {
+                let width = collectionView.frame.width
+                let height = collectionView.frame.height
+                let cellWidth = (width - 19) / 2
+                let cellHeight = (height - 20) / 2
+                return CGSize(width: cellWidth, height: cellHeight)
+            }
         }
     }
     

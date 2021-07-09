@@ -11,15 +11,32 @@ class GenderCVC: UICollectionViewCell {
     static let identifier = "GenderCVC"
     private var imagePath = ""
     
+    @IBOutlet weak var imageViewTopAnchor: NSLayoutConstraint!
+    @IBOutlet weak var imageViewLeftAnchor: NSLayoutConstraint!
+    @IBOutlet weak var imageViewRightAnchor: NSLayoutConstraint!
+    @IBOutlet weak var imageVIewBottomAnchor: NSLayoutConstraint!
+    
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var genderImageView: UIImageView!
     @IBOutlet weak var genderLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setUI()
+//        setPhoneResolution()
     }
+    
+    // MARK: - Methods
+    func setPhoneResolution(){
+        if UIDevice.current.isiPhoneSE2 {
+            imageViewTopAnchor.constant = 11
+            imageViewLeftAnchor.constant = 42
+            imageViewRightAnchor.constant = 42
+            imageVIewBottomAnchor.constant = 8
+        }
+    }
+
     
     // cell 선택 시
     override var isSelected: Bool {

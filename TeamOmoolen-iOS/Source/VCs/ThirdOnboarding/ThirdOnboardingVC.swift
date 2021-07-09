@@ -19,9 +19,22 @@ class ThirdOnboardingVC: UIViewController {
     var lensFunction = ""
     var lensPeriod = ""
     
-    //Mark: - IBOutlet Properties
-    @IBOutlet weak var customNavigationBarView: UIView!
+    // MARK: - IBOutlet Properties
+    @IBOutlet weak var customNavigationBarViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var progressBarLeftAnchor: NSLayoutConstraint!
+    @IBOutlet weak var indexLeftAnchor: NSLayoutConstraint!
+    @IBOutlet weak var indexRightAnchor: NSLayoutConstraint!
+    @IBOutlet weak var FunctionMainLabelTopAnchor: NSLayoutConstraint!
+    @IBOutlet weak var FunctionMainLabelLeftAnchor: NSLayoutConstraint!
+    @IBOutlet weak var FunctionMainLabelBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var functionListCollectionViewTopAnchor: NSLayoutConstraint!
+    @IBOutlet weak var functionListCollectionViewLeftAnchor: NSLayoutConstraint!
+    @IBOutlet weak var functionListCollectionViewRightAnchor: NSLayoutConstraint!
+    @IBOutlet weak var functionListCollectionViewBottomAnchor: NSLayoutConstraint!
     
+    @IBOutlet weak var nextButtonBottomAnchor: NSLayoutConstraint!
+    
+    @IBOutlet weak var customNavigationBarView: UIView!
     @IBOutlet var baseView: UIView!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
@@ -33,7 +46,7 @@ class ThirdOnboardingVC: UIViewController {
     @IBOutlet weak var timeCollectionView: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
     
-    //Mark: - IBAction Properties
+    // MARK: - IBAction Properties
     @IBAction func nextButtonClicked(_ sender: Any) {
         guard let nextVC = UIStoryboard(name: Const.Storyboard.Name.FourthOnboarding, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.FourthOnboarding) as? FourthOnboardingVC else {
             return
@@ -90,6 +103,7 @@ class ThirdOnboardingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        setPhoneResolution()
         setNavigationBar()
         setCollectionViewDelegate()
         registerCell()
@@ -138,6 +152,32 @@ class ThirdOnboardingVC: UIViewController {
         nextButton.layer.cornerRadius = 10
         nextButton.isUserInteractionEnabled = false
         
+    }
+    
+    func setPhoneResolution() {
+        if UIDevice.current.isiPhoneSE2{
+            
+            customNavigationBarViewHeight.constant = 50
+            
+            functionMainLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
+            
+            timeLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
+            
+            progressBarLeftAnchor.constant = 16
+            indexRightAnchor.constant = 18
+            indexLeftAnchor.constant = 9
+            
+            FunctionMainLabelTopAnchor.constant = 29
+            FunctionMainLabelLeftAnchor.constant = 16
+            FunctionMainLabelBottomAnchor.constant = 6
+            
+            functionListCollectionViewTopAnchor.constant = 15
+            functionListCollectionViewLeftAnchor.constant = 11
+            functionListCollectionViewRightAnchor.constant = 11
+            functionListCollectionViewBottomAnchor.constant = 31
+            
+            
+            nextButtonBottomAnchor.constant = 28        }
     }
     
     func setNavigationBar() {
@@ -240,11 +280,7 @@ extension ThirdOnboardingVC: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
     }
-    
-    
-    
 }
-
 
 extension ThirdOnboardingVC: UICollectionViewDelegate {
     
@@ -270,9 +306,9 @@ extension ThirdOnboardingVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == functionCollectionView {
-            return CGSize(width: (collectionView.frame.width-20)/2, height: (collectionView.frame.height - 22)  / 2)
+            return CGSize(width: (collectionView.frame.width - 19) / 2, height: (collectionView.frame.height - 22) / 2)
         } else {
-            return CGSize(width: (collectionView.frame.width-30)/3, height: (collectionView.frame.height-34)/3)
+            return CGSize(width: (collectionView.frame.width - 30) / 3, height: (collectionView.frame.height - 34) / 3)
         }
 
     }

@@ -161,6 +161,7 @@
 		F86F7AD1269187AE0037081D /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F7AD0269187AE0037081D /* CustomNavigationBar.swift */; };
 		F86F7AD326918AC50037081D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F7AD226918AC50037081D /* UIViewController+Extension.swift */; };
 		F885CB8A2698102300835B11 /* SearchResultDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F885CB892698102300835B11 /* SearchResultDataModel.swift */; };
+		F885CB902698393800835B11 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F885CB8F2698393800835B11 /* UIDevice+Extension.swift */; };
 		F8B91F55268E205E006114CD /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F4C268E205B006114CD /* NotoSansCJKkr-Regular.otf */; };
 		F8B91F56268E205E006114CD /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F4D268E205B006114CD /* NotoSansCJKkr-Bold.otf */; };
 		F8B91F57268E205E006114CD /* NotoSansCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8B91F4E268E205C006114CD /* NotoSansCJKkr-Light.otf */; };
@@ -351,6 +352,7 @@
 		F86F7AD0269187AE0037081D /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		F86F7AD226918AC50037081D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		F885CB892698102300835B11 /* SearchResultDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultDataModel.swift; sourceTree = "<group>"; };
+		F885CB8F2698393800835B11 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		F8B91F4C268E205B006114CD /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		F8B91F4D268E205B006114CD /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		F8B91F4E268E205C006114CD /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
@@ -709,12 +711,9 @@
 		F83BA034268C48A900E94E74 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				F885CB912698411100835B11 /* Onboarding */,
 				F83BA029268C476C00E94E74 /* LaunchScreen.storyboard */,
 				F83BA024268C476B00E94E74 /* Login.storyboard */,
-				E82DE8ED268C5CC700296B53 /* ThirdOnboarding.storyboard */,
-				92E55FBC268C72EA0081D3A9 /* FirstOnboarding.storyboard */,
-				F83BA05A268C577E00E94E74 /* SecondOnboarding.storyboard */,
-				924751A8268E2CFE00924891 /* FourthOnboarding.storyboard */,
 				E8C9A42726908CF900E5BD9D /* Search.storyboard */,
 				F86F7AC726900A2F0037081D /* Home.storyboard */,
 				F86F7AC9269068960037081D /* Splash.storyboard */,
@@ -808,6 +807,7 @@
 				F86F7AD226918AC50037081D /* UIViewController+Extension.swift */,
 				E8C9A4412690D06100E5BD9D /* UIView.swift */,
 				927692662694CABE00201EE1 /* UICollectionView+Extension.swift */,
+				F885CB8F2698393800835B11 /* UIDevice+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -910,6 +910,17 @@
 				F885CB892698102300835B11 /* SearchResultDataModel.swift */,
 			);
 			path = SearchResult;
+			sourceTree = "<group>";
+		};
+		F885CB912698411100835B11 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				92E55FBC268C72EA0081D3A9 /* FirstOnboarding.storyboard */,
+				F83BA05A268C577E00E94E74 /* SecondOnboarding.storyboard */,
+				E82DE8ED268C5CC700296B53 /* ThirdOnboarding.storyboard */,
+				924751A8268E2CFE00924891 /* FourthOnboarding.storyboard */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		F8B91F4B268E2028006114CD /* Fonts */ = {
@@ -1232,6 +1243,7 @@
 				E8C9A43C2690B97C00E5BD9D /* SearchTabBar.swift in Sources */,
 				F824590B268E1F3A0048BE84 /* FunctionCVC.swift in Sources */,
 				E8C9A4372690AA3100E5BD9D /* SearchTabBarCVC.swift in Sources */,
+				F885CB902698393800835B11 /* UIDevice+Extension.swift in Sources */,
 				F83BA06D268C81B200E94E74 /* LensColorDataModel.swift in Sources */,
 				F83BA064268C6DA700E94E74 /* LensKindCVC.swift in Sources */,
 				E82C5DC826938926000EF460 /* PopularWordTVC.swift in Sources */,

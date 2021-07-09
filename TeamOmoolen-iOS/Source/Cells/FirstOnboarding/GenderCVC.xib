@@ -27,7 +27,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1HX-L3-Yn0">
-                                <rect key="frame" x="69" y="124" width="26" height="20.5"/>
+                                <rect key="frame" x="61" y="124" width="41.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -35,12 +35,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="1HX-L3-Yn0" secondAttribute="trailing" constant="68" id="486-dy-jkr"/>
                             <constraint firstItem="1HX-L3-Yn0" firstAttribute="top" secondItem="2Pj-tY-m5d" secondAttribute="bottom" constant="14" id="4og-kn-yQP"/>
+                            <constraint firstItem="1HX-L3-Yn0" firstAttribute="centerX" secondItem="ZFt-X3-1fQ" secondAttribute="centerX" id="ShE-Pt-7uP"/>
                             <constraint firstAttribute="trailing" secondItem="2Pj-tY-m5d" secondAttribute="trailing" constant="36" id="Uiz-wO-pOf"/>
                             <constraint firstItem="2Pj-tY-m5d" firstAttribute="leading" secondItem="ZFt-X3-1fQ" secondAttribute="leading" constant="36" id="Y4o-Ve-LDt"/>
                             <constraint firstItem="2Pj-tY-m5d" firstAttribute="top" secondItem="ZFt-X3-1fQ" secondAttribute="top" constant="19" id="fwy-8K-WKc"/>
-                            <constraint firstItem="1HX-L3-Yn0" firstAttribute="leading" secondItem="ZFt-X3-1fQ" secondAttribute="leading" constant="69" id="snx-ct-RaC"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -57,6 +56,10 @@
                 <outlet property="backView" destination="ZFt-X3-1fQ" id="7zB-2R-IgP"/>
                 <outlet property="genderImageView" destination="2Pj-tY-m5d" id="lcI-79-Ufo"/>
                 <outlet property="genderLabel" destination="1HX-L3-Yn0" id="pw1-dQ-tja"/>
+                <outlet property="imageVIewBottomAnchor" destination="4og-kn-yQP" id="WTb-xW-haJ"/>
+                <outlet property="imageViewLeftAnchor" destination="Y4o-Ve-LDt" id="DuX-LJ-0uG"/>
+                <outlet property="imageViewRightAnchor" destination="Uiz-wO-pOf" id="ER6-iy-gDW"/>
+                <outlet property="imageViewTopAnchor" destination="fwy-8K-WKc" id="S9B-6b-QTI"/>
             </connections>
             <point key="canvasLocation" x="202.17391304347828" y="131.25"/>
         </collectionViewCell>
