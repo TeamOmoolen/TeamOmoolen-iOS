@@ -43,12 +43,17 @@ class FilterVC: UIViewController {
     
     
     // MARK: - Local Variables
+    private var searchResultResponse = [SearchResultResponse]()
     
     private var lensBrand = [String]()
     private var lensColor = [String]()
-    private var lensDiameter = [String]()
-    private var lensCycle = [String]()
+    private var lensDiameter: Int = 0
+    private var lensCycle = [Int]()
     
+    private var getBrandData = false
+    private var getColorData = false
+    private var getDiameterData = false
+    private var getCycleData = false
     
     // MARK: - View Life Cycle Methods
     
@@ -60,6 +65,8 @@ class FilterVC: UIViewController {
         setButtonView()
         
         setNotification()
+        
+        getData()
     }
     
     // 필터 검색 버튼 눌렀을 때
@@ -324,8 +331,9 @@ extension FilterVC {
     // 브랜드 검색, 초기화
     @objc
     func searchBrandData(_ notification: Notification) {
+        getBrandData = true
         lensBrand = notification.object as! [String]
-        requestAPI()
+        getData()
     }
     @objc
     func resetBrandData(_ notification: Notification) {
@@ -335,8 +343,9 @@ extension FilterVC {
     // 컬러 검색, 초기화
     @objc
     func searchColorData(_ notification: Notification) {
+        getColorData = true
         lensColor = notification.object as! [String]
-        requestAPI()
+        getData()
     }
     @objc
     func resetColorData(_ notification: Notification) {
@@ -346,40 +355,58 @@ extension FilterVC {
     // 직경 검색, 초기화
     @objc
     func searchDiameterData(_ notification: Notification) {
-        lensDiameter = notification.object as! [String]
-        requestAPI()
+        getDiameterData = true
+        lensDiameter = notification.object as! Int
+        getData()
     }
     @objc
     func resetDiameterData(_ notification: Notification) {
-        lensDiameter = notification.object as! [String]
+        lensDiameter = notification.object as! Int
     }
     
     // 주기 검색, 초기화
     @objc
     func searchCycleData(_ notification: Notification) {
-        lensCycle = notification.object as! [String]
-        requestAPI()
+        getCycleData = true
+        lensCycle = notification.object as! [Int]
+        getData()
     }
     @objc
     func resetCycleData(_ notification: Notification) {
-        lensCycle = notification.object as! [String]
+        lensCycle = notification.object as! [Int]
     }
 }
 
 // MARK: - Request API
 
 extension FilterVC {
-    func getSearchData() {
-        // 여기서 검색할 데이터를 하나로 모은다면 ?
-        
-        // 다 모아졌을 떄 서버에 정보 넘기기
+    func getData() {
+        if getBrandData && getColorData && getDiameterData && getCycleData {
+            requestAPI()
+        }
     }
     
     func requestAPI() {
-        let param = SearchFilterRequest(lensBrand, lensColor, lensDiameter, lensCycle, "")
+        let param = SearchFilterRequest(lensBrand, lensColor, lensDiameter, lensCycle)
         
         print(param)
         
-        // 서버에 요청하기
+        getSearchResultWithAPI(param: param)
+    }
+    
+    func getSearchResultWithAPI(param: SearchFilterRequest) {
+        SearchAPI.shared.getSearchFilterResult(param: param) { response in
+            print(response)
+            self.searchResultResponse = response
+            
+            guard let searchVC = UIStoryboard(name: Const.Storyboard.Name.SearchResult, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SearchResult) as? SearchResultVC else {
+                return
+            }
+            searchVC.modalPresentationStyle = .fullScreen
+            searchVC.modalTransitionStyle = .crossDissolve
+            searchVC.resultList = self.searchResultResponse
+            
+            self.navigationController?.pushViewController(searchVC, animated: true)
+        }
     }
 }

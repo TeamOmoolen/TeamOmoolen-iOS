@@ -47,7 +47,7 @@ extension DetailNewTVC {
         guideLabel.textColor = .omMainBlack
         guideLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         
-        moreImageView.image = UIImage(named: "abc")
+        moreImageView.image = UIImage(named: "icFrontBlack")
     }
     
     func setList() {
