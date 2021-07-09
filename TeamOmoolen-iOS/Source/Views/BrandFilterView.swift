@@ -228,6 +228,8 @@ extension BrandFilterView {
     
     @objc
     func resetData(_ notification: Notification) {
+        selectButton.tintColor = .omFourthGray
+        
         lensBrand = []
         
         brandListCollectionView.deselectAll(animated: true)

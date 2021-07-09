@@ -38,12 +38,17 @@ class FilterVC: UIViewController {
     
     let colorFilterView = ColorFilterView()
     let brandFilterView = BrandFilterView()
+    let diameterFilterView = DiameterFilterView()
+    let cycleFilterView = CycleFilterView()
     
     
     // MARK: - Local Variables
     
     private var lensBrand = [String]()
     private var lensColor = [String]()
+    private var lensDiameter = [String]()
+    private var lensCycle = [String]()
+    
     
     // MARK: - View Life Cycle Methods
     
@@ -63,7 +68,12 @@ class FilterVC: UIViewController {
     }
 }
 
+// MARK: - Custom Methods
+
 extension FilterVC {
+    
+    // MARK: - Category View
+    
     func setCategoryView() {
         // 브랜드 필터
         brandView.backgroundColor = .omMainOrange
@@ -107,6 +117,9 @@ extension FilterVC {
         diameterLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 13)
         diameterLabel.textColor = .omFourthGray
         
+        let diameterTapGesture =  UITapGestureRecognizer(target: self, action: #selector(touchUpDiameterFilter))
+        diameterView.addGestureRecognizer(diameterTapGesture)
+        
         // 주기 필터
         cycleView.backgroundColor = .omWhite
         cycleView.layer.borderWidth = 1
@@ -118,13 +131,20 @@ extension FilterVC {
         cycleLabel.text = "주기"
         cycleLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 13)
         cycleLabel.textColor = .omFourthGray
+        
+        let cycleTapGesture =  UITapGestureRecognizer(target: self, action: #selector(touchUpCycleFilter))
+        cycleView.addGestureRecognizer(cycleTapGesture)
     }
+    
+    // MARK: - Filter View
     
     func setCustomView() {
         view.backgroundColor = .omAlmostwhite
         
         view.addSubview(colorFilterView)
         view.addSubview(brandFilterView)
+        view.addSubview(diameterFilterView)
+        view.addSubview(cycleFilterView)
         
         brandFilterView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(0)
@@ -140,7 +160,23 @@ extension FilterVC {
             make.height.equalTo(472)
         }
         colorFilterView.isHidden = true
+        
+        diameterFilterView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(0)
+            make.top.equalTo(filterView.snp.bottom).offset(1)
+            make.height.equalTo(472)
+        }
+        diameterFilterView.isHidden = true
+        
+        cycleFilterView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(0)
+            make.top.equalTo(filterView.snp.bottom).offset(1)
+            make.height.equalTo(472)
+        }
+        cycleFilterView.isHidden = true
     }
+    
+    // MARK: - Button View
     
     func setButtonView() {
         buttonView.backgroundColor = .omWhite
@@ -162,52 +198,103 @@ extension FilterVC {
     }
 }
 
+// MARK: - Action Methods
+
 extension FilterVC {
     @objc
     func touchUpBrandFilter(_ sender: UITapGestureRecognizer) {
         brandFilterView.isHidden = false
         colorFilterView.isHidden = true
+        diameterFilterView.isHidden = true
+        cycleFilterView.isHidden = true
         
         brandView.backgroundColor = .omMainOrange
         brandLabel.textColor = .omWhite
         
         colorView.backgroundColor = .omWhite
         colorLabel.textColor = .omFourthGray
+        
+        diameterView.backgroundColor = .omWhite
+        diameterLabel.textColor = .omFourthGray
+        
+        cycleView.backgroundColor = .omWhite
+        cycleLabel.textColor = .omFourthGray
     }
     
     @objc
     func touchUpColorFilter(_ sender: UITapGestureRecognizer) {
         brandFilterView.isHidden = true
         colorFilterView.isHidden = false
+        diameterFilterView.isHidden = true
+        cycleFilterView.isHidden = true
         
         brandView.backgroundColor = .omWhite
         brandLabel.textColor = .omFourthGray
         
         colorView.backgroundColor = .omMainOrange
         colorLabel.textColor = .omWhite
+        
+        diameterView.backgroundColor = .omWhite
+        diameterLabel.textColor = .omFourthGray
+        
+        cycleView.backgroundColor = .omWhite
+        cycleLabel.textColor = .omFourthGray
     }
     
     @objc
     func touchUpDiameterFilter(_ sender: UITapGestureRecognizer) {
+        brandFilterView.isHidden = true
+        colorFilterView.isHidden = true
+        diameterFilterView.isHidden = false
+        cycleFilterView.isHidden = true
         
+        brandView.backgroundColor = .omWhite
+        brandLabel.textColor = .omFourthGray
+        
+        colorView.backgroundColor = .omWhite
+        colorLabel.textColor = .omFourthGray
+        
+        diameterView.backgroundColor = .omMainOrange
+        diameterLabel.textColor = .omWhite
+        
+        cycleView.backgroundColor = .omWhite
+        cycleLabel.textColor = .omFourthGray
     }
     
     @objc
     func touchUpCycleFilter(_ sender: UITapGestureRecognizer) {
+        brandFilterView.isHidden = true
+        colorFilterView.isHidden = true
+        diameterFilterView.isHidden = true
+        cycleFilterView.isHidden = false
         
+        brandView.backgroundColor = .omWhite
+        brandLabel.textColor = .omFourthGray
+        
+        colorView.backgroundColor = .omWhite
+        colorLabel.textColor = .omFourthGray
+        
+        diameterView.backgroundColor = .omWhite
+        diameterLabel.textColor = .omFourthGray
+        
+        cycleView.backgroundColor = .omMainOrange
+        cycleLabel.textColor = .omWhite
     }
     
     @objc
     func touchUpReset(_ sender: UITapGestureRecognizer) {
         if !brandFilterView.isHidden {
-            print("브랜드 초기화")
             NotificationCenter.default.post(name: NSNotification.Name("touchUpBrandReset"), object: nil)
         }
         if !colorFilterView.isHidden {
-            print("컬러 초기화")
             NotificationCenter.default.post(name: NSNotification.Name("touchUpColorReset"), object: nil)
         }
-        
+        if !diameterFilterView.isHidden {
+            NotificationCenter.default.post(name: NSNotification.Name("touchUpDiameterReset"), object: nil)
+        }
+        if !cycleFilterView.isHidden {
+            NotificationCenter.default.post(name: NSNotification.Name("touchUpCycleReset"), object: nil)
+        }
     }
 }
 
@@ -215,37 +302,82 @@ extension FilterVC {
 
 extension FilterVC {
     private func setNotification() {
+        // 브랜드
         NotificationCenter.default.addObserver(self, selector: #selector(searchBrandData), name: NSNotification.Name("postBrandList"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resetBrandData), name: NSNotification.Name("resetBrandList"), object: nil)
         
-        
+        // 컬러
         NotificationCenter.default.addObserver(self, selector: #selector(searchColorData), name: NSNotification.Name("postColorList"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resetColorData), name: NSNotification.Name("resetColorList"), object: nil)
+        
+        // 직경
+        NotificationCenter.default.addObserver(self, selector: #selector(searchDiameterData), name: NSNotification.Name("postDiameterList"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resetDiameterData), name: NSNotification.Name("resetDiameterList"), object: nil)
+        
+        // 주기
+        NotificationCenter.default.addObserver(self, selector: #selector(searchCycleData), name: NSNotification.Name("postCycleList"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resetCycleData), name: NSNotification.Name("resetCycleList"), object: nil)
     }
     
+    // 브랜드 검색, 초기화
     @objc
     func searchBrandData(_ notification: Notification) {
-        print("🍏 브랜드 정보 받았다")
         lensBrand = notification.object as! [String]
-        print(lensBrand)
+        requestAPI()
     }
     @objc
     func resetBrandData(_ notification: Notification) {
-        print("🍏 브랜드 정보 초기화!!")
         lensBrand = notification.object as! [String]
-        print(lensBrand)
     }
     
+    // 컬러 검색, 초기화
     @objc
     func searchColorData(_ notification: Notification) {
-        print("🍎 컬러 정보 받았다")
         lensColor = notification.object as! [String]
-        print(lensColor)
+        requestAPI()
     }
     @objc
     func resetColorData(_ notification: Notification) {
-        print("🍎 컬러 정보 초기화!!")
         lensColor = notification.object as! [String]
-        print(lensColor)
+    }
+    
+    // 직경 검색, 초기화
+    @objc
+    func searchDiameterData(_ notification: Notification) {
+        lensDiameter = notification.object as! [String]
+        requestAPI()
+    }
+    @objc
+    func resetDiameterData(_ notification: Notification) {
+        lensDiameter = notification.object as! [String]
+    }
+    
+    // 주기 검색, 초기화
+    @objc
+    func searchCycleData(_ notification: Notification) {
+        lensCycle = notification.object as! [String]
+        requestAPI()
+    }
+    @objc
+    func resetCycleData(_ notification: Notification) {
+        lensCycle = notification.object as! [String]
+    }
+}
+
+// MARK: - Request API
+
+extension FilterVC {
+    func getSearchData() {
+        // 여기서 검색할 데이터를 하나로 모은다면 ?
+        
+        // 다 모아졌을 떄 서버에 정보 넘기기
+    }
+    
+    func requestAPI() {
+        let param = SearchFilterRequest(lensBrand, lensColor, lensDiameter, lensCycle, "")
+        
+        print(param)
+        
+        // 서버에 요청하기
     }
 }

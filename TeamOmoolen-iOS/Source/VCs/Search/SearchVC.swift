@@ -126,8 +126,8 @@ extension SearchVC : UICollectionViewDelegate, UICollectionViewDataSource, UICol
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchHomeCVC", for: indexPath) as! SearchHomeCVC
         self.addChild(searchViews[indexPath.item])
         
-        print("최근검색뷰",searchViews[0].view.frame.width)
-        print("필터검색뷰",searchViews[1].view.frame.width)
+//        print("최근검색뷰",searchViews[0].view.frame.width)
+//        print("필터검색뷰",searchViews[1].view.frame.width)
         
         cell.addSubview(searchViews[indexPath.item].view)
         cell.translatesAutoresizingMaskIntoConstraints = true

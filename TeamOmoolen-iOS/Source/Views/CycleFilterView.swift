@@ -1,26 +1,30 @@
 //
-//  ColorFilterView.swift
+//  CycleFilterView.swift
 //  TeamOmoolen-iOS
 //
-//  Created by soyeon on 2021/07/06.
+//  Created by soyeon on 2021/07/08.
 //
 
 import UIKit
 
-class ColorFilterView: UIView {
+class CycleFilterView: UIView {
     
     // MARK: - UI Components
     
     @IBOutlet weak var filterLabel: UILabel!
+    
+    @IBOutlet weak var selectImage: UIImageView!
     @IBOutlet weak var selectButton: UIButton!
-    @IBOutlet weak var colorCollectionView: UICollectionView!
+    
+    @IBOutlet weak var cycleCollectionView: UICollectionView!
+    
     
     // MARK: - Local Variables
     
-    private var lensColorList = [LensColorDataModel]()
-    var lensColor = [String]()
+    private var lensCycleList = [FilterDataModel]()
+    var lensCycle = [String]()
     var isAllSelected = false
-    
+
     // MARK: - init Methods
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,9 +56,9 @@ class ColorFilterView: UIView {
 
 }
 
-extension ColorFilterView {
+extension CycleFilterView {
     func setUI() {
-        filterLabel.text = "컬러"
+        filterLabel.text = "주기"
         filterLabel.textColor = .omMainBlack
         filterLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
         
@@ -64,47 +68,43 @@ extension ColorFilterView {
     }
     
     func setList() {
-        lensColorList.append(contentsOf: [
-            LensColorDataModel(image: "btnNoncolor"),
-            LensColorDataModel(image: "btnBlackcolor"),
-            LensColorDataModel(image: "btnGreycolor"),
-            LensColorDataModel(image: "btnChococolor"),
-            LensColorDataModel(image: "btnGreencolor"),
-            LensColorDataModel(image: "btnBrowncolor"),
-            LensColorDataModel(image: "btnPurplecolor"),
-            LensColorDataModel(image: "btnBluecolor"),
-            LensColorDataModel(image: "btnGoldcolor"),
-            LensColorDataModel(image: "btnPinkcolor"),
-            LensColorDataModel(image: "btnGlittercolor"),
-            LensColorDataModel(image: "btnEtccolor")
+        lensCycleList.append(contentsOf:[
+            FilterDataModel(filter: "1 day"),
+            FilterDataModel(filter: "2 ~ 6 days"),
+            FilterDataModel(filter: "1 week"),
+            FilterDataModel(filter: "1 month"),
+            FilterDataModel(filter: "2 ~ 3 months"),
+            FilterDataModel(filter: "3 ~ 6 months"),
+            FilterDataModel(filter: "6 months")
         ])
     }
     
     func registerXib() {
-        let colorNib = UINib(nibName: "LensColorCVC", bundle: nil)
-        colorCollectionView.register(colorNib, forCellWithReuseIdentifier: "LensColorCVC")
+        let nib = UINib(nibName: FilterCVC.identifier, bundle: nil)
+        cycleCollectionView.register(nib, forCellWithReuseIdentifier: FilterCVC.identifier)
     }
     
     func setCollectionView() {
-        colorCollectionView.delegate = self
-        colorCollectionView.dataSource = self
-        colorCollectionView.allowsMultipleSelection = true
+        cycleCollectionView.delegate = self
+        cycleCollectionView.dataSource = self
+
+        cycleCollectionView.allowsMultipleSelection = true
     }
 }
 
 // MARK: - Action Methods
 
-extension ColorFilterView {
+extension CycleFilterView {
     func setButton() {
         let allSelectAction = UIAction { _ in
             if !self.isAllSelected {
                 self.isAllSelected = true
                 self.selectButton.tintColor = .omMainOrange
-                self.colorCollectionView.selectAll(animated: true)
+                self.cycleCollectionView.selectAll(animated: true)
             } else {
                 self.isAllSelected = false
                 self.selectButton.tintColor = .omFourthGray
-                self.colorCollectionView.deselectAll(animated: true)
+                self.cycleCollectionView.deselectAll(animated: true)
             }
         }
         selectButton.addAction(allSelectAction, for: .touchUpInside)
@@ -113,39 +113,37 @@ extension ColorFilterView {
 
 // MARK: - UI CollectionViewDataSource
 
-extension ColorFilterView: UICollectionViewDataSource {
+extension CycleFilterView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return lensColorList.count
+        return lensCycleList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LensColorCVC", for: indexPath) as? LensColorCVC else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCVC.identifier, for: indexPath) as? FilterCVC else {
             return UICollectionViewCell()
         }
-        cell.initCell(image: lensColorList[indexPath.row].image)
-        cell.contentView.layer.cornerRadius = 10
-        cell.contentView.layer.masksToBounds = true
+        cell.initCell(filter: lensCycleList[indexPath.row].filter)
         return cell
     }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension ColorFilterView: UICollectionViewDelegateFlowLayout {
+extension CycleFilterView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width
         let height = collectionView.frame.height
-        let cellWidth = (width - 47) / 2
-        let cellHeight = (height - 100) / 6
+        let cellWidth = (width - 50) / 2
+        let cellHeight = (height - 36 - 40) / 4
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 12
+        return 9
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 7
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -155,69 +153,53 @@ extension ColorFilterView: UICollectionViewDelegateFlowLayout {
 
 // MARK: - Notification
 
-extension ColorFilterView {
+extension CycleFilterView {
     private func setNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(postData), name: NSNotification.Name("touchUpSearchButton"), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(resetData), name: NSNotification.Name("touchUpColorReset"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resetData), name: NSNotification.Name("touchUpCycleReset"), object: nil)
     }
     
     @objc
     func postData(_ notification: Notification) {
-        lensColor = []
+        lensCycle = []
         
-        guard let lensColorList = colorCollectionView.indexPathsForSelectedItems else {
+        guard let lensCycleList = cycleCollectionView.indexPathsForSelectedItems else {
             return
         }
-        if lensColorList.contains([0,0]) {
-            lensColor.append("투명")
+        if lensCycleList.contains([0,0]) {
+            lensCycle.append("1 day")
         }
-        if lensColorList.contains([0,1]) {
-            lensColor.append("블랙")
+        if lensCycleList.contains([0,1]) {
+            lensCycle.append("2 ~ 6 days")
         }
-        if lensColorList.contains([0,2]) {
-            lensColor.append("그레이")
+        if lensCycleList.contains([0,2]) {
+            lensCycle.append("1 week")
         }
-        if lensColorList.contains([0,3]) {
-            lensColor.append("초코")
+        if lensCycleList.contains([0,3]) {
+            lensCycle.append("1 month")
         }
-        if lensColorList.contains([0,4]) {
-            lensColor.append("그린")
+        if lensCycleList.contains([0,4]) {
+            lensCycle.append("2 ~ 3 months")
         }
-        if lensColorList.contains([0,5]) {
-            lensColor.append("브라운")
-        }
-        if lensColorList.contains([0,6]) {
-            lensColor.append("퍼플")
-        }
-        if lensColorList.contains([0,7]) {
-            lensColor.append("블루")
-        }
-        if lensColorList.contains([0,8]) {
-            lensColor.append("골드")
-        }
-        if lensColorList.contains([0,9]) {
-            lensColor.append("핑크")
-        }
-        if lensColorList.contains([0,10]) {
-            lensColor.append("글리터")
-        }
-        if lensColorList.contains([0,11]) {
-            lensColor.append("기타")
+        if lensCycleList.contains([0,5]) {
+            lensCycle.append("6 months")
         }
         
-        NotificationCenter.default.post(name: NSNotification.Name("postColorList"), object: lensColor)
+        NotificationCenter.default.post(name: NSNotification.Name("postCycleList"), object: lensCycle)
     }
     
     @objc
     func resetData(_ notification: Notification) {
         selectButton.tintColor = .omFourthGray
         
-        lensColor = []
+        lensCycle = []
         
-        colorCollectionView.deselectAll(animated: true)
+        cycleCollectionView.deselectAll(animated: true)
         
-        NotificationCenter.default.post(name: NSNotification.Name("resetColorList"), object: lensColor)
+        NotificationCenter.default.post(name: NSNotification.Name("resetCycleList"), object: lensCycle)
     }
     
 }
+
+
