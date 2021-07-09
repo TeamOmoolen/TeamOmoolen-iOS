@@ -150,7 +150,6 @@
 		F8514795269366C300C8532F /* HomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8514794269366C300C8532F /* HomeDataModel.swift */; };
 		F85147972695839500C8532F /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85147962695839500C8532F /* SearchService.swift */; };
 		F85147992695839D00C8532F /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85147982695839D00C8532F /* SearchAPI.swift */; };
-		F851479C2695C5C300C8532F /* SearchDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F851479B2695C5C300C8532F /* SearchDataModel.swift */; };
 		F85147A02695CE5800C8532F /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F851479F2695CE5800C8532F /* SearchResultVC.swift */; };
 		F85147A22696AC9800C8532F /* PopularDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85147A12696AC9800C8532F /* PopularDataModel.swift */; };
 		F85147A52696EA1D00C8532F /* SearchResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F85147A42696EA1D00C8532F /* SearchResult.storyboard */; };
@@ -342,7 +341,6 @@
 		F8514794269366C300C8532F /* HomeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataModel.swift; sourceTree = "<group>"; };
 		F85147962695839500C8532F /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		F85147982695839D00C8532F /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
-		F851479B2695C5C300C8532F /* SearchDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataModel.swift; sourceTree = "<group>"; };
 		F851479F2695CE5800C8532F /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
 		F85147A12696AC9800C8532F /* PopularDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDataModel.swift; sourceTree = "<group>"; };
 		F85147A42696EA1D00C8532F /* SearchResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResult.storyboard; sourceTree = "<group>"; };
@@ -864,7 +862,6 @@
 		F851479A2695C5B300C8532F /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				F851479B2695C5C300C8532F /* SearchDataModel.swift */,
 				F85147A12696AC9800C8532F /* PopularDataModel.swift */,
 				E8A089D52697425C00089B6A /* PopularCellDataModel.swift */,
 				92B46ABB2697678100217CD9 /* SearchFilterRequest.swift */,
@@ -1285,7 +1282,6 @@
 				929C840E26971CB900A879A7 /* CycleFilterView.swift in Sources */,
 				92BF87A6268D94F700706384 /* AgeCVC.swift in Sources */,
 				E8C9A4452690D56000E5BD9D /* SearchHomeCVC.swift in Sources */,
-				F851479C2695C5C300C8532F /* SearchDataModel.swift in Sources */,
 				E8A6602426959B9800EB7EEA /* NoRecentTVC.swift in Sources */,
 				F83BA04C268C4C1600E94E74 /* Const.swift in Sources */,
 				F8CB27EB2691FB6000DEFA75 /* OnbaordingAPI.swift in Sources */,

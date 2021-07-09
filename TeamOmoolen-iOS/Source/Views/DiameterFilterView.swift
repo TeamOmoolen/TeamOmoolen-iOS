@@ -18,7 +18,7 @@ class DiameterFilterView: UIView {
     // MARK: - Local Variables
     
     private var lensDiameterList = [FilterDataModel]()
-    var lensDiameter = [String]()
+    var lensDiameter: Int = -1
     var isAllSelected = false
 
     // MARK: - init Methods
@@ -133,28 +133,28 @@ extension DiameterFilterView {
     
     @objc
     func postData(_ notification: Notification) {
-        lensDiameter = []
+        lensDiameter = -1
         
         guard let lensDiameterList = diameterCollectionView.indexPathsForSelectedItems else {
             return
         }
         if lensDiameterList.contains([0,0]) {
-            lensDiameter.append("12.6 이하")
+            lensDiameter = 0
         }
         if lensDiameterList.contains([0,1]) {
-            lensDiameter.append("12.7 ~ 13.0")
+            lensDiameter = 1
         }
         if lensDiameterList.contains([0,2]) {
-            lensDiameter.append("13.1 ~ 13.3")
+            lensDiameter = 2
         }
         if lensDiameterList.contains([0,3]) {
-            lensDiameter.append("13.4 ~ 13.6")
+            lensDiameter = 3
         }
         if lensDiameterList.contains([0,4]) {
-            lensDiameter.append("13.7 ~ 13.9")
+            lensDiameter = 4
         }
         if lensDiameterList.contains([0,5]) {
-            lensDiameter.append("14.0 이상")
+            lensDiameter = 5
         }
         
         NotificationCenter.default.post(name: NSNotification.Name("postDiameterList"), object: lensDiameter)
@@ -162,7 +162,7 @@ extension DiameterFilterView {
     
     @objc
     func resetData(_ notification: Notification) {
-        lensDiameter = []
+        lensDiameter = -1
         
         diameterCollectionView.deselectAll(animated: true)
         
