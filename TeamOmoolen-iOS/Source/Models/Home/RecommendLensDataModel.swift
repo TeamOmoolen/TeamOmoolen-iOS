@@ -13,4 +13,5 @@ struct RecommendLensDataModel {
     var diameter: Float
     var cycle: String
     var price: Int
+    var colorList: [String]
 }

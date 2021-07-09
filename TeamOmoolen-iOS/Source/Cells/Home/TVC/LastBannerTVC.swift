@@ -18,12 +18,18 @@ class LastBannerTVC: UITableViewCell {
     @IBOutlet weak var secondIndicator: UIView!
     @IBOutlet weak var thirdIndicator: UIView!
     
+    // MARK: - Local Variables
+    
+    private var imageList = [String]()
+    
     // MARK: - Life Cycle Methods
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setUI()
+        setList()
+        
         registerXib()
         setCollectionView()
     }
@@ -50,6 +56,12 @@ extension LastBannerTVC {
         thirdIndicator.layer.masksToBounds = true
     }
     
+    func setList() {
+        imageList.append("btnBluecolor")
+        imageList.append("btnBluecolor")
+        imageList.append("btnBluecolor")
+    }
+    
     func registerXib() {
         let nib = UINib(nibName: BannerCVC.identifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: BannerCVC.identifier)
@@ -61,6 +73,12 @@ extension LastBannerTVC {
         
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.decelerationRate = .fast
+        
+        collectionView.showsHorizontalScrollIndicator = false
+    }
+    
+    func initCell(imageList: [String]) {
+        self.imageList = imageList
     }
 }
 
@@ -114,7 +132,7 @@ extension LastBannerTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCVC.identifier, for: indexPath) as? BannerCVC else {
             return UICollectionViewCell()
         }
-        cell.initCell(idx: indexPath.row)
+        cell.initCell(image: imageList[indexPath.row])
         return cell
     }
 }

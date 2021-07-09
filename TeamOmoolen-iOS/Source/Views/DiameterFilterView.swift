@@ -13,9 +13,6 @@ class DiameterFilterView: UIView {
     
     @IBOutlet weak var filterLabel: UILabel!
     
-    @IBOutlet weak var selectImage: UIImageView!
-    @IBOutlet weak var selectButton: UIButton!
-    
     @IBOutlet weak var diameterCollectionView: UICollectionView!
     
     // MARK: - Local Variables
@@ -165,8 +162,6 @@ extension DiameterFilterView {
     
     @objc
     func resetData(_ notification: Notification) {
-        selectButton.tintColor = .omFourthGray
-        
         lensDiameter = []
         
         diameterCollectionView.deselectAll(animated: true)

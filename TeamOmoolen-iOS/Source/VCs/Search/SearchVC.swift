@@ -9,12 +9,13 @@ import UIKit
 
 class SearchVC: UIViewController {
 
+    //MARK: - IB Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchBarView: UIView!
     
-
-      var searchViews : [UIViewController] = []
+    //MARK: - Local Variables
+    var searchViews : [UIViewController] = []
 
     
     lazy var searchTabBar: SearchTabBar = {
@@ -24,15 +25,16 @@ class SearchVC: UIViewController {
     }()
     
     
-    //Mark: - View Life Cycle
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.scrollsToTop = false
         setUpTabBar()
         setUI()
         registerNib()
         setCollectionViewDelegate()
         setVCs()
+        
+        self.tabBarController?.tabBar.isHidden = true
     }
 
     func setVCs(){
@@ -47,21 +49,21 @@ class SearchVC: UIViewController {
         collectionView.reloadData()
     }
 
-    //Mark: - IBAction Methods
+    //MARK: - IBAction Methods
     @IBAction func searchDidEnd(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name("search"), object: searchTextField.text)
     }
     
     
-    //Mark: - Methods
+    //MARK: - Methods
     private func setUpTabBar(){
         view.addSubview(searchTabBar)
         
-        view.addConstraintsWithFormat(format: "H:|[v0]|", views: searchTabBar)
-        view.addConstraintsWithFormat(format: "V:|-104-[v0(50)]", views: searchTabBar)
+        view.addConstraintsWithFormat(format: "H:|-20-[v0]|", views: searchTabBar)
+
+        view.addConstraintsWithFormat(format: "V:|-103-[v0(50)]", views: searchTabBar)
     }
     
-    //Mark: - Methods
     func setUI() {
         let layout = UICollectionViewFlowLayout()
         
@@ -71,6 +73,7 @@ class SearchVC: UIViewController {
         layout.minimumLineSpacing = 0
         collectionView.collectionViewLayout = layout
         collectionView.isPagingEnabled = true
+        collectionView.isScrollEnabled = true
         
         searchBarView.layer.cornerRadius = 6
         searchBarView.backgroundColor = .omFifthGray
@@ -108,7 +111,7 @@ class SearchVC: UIViewController {
 extension SearchVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        searchTabBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 2
+        searchTabBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 2.1
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -125,10 +128,6 @@ extension SearchVC : UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchHomeCVC", for: indexPath) as! SearchHomeCVC
         self.addChild(searchViews[indexPath.item])
-        
-//        print("최근검색뷰",searchViews[0].view.frame.width)
-//        print("필터검색뷰",searchViews[1].view.frame.width)
-        
         cell.addSubview(searchViews[indexPath.item].view)
         cell.translatesAutoresizingMaskIntoConstraints = true
         
@@ -136,16 +135,7 @@ extension SearchVC : UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         return CGSize(width: view.frame.width, height: view.frame.height)
-//        return self.collectionView.frame.size
     }
-    
-    
-    /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }*/
-    
-    
     
 }

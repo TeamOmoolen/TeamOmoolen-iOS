@@ -32,6 +32,11 @@
 		9276926A2694E28100201EE1 /* CategoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927692682694E28100201EE1 /* CategoryTVC.swift */; };
 		9276926B2694E28100201EE1 /* CategoryTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927692692694E28100201EE1 /* CategoryTVC.xib */; };
 		927F97FE268C840100E893F2 /* GenderDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927F97FD268C840100E893F2 /* GenderDataModel.swift */; };
+		928E5030269823A60086FC31 /* Home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928E502F269823A60086FC31 /* Home.xcassets */; };
+		928E5032269827790086FC31 /* SearchFilter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928E5031269827790086FC31 /* SearchFilter.xcassets */; };
+		928E503526982C3F0086FC31 /* ColorListCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E503326982C3F0086FC31 /* ColorListCVC.swift */; };
+		928E503626982C3F0086FC31 /* ColorListCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928E503426982C3F0086FC31 /* ColorListCVC.xib */; };
+		928E503826987CAB0086FC31 /* NaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E503726987CAB0086FC31 /* NaviController.swift */; };
 		929C84032696E18E00A879A7 /* MiddleBannerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C84012696E18E00A879A7 /* MiddleBannerTVC.swift */; };
 		929C84042696E18E00A879A7 /* MiddleBannerTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929C84022696E18E00A879A7 /* MiddleBannerTVC.xib */; };
 		929C84072696E5FC00A879A7 /* BannerCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C84052696E5FC00A879A7 /* BannerCVC.swift */; };
@@ -212,6 +217,11 @@
 		927692682694E28100201EE1 /* CategoryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTVC.swift; sourceTree = "<group>"; };
 		927692692694E28100201EE1 /* CategoryTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTVC.xib; sourceTree = "<group>"; };
 		927F97FD268C840100E893F2 /* GenderDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderDataModel.swift; sourceTree = "<group>"; };
+		928E502F269823A60086FC31 /* Home.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Home.xcassets; sourceTree = "<group>"; };
+		928E5031269827790086FC31 /* SearchFilter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SearchFilter.xcassets; sourceTree = "<group>"; };
+		928E503326982C3F0086FC31 /* ColorListCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListCVC.swift; sourceTree = "<group>"; };
+		928E503426982C3F0086FC31 /* ColorListCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorListCVC.xib; sourceTree = "<group>"; };
+		928E503726987CAB0086FC31 /* NaviController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviController.swift; sourceTree = "<group>"; };
 		929C84012696E18E00A879A7 /* MiddleBannerTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleBannerTVC.swift; sourceTree = "<group>"; };
 		929C84022696E18E00A879A7 /* MiddleBannerTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiddleBannerTVC.xib; sourceTree = "<group>"; };
 		929C84052696E5FC00A879A7 /* BannerCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCVC.swift; sourceTree = "<group>"; };
@@ -441,6 +451,8 @@
 				9256441A2692C1EF00A45945 /* NewLensCVC.xib */,
 				929C84052696E5FC00A879A7 /* BannerCVC.swift */,
 				929C84062696E5FC00A879A7 /* BannerCVC.xib */,
+				928E503326982C3F0086FC31 /* ColorListCVC.swift */,
+				928E503426982C3F0086FC31 /* ColorListCVC.xib */,
 			);
 			path = CVC;
 			sourceTree = "<group>";
@@ -781,6 +793,8 @@
 				F83BA027268C476C00E94E74 /* Assets.xcassets */,
 				F83BA075268D760000E94E74 /* OnboardingImage.xcassets */,
 				F86F7ACE2690A1C20037081D /* Search.xcassets */,
+				928E502F269823A60086FC31 /* Home.xcassets */,
+				928E5031269827790086FC31 /* SearchFilter.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -877,6 +891,7 @@
 			children = (
 				F86F7AC526900A030037081D /* HomeVC.swift */,
 				92A889D82692FBD200AC1B81 /* TabBarController.swift */,
+				928E503726987CAB0086FC31 /* NaviController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1081,6 +1096,7 @@
 				9261599226921B6600E1E87F /* SeasonCVC.xib in Resources */,
 				9261598E26921B4700E1E87F /* OneMinCVC.xib in Resources */,
 				92F9950026918C8C0053ABD8 /* OneMinTVC.xib in Resources */,
+				928E5030269823A60086FC31 /* Home.xcassets in Resources */,
 				92F994FC26918BC30053ABD8 /* RecommendTVC.xib in Resources */,
 				F8B91F74268E207A006114CD /* Roboto-MediumItalic.ttf in Resources */,
 				927692612693CB9100201EE1 /* BrandFilterView.xib in Resources */,
@@ -1116,6 +1132,7 @@
 				924751A9268E2CFE00924891 /* FourthOnboarding.storyboard in Resources */,
 				92BC7DF826964D4E0088E4EE /* ReviewTVC.xib in Resources */,
 				F8B91F6F268E207A006114CD /* Roboto-BlackItalic.ttf in Resources */,
+				928E503626982C3F0086FC31 /* ColorListCVC.xib in Resources */,
 				925644182692C1DB00A45945 /* NewLensTVC.xib in Resources */,
 				929C84042696E18E00A879A7 /* MiddleBannerTVC.xib in Resources */,
 				92BAA0502694FDE7004A155A /* OneMinDetailTVC.xib in Resources */,
@@ -1130,6 +1147,7 @@
 				924751BA268E672300924891 /* LensBrandCVC.xib in Resources */,
 				E82C5DC526937B87000EF460 /* PopularTVC.xib in Resources */,
 				F8B91F5C268E205E006114CD /* NotoSansCJKkr-Thin.otf in Resources */,
+				928E5032269827790086FC31 /* SearchFilter.xcassets in Resources */,
 				F86F7ACA269068960037081D /* Splash.storyboard in Resources */,
 				E82C5DC926938926000EF460 /* PopularWordTVC.xib in Resources */,
 			);
@@ -1244,6 +1262,7 @@
 				925644172692C1DB00A45945 /* NewLensTVC.swift in Sources */,
 				9276926A2694E28100201EE1 /* CategoryTVC.swift in Sources */,
 				F83BA040268C4A4A00E94E74 /* TempLottie.swift in Sources */,
+				928E503526982C3F0086FC31 /* ColorListCVC.swift in Sources */,
 				924751AE268E42E200924891 /* LensBrandDataModel.swift in Sources */,
 				F83BA050268C4C3F00E94E74 /* ViewController.swift in Sources */,
 				E8A6602026959B8100EB7EEA /* SearchWordTVC.swift in Sources */,
@@ -1272,6 +1291,7 @@
 				92BC7DFB26964EF00088E4EE /* DetailSimilarTVC.swift in Sources */,
 				9276925F2693CB7D00201EE1 /* BrandFilterView.swift in Sources */,
 				92A889CC2692E11A00AC1B81 /* SituationTVC.swift in Sources */,
+				928E503826987CAB0086FC31 /* NaviController.swift in Sources */,
 				92BF87A2268D908C00706384 /* GenderCVC.swift in Sources */,
 				92BC7DFF269653D50088E4EE /* DetailNewTVC.swift in Sources */,
 				9261599126921B6600E1E87F /* SeasonCVC.swift in Sources */,

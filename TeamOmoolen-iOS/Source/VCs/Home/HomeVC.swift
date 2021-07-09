@@ -22,15 +22,9 @@ class HomeVC: UIViewController {
     @IBOutlet weak var searchIcon: UIImageView!
     @IBOutlet weak var searchLabel: UILabel!
     
-    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
-    
     private lazy var topButton: UIButton = {
         let button = UIButton()
-        button.layer.shadowColor  = UIColor.gray.cgColor
-        button.layer.shadowOpacity = 0.8
-        button.layer.shadowOffset = CGSize(width: 0, height: 2)
-        button.layer.shadowRadius = 2
-        button.setImage(UIImage(systemName: "circle.fill"), for: .normal)
+        button.setImage(UIImage(named: "icTop"), for: .normal)
         button.setPreferredSymbolConfiguration(.init(pointSize: 20,
                                                      weight: .light,
                                                      scale: .large),
@@ -39,13 +33,8 @@ class HomeVC: UIViewController {
         return button
     }()
     
-    private lazy var categoryView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .orange
-        return view
-    }()
-    
     // MARK: - Local Variables
+    
     private var homeList = HomeResponse(username: "", findRecomendationByUser: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], guides: [Guide(id: 0, question: "", answer: "")], recommendationBySeason: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], deadlineEvent: [Event(id: 0, title: "", content: "", image: "")], newLens: NewLens1(brand1: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], brand2: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], brand3: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])]) , recommendationBySituation: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], lastestEvent: [Event(id: 0, title: "", content: "", image: "")])
     
     // MARK: - View Life Cycle Methods
@@ -53,6 +42,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigationController()
         setUI()
         setNotificationLoginErr()
         registerXib()
@@ -70,14 +60,7 @@ extension HomeVC {
         homeHeaderView.backgroundColor = .white
         homeTableView.backgroundColor = .white
         
-//        view.addSubview(categoryView)
         view.addSubview(topButton)
-        
-//        categoryView.snp.makeConstraints { make in
-//            make.width.equalToSuperview()
-//            make.height.equalTo(121)
-//            make.top.equalTo(homeHeaderView.snp.bottom).offset(5)
-//        }
         
         topButton.snp.makeConstraints { make in
             make.width.height.equalTo(60)
@@ -85,14 +68,14 @@ extension HomeVC {
             make.bottom.equalToSuperview().inset(-100)
         }
         
-        logoImageView.image = UIImage(named: "abc")
+        logoImageView.image = UIImage(named: "imgLogo")
         
         searchView.layer.borderColor = UIColor.omMainOrange.cgColor
         searchView.layer.borderWidth = 1
         searchView.layer.cornerRadius = 8
         searchView.layer.masksToBounds = true
         
-        searchIcon.image = UIImage(named: "abc")
+        searchIcon.image = UIImage(named: "icSearchSmall")
         searchLabel.text = "오늘은 무슨 렌즈끼지?"
         searchLabel.textColor = .omFourthGray
         searchLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 13)
@@ -140,6 +123,10 @@ extension HomeVC {
 //            print(self.homeList)
         }
     }
+    
+    func setNavigationController() {
+        self.navigationController?.navigationBar.isHidden = true
+    }
 }
 
 // MARK: - Action Methods
@@ -152,8 +139,15 @@ extension HomeVC {
     
     @objc
     func touchUpSearchView(_ sender: UITapGestureRecognizer) {
-        print("SearchVC로 이동")
         searchLabel.isHidden = true
+        searchIcon.isHidden = true
+        
+        guard let searchVC = UIStoryboard(name: Const.Storyboard.Name.Search, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Search) as? SearchVC else {
+            return
+        }
+        searchVC.modalPresentationStyle = .fullScreen
+        searchVC.modalTransitionStyle = .crossDissolve
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
 }
 
@@ -163,13 +157,13 @@ extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section{
         case 0:
-            return 123
+            return 142
         case 1:
-            return 371
+            return 387
         case 2:
-            return 551
+            return 516
         case 3:
-            return 1083
+            return 1095
         case 4:
             return 180
         case 5:
@@ -187,23 +181,11 @@ extension HomeVC: UITableViewDelegate {
         if scrollView.contentOffset.y > 10 {
             topButton.isHidden = false
             
-//            categoryView.snp.updateConstraints { make in
-//                make.height.equalTo(60)
-//            }
-//
-//            tableViewTopConstraint.constant = 60
-            
             topButton.snp.updateConstraints { make in
                 make.bottom.equalToSuperview().inset(100)
             }
         } else {
             topButton.isHidden = true
-            
-//            categoryView.snp.updateConstraints { make in
-//                make.height.equalTo(121)
-//            }
-//            
-//            tableViewTopConstraint.constant = 121
             
             topButton.snp.updateConstraints { make in
                 make.bottom.equalToSuperview().inset(-100)

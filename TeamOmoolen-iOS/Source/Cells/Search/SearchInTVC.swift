@@ -12,17 +12,17 @@ class SearchInTVC: UITableViewCell {
 
     static let identifier = "SearchInTVC"
     
-    //Mark: - IB Outlets
+    //MARK: - IB Outlets
     @IBOutlet weak var searchHistoryTableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
-    //Mark: - Variables
+    //MARK: - Variables
     var enteredText: String?
     var realm: Realm?
     var searchList: Array<String> = []
     var resultArray: Array<String> = []
 
-    //Mark: - Life Cycle Methods
+    //MARK: - Life Cycle Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         realm = try? Realm()
@@ -36,13 +36,12 @@ class SearchInTVC: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    //Mark: - objc Methods
+    //MARK: - objc Methods
     @objc func removeWord(notification: NSNotification){
         if let word = notification.object as? String {
             do {
                 removeFromRealm(target: word)
                 searchHistoryTableView.reloadData()
-                print(searchList)
             } catch  {
                 print("지워지지 않았습니다")
             }
@@ -66,7 +65,7 @@ class SearchInTVC: UITableViewCell {
         }
     }
     
-    //Mark: - Methods
+    //MARK: - Methods
     func registerXib() {
         let SearchInNib = UINib(nibName: SearchInTVC.identifier, bundle: nil)
         
@@ -239,8 +238,6 @@ extension SearchInTVC: UITableViewDataSource {
             tableViewHeight.constant = 231
             num = 4
         }
-        // print("this is height")
-        //print(tableViewHeight.constant)
         NotificationCenter.default.post(name: NSNotification.Name("AdjustHeight"), object: tableViewHeight.constant)
         return num
     }
