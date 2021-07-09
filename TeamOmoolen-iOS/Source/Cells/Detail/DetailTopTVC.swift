@@ -11,6 +11,7 @@ class DetailTopTVC: UITableViewCell {
     static let identifier = "DetailTopTVC"
 
     // MARK: - UI Components
+    
     @IBOutlet weak var modelImageView: UIImageView!
     @IBOutlet weak var lensImageView: UIImageView!
     
@@ -33,9 +34,14 @@ class DetailTopTVC: UITableViewCell {
     @IBOutlet weak var lensFunctionLabel: UILabel!
     
     @IBOutlet weak var colorLabel: UILabel!
+    @IBOutlet weak var lensColorListCollectionView: UICollectionView!
     
     @IBOutlet weak var myButton: UIButton!
     @IBOutlet weak var compareButton: UIButton!
+    
+    // MARK: - Local Variabels
+    
+    private var colorList = [String]()
     
     
     // MARK: - Life Cycle Methods
@@ -44,6 +50,8 @@ class DetailTopTVC: UITableViewCell {
         super.awakeFromNib()
         
         setUI()
+        registerXib()
+        setCollectionView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -124,7 +132,62 @@ extension DetailTopTVC {
         compareButton.layer.masksToBounds = true
     }
     
-    func initCell() {
+    func initCell(brand: String, lens: String, price: Float, diameter: Float, cycle: Int, function: String, colorList: [String]) {
+        brandLabel.text = brand
+        lensLabel.text = lens
         
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        priceLabel.text = "\(formatter.string(from: NSNumber(value: price))!)원"
+        
+        diameterLabel.text = "\(diameter)mm"
+        
+        // 서버에서 넘겨주는 데이터 가공할 것
+        cycleLabel.text = "\(cycle)Month"
+        
+        functionLabel.text = function
+        
+        self.colorList = colorList
     }
+    
+    func registerXib() {
+        let nib = UINib(nibName: ColorListCVC.identifier, bundle: nil)
+        lensColorListCollectionView.register(nib, forCellWithReuseIdentifier: ColorListCVC.identifier)
+    }
+    
+    func setCollectionView() {
+        lensColorListCollectionView.delegate = self
+        lensColorListCollectionView.dataSource = self
+    }
+}
+
+extension DetailTopTVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 30, height: 12)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .zero
+    }
+}
+
+extension DetailTopTVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return colorList.count
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorListCVC.identifier, for: indexPath) as? ColorListCVC else {
+            return UICollectionViewCell()
+        }
+//        cell.initCell(color: colorList[indexPath.row])
+        return cell
+    }
+    
+    
 }

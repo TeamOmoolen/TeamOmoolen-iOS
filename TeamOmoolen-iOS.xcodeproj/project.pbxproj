@@ -37,6 +37,7 @@
 		928E503526982C3F0086FC31 /* ColorListCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E503326982C3F0086FC31 /* ColorListCVC.swift */; };
 		928E503626982C3F0086FC31 /* ColorListCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928E503426982C3F0086FC31 /* ColorListCVC.xib */; };
 		928E503826987CAB0086FC31 /* NaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E503726987CAB0086FC31 /* NaviController.swift */; };
+		928E503A269887A00086FC31 /* Detail.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928E5039269887A00086FC31 /* Detail.xcassets */; };
 		929C84032696E18E00A879A7 /* MiddleBannerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C84012696E18E00A879A7 /* MiddleBannerTVC.swift */; };
 		929C84042696E18E00A879A7 /* MiddleBannerTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929C84022696E18E00A879A7 /* MiddleBannerTVC.xib */; };
 		929C84072696E5FC00A879A7 /* BannerCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C84052696E5FC00A879A7 /* BannerCVC.swift */; };
@@ -221,6 +222,7 @@
 		928E503326982C3F0086FC31 /* ColorListCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListCVC.swift; sourceTree = "<group>"; };
 		928E503426982C3F0086FC31 /* ColorListCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorListCVC.xib; sourceTree = "<group>"; };
 		928E503726987CAB0086FC31 /* NaviController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviController.swift; sourceTree = "<group>"; };
+		928E5039269887A00086FC31 /* Detail.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Detail.xcassets; sourceTree = "<group>"; };
 		929C84012696E18E00A879A7 /* MiddleBannerTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleBannerTVC.swift; sourceTree = "<group>"; };
 		929C84022696E18E00A879A7 /* MiddleBannerTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiddleBannerTVC.xib; sourceTree = "<group>"; };
 		929C84052696E5FC00A879A7 /* BannerCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCVC.swift; sourceTree = "<group>"; };
@@ -796,6 +798,7 @@
 				F86F7ACE2690A1C20037081D /* Search.xcassets */,
 				928E502F269823A60086FC31 /* Home.xcassets */,
 				928E5031269827790086FC31 /* SearchFilter.xcassets */,
+				928E5039269887A00086FC31 /* Detail.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -1128,6 +1131,7 @@
 				92BC7E00269653D50088E4EE /* DetailNewTVC.xib in Resources */,
 				F85147A52696EA1D00C8532F /* SearchResult.storyboard in Resources */,
 				F83BA06B268C7DEF00E94E74 /* LensColorCVC.xib in Resources */,
+				928E503A269887A00086FC31 /* Detail.xcassets in Resources */,
 				F8B91F6D268E207A006114CD /* Roboto-Black.ttf in Resources */,
 				92BC7DE82695D9230088E4EE /* RecentSearchVC.storyboard in Resources */,
 				F83BA05B268C577E00E94E74 /* SecondOnboarding.storyboard in Resources */,

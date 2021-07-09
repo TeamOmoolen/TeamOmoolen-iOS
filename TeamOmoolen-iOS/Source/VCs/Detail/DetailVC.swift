@@ -15,12 +15,9 @@ class DetailVC: UIViewController {
     
     private lazy var writeButton: UIButton = {
         let button = UIButton()
-        button.layer.shadowColor  = UIColor.gray.cgColor
-        button.layer.shadowOpacity = 0.8
-        button.layer.shadowOffset = CGSize(width: 0, height: 2)
         button.layer.shadowRadius = 2
-        button.setImage(UIImage(systemName: "circle.fill"), for: .normal)
-        button.setPreferredSymbolConfiguration(.init(pointSize: 20,
+        button.setImage(UIImage(named: "icWrite"), for: .normal)
+        button.setPreferredSymbolConfiguration(.init(pointSize: 48,
                                                      weight: .light,
                                                      scale: .large),
                                                forImageIn: .normal)
@@ -43,7 +40,8 @@ extension DetailVC {
         writeButton.snp.makeConstraints { make in
             make.width.height.equalTo(48)
             make.trailing.equalToSuperview().inset(20)
-            make.top.equalToSuperview().offset(629)
+            make.top.equalToSuperview().offset(688)
+//            make.top.equalToSuperview().offset(629)
         }
     }
     

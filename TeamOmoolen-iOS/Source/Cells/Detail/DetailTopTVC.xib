@@ -127,6 +127,20 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3pU-Z8-wR2">
+                        <rect key="frame" x="92" y="720.5" width="264" height="12"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="7aP-ok-HY3"/>
+                            <constraint firstAttribute="width" constant="264" id="P77-c0-qTB"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ydt-x3-dgE">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Uj3-F4-xbV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="305" id="0KC-BN-pK4"/>
@@ -145,6 +159,7 @@
                     <constraint firstItem="Cwn-Jf-NJF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="EWW-J1-LLM"/>
                     <constraint firstItem="IyV-FY-7vm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Fwm-N2-Rmg"/>
                     <constraint firstItem="B4f-af-GyY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="G3b-Br-Ldo"/>
+                    <constraint firstItem="3pU-Z8-wR2" firstAttribute="leading" secondItem="1m8-ce-TQd" secondAttribute="trailing" constant="30" id="H3u-YM-XBo"/>
                     <constraint firstItem="iK3-EL-fJR" firstAttribute="centerY" secondItem="Cwn-Jf-NJF" secondAttribute="centerY" id="JHD-tE-mkM"/>
                     <constraint firstItem="4bI-IZ-gk2" firstAttribute="centerY" secondItem="JxW-Fx-GlQ" secondAttribute="centerY" id="QKe-bs-f8l"/>
                     <constraint firstItem="UlG-BQ-OFU" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="SRk-Xu-3Cg"/>
@@ -156,6 +171,7 @@
                     <constraint firstItem="IyV-FY-7vm" firstAttribute="top" secondItem="1m8-ce-TQd" secondAttribute="bottom" constant="27" id="elI-xY-6jm"/>
                     <constraint firstItem="iK3-EL-fJR" firstAttribute="leading" secondItem="Cwn-Jf-NJF" secondAttribute="trailing" constant="30" id="fWp-Yj-l25"/>
                     <constraint firstItem="JxW-Fx-GlQ" firstAttribute="top" secondItem="rYv-Bd-ABc" secondAttribute="bottom" constant="16" id="fvZ-Pt-ZcL"/>
+                    <constraint firstItem="3pU-Z8-wR2" firstAttribute="centerY" secondItem="1m8-ce-TQd" secondAttribute="centerY" id="gZ5-2k-NW4"/>
                     <constraint firstItem="N01-yd-mBI" firstAttribute="centerY" secondItem="Bzy-aD-XYR" secondAttribute="centerY" id="m8t-pL-URz"/>
                     <constraint firstItem="rYv-Bd-ABc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="o4n-1H-J9q"/>
                     <constraint firstItem="1m8-ce-TQd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="uCQ-7h-Jhe"/>
@@ -175,6 +191,7 @@
                 <outlet property="diameterLabel" destination="Bzy-aD-XYR" id="e44-W7-ORe"/>
                 <outlet property="dividerView" destination="UlG-BQ-OFU" id="T1g-q3-n0Z"/>
                 <outlet property="functionLabel" destination="Cwn-Jf-NJF" id="jXd-Po-gzm"/>
+                <outlet property="lensColorListCollectionView" destination="3pU-Z8-wR2" id="2vy-it-avZ"/>
                 <outlet property="lensCycleLabel" destination="vE9-BD-shg" id="cRy-8L-c5n"/>
                 <outlet property="lensDiameterLabel" destination="N01-yd-mBI" id="WZB-qk-gHU"/>
                 <outlet property="lensFunctionLabel" destination="iK3-EL-fJR" id="i6X-yp-LsC"/>
@@ -186,7 +203,7 @@
                 <outlet property="priceLabel" destination="fXm-63-AqA" id="b3T-rU-2CO"/>
                 <outlet property="textureLabel" destination="JxW-Fx-GlQ" id="Z9Z-8x-oe7"/>
             </connections>
-            <point key="canvasLocation" x="15.217391304347828" y="73.995535714285708"/>
+            <point key="canvasLocation" x="15.217391304347828" y="73.660714285714278"/>
         </tableViewCell>
     </objects>
     <resources>
