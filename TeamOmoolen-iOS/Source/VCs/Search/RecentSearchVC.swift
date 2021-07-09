@@ -15,17 +15,16 @@ class RecentSearchVC: UIViewController {
     
     var recentSearchCellHeight = 120
     
-    //Mark: - View Life Cycle
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         registerXib()
         setSearchInTableView()
         checkNotification()
-        print(searchInTableView.frame.width)
         // Do any additional setup after loading the view.
     }
     
-    //Mark: - Methods
+    //MARK: - Methods
     func registerXib(){
         let searchInNib = UINib(nibName:SearchInTVC.identifier, bundle: nil)
         searchInTableView.register(searchInNib, forCellReuseIdentifier: SearchInTVC.identifier)
@@ -45,7 +44,7 @@ class RecentSearchVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(setCellHeight), name: NSNotification.Name("AdjustHeight"), object: nil)
     }
     
-    //Mark: - objc function
+    //MARK: - objc function
    @objc func setCellHeight(notification: NSNotification){
         if let height = notification.object as? Int {
             recentSearchCellHeight = height

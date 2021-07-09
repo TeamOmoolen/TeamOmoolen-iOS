@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zma-fD-wL2">
-                                <rect key="frame" x="0.0" y="144" width="414" height="72"/>
+                                <rect key="frame" x="0.0" y="99" width="414" height="72"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3W-Ns-n8K">
                                         <rect key="frame" x="20" y="21" width="63" height="30"/>
@@ -106,7 +106,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQu-oL-TVb">
-                                <rect key="frame" x="0.0" y="689" width="414" height="76"/>
+                                <rect key="frame" x="0.0" y="644" width="414" height="76"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmJ-Ub-4UR">
                                         <rect key="frame" x="20" y="11" width="54" height="54"/>
@@ -153,7 +153,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iQu-oL-TVb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="P50-LQ-Zgg"/>
-                            <constraint firstItem="zma-fD-wL2" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="TW8-UI-kcZ"/>
+                            <constraint firstItem="zma-fD-wL2" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="55" id="TW8-UI-kcZ"/>
                             <constraint firstItem="zma-fD-wL2" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="dey-je-DJP"/>
                             <constraint firstItem="iQu-oL-TVb" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="hp6-nC-lid"/>
                             <constraint firstItem="zma-fD-wL2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ps7-g0-RzJ"/>
