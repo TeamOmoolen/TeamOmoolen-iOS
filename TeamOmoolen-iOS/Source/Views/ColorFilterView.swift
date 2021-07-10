@@ -12,7 +12,10 @@ class ColorFilterView: UIView {
     // MARK: - UI Components
     
     @IBOutlet weak var filterLabel: UILabel!
+    
     @IBOutlet weak var selectButton: UIButton!
+    @IBOutlet weak var selectImage: UIImageView!
+    
     @IBOutlet weak var colorCollectionView: UICollectionView!
     
     // MARK: - Local Variables
@@ -61,6 +64,8 @@ extension ColorFilterView {
         selectButton.setTitle("전체선택", for: .normal)
         selectButton.tintColor = .omFourthGray
         selectButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
+        
+        selectImage.image = UIImage(named: "icFilterNormal")
     }
     
     func setList() {
@@ -100,10 +105,12 @@ extension ColorFilterView {
             if !self.isAllSelected {
                 self.isAllSelected = true
                 self.selectButton.tintColor = .omMainOrange
+                self.selectImage.image = UIImage(named: "icFilterPressed")
                 self.colorCollectionView.selectAll(animated: true)
             } else {
                 self.isAllSelected = false
                 self.selectButton.tintColor = .omFourthGray
+                self.selectImage.image = UIImage(named: "icFilterNormal")
                 self.colorCollectionView.deselectAll(animated: true)
             }
         }
@@ -212,6 +219,7 @@ extension ColorFilterView {
     @objc
     func resetData(_ notification: Notification) {
         selectButton.tintColor = .omFourthGray
+        selectImage.image = UIImage(named: "icFilterNormal")
         
         lensColor = []
         

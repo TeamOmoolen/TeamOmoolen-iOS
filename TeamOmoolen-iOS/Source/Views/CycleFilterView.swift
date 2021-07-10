@@ -22,7 +22,7 @@ class CycleFilterView: UIView {
     // MARK: - Local Variables
     
     private var lensCycleList = [FilterDataModel]()
-    var lensCycle = [String]()
+    var lensCycle = [Int]()
     var isAllSelected = false
 
     // MARK: - init Methods
@@ -65,6 +65,8 @@ extension CycleFilterView {
         selectButton.setTitle("전체선택", for: .normal)
         selectButton.tintColor = .omFourthGray
         selectButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
+        
+        selectImage.image = UIImage(named: "icFilterNormal")
     }
     
     func setList() {
@@ -100,10 +102,12 @@ extension CycleFilterView {
             if !self.isAllSelected {
                 self.isAllSelected = true
                 self.selectButton.tintColor = .omMainOrange
+                self.selectImage.image = UIImage(named: "icFilterPressed")
                 self.cycleCollectionView.selectAll(animated: true)
             } else {
                 self.isAllSelected = false
                 self.selectButton.tintColor = .omFourthGray
+                self.selectImage.image = UIImage(named: "icFilterNormal")
                 self.cycleCollectionView.deselectAll(animated: true)
             }
         }
@@ -168,22 +172,22 @@ extension CycleFilterView {
             return
         }
         if lensCycleList.contains([0,0]) {
-            lensCycle.append("1 day")
+            lensCycle.append(0)
         }
         if lensCycleList.contains([0,1]) {
-            lensCycle.append("2 ~ 6 days")
+            lensCycle.append(1)
         }
         if lensCycleList.contains([0,2]) {
-            lensCycle.append("1 week")
+            lensCycle.append(2)
         }
         if lensCycleList.contains([0,3]) {
-            lensCycle.append("1 month")
+            lensCycle.append(3)
         }
         if lensCycleList.contains([0,4]) {
-            lensCycle.append("2 ~ 3 months")
+            lensCycle.append(4)
         }
         if lensCycleList.contains([0,5]) {
-            lensCycle.append("6 months")
+            lensCycle.append(5)
         }
         
         NotificationCenter.default.post(name: NSNotification.Name("postCycleList"), object: lensCycle)
@@ -192,6 +196,7 @@ extension CycleFilterView {
     @objc
     func resetData(_ notification: Notification) {
         selectButton.tintColor = .omFourthGray
+        selectImage.image = UIImage(named: "icFilterNormal")
         
         lensCycle = []
         

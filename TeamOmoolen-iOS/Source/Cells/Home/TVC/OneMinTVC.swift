@@ -44,7 +44,7 @@ extension OneMinTVC {
         moreButton.setTitle("더보기", for: .normal)
         moreButton.tintColor = .omFourthGray
         
-        moreImageView.image = UIImage(named: "abc")
+        moreImageView.image = UIImage(named: "icFront")
     }
     
     func initCell() {
@@ -59,6 +59,8 @@ extension OneMinTVC {
     func setCollectionView() {
         oneMinCollectionView.delegate = self
         oneMinCollectionView.dataSource = self
+        
+        oneMinCollectionView.showsHorizontalScrollIndicator = false
     }
 }
 

@@ -12,7 +12,9 @@ class BrandFilterView: UIView {
     // MARK: - UI Components
     
     @IBOutlet weak var filterLabel: UILabel!
+    
     @IBOutlet weak var selectButton: UIButton!
+    @IBOutlet weak var selectImage: UIImageView!
     
     @IBOutlet weak var brandListCollectionView: UICollectionView!
     
@@ -61,6 +63,8 @@ extension BrandFilterView {
         selectButton.setTitle("전체선택", for: .normal)
         selectButton.tintColor = .omFourthGray
         selectButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
+        
+        selectImage.image = UIImage(named: "icFilterNormal")
     }
     
     func setList() {
@@ -105,10 +109,12 @@ extension BrandFilterView {
             if !self.isAllSelected {
                 self.isAllSelected = true
                 self.selectButton.tintColor = .omMainOrange
+                self.selectImage.image = UIImage(named: "icFilterPressed")
                 self.brandListCollectionView.selectAll(animated: true)
             } else {
                 self.isAllSelected = false
                 self.selectButton.tintColor = .omFourthGray
+                self.selectImage.image = UIImage(named: "icFilterNormal")
                 self.brandListCollectionView.deselectAll(animated: true)
             }
         }
@@ -229,6 +235,7 @@ extension BrandFilterView {
     @objc
     func resetData(_ notification: Notification) {
         selectButton.tintColor = .omFourthGray
+        selectImage.image = UIImage(named: "icFilterNormal")
         
         lensBrand = []
         

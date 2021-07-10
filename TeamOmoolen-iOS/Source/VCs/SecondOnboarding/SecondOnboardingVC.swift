@@ -37,7 +37,7 @@ class SecondOnboardingVC: UIViewController {
         super.viewDidLoad()
         setUI()
         setNavigationBar()
-//        setNotificationLoginErr()
+        setPhoneResolution()
         setList()
         collectionViewDelegate()
         registerXib()
@@ -125,7 +125,6 @@ class SecondOnboardingVC: UIViewController {
             LensColorDataModel(image: "btnBluecolor"),
             LensColorDataModel(image: "btnGoldcolor"),
             LensColorDataModel(image: "btnPinkcolor"),
-            LensColorDataModel(image: "btnGlittercolor"),
             LensColorDataModel(image: "btnEtccolor")
         ])
     }
@@ -135,6 +134,15 @@ class SecondOnboardingVC: UIViewController {
             if self.progressView.progress != 0.5 {
                 self.progressView.setProgress(0.5, animated: true)
             }
+        }
+    }
+    
+    func setPhoneResolution(){
+        if UIDevice.current.isiPhoneSE2 {
+            firstTitleLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
+            
+            secondTitleLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
+            
         }
     }
     
@@ -195,9 +203,6 @@ class SecondOnboardingVC: UIViewController {
             lensColor.append("핑크")
         }
         if lensColorList.contains([0,10]) {
-            lensColor.append("글리터")
-        }
-        if lensColorList.contains([0,11]) {
             lensColor.append("기타")
         }
         
@@ -282,7 +287,7 @@ extension SecondOnboardingVC: UICollectionViewDelegateFlowLayout {
         } else {
             let width = collectionView.frame.width
             let height = collectionView.frame.height
-            let cellWidth = (width - 6) / 2
+            let cellWidth = (width - 7) / 2
             let cellHeight = (height - 40) / 6
             
             return CGSize(width: cellWidth, height: cellHeight)
@@ -302,7 +307,7 @@ extension SecondOnboardingVC: UICollectionViewDelegateFlowLayout {
         if collectionView == firstCollectionView {
             return 10
         } else {
-            return 6
+            return 7
         }
     }
     

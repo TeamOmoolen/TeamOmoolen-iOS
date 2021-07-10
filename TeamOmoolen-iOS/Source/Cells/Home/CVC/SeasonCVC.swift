@@ -19,10 +19,20 @@ class SeasonCVC: UICollectionViewCell {
     @IBOutlet weak var lensInfoLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
+    @IBOutlet weak var colorListCollectionView: UICollectionView!
+    
+    // MARK: - Local Variables
+    
+    private var colorList = [Int]()
+    
+    // MARK: - Life Cycle Methods
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setUI()
+        registerXib()
+        setCollectionView()
     }
 
 }
@@ -51,14 +61,56 @@ extension SeasonCVC {
         priceLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
     }
     
-    func initCell(brandName: String, lensName: String, diameter: Float, cycle: String, price: Int) {
+    func initCell(brandName: String, lensName: String, diameter: Double, cycle: Int, pieces: Int, price: Int, colorList: [Int]) {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         
         brandNameLabel.text = brandName
         lensNameLabel.text = lensName
-        lensInfoLabel.text = "\(diameter)mm / \(cycle)"
+        lensInfoLabel.text = "\(diameter)mm / \(cycle)Day(\(pieces)p)"
                          
         priceLabel.text = "\(formatter.string(from: NSNumber(value: price))!)원"
+        
+        self.colorList = colorList
+    }
+    
+    func registerXib() {
+        let nib = UINib(nibName: ColorListCVC.identifier, bundle: nil)
+        colorListCollectionView.register(nib, forCellWithReuseIdentifier: ColorListCVC.identifier)
+    }
+    
+    func setCollectionView() {
+        colorListCollectionView.delegate = self
+        colorListCollectionView.dataSource = self
     }
 }
+
+extension SeasonCVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 12, height: 12)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .zero
+    }
+}
+
+extension SeasonCVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return colorList.count
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorListCVC.identifier, for: indexPath) as? ColorListCVC else {
+            return UICollectionViewCell()
+        }
+//        cell.initCell(color: colorList[indexPath.row])
+        return cell
+    }
+}
+
