@@ -10,8 +10,9 @@ import Foundation
 struct RecommendLensDataModel {
     var brandName: String
     var lensName: String
-    var diameter: Float
-    var cycle: String
+    var diameter: Double
+    var cycle: Int
+    var pieces: Int
     var price: Int
-    var colorList: [String]
+    var colorList: [Int]
 }

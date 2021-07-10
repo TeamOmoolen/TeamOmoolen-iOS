@@ -12,10 +12,10 @@ class SearchAPI {
     static let shared = SearchAPI()
     static let provider = MoyaProvider<SearchService>()
 
-    // post search filter
     
-    func getSearchResult(completion: @escaping ([SearchResultResponse]) -> ()) {
-        SearchAPI.provider.request(.searchResult) { response in
+    // get data
+    func getSearchFilterResult(param: SearchFilterRequest, completion: @escaping ([SearchResultResponse]) -> ()) {
+        SearchAPI.provider.request(.searchFilter(param: param)) { response in
             switch response {
             case .success(let result):
                 do {

@@ -20,8 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.Splash, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Splash
-        )
+        window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home)
         window?.makeKeyAndVisible()
     }
 

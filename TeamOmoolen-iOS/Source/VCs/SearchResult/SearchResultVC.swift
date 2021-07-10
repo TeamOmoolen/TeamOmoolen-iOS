@@ -10,7 +10,7 @@ import UIKit
 class SearchResultVC: UIViewController {
 
     // MARK: - Properties
-    private var resultList = [SearchResultResponse]()
+    var resultList = [SearchResultResponse]()
     
     @IBOutlet weak var searchBarView: UIView!
     @IBOutlet weak var resultCollectionView: UICollectionView!
@@ -19,7 +19,6 @@ class SearchResultVC: UIViewController {
         super.viewDidLoad()
         setUI()
         setCollectionViewDelegate()
-        getSearchResultWithAPI()
         // Do any additional setup after loading the view.
     }
     
@@ -39,12 +38,6 @@ class SearchResultVC: UIViewController {
         resultCollectionView.dataSource = self
         
     }
-    
-    func getSearchResultWithAPI() {
-        SearchAPI.shared.getSearchResult() { response in
-            self.resultList = response
-        }
-    }
 }
 
 // MARK: - UICollectionViewDelegate
@@ -63,7 +56,8 @@ extension SearchResultVC: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let data = resultList[indexPath.row]
-        cell.initCell(brandName: data.brandName, lensName: data.lensName, diameter: data.diameter, cycle: data.cycle, price: data.price, colorList: ["#007aff"])
+        let cellData = data.products[indexPath.row]
+        cell.initCell(brandName: cellData.brand, lensName: cellData.name, diameter: cellData.diameter, cycle: cellData.changeCycle, pieces: cellData.pieces, price: cellData.price, colorList: cellData.otherColorList)
         return cell
     }
     

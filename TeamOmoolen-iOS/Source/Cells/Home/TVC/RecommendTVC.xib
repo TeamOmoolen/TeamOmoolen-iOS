@@ -31,7 +31,6 @@
                         <rect key="frame" x="0.0" y="56" width="375" height="291"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="375" id="Edu-vQ-wQR"/>
                             <constraint firstAttribute="height" constant="291" id="gk9-69-Sqi"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xuu-EF-11P">
@@ -51,6 +50,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="USo-Du-ANJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5wj-b2-Dv0"/>
+                    <constraint firstAttribute="trailing" secondItem="USo-Du-ANJ" secondAttribute="trailing" id="BQB-nG-OqN"/>
                     <constraint firstAttribute="trailing" secondItem="V3I-dr-4kx" secondAttribute="trailing" constant="12" id="Bje-1h-IYD"/>
                     <constraint firstItem="USo-Du-ANJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="56" id="PtD-mM-Ldz"/>
                     <constraint firstItem="wP2-Q4-jCF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="SQi-34-dlA"/>
@@ -67,7 +67,7 @@
                 <outlet property="recommendCollectionView" destination="USo-Du-ANJ" id="C7P-Ar-bmQ"/>
                 <outlet property="recommendLabel" destination="wP2-Q4-jCF" id="GNP-X3-ptJ"/>
             </connections>
-            <point key="canvasLocation" x="34.057971014492757" y="108.81696428571428"/>
+            <point key="canvasLocation" x="33" y="64"/>
         </tableViewCell>
     </objects>
     <resources>

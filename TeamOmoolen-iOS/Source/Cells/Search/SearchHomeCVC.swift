@@ -9,12 +9,12 @@ import UIKit
 
 class SearchHomeCVC: UICollectionViewCell {
 
-    //Mark: - View Life Cycle
+    //MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    //Mark: - Methods
+    //MARK: - Methods
     static func nib() -> UINib{
         return UINib(nibName: "SearchHomeCVC", bundle: nil)
     }
