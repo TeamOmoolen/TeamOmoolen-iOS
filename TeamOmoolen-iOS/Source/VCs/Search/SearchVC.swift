@@ -84,8 +84,7 @@ class SearchVC: UIViewController {
             NSAttributedString.Key.foregroundColor: UIColor.omFourthGray,
             NSAttributedString.Key.font : UIFont(name: "NotoSansCJKKR-Regular", size: 14)!
         ]
-        searchTextField.attributedPlaceholder = NSAttributedString(string: "원하는 렌즈를 검색해보세요",
-                                                                   attributes: attributes )
+        searchTextField.attributedPlaceholder = NSAttributedString(string: "원하는 렌즈를 검색해보세요",attributes: attributes )
 
     }
     

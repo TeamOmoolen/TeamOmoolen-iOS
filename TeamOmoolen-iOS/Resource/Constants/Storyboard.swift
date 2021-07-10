@@ -20,6 +20,7 @@ extension Const {
             static let Splash = "Splash"
             static let Search = "Search"
             static let Detail = "Detail"
+            static let Suggest = "Suggest"
             
             static let Tabbar = "Tabbar"
             
