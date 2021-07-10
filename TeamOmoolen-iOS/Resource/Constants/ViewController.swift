@@ -23,6 +23,11 @@ extension Const {
             static let Splash = "SplashVC"
             static let Detail = "DetailVC"
             
+            static let Suggest = "SuggestVC"
+            static let ForYou = "ForYouVC"
+            static let Situation = "SituationVC"
+            static let Season = "Season"
+            
             static let Tabbar = "TabBarController"
             
             static let SearchResult = "SearchResultVC"
