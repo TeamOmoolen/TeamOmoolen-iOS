@@ -7,13 +7,12 @@
 
 import Foundation
 import Moya
+import AuthenticationServices
 
 class LoginAPI {
     static let shared = LoginAPI()
     static let provider = MoyaProvider<LoginService>()
 
-    
-    
     func postAppleLogin(param: AppleLoginRequest, completion: @escaping (AppleLoginDataModel) -> ()) {
         LoginAPI.provider.request(.login(param: param)) { response in
             switch response {

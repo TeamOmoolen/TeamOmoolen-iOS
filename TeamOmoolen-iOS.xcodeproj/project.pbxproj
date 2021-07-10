@@ -983,6 +983,7 @@
 		F8CB27EF2692C1DA00DEFA75 /* NetworkDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				F8514793269366AC00C8532F /* Home */,
 				F885CB882698101700835B11 /* SearchResult */,
 				F831304F26976A72004A247C /* Login */,
 				F851479A2695C5B300C8532F /* Search */,
@@ -1005,7 +1006,6 @@
 			children = (
 				F8CB27F02692C1F700DEFA75 /* OnboardingDataModel.swift */,
 				F8CB27F426931FF700DEFA75 /* OnboardingRequest.swift */,
-				F8514793269366AC00C8532F /* Home */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";

@@ -8,12 +8,12 @@
 import Foundation
 
 struct AppleLoginRequest: Codable {
-    let email: String
+    let oauthKey: String
     let familyName: String
     let givenName: String
     
-    init(_ email: String, _ familyName: String, _ givenName: String) {
-        self.email = email
+    init(_ userIdentifier: String, _ familyName: String, _ givenName: String) {
+        self.oauthKey = userIdentifier
         self.familyName = familyName
         self.givenName = givenName
     }

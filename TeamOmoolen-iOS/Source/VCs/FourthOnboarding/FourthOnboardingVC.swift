@@ -179,6 +179,7 @@ class FourthOnboardingVC: UIViewController {
                 }
                 homeVC.modalPresentationStyle = .fullScreen
                 homeVC.modalTransitionStyle = .crossDissolve
+                self.navigationController?.pushViewController(homeVC, animated: true)
             } else {
                 print("postOnboardingWithAPI: post Fail")
                 guard let loginVC = UIStoryboard(name: Const.Storyboard.Name.Login, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Login) as? LoginVC else {
@@ -186,6 +187,7 @@ class FourthOnboardingVC: UIViewController {
                 }
                 loginVC.modalPresentationStyle = .fullScreen
                 loginVC.modalTransitionStyle = .crossDissolve
+                self.navigationController?.pushViewController(loginVC, animated: true)
             }
         }
     }

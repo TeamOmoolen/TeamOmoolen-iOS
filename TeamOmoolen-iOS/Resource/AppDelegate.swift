@@ -17,9 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //001628.1f39bf3727b44f1f8a6615166ae3b718.0924
+        
+        let userIdentifier = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
         // Apple login
         let appleIDProvider = ASAuthorizationAppleIDProvider()
-        appleIDProvider.getCredentialState(forUserID: "001628.1f39bf3727b44f1f8a6615166ae3b718.0924") { (credentialState, error) in
+        appleIDProvider.getCredentialState(forUserID: userIdentifier) { (credentialState, error) in
+            
+            print(userIdentifier)
+            
             switch credentialState {
             case .revoked:
                 // Apple ID 사용 중단 경우.
