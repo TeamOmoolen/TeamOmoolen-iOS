@@ -82,6 +82,7 @@ class LoginVC: UIViewController {
     func postAppleLoginWithAPI(param: AppleLoginRequest) {
         LoginAPI.shared.postAppleLogin(param: param) { response in
             print(response.accessToken)
+            UserDefaults.standard.set(response.accessToken, forKey: "accessToken")
         }
     }
 }
@@ -109,10 +110,12 @@ extension LoginVC: ASAuthorizationControllerDelegate {
                 print("useridentifier: \(userIdentifier)")
                 print("fullName: \(fullName)")
                 print("email: \(email)")
-
-                let appleLoginRequest = AppleLoginRequest(email ?? "", fullName?.familyName ?? "", fullName?.givenName ?? "")
-                postAppleLoginWithAPI(param: appleLoginRequest)
             }
+            
+            let appleLoginRequest = AppleLoginRequest(userIdentifier, fullName?.familyName ?? "", fullName?.givenName ?? "")
+            postAppleLoginWithAPI(param: appleLoginRequest)
+            
+            UserDefaults.standard.set(userIdentifier, forKey: "UserIdentifier")
             
         case let passwordCredential as ASPasswordCredential:
 
@@ -132,7 +135,6 @@ extension LoginVC: ASAuthorizationControllerDelegate {
             }
             first.modalPresentationStyle = .fullScreen
             first.modalTransitionStyle = .crossDissolve
-//            self.present(homeVC, animated: true, completion: nil)
             self.navigationController?.pushViewController(first, animated: true)
         }
     }
