@@ -10,7 +10,7 @@ struct SearchResultDataModel: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: [SearchResultResponse]
+    let data: SearchResultResponse
     
     enum CodingKeys: String, CodingKey {
         case status
@@ -25,7 +25,7 @@ struct SearchResultDataModel: Codable {
         status = (try? values.decode(Int.self, forKey: .status)) ?? 0
         success = (try? values.decode(Bool.self, forKey: .success)) ?? false
         message = (try? values.decode(String.self, forKey: .message)) ?? ""
-        data = (try? values.decode([SearchResultResponse].self, forKey: .data)) ?? [SearchResultResponse(products: [Product(id: 0, name: "", imageList: [""], category: "", color: 0, otherColorList: [0], price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, function: "", visionMinimum: 0, visionMaximum: 0, searchCount: 0)])]
+        data = (try? values.decode(SearchResultResponse.self, forKey: .data)) ?? SearchResultResponse(products: [Product(id: 0, name: "", imageList: [""], category: "", color: 0, otherColorList: [0], price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, function: "", visionMinimum: 0, visionMaximum: 0, searchCount: 0)])
     }
 }
 
@@ -51,6 +51,8 @@ struct Product: Codable {
     let changeCycle, pieces: Int
     let function: String
     let visionMinimum, visionMaximum, searchCount: Int
+    
+    
 }
 
 // MARK: FIX ME

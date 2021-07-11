@@ -43,7 +43,7 @@ class FilterVC: UIViewController {
     
     
     // MARK: - Local Variables
-    private var searchResultResponse = [SearchResultResponse]()
+    private var searchResultResponse = SearchResultResponse(products: [Product(id: 0, name: "", imageList: [""], category: "", color: 0, otherColorList: [0], price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, function: "", visionMinimum: 0, visionMaximum: 0, searchCount: 0)])
     
     private var lensBrand = [String]()
     private var lensColor = [String]()
@@ -146,8 +146,6 @@ extension FilterVC {
     // MARK: - Filter View
     
     func setCustomView() {
-        view.backgroundColor = .omAlmostwhite
-        
         view.addSubview(colorFilterView)
         view.addSubview(brandFilterView)
         view.addSubview(diameterFilterView)
@@ -404,7 +402,7 @@ extension FilterVC {
             }
             searchVC.modalPresentationStyle = .fullScreen
             searchVC.modalTransitionStyle = .crossDissolve
-            searchVC.resultList = self.searchResultResponse
+            searchVC.resultList = self.searchResultResponse.products
             
             self.navigationController?.pushViewController(searchVC, animated: true)
         }
