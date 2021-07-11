@@ -25,6 +25,10 @@ extension Const {
             static let Tabbar = "Tabbar"
             
             static let SearchResult = "SearchResult"
+            
+            static let Event = "Event"
+            static let Tip = "Tip"
+            static let MyPage = "MyPage"
         }
     }
 }

@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYS-UA-zTa">
-                        <rect key="frame" x="309" y="-4.5" width="46" height="30"/>
+                        <rect key="frame" x="296" y="-4.5" width="46" height="30"/>
                         <state key="normal" title="Button"/>
                     </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xMc-8K-cff">
@@ -53,10 +53,10 @@
                     <constraint firstItem="UYS-UA-zTa" firstAttribute="centerY" secondItem="VTU-2z-0NE" secondAttribute="centerY" id="4Hf-t4-CQC"/>
                     <constraint firstAttribute="trailing" secondItem="xMc-8K-cff" secondAttribute="trailing" constant="12" id="6iP-3E-Dck"/>
                     <constraint firstItem="VTU-2z-0NE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="EUv-EP-wKK"/>
-                    <constraint firstItem="UYS-UA-zTa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="309" id="KzU-C4-5YQ"/>
                     <constraint firstItem="lBF-C3-1fV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MvN-O6-tqH"/>
                     <constraint firstItem="lBF-C3-1fV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="46" id="dUb-Re-kUO"/>
                     <constraint firstItem="xMc-8K-cff" firstAttribute="centerY" secondItem="VTU-2z-0NE" secondAttribute="centerY" id="hNO-6t-HJM"/>
+                    <constraint firstAttribute="trailing" secondItem="UYS-UA-zTa" secondAttribute="trailing" constant="33" id="imd-0A-9C9"/>
                     <constraint firstItem="VTU-2z-0NE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="scN-Wu-VFT"/>
                 </constraints>
             </tableViewCellContentView>

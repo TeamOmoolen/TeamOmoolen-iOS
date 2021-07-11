@@ -80,7 +80,6 @@ extension ColorFilterView {
             LensColorDataModel(image: "btnBluecolor"),
             LensColorDataModel(image: "btnGoldcolor"),
             LensColorDataModel(image: "btnPinkcolor"),
-            LensColorDataModel(image: "btnGlittercolor"),
             LensColorDataModel(image: "btnEtccolor")
         ])
     }
@@ -132,6 +131,7 @@ extension ColorFilterView: UICollectionViewDataSource {
         cell.initCell(image: lensColorList[indexPath.row].image)
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.masksToBounds = true
+        cell.layer.applyShadow(color: .black, alpha: 0.14, x: 2, y: 2, blur: 7, spread: 0)
         return cell
     }
 }
@@ -207,9 +207,6 @@ extension ColorFilterView {
             lensColor.append("핑크")
         }
         if lensColorList.contains([0,10]) {
-            lensColor.append("글리터")
-        }
-        if lensColorList.contains([0,11]) {
             lensColor.append("기타")
         }
         

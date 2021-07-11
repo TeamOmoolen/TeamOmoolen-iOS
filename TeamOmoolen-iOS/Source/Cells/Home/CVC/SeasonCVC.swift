@@ -79,7 +79,7 @@ extension SeasonCVC {
         } else if cycle == 4 {
             cycleData = "2~3Month"
         }
-        lensInfoLabel.text = "\(diameter)mm / \(cycleData)(\(pieces))p"
+        lensInfoLabel.text = "\(diameter)mm / \(cycleData)(\(pieces)p)"
                          
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal

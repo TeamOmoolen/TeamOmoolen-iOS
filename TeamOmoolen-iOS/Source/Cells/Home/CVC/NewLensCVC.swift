@@ -22,7 +22,7 @@ class NewLensCVC: UICollectionViewCell {
     
     // MARK: - Local Variables
     
-    private var newLensList: [NewLensDataModel] = []
+    private var newLensList: [NewLensDetailDataModel] = []
     
     // MARK: - Life Cycle Methods
     
@@ -59,9 +59,9 @@ extension NewLensCVC {
     
     func setList() {
         newLensList.append(contentsOf: [
-            NewLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
-            NewLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
-            NewLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000)
+            NewLensDetailDataModel(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
+            NewLensDetailDataModel(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
+            NewLensDetailDataModel(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000)
         ])
     }
     
