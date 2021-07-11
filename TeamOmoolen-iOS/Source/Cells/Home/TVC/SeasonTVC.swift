@@ -107,7 +107,7 @@ extension SeasonTVC: UICollectionViewDelegate {
 extension SeasonTVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width - 40 - 15) / 2
-        let height = (collectionView.frame.height - 50 - 80) / 3
+        let height = (collectionView.frame.height - 40 - 80) / 3
         return CGSize(width: width, height: height)
     }
     

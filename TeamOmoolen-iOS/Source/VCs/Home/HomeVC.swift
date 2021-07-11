@@ -242,7 +242,7 @@ extension HomeVC: UITableViewDataSource {
             cell.delegate = self
             return cell
         case 3:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier:  SeasonTVC.identifier, for: indexPath) as? SeasonTVC else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:  SituationTVC.identifier, for: indexPath) as? SituationTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
@@ -262,7 +262,7 @@ extension HomeVC: UITableViewDataSource {
             cell.delegate = self
             return cell
         case 6:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier:  SituationTVC.identifier, for: indexPath) as? SituationTVC else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:  SeasonTVC.identifier, for: indexPath) as? SeasonTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none

@@ -174,7 +174,7 @@ class FourthOnboardingVC: UIViewController {
             print("data: \(response.success)")
             if response.success {
                 print("postOnboardingWithAPI: post success")
-                guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {
+                guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Tabbar, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Tabbar) as? TabBarController else {
                     return
                 }
                 homeVC.modalPresentationStyle = .fullScreen
