@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1wi-za-t7V">
-                                <rect key="frame" x="39" y="60.666666666666657" width="316" height="40"/>
+                                <rect key="frame" x="39" y="54" width="316" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="원하는 렌즈를 검색해보세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZJJ-4U-4Nr">
                                         <rect key="frame" x="14" y="3" width="181" height="34"/>
@@ -34,7 +34,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1e-YL-COy">
-                                <rect key="frame" x="7" y="60.666666666666657" width="40" height="40"/>
+                                <rect key="frame" x="7" y="54" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="2Ac-3F-jg9"/>
                                     <constraint firstAttribute="width" secondItem="X1e-YL-COy" secondAttribute="height" multiplier="1:1" id="Cfc-Rt-ZBz"/>
@@ -42,7 +42,7 @@
                                 <state key="normal" image="icBack"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e28-Ef-1UJ">
-                                <rect key="frame" x="0.0" y="100.66666666666669" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="812"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="812" id="Eao-aO-sjE"/>
@@ -60,7 +60,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="e28-Ef-1UJ" secondAttribute="trailing" id="1wn-3q-NzY"/>
-                            <constraint firstItem="1wi-za-t7V" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16.5" id="B3b-zV-fS1"/>
+                            <constraint firstItem="1wi-za-t7V" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="B3b-zV-fS1"/>
                             <constraint firstItem="e28-Ef-1UJ" firstAttribute="top" secondItem="1wi-za-t7V" secondAttribute="bottom" id="OEo-lc-vl9"/>
                             <constraint firstItem="X1e-YL-COy" firstAttribute="centerY" secondItem="1wi-za-t7V" secondAttribute="centerY" id="Rr9-fO-ouT"/>
                             <constraint firstItem="e28-Ef-1UJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="m5X-df-I7G"/>

@@ -105,7 +105,7 @@ class SuggestVC: UIViewController {
     
     func scrollToSuggestTabBarIndex(tabBarIdx: Int){
         let indexPath = NSIndexPath(item: tabBarIdx, section: 0)
-        collectionView.isPagingEnabled = false
+        //collectionView.isPagingEnabled = false
         collectionView.scrollToItem(at: indexPath as IndexPath, at: [], animated: true)
         collectionView.isPagingEnabled = true
     }
@@ -114,7 +114,7 @@ class SuggestVC: UIViewController {
 extension SuggestVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        suggestTabBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 4
+        suggestTabBar.horizontalBarLeftAnchorConstraint?.constant = floor((scrollView.contentOffset.x)/5.2)
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {

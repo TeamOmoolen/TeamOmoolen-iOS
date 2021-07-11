@@ -21,8 +21,11 @@ class SuggestTabBarCVC: UICollectionViewCell {
     
     //MARK: - Functions
     func setUI(){
-        label.font = UIFont(name: "Roboto-Regular", size: 13) 
-        
+        label.font = UIFont(name: "Roboto-Regular", size: 13)
+        label.textColor = .omFourthGray
+        label.center.x = self.contentView.center.x
+        label.center.y = self.contentView.center.y
+
     }
     //MARK: - Overrides
     override var isHighlighted: Bool{
