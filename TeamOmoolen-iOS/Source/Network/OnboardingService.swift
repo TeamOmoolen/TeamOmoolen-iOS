@@ -9,8 +9,6 @@ import Foundation
 import Moya
 
 enum OnboardingService {
-//    static let key = "4803d10b09913b29b376e511c75a63fb"
-    
     case onboarding(param: OnboardingRequest)
     case home
 }
@@ -23,7 +21,7 @@ extension OnboardingService: TargetType {
     public var path: String {
         switch self {
         case .onboarding:
-            return "/api/onboarding"
+            return "/api/saveOnBoardingData"
         case .home:
             return "/api/home"
         }

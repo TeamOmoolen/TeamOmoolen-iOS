@@ -52,8 +52,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      
     // background 에 앱이 내려가 있는 경우 사용중단 분기처리
     func applicationDidBecomeActive(_ application: UIApplication) {
+        let userIdentifier = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
+        
         let appleIDProvider = ASAuthorizationAppleIDProvider()
-        appleIDProvider.getCredentialState(forUserID: "001628.1f39bf3727b44f1f8a6615166ae3b718.0924") { (credentialState, error) in
+        appleIDProvider.getCredentialState(forUserID: userIdentifier) { (credentialState, error) in
             switch credentialState {
             case .revoked:
                 // Apple ID 사용 중단 경우.
