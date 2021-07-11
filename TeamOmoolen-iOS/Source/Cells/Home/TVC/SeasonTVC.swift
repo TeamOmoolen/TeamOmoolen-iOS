@@ -23,6 +23,7 @@ class SeasonTVC: UITableViewCell {
     
     private var seasonList: [RecommendLensDataModel] = []
     var delegate: ViewModalProtocol?
+    var tagDelegate: PassTagProtocol?
     
     // MARK: - Life Cycle Methods
     
@@ -49,20 +50,15 @@ extension SeasonTVC {
         seasonLabel.text = "여름에 끼기 좋은 렌즈"
         seasonLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpMore(_:)))
+        
         moreButton.setTitle("더보기", for: .normal)
         moreButton.tintColor = .omFourthGray
-        
-        let moreAction = UIAction {_ in
-            guard let suggestVC = UIStoryboard(name: Const.Storyboard.Name.Suggest, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Suggest) as? SuggestVC else {
-                return
-            }
-            suggestVC.modalPresentationStyle = .fullScreen
-            suggestVC.modalTransitionStyle = .crossDissolve
-            self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
-        }
-        moreButton.addAction(moreAction, for: .touchUpInside)
+        moreButton.addTarget(self, action: #selector(touchUpMore(_:)), for: .touchUpInside)
         
         moreImageView.image = UIImage(named: "icFront")
+        moreImageView.addGestureRecognizer(tapGesture)
+        moreImageView.isUserInteractionEnabled = true
     }
     
     func setList() {
@@ -93,6 +89,23 @@ extension SeasonTVC {
     }
 }
 
+// MARK: - Action Methods
+
+extension SeasonTVC {
+    @objc
+    func touchUpMore(_ sender: UITapGestureRecognizer) {
+        guard let suggestVC = UIStoryboard(name: Const.Storyboard.Name.Suggest, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Suggest) as? SuggestVC else {
+            return
+        }
+        suggestVC.modalPresentationStyle = .fullScreen
+        suggestVC.modalTransitionStyle = .crossDissolve
+        suggestVC.passTag(tag: 4)
+        delegate?.suggestViewModalDelegate(dvc: suggestVC)
+    }
+}
+
+// MARK: - UICollectionView Delegate
+
 extension SeasonTVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let detailVC = UIStoryboard(name: Const.Storyboard.Name.Detail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Detail) as? DetailVC else {
@@ -103,6 +116,8 @@ extension SeasonTVC: UICollectionViewDelegate {
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
+
+// MARK: - UICollectionView DelegateFlowLayout
 
 extension SeasonTVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -45,20 +45,15 @@ extension NewLensTVC {
         newLensLabel.text = "요즘 뜨는 신상 렌즈"
         newLensLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpMore(_:)))
+        
         moreButton.setTitle("더보기", for: .normal)
         moreButton.tintColor = .omFourthGray
-        
-        let moreAction = UIAction {_ in
-            guard let suggestVC = UIStoryboard(name: Const.Storyboard.Name.Suggest, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Suggest) as? SuggestVC else {
-                return
-            }
-            suggestVC.modalPresentationStyle = .fullScreen
-            suggestVC.modalTransitionStyle = .crossDissolve
-            self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
-        }
-        moreButton.addAction(moreAction, for: .touchUpInside)
+        moreButton.addTarget(self, action: #selector(touchUpMore(_:)), for: .touchUpInside)
         
         moreImageView.image = UIImage(named: "icFront")
+        moreImageView.addGestureRecognizer(tapGesture)
+        moreImageView.isUserInteractionEnabled = true
     }
     
     func initCell() {
@@ -77,6 +72,23 @@ extension NewLensTVC {
         newLensCollectionView.showsHorizontalScrollIndicator = false
     }
 }
+
+// MARK: - Action Methods
+
+extension NewLensTVC {
+    @objc
+    func touchUpMore(_ sender: UITapGestureRecognizer) {
+        guard let suggestVC = UIStoryboard(name: Const.Storyboard.Name.Suggest, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Suggest) as? SuggestVC else {
+            return
+        }
+        suggestVC.modalPresentationStyle = .fullScreen
+        suggestVC.modalTransitionStyle = .crossDissolve
+        suggestVC.passTag(tag: 3)
+        self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
+    }
+}
+
+// MARK: - UICollectionView DelegateFlowLayout
 
 extension NewLensTVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -97,6 +109,8 @@ extension NewLensTVC: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
     }
 }
+
+// MARK: - UICollectionView DataSource
 
 extension NewLensTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -46,20 +46,15 @@ extension OneMinTVC {
         guideLabel.text = "오무렌과 함께하는 1분 렌즈 상식"
         guideLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpMore(_:)))
+        
         moreButton.setTitle("더보기", for: .normal)
         moreButton.tintColor = .omFourthGray
-        
-        let moreAction = UIAction {_ in
-            guard let suggestVC = UIStoryboard(name: Const.Storyboard.Name.Suggest, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Suggest) as? SuggestVC else {
-                return
-            }
-            suggestVC.modalPresentationStyle = .fullScreen
-            suggestVC.modalTransitionStyle = .crossDissolve
-            self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
-        }
-        moreButton.addAction(moreAction, for: .touchUpInside)
+        moreButton.addTarget(self, action: #selector(touchUpMore(_:)), for: .touchUpInside)
         
         moreImageView.image = UIImage(named: "icFront")
+        moreImageView.addGestureRecognizer(tapGesture)
+        moreImageView.isUserInteractionEnabled = true
     }
     
     func initCell(title: String, oneMinDetailData: [OneMinDetailDataModel]) {
@@ -87,6 +82,16 @@ extension OneMinTVC {
     }
 }
 
+// MARK: - Action Methods
+
+extension OneMinTVC {
+    @objc
+    func touchUpMore(_ sender: UITapGestureRecognizer) {
+        
+    }
+}
+
+// MARK: - UICollectionView DelegateFlowLayout
 
 extension OneMinTVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -105,6 +110,8 @@ extension OneMinTVC: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 }
+
+// MARK: - UICollectionView DataSource
 
 extension OneMinTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

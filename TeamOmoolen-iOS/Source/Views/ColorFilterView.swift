@@ -45,7 +45,6 @@ class ColorFilterView: UIView {
         self.addSubview(customView)
         
         setUI()
-        setButton()
         setList()
         registerXib()
         setCollectionView()
@@ -64,8 +63,12 @@ extension ColorFilterView {
         selectButton.setTitle("전체선택", for: .normal)
         selectButton.tintColor = .omFourthGray
         selectButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
+        selectButton.addTarget(self, action: #selector(touchUpAllSelect(_:)), for: .touchUpInside)
         
         selectImage.image = UIImage(named: "icFilterNormal")
+        selectImage.isUserInteractionEnabled = true
+        let selectGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpAllSelect(_:)))
+        selectImage.addGestureRecognizer(selectGesture)
     }
     
     func setList() {
@@ -99,21 +102,19 @@ extension ColorFilterView {
 // MARK: - Action Methods
 
 extension ColorFilterView {
-    func setButton() {
-        let allSelectAction = UIAction { _ in
-            if !self.isAllSelected {
-                self.isAllSelected = true
-                self.selectButton.tintColor = .omMainOrange
-                self.selectImage.image = UIImage(named: "icFilterPressed")
-                self.colorCollectionView.selectAll(animated: true)
-            } else {
-                self.isAllSelected = false
-                self.selectButton.tintColor = .omFourthGray
-                self.selectImage.image = UIImage(named: "icFilterNormal")
-                self.colorCollectionView.deselectAll(animated: true)
-            }
+    @objc
+    func touchUpAllSelect(_ sender: UITapGestureRecognizer) {
+        if !self.isAllSelected {
+            self.isAllSelected = true
+            self.selectButton.tintColor = .omMainOrange
+            self.selectImage.image = UIImage(named: "icFilterPressed")
+            self.colorCollectionView.selectAll(animated: true)
+        } else {
+            self.isAllSelected = false
+            self.selectButton.tintColor = .omFourthGray
+            self.selectImage.image = UIImage(named: "icFilterNormal")
+            self.colorCollectionView.deselectAll(animated: true)
         }
-        selectButton.addAction(allSelectAction, for: .touchUpInside)
     }
 }
 

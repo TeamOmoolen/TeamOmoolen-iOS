@@ -142,6 +142,7 @@ extension HomeVC {
 }
 
 // MARK: - Action Methods
+
 extension HomeVC {
     @objc
     func touchUpTop() {
