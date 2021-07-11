@@ -838,14 +838,12 @@
 		F83BA034268C48A900E94E74 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				F8F835A5269AD25D00C17053 /* Search */,
+				F83CD800269B1B1700E0E127 /* Home */,
 				F885CB912698411100835B11 /* Onboarding */,
+				F8F835A5269AD25D00C17053 /* Search */,
 				F83BA029268C476C00E94E74 /* LaunchScreen.storyboard */,
 				F83BA024268C476B00E94E74 /* Login.storyboard */,
-				E8C9A42726908CF900E5BD9D /* Search.storyboard */,
-				F86F7AC726900A2F0037081D /* Home.storyboard */,
 				F86F7AC9269068960037081D /* Splash.storyboard */,
-				92A889DA2692FD4D00AC1B81 /* Tabbar.storyboard */,
 				92BC7DEB269641A10088E4EE /* Detail.storyboard */,
 				E8AF80202698410100D76A21 /* Suggest.storyboard */,
 				E8AF8032269842B100D76A21 /* ForYou.storyboard */,
@@ -982,6 +980,15 @@
 				F83BA069268C7DEF00E94E74 /* LensColorCVC.xib */,
 			);
 			path = SecondOnboarding;
+			sourceTree = "<group>";
+		};
+		F83CD800269B1B1700E0E127 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F86F7AC726900A2F0037081D /* Home.storyboard */,
+				92A889DA2692FD4D00AC1B81 /* Tabbar.storyboard */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		F8514793269366AC00C8532F /* Home */ = {
@@ -1147,10 +1154,11 @@
 		F8F835A5269AD25D00C17053 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				F85147A42696EA1D00C8532F /* SearchResult.storyboard */,
 				F82975BA269AE2590025CA64 /* SortPanModal.storyboard */,
-				92BC7DE72695D9230088E4EE /* RecentSearchVC.storyboard */,
 				92BC7DE92695DB1B0088E4EE /* FIlterVC.storyboard */,
+				92BC7DE72695D9230088E4EE /* RecentSearchVC.storyboard */,
+				E8C9A42726908CF900E5BD9D /* Search.storyboard */,
+				F85147A42696EA1D00C8532F /* SearchResult.storyboard */,
 			);
 			path = Search;
 			sourceTree = "<group>";
