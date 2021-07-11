@@ -82,15 +82,15 @@ class SearchResultVC: UIViewController {
     @objc
     func setPriceLowOrder() {
         print("setPriceLowOrder()")
-        resultCollectionView.reloadData()
         resultList.sort(by: {$0.price < $1.price})
+        resultCollectionView.reloadData()
     }
     
     @objc
     func setPriceHighOrder() {
         print("setPriceHighOrder")
-        resultCollectionView.reloadData()
         resultList.sort(by: {$0.price > $1.price})
+        resultCollectionView.reloadData()
     }
 }
 

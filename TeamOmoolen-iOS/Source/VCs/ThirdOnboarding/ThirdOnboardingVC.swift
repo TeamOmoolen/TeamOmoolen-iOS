@@ -63,28 +63,22 @@ class ThirdOnboardingVC: UIViewController {
         }
         
         if timeCollectionView.indexPathsForSelectedItems! == [[0,0]] {
-            print(timeCollectionView.indexPathsForSelectedItems!)
             lensPeriod = "원데이"
         } else if timeCollectionView.indexPathsForSelectedItems! == [[0,1]] {
-            print(timeCollectionView.indexPathsForSelectedItems!)
-            lensPeriod = "1주"
+            lensPeriod = "2~6 days"
         } else if timeCollectionView.indexPathsForSelectedItems! == [[0,2]] {
-            print(timeCollectionView.indexPathsForSelectedItems!)
-            lensPeriod = "2주"
+            lensPeriod = "1 week"
         } else if timeCollectionView.indexPathsForSelectedItems! == [[0,3]] {
-            print(timeCollectionView.indexPathsForSelectedItems!)
-            lensPeriod = "1개월"
+            lensPeriod = "2 weeks"
         } else if timeCollectionView.indexPathsForSelectedItems! == [[0,4]] {
-            print(timeCollectionView.indexPathsForSelectedItems!)
-            lensPeriod = "2~3개월"
+            lensPeriod = "1 month"
         } else if timeCollectionView.indexPathsForSelectedItems! == [[0,5]] {
-            print(timeCollectionView.indexPathsForSelectedItems!)
-            lensPeriod = "3~6개월"
+            lensPeriod = "2~3 months"
         } else if timeCollectionView.indexPathsForSelectedItems! == [[0,6]] {
-            print(timeCollectionView.indexPathsForSelectedItems!)
-            lensPeriod = "6개월 이상"
+            lensPeriod = "4~6 months"
+        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,7]] {
+            lensPeriod = "6 months +"
         } else {
-            print(timeCollectionView.indexPathsForSelectedItems!)
             lensPeriod = "없음"
         }
 
@@ -214,7 +208,7 @@ class ThirdOnboardingVC: UIViewController {
     }
     
     func setTimeList() {
-        timeList.append(contentsOf: [TimeDataModel(timeType: "원데이"), TimeDataModel(timeType: "1주"), TimeDataModel(timeType: "2주"),TimeDataModel(timeType:"1개월"), TimeDataModel(timeType:"2~3개월"), TimeDataModel(timeType: "3~6개월"), TimeDataModel(timeType:"6개월 이상"), TimeDataModel(timeType: "없음")
+        timeList.append(contentsOf: [TimeDataModel(timeType: "원데이"), TimeDataModel(timeType: "2~6 days"), TimeDataModel(timeType: "1 week"),TimeDataModel(timeType:"2 weeks"), TimeDataModel(timeType:"1 month"), TimeDataModel(timeType: "2~3 months"), TimeDataModel(timeType:"4~6  months"), TimeDataModel(timeType: "6 months + "), TimeDataModel(timeType: "없음")
         ])
         
     }
