@@ -16,8 +16,14 @@ class SuggestTabBarCVC: UICollectionViewCell {
     //MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        setUI()
     }
     
+    //MARK: - Functions
+    func setUI(){
+        label.font = UIFont(name: "Roboto-Regular", size: 13) 
+        
+    }
     //MARK: - Overrides
     override var isHighlighted: Bool{
         didSet{

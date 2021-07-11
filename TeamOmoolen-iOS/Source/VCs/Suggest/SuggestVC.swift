@@ -86,9 +86,9 @@ class SuggestVC: UIViewController {
     private func setUpTabBar(){
         view.addSubview(suggestTabBar)
         
-        view.addConstraintsWithFormat(format: "H:|-20-[v0]-10-|", views: suggestTabBar)
+        view.addConstraintsWithFormat(format: "H:|-20-[v0]-70-|", views: suggestTabBar)
 
-        view.addConstraintsWithFormat(format: "V:|-120-[v0(53)]", views: suggestTabBar)
+        view.addConstraintsWithFormat(format: "V:|-122-[v0(45)]", views: suggestTabBar)
     }
     
     func registerXib() {

@@ -15,18 +15,78 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yc7-Mq-rnK">
+                                <rect key="frame" x="0.0" y="114" width="414" height="1"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="0Cf-Ez-acs"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5VU-zW-KMT">
+                                <rect key="frame" x="0.0" y="115" width="414" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Mz-vJ-2XQ">
+                                        <rect key="frame" x="16" y="5" width="290" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="AIb-J5-NPu"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0NV-51-GfA">
+                                <rect key="frame" x="0.0" y="145" width="414" height="3"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="Ki1-HO-PBA"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KxA-Af-FrQ">
+                                <rect key="frame" x="367" y="156" width="38" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0NV-51-GfA" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="5f4-NW-C1h"/>
+                            <constraint firstItem="5VU-zW-KMT" firstAttribute="top" secondItem="Yc7-Mq-rnK" secondAttribute="bottom" id="8sq-Ff-0iF"/>
+                            <constraint firstItem="0NV-51-GfA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="JJ3-Eu-1us"/>
+                            <constraint firstItem="Yc7-Mq-rnK" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="70" id="Tki-Pb-4O0"/>
+                            <constraint firstItem="0NV-51-GfA" firstAttribute="top" secondItem="5VU-zW-KMT" secondAttribute="bottom" id="Vnb-Vm-AiA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Yc7-Mq-rnK" secondAttribute="trailing" id="bzZ-xJ-aCM"/>
+                            <constraint firstItem="5VU-zW-KMT" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="erG-8u-anx"/>
+                            <constraint firstItem="Yc7-Mq-rnK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="oVi-Zs-fj5"/>
+                            <constraint firstItem="5VU-zW-KMT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="wZ2-eZ-AJu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="popUpBottom" destination="0NV-51-GfA" id="Dcw-YU-FAB"/>
+                        <outlet property="popUpLabel" destination="8Mz-vJ-2XQ" id="Mpa-Oe-4cl"/>
+                        <outlet property="popUpMiddle" destination="5VU-zW-KMT" id="VWe-QC-Mci"/>
+                        <outlet property="popUpTop" destination="Yc7-Mq-rnK" id="6Kn-iv-Nm3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="42"/>
+            <point key="canvasLocation" x="50.724637681159422" y="41.517857142857139"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

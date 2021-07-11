@@ -26,15 +26,15 @@ extension Const {
             static let Suggest = "SuggestVC"
             static let ForYou = "ForYouVC"
             static let Situation = "SituationVC"
-            static let Season = "Season"
+            static let Season = "SeasonVC"
             
             static let Tabbar = "TabBarController"
             
             static let SearchResult = "SearchResultVC"
             
-            static let Event = "Event"
-            static let Tip = "Tip"
-            static let MyPage = "MyPage"
+            static let Event = "EventVC"
+            static let Tip = "TipVC"
+            static let MyPage = "MyPageVC"
         }
     }
 }
