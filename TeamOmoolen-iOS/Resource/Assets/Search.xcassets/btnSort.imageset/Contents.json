@@ -1,19 +1,19 @@
 {
   "images" : [
     {
+      "filename" : "btnSort.png",
       "idiom" : "universal",
-      "filename" : "imgFemaleOnboardingPressed.png",
       "scale" : "1x"
     },
     {
-      "scale" : "2x",
       "idiom" : "universal",
-      "filename" : "imgFemaleOnboardingPressed@2x.png"
+      "filename" : "btnSort@2x.png",
+      "scale" : "2x"
     },
     {
-      "scale" : "3x",
+      "filename" : "btnSort@3x.png",
       "idiom" : "universal",
-      "filename" : "imgFemaleOnboardingPressed@3x.png"
+      "scale" : "3x"
     }
   ],
   "info" : {
