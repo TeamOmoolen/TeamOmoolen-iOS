@@ -24,6 +24,8 @@ class NewLensCVC: UICollectionViewCell {
     
     private var newLensList: [NewLensDataModel] = []
     
+    // MARK: - Life Cycle Methods
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -91,6 +93,15 @@ extension NewLensCVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height = tableView.frame.height / 3
         return height
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailVC = UIStoryboard(name: Const.Storyboard.Name.Detail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Detail) as? DetailVC else {
+            return
+        }
+        detailVC.modalPresentationStyle = .fullScreen
+        detailVC.modalTransitionStyle = .crossDissolve
+        
     }
 }
 

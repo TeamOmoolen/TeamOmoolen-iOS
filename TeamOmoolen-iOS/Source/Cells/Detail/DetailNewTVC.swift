@@ -19,7 +19,10 @@ class DetailNewTVC: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // MARK: - Local Variables
+    
     private var recommendList: [RecommendLensDataModel] = []
+    var delegate: ViewModalProtocol?
     
     // MARK: - Life Cycle Methods
     
@@ -38,6 +41,8 @@ class DetailNewTVC: UITableViewCell {
     
 }
 
+// MARK: - Custom Methods
+
 extension DetailNewTVC {
     func setUI() {
         dividerView.backgroundColor = .omAlmostwhite
@@ -48,16 +53,19 @@ extension DetailNewTVC {
         guideLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         
         moreImageView.image = UIImage(named: "icFrontBlack")
+        
+        let moreTapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpMore(_:)))
+        moreImageView.addGestureRecognizer(moreTapGesture)
     }
     
     func setList() {
         recommendList.append(contentsOf: [
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: [11111]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: [11111]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: [11111]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: [11111]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: [11111]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: [11111])
+            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: [111111]),
+            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: [111111]),
+            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: [111111]),
+            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: [111111]),
+            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: [111111]),
+            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: [111111])
         ])
     }
     
@@ -69,8 +77,40 @@ extension DetailNewTVC {
     func setCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        collectionView.showsHorizontalScrollIndicator = false
     }
 }
+
+// MARK: - Action Methods
+
+extension DetailNewTVC {
+    @objc
+    func touchUpMore(_ sender: UITapGestureRecognizer) {
+        print("clicked")
+        guard let suggestVC = UIStoryboard(name: Const.Storyboard.Name.Suggest, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Suggest) as? SuggestVC else {
+            return
+        }
+        suggestVC.modalPresentationStyle = .fullScreen
+        suggestVC.modalTransitionStyle = .crossDissolve
+        self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
+    }
+}
+
+// MARK: - UICollectionView Delegate
+
+extension DetailNewTVC: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let detailVC = UIStoryboard(name: Const.Storyboard.Name.Detail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Detail) as? DetailVC else {
+            return
+        }
+        detailVC.modalPresentationStyle = .fullScreen
+        detailVC.modalTransitionStyle = .crossDissolve
+        delegate?.detailViewModalDelegate(dvc: detailVC)
+    }
+}
+
+// MARK: - UICollectionView DelegateFlowLayout
 
 extension DetailNewTVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -81,6 +121,8 @@ extension DetailNewTVC: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
     }
 }
+
+// MARK: - UICollectionView DataSource
 
 extension DetailNewTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

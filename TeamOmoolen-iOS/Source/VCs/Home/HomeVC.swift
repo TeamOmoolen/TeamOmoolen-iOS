@@ -25,10 +25,6 @@ class HomeVC: UIViewController {
     private lazy var topButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "icTop"), for: .normal)
-        button.setPreferredSymbolConfiguration(.init(pointSize: 20,
-                                                     weight: .light,
-                                                     scale: .large),
-                                               forImageIn: .normal)
         button.addTarget(self, action: #selector(touchUpTop), for: .touchUpInside)
         return button
     }()
@@ -38,6 +34,16 @@ class HomeVC: UIViewController {
     private var homeList = HomeResponse(username: "", findRecomendationByUser: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], guides: [Guide(id: 0, question: "", answer: "")], season: "", recommendationBySeason: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], deadlineEvent: [Event(id: 0, title: "", content: "", image: "")], newLens: NewLens(brand1: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], brand2: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], brand3: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])]) , situation: "", recommendationBySituation: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], lastestEvent: [Event(id: 0, title: "", content: "", image: "")])
     
     // MARK: - View Life Cycle Methods
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        setNavigationController()
+        setTabbarController()
+        
+        searchIcon.isHidden = false
+        searchLabel.isHidden = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +121,7 @@ extension HomeVC {
         homeTableView.dataSource = self
         
         homeTableView.separatorStyle = .none
+        homeTableView.allowsSelection = false
     }
     
 //    func getHomeWithAPI() {
@@ -125,6 +132,10 @@ extension HomeVC {
     
     func setNavigationController() {
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    func setTabbarController() {
+        self.tabBarController?.tabBar.isHidden = false
     }
 }
 
@@ -221,18 +232,21 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.delegate = self
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  OneMinTVC.identifier, for: indexPath) as? OneMinTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.delegate = self
             return cell
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  SeasonTVC.identifier, for: indexPath) as? SeasonTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.delegate = self
             return cell
         case 4:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  MiddleBannerTVC.identifier, for: indexPath) as? MiddleBannerTVC else {
@@ -245,12 +259,14 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.delegate = self
             return cell
         case 6:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  SituationTVC.identifier, for: indexPath) as? SituationTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.delegate = self
             return cell
         case 7:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  LastBannerTVC.identifier, for: indexPath) as? LastBannerTVC else {
@@ -261,5 +277,17 @@ extension HomeVC: UITableViewDataSource {
         default:
             return UITableViewCell()
         }
+    }
+}
+
+// MARK: - Protocol
+
+extension HomeVC: ViewModalProtocol {
+    func detailViewModalDelegate(dvc: DetailVC) {
+        navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+    func suggestViewModalDelegate(dvc: SuggestVC) {
+        navigationController?.pushViewController(dvc, animated: true)
     }
 }

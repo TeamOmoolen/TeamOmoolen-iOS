@@ -54,6 +54,15 @@ class SearchVC: UIViewController {
         NotificationCenter.default.post(name: NSNotification.Name("search"), object: searchTextField.text)
     }
     
+    @IBAction func touchUpBackButton(_ sender: Any) {
+        guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {
+            return
+        }
+        homeVC.modalPresentationStyle = .fullScreen
+        homeVC.modalTransitionStyle = .crossDissolve
+        navigationController?.popViewController(animated: true)
+    }
+    
     
     //MARK: - Methods
     private func setUpTabBar(){

@@ -53,6 +53,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8S-5U-p4n">
                                 <rect key="frame" x="7" y="54" width="40" height="40"/>
                                 <state key="normal" image="icBack"/>
+                                <connections>
+                                    <action selector="touchUpBackButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7qr-Ab-Kcl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>

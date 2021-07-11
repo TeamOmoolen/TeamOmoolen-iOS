@@ -19,6 +19,10 @@ class NewLensDetailTVC: UITableViewCell {
     @IBOutlet weak var lensNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
+    // MARK: - Local Variables
+    
+    var delegate: ViewModalProtocol?
+    
     // MARK: - Life Cycle Methods
     
     override func awakeFromNib() {

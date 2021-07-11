@@ -10,6 +10,11 @@ import UIKit
 class ColorListCVC: UICollectionViewCell {
     static let identifier = "ColorListCVC"
     
+    // MARK: - Local Variables
+    private var hexColor = ""
+    
+    // MARK: - Life Cycle Methods
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -26,7 +31,10 @@ extension ColorListCVC {
         contentView.layer.masksToBounds = true
     }
     
-    func initCell(color: String) {
-        contentView.backgroundColor = UIColor.init(named: color)
+    func initCell(color: Int) {
+        hexColor = "#\(color)"
+        contentView.layer.backgroundColor = UIColor(hex: hexColor).cgColor
     }
 }
+
+

@@ -62,13 +62,27 @@ extension SeasonCVC {
     }
     
     func initCell(brandName: String, lensName: String, diameter: Double, cycle: Int, pieces: Int, price: Int, colorList: [Int]) {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        
         brandNameLabel.text = brandName
         lensNameLabel.text = lensName
-        lensInfoLabel.text = "\(diameter)mm / \(cycle)Day(\(pieces)p)"
+        
+        // MARK: - FIX ME : 주기 분기 처리
+        
+        var cycleData = ""
+        if cycle == 0 {
+            cycleData = "1Day"
+        } else if cycle == 1 {
+            cycleData = "1Week"
+        } else if cycle == 2 {
+            cycleData = "2Week"
+        } else if cycle == 3 {
+            cycleData = "1Month"
+        } else if cycle == 4 {
+            cycleData = "2~3Month"
+        }
+        lensInfoLabel.text = "\(diameter)mm / \(cycleData)(\(pieces))p"
                          
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
         priceLabel.text = "\(formatter.string(from: NSNumber(value: price))!)원"
         
         self.colorList = colorList
@@ -101,15 +115,14 @@ extension SeasonCVC: UICollectionViewDelegateFlowLayout {
 
 extension SeasonCVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return colorList.count
-        return 4
+        return colorList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorListCVC.identifier, for: indexPath) as? ColorListCVC else {
             return UICollectionViewCell()
         }
-//        cell.initCell(color: colorList[indexPath.row])
+        cell.initCell(color: colorList[indexPath.row])
         return cell
     }
 }
