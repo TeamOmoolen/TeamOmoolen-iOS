@@ -20,8 +20,8 @@ class SearchAPI {
             case .success(let result):
                 do {
                     let results = try JSONDecoder().decode(SearchResultDataModel.self, from: result.data)
-                    print(results.message)
-                    completion(results.data)
+                    print("getSearchFilterResult: \(results.message)")
+                    completion(results.data!)
                 } catch let err {
                     print("JSONDecode: \(err.localizedDescription)")
                     debugPrint(err)
@@ -37,8 +37,11 @@ class SearchAPI {
             case .success(let result):
                 do {
                     let results = try JSONDecoder().decode(PopularDataModel.self, from: result.data)
-                    print(results.message)
-                    completion(results.data)
+                    print("getPopularSearch: \(results.message)")
+                    guard let data = results.data else {
+                        return
+                    }
+                    completion(data)
                 } catch let err {
                     print("JSONDecode: \(err.localizedDescription)")
                     debugPrint(err)
