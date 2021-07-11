@@ -14,7 +14,7 @@ class SearchAPI {
 
     
     // get data
-    func getSearchFilterResult(param: SearchFilterRequest, completion: @escaping ([SearchResultResponse]) -> ()) {
+    func getSearchFilterResult(param: SearchFilterRequest, completion: @escaping (SearchResultResponse) -> ()) {
         SearchAPI.provider.request(.searchFilter(param: param)) { response in
             switch response {
             case .success(let result):

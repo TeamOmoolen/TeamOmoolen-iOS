@@ -9,7 +9,6 @@ import Foundation
 import Moya
 
 enum SearchService {
-    case searchResult
     case searchWindow
     
     case searchFilter(param: SearchFilterRequest)
@@ -22,8 +21,6 @@ extension SearchService: TargetType {
     
     var path: String {
         switch self {
-        case .searchResult:
-            return "/api/searchResult"
         case .searchWindow:
             return "/api/searchWindow"
         case .searchFilter:
@@ -34,8 +31,6 @@ extension SearchService: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .searchResult:
-            return .get
         case .searchWindow:
             return .get
         case .searchFilter:
@@ -49,8 +44,6 @@ extension SearchService: TargetType {
     
     var task: Task {
         switch self {
-        case .searchResult:
-            return .requestPlain
         case .searchWindow:
             return .requestPlain
         case .searchFilter(let searchFilterReques):
