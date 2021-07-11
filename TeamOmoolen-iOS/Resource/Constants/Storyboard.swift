@@ -10,6 +10,8 @@ import Foundation
 extension Const {
     struct Storyboard {
         struct Name {
+            
+            //onboarding
             static let FirstOnboarding = "FirstOnboarding"
             static let SecondOnboarding = "SecondOnboarding"
             static let ThirdOnboarding = "ThirdOnboarding"
@@ -24,7 +26,9 @@ extension Const {
             
             static let Tabbar = "Tabbar"
             
+            // search
             static let SearchResult = "SearchResult"
+            static let SortPanModal = "SortPanModal"
         }
     }
 }

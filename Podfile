@@ -7,7 +7,7 @@ target 'TeamOmoolen-iOS' do
 pod 'Moya', '~> 14.0'
 pod 'SnapKit', '~> 5.0.0'
 pod 'Kingfisher'
-
+pod 'PanModal'
   # Pods for TeamOmoolen-iOS
 pod 'RealmSwift'
 
