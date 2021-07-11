@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uwf-c7-5fA">
-                                <rect key="frame" x="0.0" y="168" width="414" height="694"/>
+                                <rect key="frame" x="0.0" y="170" width="414" height="692"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9VZ-nr-Ie2">
@@ -67,21 +67,32 @@
                                     <constraint firstItem="6kh-rT-Suh" firstAttribute="top" secondItem="9VZ-nr-Ie2" secondAttribute="top" constant="25" id="g3j-Cf-2jQ"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHP-ya-Q2n">
+                                <rect key="frame" x="0.0" y="168" width="414" height="2"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="ip0-9M-alM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="FHP-ya-Q2n" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="0R2-ca-FJ9"/>
+                            <constraint firstAttribute="trailing" secondItem="FHP-ya-Q2n" secondAttribute="trailing" id="1Wm-j6-8Hy"/>
                             <constraint firstItem="9VZ-nr-Ie2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="7jN-CD-5qm"/>
-                            <constraint firstItem="uwf-c7-5fA" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="ONw-3I-VaR"/>
-                            <constraint firstItem="uwf-c7-5fA" firstAttribute="top" secondItem="9VZ-nr-Ie2" secondAttribute="bottom" id="QBe-XG-lL5"/>
+                            <constraint firstItem="uwf-c7-5fA" firstAttribute="top" secondItem="FHP-ya-Q2n" secondAttribute="bottom" id="BWO-i4-X93"/>
+                            <constraint firstItem="uwf-c7-5fA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="NO7-yb-PpG"/>
                             <constraint firstItem="9VZ-nr-Ie2" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="QMb-f0-YqG"/>
-                            <constraint firstItem="uwf-c7-5fA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ZMF-PH-mBE"/>
+                            <constraint firstItem="FHP-ya-Q2n" firstAttribute="top" secondItem="9VZ-nr-Ie2" secondAttribute="bottom" id="TOl-Ht-iDs"/>
+                            <constraint firstItem="uwf-c7-5fA" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="UvX-qr-A3R"/>
                             <constraint firstItem="9VZ-nr-Ie2" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="hNb-kF-0Dd"/>
-                            <constraint firstItem="uwf-c7-5fA" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="xqb-w7-S1w"/>
+                            <constraint firstItem="uwf-c7-5fA" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="xRW-UX-MlK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Sbh-of-Ayl"/>
                     <connections>
+                        <outlet property="dividerView" destination="FHP-ya-Q2n" id="DXg-dy-Jw8"/>
                         <outlet property="homeHeaderView" destination="9VZ-nr-Ie2" id="Vxi-Ge-sYv"/>
                         <outlet property="homeTableView" destination="uwf-c7-5fA" id="A0Q-FI-ISp"/>
                         <outlet property="logoImageView" destination="6kh-rT-Suh" id="4gQ-7f-O5k"/>

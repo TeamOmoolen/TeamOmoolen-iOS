@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dO-bc-aK1">
-                        <rect key="frame" x="309" y="65.5" width="46" height="30"/>
+                        <rect key="frame" x="296" y="65.5" width="46" height="30"/>
                         <state key="normal" title="Button"/>
                     </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-92-d2h">
@@ -49,13 +49,13 @@
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="1dO-bc-aK1" secondAttribute="trailing" constant="33" id="15Q-dS-OSB"/>
                     <constraint firstItem="1dO-bc-aK1" firstAttribute="centerY" secondItem="fM3-WO-NN8" secondAttribute="centerY" id="9NW-gb-1DU"/>
                     <constraint firstAttribute="trailing" secondItem="rMW-92-d2h" secondAttribute="trailing" id="FEx-ON-uH5"/>
                     <constraint firstItem="rMW-92-d2h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rd4-b7-NXw"/>
                     <constraint firstItem="rMW-92-d2h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="117" id="VEm-hN-wSZ"/>
                     <constraint firstItem="iWt-YA-P2V" firstAttribute="centerY" secondItem="fM3-WO-NN8" secondAttribute="centerY" id="XCx-tO-BCw"/>
                     <constraint firstItem="fM3-WO-NN8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="hfb-8A-TM7"/>
-                    <constraint firstItem="1dO-bc-aK1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="309" id="jQD-xy-Evd"/>
                     <constraint firstAttribute="trailing" secondItem="iWt-YA-P2V" secondAttribute="trailing" constant="12" id="v5F-2C-SDi"/>
                     <constraint firstItem="fM3-WO-NN8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="70" id="xaE-4p-afW"/>
                 </constraints>

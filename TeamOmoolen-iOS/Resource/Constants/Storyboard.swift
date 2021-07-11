@@ -29,6 +29,10 @@ extension Const {
             // search
             static let SearchResult = "SearchResult"
             static let SortPanModal = "SortPanModal"
+            
+            static let Event = "Event"
+            static let Tip = "Tip"
+            static let MyPage = "MyPage"
         }
     }
 }

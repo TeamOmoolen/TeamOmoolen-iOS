@@ -87,7 +87,6 @@ extension DetailNewTVC {
 extension DetailNewTVC {
     @objc
     func touchUpMore(_ sender: UITapGestureRecognizer) {
-        print("clicked")
         guard let suggestVC = UIStoryboard(name: Const.Storyboard.Name.Suggest, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Suggest) as? SuggestVC else {
             return
         }

@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzL-3U-19k">
-                        <rect key="frame" x="309" y="53.5" width="46" height="30"/>
+                        <rect key="frame" x="296" y="53.5" width="46" height="30"/>
                         <state key="normal" title="Button"/>
                     </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="oWs-B5-Ce9">
@@ -62,9 +62,9 @@
                     <constraint firstItem="oWs-B5-Ce9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="OHw-bf-DzD"/>
                     <constraint firstAttribute="trailing" secondItem="OqV-zw-IO1" secondAttribute="trailing" id="ZFi-JT-Wmi"/>
                     <constraint firstItem="oWs-B5-Ce9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="110" id="i3T-WH-eIR"/>
-                    <constraint firstItem="FzL-3U-19k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="309" id="o7w-br-cfU"/>
                     <constraint firstItem="2os-wC-1eL" firstAttribute="centerY" secondItem="BWy-0h-Vpf" secondAttribute="centerY" id="sXg-r3-zwg"/>
                     <constraint firstAttribute="bottom" secondItem="oWs-B5-Ce9" secondAttribute="bottom" id="uAX-Qo-wFZ"/>
+                    <constraint firstAttribute="trailing" secondItem="FzL-3U-19k" secondAttribute="trailing" constant="33" id="vzD-RM-dVo"/>
                     <constraint firstItem="OqV-zw-IO1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="woK-k0-gPQ"/>
                 </constraints>
             </tableViewCellContentView>

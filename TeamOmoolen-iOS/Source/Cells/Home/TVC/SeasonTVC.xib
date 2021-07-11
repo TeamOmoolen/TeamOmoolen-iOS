@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Owb-uX-uzn">
-                        <rect key="frame" x="309" y="53.5" width="46" height="30"/>
+                        <rect key="frame" x="296" y="53.5" width="46" height="30"/>
                         <state key="normal" title="Button"/>
                     </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hfh-h0-M9o">
@@ -59,9 +59,9 @@
                     <constraint firstItem="gn5-O5-Iii" firstAttribute="top" secondItem="bAm-NL-YW4" secondAttribute="bottom" constant="50" id="Glm-Nd-La0"/>
                     <constraint firstAttribute="trailing" secondItem="lnA-Zd-aTt" secondAttribute="trailing" constant="12" id="HTU-BD-ref"/>
                     <constraint firstItem="Owb-uX-uzn" firstAttribute="centerY" secondItem="gn5-O5-Iii" secondAttribute="centerY" id="S2x-l2-T7Q"/>
+                    <constraint firstAttribute="trailing" secondItem="Owb-uX-uzn" secondAttribute="trailing" constant="33" id="UYv-bN-5Yj"/>
                     <constraint firstItem="lnA-Zd-aTt" firstAttribute="centerY" secondItem="gn5-O5-Iii" secondAttribute="centerY" id="aSf-xx-G6r"/>
                     <constraint firstItem="hfh-h0-M9o" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="110" id="b1q-pv-s3Q"/>
-                    <constraint firstItem="Owb-uX-uzn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="309" id="cea-gn-9Zi"/>
                     <constraint firstItem="hfh-h0-M9o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ecm-wD-h7Q"/>
                     <constraint firstAttribute="bottom" secondItem="hfh-h0-M9o" secondAttribute="bottom" id="fA0-sn-DVr"/>
                     <constraint firstItem="bAm-NL-YW4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="haD-pn-K5R"/>

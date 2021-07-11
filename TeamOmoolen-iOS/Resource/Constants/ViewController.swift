@@ -33,6 +33,10 @@ extension Const {
             
             // search
             static let SearchResult = "SearchResultVC"
+            
+            static let Event = "Event"
+            static let Tip = "Tip"
+            static let MyPage = "MyPage"
             static let SortPanModal = "SortPanModalVC"
         }
     }

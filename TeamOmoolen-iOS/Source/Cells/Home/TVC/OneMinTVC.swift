@@ -20,6 +20,7 @@ class OneMinTVC: UITableViewCell {
     
     // MARK: - Local Variables
     
+    var oneMinDataList = [OneMinDataModel]()
     var delegate: ViewModalProtocol?
     
     // MARK: - Life Cycle Methods
@@ -28,6 +29,7 @@ class OneMinTVC: UITableViewCell {
         super.awakeFromNib()
         
         setUI()
+        setList()
         registerXib()
         setCollectionView()
     }
@@ -60,8 +62,16 @@ extension OneMinTVC {
         moreImageView.image = UIImage(named: "icFront")
     }
     
-    func initCell() {
+    func initCell(title: String, oneMinDetailData: [OneMinDetailDataModel]) {
         
+    }
+    
+    func setList() {
+        oneMinDataList.append(contentsOf: [
+            OneMinDataModel(title: "이런이런 정보가 들어가요!", oneMinDetailData: []),
+            OneMinDataModel(title: "이런이런 정보가 들어가요!", oneMinDetailData: []),
+            OneMinDataModel(title: "이런이런 정보가 들어가요!", oneMinDetailData: [])
+        ])
     }
     
     func registerXib() {
@@ -92,7 +102,7 @@ extension OneMinTVC: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 }
 
@@ -105,6 +115,7 @@ extension OneMinTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OneMinCVC.identifier, for: indexPath) as? OneMinCVC else {
             return UICollectionViewCell()
         }
+        cell.initCell(subTitle: oneMinDataList[indexPath.row].title, oneMinDetail: oneMinDataList[indexPath.row].oneMinDetailData)
         return cell
     }
 }
