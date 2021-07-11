@@ -15,21 +15,28 @@ class DetailVC: UIViewController {
     
     private lazy var writeButton: UIButton = {
         let button = UIButton()
-        button.layer.shadowRadius = 2
         button.setImage(UIImage(named: "icWrite"), for: .normal)
-        button.setPreferredSymbolConfiguration(.init(pointSize: 48,
-                                                     weight: .light,
-                                                     scale: .large),
-                                               forImageIn: .normal)
         return button
     }()
+    
+    // MARK: - Local Variables
+    
+    private var lensData = [DetailDataModel]()
+    private var mainData = [DetailMainDataModel]()
+    
+    // MARK: - Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUI()
+        setData()
+        
         registerXib()
         setTableView()
+        
+        setTabbarController()
+        setNavigationController()
     }
 }
 
@@ -38,11 +45,16 @@ extension DetailVC {
         view.addSubview(writeButton)
         
         writeButton.snp.makeConstraints { make in
-            make.width.height.equalTo(48)
+            make.width.height.equalTo(60)
             make.trailing.equalToSuperview().inset(20)
-            make.top.equalToSuperview().offset(688)
-//            make.top.equalToSuperview().offset(629)
+            make.top.equalToSuperview().offset(700)
         }
+    }
+    
+    func setData() {
+        mainData.append(contentsOf: [
+            DetailMainDataModel(brandName: "오렌즈", lensName: "브라운 컬러 렌즈", price: 18000, diameter: 13.5, cycle: 30, texture: "실리콘 하이드로겔", function: "난시", colorList: [888888, 111111])
+        ])
     }
     
     func registerXib() {
@@ -64,6 +76,14 @@ extension DetailVC {
         detailTableView.dataSource = self
         
         detailTableView.separatorStyle = .none
+    }
+    
+    func setTabbarController() {
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    func setNavigationController() {
+        navigationController?.navigationBar.isHidden = false
     }
 }
 
@@ -100,6 +120,8 @@ extension DetailVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.delegate = self
+            cell.initCell(brand: mainData[indexPath.row].brandName, lens: mainData[indexPath.row].lensName, price: mainData[indexPath.row].price, diameter: mainData[indexPath.row].diameter, cycle: mainData[indexPath.row].cycle, function: mainData[indexPath.row].function, colorList: mainData[indexPath.row].colorList)
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTVC.identifier) as? ReviewTVC else {
@@ -112,15 +134,29 @@ extension DetailVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.delegate = self
             return cell
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailNewTVC.identifier) as? DetailNewTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.delegate = self
             return cell
         default:
             return UITableViewCell()
         }
+    }
+}
+
+// MARK: - Protocol
+
+extension DetailVC: ViewModalProtocol {
+    func detailViewModalDelegate(dvc: DetailVC) {
+        navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+    func suggestViewModalDelegate(dvc: SuggestVC) {
+        navigationController?.pushViewController(dvc, animated: true)
     }
 }

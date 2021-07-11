@@ -20,6 +20,7 @@ class DetailSimilarTVC: UITableViewCell {
     // MARK: - Local Variables
     
     private var recommendList: [RecommendLensDataModel] = []
+    var delegate: ViewModalProtocol?
     
     // MARK: - Life Cycle Methdos
     
@@ -70,12 +71,25 @@ extension DetailSimilarTVC {
     }
 }
 
+// MARK: - UICollectionView Delegate
+
+extension DetailSimilarTVC: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let detailVC = UIStoryboard(name: Const.Storyboard.Name.Detail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Detail) as? DetailVC else {
+            return
+        }
+        detailVC.modalPresentationStyle = .fullScreen
+        detailVC.modalTransitionStyle = .crossDissolve
+        delegate?.detailViewModalDelegate(dvc: detailVC)
+    }
+}
+
+// MARK: - UICollectionView DelegateFlowLayout
+
 extension DetailSimilarTVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width - 40 - 15) / 2
-        let height = (collectionView.frame.height - 40 - 44) / 2
-        print("👍👍 \(collectionView.frame.height)")
-        print("👍 \(height)")
+        let height = (collectionView.frame.height - 44) / 2
         return CGSize(width: width, height: height)
     }
     
@@ -91,6 +105,8 @@ extension DetailSimilarTVC: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 }
+
+// MARK: - UICollectionView DataSource
 
 extension DetailSimilarTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -18,6 +18,9 @@ class OneMinTVC: UITableViewCell {
     
     @IBOutlet weak var oneMinCollectionView: UICollectionView!
     
+    // MARK: - Local Variables
+    
+    var delegate: ViewModalProtocol?
     
     // MARK: - Life Cycle Methods
     
@@ -43,6 +46,16 @@ extension OneMinTVC {
         
         moreButton.setTitle("더보기", for: .normal)
         moreButton.tintColor = .omFourthGray
+        
+        let moreAction = UIAction {_ in
+            guard let suggestVC = UIStoryboard(name: Const.Storyboard.Name.Suggest, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Suggest) as? SuggestVC else {
+                return
+            }
+            suggestVC.modalPresentationStyle = .fullScreen
+            suggestVC.modalTransitionStyle = .crossDissolve
+            self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
+        }
+        moreButton.addAction(moreAction, for: .touchUpInside)
         
         moreImageView.image = UIImage(named: "icFront")
     }

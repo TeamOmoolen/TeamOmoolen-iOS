@@ -18,6 +18,9 @@ class NewLensTVC: UITableViewCell {
     
     @IBOutlet weak var newLensCollectionView: UICollectionView!
     
+    // MARK: - Local Variables
+    
+    var delegate: ViewModalProtocol?
 
     // MARK: - Life Cycle Methods
     
@@ -44,6 +47,16 @@ extension NewLensTVC {
         
         moreButton.setTitle("더보기", for: .normal)
         moreButton.tintColor = .omFourthGray
+        
+        let moreAction = UIAction {_ in
+            guard let suggestVC = UIStoryboard(name: Const.Storyboard.Name.Suggest, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Suggest) as? SuggestVC else {
+                return
+            }
+            suggestVC.modalPresentationStyle = .fullScreen
+            suggestVC.modalTransitionStyle = .crossDissolve
+            self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
+        }
+        moreButton.addAction(moreAction, for: .touchUpInside)
         
         moreImageView.image = UIImage(named: "icFront")
     }
@@ -94,10 +107,9 @@ extension NewLensTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewLensCVC.identifier, for: indexPath) as? NewLensCVC else {
             return UICollectionViewCell()
         }
+        
         return cell
     }
 }
-
-
 
 

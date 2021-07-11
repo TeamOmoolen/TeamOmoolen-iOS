@@ -52,7 +52,6 @@ class SearchTabBar: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         horizontalBarLeftAnchorConstraint?.isActive = true
         
         horizontalBarView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        //움직일때 하이라이트 되는 길이 - 나중에 디테일 잡기
         horizontalBarView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.45).isActive = true
         horizontalBarView.heightAnchor.constraint(equalToConstant: 3).isActive = true
     }

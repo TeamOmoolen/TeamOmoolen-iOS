@@ -41,8 +41,8 @@ class DetailTopTVC: UITableViewCell {
     
     // MARK: - Local Variabels
     
-    private var colorList = [String]()
-    
+    private var colorList = [Int]()
+    var delegate: ViewModalProtocol?
     
     // MARK: - Life Cycle Methods
     
@@ -65,33 +65,33 @@ extension DetailTopTVC {
         // MARK: - Label UI
         
         // 동적 라벨
-        brandLabel.text = "오렌즈"
+        brandLabel.text = "브랜드명"
         brandLabel.textColor = .omThirdGray
         brandLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 14)
         
-        lensLabel.text = "브라운 컬러렌즈"
+        lensLabel.text = "렌즈명"
         lensLabel.textColor = .omMainBlack
         lensLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 20)
         
-        priceLabel.text = "18,000원"
+        priceLabel.text = "가격"
         priceLabel.textColor = .omMainBlack
         priceLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         
         dividerView.backgroundColor = .omFifthGray
         
-        lensDiameterLabel.text = "13.5mm"
+        lensDiameterLabel.text = "렌즈직경"
         lensDiameterLabel.textColor = .omThirdGray
         lensDiameterLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
         
-        lensCycleLabel.text = "1Month"
+        lensCycleLabel.text = "렌즈주기"
         lensCycleLabel.textColor = .omThirdGray
         lensCycleLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
         
-        lensTextureLabel.text = "실리콘 하이드로젤"
+        lensTextureLabel.text = "렌즈재질"
         lensTextureLabel.textColor = .omThirdGray
         lensTextureLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
         
-        lensFunctionLabel.text = "난시"
+        lensFunctionLabel.text = "렌즈기능"
         lensFunctionLabel.textColor = .omThirdGray
         lensFunctionLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
         
@@ -132,7 +132,7 @@ extension DetailTopTVC {
         compareButton.layer.masksToBounds = true
     }
     
-    func initCell(brand: String, lens: String, price: Float, diameter: Float, cycle: Int, function: String, colorList: [String]) {
+    func initCell(brand: String, lens: String, price: Int, diameter: Double, cycle: Int, function: String, colorList: [Int]) {
         brandLabel.text = brand
         lensLabel.text = lens
         
@@ -140,12 +140,12 @@ extension DetailTopTVC {
         formatter.numberStyle = .decimal
         priceLabel.text = "\(formatter.string(from: NSNumber(value: price))!)원"
         
-        diameterLabel.text = "\(diameter)mm"
+        lensDiameterLabel.text = "\(diameter)mm"
         
         // 서버에서 넘겨주는 데이터 가공할 것
-        cycleLabel.text = "\(cycle)Month"
+        lensCycleLabel.text = "\(cycle)Month"
         
-        functionLabel.text = function
+        lensFunctionLabel.text = function
         
         self.colorList = colorList
     }
@@ -177,15 +177,14 @@ extension DetailTopTVC: UICollectionViewDelegateFlowLayout {
 
 extension DetailTopTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return colorList.count
-        return 3
+        return colorList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorListCVC.identifier, for: indexPath) as? ColorListCVC else {
             return UICollectionViewCell()
         }
-//        cell.initCell(color: colorList[indexPath.row])
+        cell.initCell(color: colorList[indexPath.row])
         return cell
     }
     

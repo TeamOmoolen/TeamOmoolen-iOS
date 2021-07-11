@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		58740A13991CB69278C887DA /* Pods_TeamOmoolen_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBBE8C8AF696DB691BFA7FA6 /* Pods_TeamOmoolen_iOS.framework */; };
+		9225069C269A8EE300419B40 /* DetailDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9225069B269A8EE300419B40 /* DetailDataModel.swift */; };
+		922F49712699E95400447E8E /* ViewModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922F49702699E95400447E8E /* ViewModelProtocols.swift */; };
 		924751A9268E2CFE00924891 /* FourthOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924751A8268E2CFE00924891 /* FourthOnboarding.storyboard */; };
 		924751AC268E329400924891 /* FourthOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924751AB268E329400924891 /* FourthOnboardingVC.swift */; };
 		924751AE268E42E200924891 /* LensBrandDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924751AD268E42E200924891 /* LensBrandDataModel.swift */; };
@@ -208,6 +210,8 @@
 
 /* Begin PBXFileReference section */
 		87B1FF6CD055C8AE1AEE072C /* Pods-TeamOmoolen-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamOmoolen-iOS.debug.xcconfig"; path = "Target Support Files/Pods-TeamOmoolen-iOS/Pods-TeamOmoolen-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		9225069B269A8EE300419B40 /* DetailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDataModel.swift; sourceTree = "<group>"; };
+		922F49702699E95400447E8E /* ViewModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocols.swift; sourceTree = "<group>"; };
 		924751A8268E2CFE00924891 /* FourthOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FourthOnboarding.storyboard; sourceTree = "<group>"; };
 		924751AB268E329400924891 /* FourthOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthOnboardingVC.swift; sourceTree = "<group>"; };
 		924751AD268E42E200924891 /* LensBrandDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensBrandDataModel.swift; sourceTree = "<group>"; };
@@ -438,6 +442,22 @@
 				BBBE8C8AF696DB691BFA7FA6 /* Pods_TeamOmoolen_iOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9225069A269A8EA800419B40 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				9225069B269A8EE300419B40 /* DetailDataModel.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		922F496F2699E93500447E8E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				922F49702699E95400447E8E /* ViewModelProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		924751A6268E2C6900924891 /* FourthOnboarding */ = {
@@ -800,6 +820,7 @@
 		F83BA033268C489E00E94E74 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				922F496F2699E93500447E8E /* Protocols */,
 				92A889EE2693BA7100AC1B81 /* Views */,
 				F83BA039268C492700E94E74 /* Cells */,
 				F83BA038268C492000E94E74 /* Classes */,
@@ -886,6 +907,7 @@
 			isa = PBXGroup;
 			children = (
 				F8CB27EF2692C1DA00DEFA75 /* NetworkDataModel */,
+				9225069A269A8EA800419B40 /* Detail */,
 				92B46AB8269742D600217CD9 /* SearchFilter */,
 				F8CB27F626932EB100DEFA75 /* ThirdOnboarding */,
 				92A889DC26931A3D00AC1B81 /* Home */,
@@ -1343,6 +1365,7 @@
 				92A889E3269334DB00AC1B81 /* NewLensDetailTVC.swift in Sources */,
 				927F97FE268C840100E893F2 /* GenderDataModel.swift in Sources */,
 				E8A078622690F32200D99444 /* RecentSearchVC.swift in Sources */,
+				922F49712699E95400447E8E /* ViewModelProtocols.swift in Sources */,
 				92A889D92692FBD200AC1B81 /* TabBarController.swift in Sources */,
 				927692672694CABE00201EE1 /* UICollectionView+Extension.swift in Sources */,
 				929C84072696E5FC00A879A7 /* BannerCVC.swift in Sources */,
@@ -1399,6 +1422,7 @@
 				F8CB27E92691FB3B00DEFA75 /* OnboardingService.swift in Sources */,
 				F83BA06A268C7DEF00E94E74 /* LensColorCVC.swift in Sources */,
 				9261598D26921B4700E1E87F /* OneMinCVC.swift in Sources */,
+				9225069C269A8EE300419B40 /* DetailDataModel.swift in Sources */,
 				929C840A2697143700A879A7 /* DiameterFilterView.swift in Sources */,
 				F83BA067268C754A00E94E74 /* LensKindDataModel.swift in Sources */,
 				929C840E26971CB900A879A7 /* CycleFilterView.swift in Sources */,

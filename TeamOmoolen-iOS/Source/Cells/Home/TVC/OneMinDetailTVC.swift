@@ -15,6 +15,9 @@ class OneMinDetailTVC: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     
+    // MARK: - Local Variables
+    
+    
     // MARK: - Life Cycle Methods
     
     override func awakeFromNib() {

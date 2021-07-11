@@ -21,6 +21,7 @@ class RecommendTVC: UITableViewCell {
     // MARK: - Local Variables
     
     private var recommendList: [RecommendLensDataModel] = []
+    var delegate: ViewModalProtocol?
     
     // MARK: - Life Cycle Methods
     
@@ -47,6 +48,16 @@ extension RecommendTVC {
         
         moreButton.setTitle("더보기", for: .normal)
         moreButton.tintColor = .omFourthGray
+        
+        let moreAction = UIAction {_ in
+            guard let suggestVC = UIStoryboard(name: Const.Storyboard.Name.Suggest, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Suggest) as? SuggestVC else {
+                return
+            }
+            suggestVC.modalPresentationStyle = .fullScreen
+            suggestVC.modalTransitionStyle = .crossDissolve
+            self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
+        }
+        moreButton.addAction(moreAction, for: .touchUpInside)
         
         moreImageView.image = UIImage(named: "icFront")
     }
@@ -75,9 +86,24 @@ extension RecommendTVC {
     }
 }
 
+// MARK: - UICollectionView Delegate
+
+extension RecommendTVC: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let detailVC = UIStoryboard(name: Const.Storyboard.Name.Detail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Detail) as? DetailVC else {
+            return
+        }
+        detailVC.modalPresentationStyle = .fullScreen
+        detailVC.modalTransitionStyle = .crossDissolve
+        delegate?.detailViewModalDelegate(dvc: detailVC)
+    }
+}
+
+// MARK: - UICollectionView DelegateFlowLayout
+
 extension RecommendTVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (UIScreen.main.bounds.size.width - 60) / 3
+        let width = (collectionView.frame.width - 100) / 2
         let height = collectionView.frame.height
         return CGSize(width: width, height: height)
     }
@@ -94,6 +120,8 @@ extension RecommendTVC: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
     }
 }
+
+// MARK: - UICollectionView DataSource
 
 extension RecommendTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
