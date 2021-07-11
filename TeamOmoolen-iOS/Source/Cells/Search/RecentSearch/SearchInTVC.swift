@@ -30,6 +30,8 @@ class SearchInTVC: UITableViewCell {
         setSearchList()
         setSearchHistoryTable()
         checkNotification()
+        
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -67,8 +69,6 @@ class SearchInTVC: UITableViewCell {
     
     //MARK: - Methods
     func registerXib() {
-        let SearchInNib = UINib(nibName: SearchInTVC.identifier, bundle: nil)
-        
         let SearchWordNib = UINib(nibName: SearchWordTVC.identifier, bundle: nil)
         let NoRecentNib = UINib(nibName: NoRecentTVC.identifier, bundle: nil)
         let AllClearNib = UINib(nibName: AllClearTVC.identifier, bundle: nil)
@@ -104,20 +104,28 @@ class SearchInTVC: UITableViewCell {
     }
    
     func checkNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(searchEntered), name: NSNotification.Name("search"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(searchEntered), name: NSNotification.Name("SearchEntered"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(removeWord), name: NSNotification.Name("RemoveWord"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(allClear), name: NSNotification.Name("AllClear"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(returnHome), name: NSNotification.Name("ReturnHome"), object: nil)
+
     }
     
-    @objc func searchEntered(notification: NSNotification) {
-        let enteredText = notification.object as! String
+    @objc func returnHome(notification: NSNotification) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("SearchEntered"), object: nil)
+        setSearchList()
+    }
     
+    
+    @objc func searchEntered(notification: NSNotification) {
+        
+        let enteredText = notification.object as! String
         if enteredText.isEmpty {
             print("검색어를 입력해 주세요")
-        }
-        do {
+        } else { do {
             try realm!.write {
                 let searchWord = RecentSearch()
                 searchWord.word = enteredText
@@ -131,11 +139,14 @@ class SearchInTVC: UITableViewCell {
                 } else {
                     realm?.add(searchWord)
                 }
+                setSearchList()
             }
         } catch {
             print("문제")
         }
+        }
     }
+        
     
     func inputData(database: RecentSearch) -> RecentSearch {
         if let text = enteredText {
@@ -145,7 +156,7 @@ class SearchInTVC: UITableViewCell {
     }
     
     func removeFromRealm(target: String) {
-            let targetWord = realm?.objects(RecentSearch.self).filter("word CONTAINS[c] %@", target)
+        let targetWord = realm?.objects(RecentSearch.self).filter("word CONTAINS[c] %@", target)
             try! realm?.write {
                 if let obj = targetWord {
                     //db에서 지워주기
@@ -211,6 +222,7 @@ extension SearchInTVC: UITableViewDelegate {
             }
         }
     }
+    
 }
 
 
@@ -222,19 +234,15 @@ extension SearchInTVC: UITableViewDataSource {
         
         var num = 0
         if (searchList.count == 0){ //검색어 3개에서 전체 삭제 했을 때 여기로 들어옴
-            //tableViewHeight.constant = 129
             tableViewHeight.constant = 135
             num = 2
         } else if (searchList.count == 1){
-            //tableViewHeight.constant = 125
             tableViewHeight.constant = 131
             num = 2
         } else if (searchList.count == 2){
-            //tableViewHeight.constant = 164
             tableViewHeight.constant = 169
             num = 3
         } else { //검색어 3개
-           // tableViewHeight.constant = 225
             tableViewHeight.constant = 231
             num = 4
         }
@@ -343,4 +351,11 @@ extension SearchInTVC: UITableViewDataSource {
                 return UITableViewCell()
             }
         }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.reloadData()
+    }
+    
+ 
 }
