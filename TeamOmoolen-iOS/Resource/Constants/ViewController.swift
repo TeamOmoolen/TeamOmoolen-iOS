@@ -31,6 +31,10 @@ extension Const {
             static let Tabbar = "TabBarController"
             
             static let SearchResult = "SearchResultVC"
+            
+            static let Event = "Event"
+            static let Tip = "Tip"
+            static let MyPage = "MyPage"
         }
     }
 }

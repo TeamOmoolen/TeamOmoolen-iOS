@@ -22,6 +22,7 @@ class BrandFilterView: UIView {
     
     private var brandList: [LensBrandDataModel] = []
     private var lensBrand = [String]()
+    
     var isAllSelected = false
     
     // MARK: - init Methods
@@ -60,10 +61,12 @@ extension BrandFilterView {
         filterLabel.textColor = .omMainBlack
         filterLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
         
-        selectButton.setTitle("전체선택", for: .normal)
+        selectButton.setTitle(" 전체선택", for: .normal)
         selectButton.tintColor = .omFourthGray
         selectButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
         
+        let selectGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpAllSelect(_:)))
+        selectImage.addGestureRecognizer(selectGesture)
         selectImage.image = UIImage(named: "icFilterNormal")
     }
     
@@ -119,6 +122,21 @@ extension BrandFilterView {
             }
         }
         selectButton.addAction(allSelectAction, for: .touchUpInside)
+    }
+    
+    @objc
+    func touchUpAllSelect(_ sender: UITapGestureRecognizer) {
+        if !self.isAllSelected {
+            self.isAllSelected = true
+            self.selectButton.tintColor = .omMainOrange
+            self.selectImage.image = UIImage(named: "icFilterPressed")
+            self.brandListCollectionView.selectAll(animated: true)
+        } else {
+            self.isAllSelected = false
+            self.selectButton.tintColor = .omFourthGray
+            self.selectImage.image = UIImage(named: "icFilterNormal")
+            self.brandListCollectionView.deselectAll(animated: true)
+        }
     }
 }
 
