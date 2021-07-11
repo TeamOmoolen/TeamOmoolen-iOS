@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58740A13991CB69278C887DA /* Pods_TeamOmoolen_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBBE8C8AF696DB691BFA7FA6 /* Pods_TeamOmoolen_iOS.framework */; };
 		9225069C269A8EE300419B40 /* DetailDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9225069B269A8EE300419B40 /* DetailDataModel.swift */; };
 		922506A0269AD6E500419B40 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9225069F269AD6E500419B40 /* Event.storyboard */; };
 		922506A2269AD70D00419B40 /* Tip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922506A1269AD70D00419B40 /* Tip.storyboard */; };
@@ -99,6 +98,7 @@
 		92F9950026918C8C0053ABD8 /* OneMinTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F994FE26918C8C0053ABD8 /* OneMinTVC.xib */; };
 		92F9950326918D4D0053ABD8 /* SeasonTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9950126918D4D0053ABD8 /* SeasonTVC.swift */; };
 		92F9950426918D4D0053ABD8 /* SeasonTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F9950226918D4D0053ABD8 /* SeasonTVC.xib */; };
+		9A0E58CABA9DBB705667AAB3 /* Pods_TeamOmoolen_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E1E2D909D321B09B6A8E0A /* Pods_TeamOmoolen_iOS.framework */; };
 		E82C5DC026936643000EF460 /* SearchInTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C5DBE26936643000EF460 /* SearchInTVC.swift */; };
 		E82C5DC126936643000EF460 /* SearchInTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E82C5DBF26936643000EF460 /* SearchInTVC.xib */; };
 		E82C5DC426937B87000EF460 /* PopularTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C5DC226937B87000EF460 /* PopularTVC.swift */; };
@@ -218,7 +218,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		87B1FF6CD055C8AE1AEE072C /* Pods-TeamOmoolen-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamOmoolen-iOS.debug.xcconfig"; path = "Target Support Files/Pods-TeamOmoolen-iOS/Pods-TeamOmoolen-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		02AEC97A0F2D8A38A4FFD750 /* Pods-TeamOmoolen-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamOmoolen-iOS.debug.xcconfig"; path = "Target Support Files/Pods-TeamOmoolen-iOS/Pods-TeamOmoolen-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		08E1E2D909D321B09B6A8E0A /* Pods_TeamOmoolen_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamOmoolen_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		136EDBCC1C7B7EC31BFD9970 /* Pods-TeamOmoolen-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamOmoolen-iOS.release.xcconfig"; path = "Target Support Files/Pods-TeamOmoolen-iOS/Pods-TeamOmoolen-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		9225069B269A8EE300419B40 /* DetailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDataModel.swift; sourceTree = "<group>"; };
 		9225069F269AD6E500419B40 /* Event.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
 		922506A1269AD70D00419B40 /* Tip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tip.storyboard; sourceTree = "<group>"; };
@@ -310,8 +312,6 @@
 		92F994FE26918C8C0053ABD8 /* OneMinTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneMinTVC.xib; sourceTree = "<group>"; };
 		92F9950126918D4D0053ABD8 /* SeasonTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonTVC.swift; sourceTree = "<group>"; };
 		92F9950226918D4D0053ABD8 /* SeasonTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonTVC.xib; sourceTree = "<group>"; };
-		BBBE8C8AF696DB691BFA7FA6 /* Pods_TeamOmoolen_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamOmoolen_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE2D484B186EFAEC32FB35BE /* Pods-TeamOmoolen-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamOmoolen-iOS.release.xcconfig"; path = "Target Support Files/Pods-TeamOmoolen-iOS/Pods-TeamOmoolen-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		E82C5DBE26936643000EF460 /* SearchInTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInTVC.swift; sourceTree = "<group>"; };
 		E82C5DBF26936643000EF460 /* SearchInTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchInTVC.xib; sourceTree = "<group>"; };
 		E82C5DC226937B87000EF460 /* PopularTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVC.swift; sourceTree = "<group>"; };
@@ -438,7 +438,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58740A13991CB69278C887DA /* Pods_TeamOmoolen_iOS.framework in Frameworks */,
+				9A0E58CABA9DBB705667AAB3 /* Pods_TeamOmoolen_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,16 +448,16 @@
 		053C4CD6271052889D9A0FFF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				87B1FF6CD055C8AE1AEE072C /* Pods-TeamOmoolen-iOS.debug.xcconfig */,
-				CE2D484B186EFAEC32FB35BE /* Pods-TeamOmoolen-iOS.release.xcconfig */,
+				02AEC97A0F2D8A38A4FFD750 /* Pods-TeamOmoolen-iOS.debug.xcconfig */,
+				136EDBCC1C7B7EC31BFD9970 /* Pods-TeamOmoolen-iOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		14D4305BEC36F69E4AD4139D /* Frameworks */ = {
+		6E1E29258BA332FE28322446 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BBBE8C8AF696DB691BFA7FA6 /* Pods_TeamOmoolen_iOS.framework */,
+				08E1E2D909D321B09B6A8E0A /* Pods_TeamOmoolen_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -468,26 +468,6 @@
 				9225069B269A8EE300419B40 /* DetailDataModel.swift */,
 			);
 			path = Detail;
-			sourceTree = "<group>";
-		};
-		9225069D269AB03B00419B40 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				F86F7AC726900A2F0037081D /* Home.storyboard */,
-				92A889DA2692FD4D00AC1B81 /* Tabbar.storyboard */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		9225069E269AB05300419B40 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				E8C9A42726908CF900E5BD9D /* Search.storyboard */,
-				92BC7DE72695D9230088E4EE /* RecentSearchVC.storyboard */,
-				92BC7DE92695DB1B0088E4EE /* FIlterVC.storyboard */,
-				F85147A42696EA1D00C8532F /* SearchResult.storyboard */,
-			);
-			path = Search;
 			sourceTree = "<group>";
 		};
 		922506A5269AD73E00419B40 /* Event */ = {
@@ -842,7 +822,7 @@
 				F83BA01D268C476B00E94E74 /* TeamOmoolen-iOS */,
 				F83BA01C268C476B00E94E74 /* Products */,
 				053C4CD6271052889D9A0FFF /* Pods */,
-				14D4305BEC36F69E4AD4139D /* Frameworks */,
+				6E1E29258BA332FE28322446 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1235,11 +1215,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F83BA02F268C476C00E94E74 /* Build configuration list for PBXNativeTarget "TeamOmoolen-iOS" */;
 			buildPhases = (
-				BE2C33F90BD1DC52A6C7CACE /* [CP] Check Pods Manifest.lock */,
+				9B64A0B752FD81E075BBD0B3 /* [CP] Check Pods Manifest.lock */,
 				F83BA017268C476B00E94E74 /* Sources */,
 				F83BA018268C476B00E94E74 /* Frameworks */,
 				F83BA019268C476B00E94E74 /* Resources */,
-				0A0FD578FA8206B7BFC89D62 /* [CP] Embed Pods Frameworks */,
+				A0F8F79E60265FE8D81EE1E2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1386,24 +1366,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A0FD578FA8206B7BFC89D62 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TeamOmoolen-iOS/Pods-TeamOmoolen-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TeamOmoolen-iOS/Pods-TeamOmoolen-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TeamOmoolen-iOS/Pods-TeamOmoolen-iOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BE2C33F90BD1DC52A6C7CACE /* [CP] Check Pods Manifest.lock */ = {
+		9B64A0B752FD81E075BBD0B3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1423,6 +1386,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0F8F79E60265FE8D81EE1E2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TeamOmoolen-iOS/Pods-TeamOmoolen-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TeamOmoolen-iOS/Pods-TeamOmoolen-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TeamOmoolen-iOS/Pods-TeamOmoolen-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1689,7 +1669,7 @@
 		};
 		F83BA030268C476C00E94E74 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87B1FF6CD055C8AE1AEE072C /* Pods-TeamOmoolen-iOS.debug.xcconfig */;
+			baseConfigurationReference = 02AEC97A0F2D8A38A4FFD750 /* Pods-TeamOmoolen-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1710,7 +1690,7 @@
 		};
 		F83BA031268C476C00E94E74 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE2D484B186EFAEC32FB35BE /* Pods-TeamOmoolen-iOS.release.xcconfig */;
+			baseConfigurationReference = 136EDBCC1C7B7EC31BFD9970 /* Pods-TeamOmoolen-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
