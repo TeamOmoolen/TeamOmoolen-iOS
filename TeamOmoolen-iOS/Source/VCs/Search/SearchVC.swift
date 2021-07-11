@@ -24,7 +24,6 @@ class SearchVC: UIViewController {
         return sTB
     }()
     
-    
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +34,10 @@ class SearchVC: UIViewController {
         setVCs()
         
         self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name:NSNotification.Name("SearchEntered") , object:nil)
     }
 
     func setVCs(){
@@ -51,10 +54,12 @@ class SearchVC: UIViewController {
 
     //MARK: - IBAction Methods
     @IBAction func searchDidEnd(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name("search"), object: searchTextField.text)
+        NotificationCenter.default.post(name: NSNotification.Name("SearchEntered"), object: searchTextField.text)
     }
     
     @IBAction func touchUpBackButton(_ sender: Any) {
+        
+        NotificationCenter.default.post(name: NSNotification.Name("ReturnHome"), object: nil)
         guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {
             return
         }
