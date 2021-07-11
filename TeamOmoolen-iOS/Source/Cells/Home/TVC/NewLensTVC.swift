@@ -121,7 +121,7 @@ extension NewLensTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewLensCVC.identifier, for: indexPath) as? NewLensCVC else {
             return UICollectionViewCell()
         }
-        
+        cell.delegate = ViewModalProtocol.self as? ViewModalProtocol
         return cell
     }
 }

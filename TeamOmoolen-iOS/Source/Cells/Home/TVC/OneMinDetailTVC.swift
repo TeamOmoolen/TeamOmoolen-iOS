@@ -16,7 +16,7 @@ class OneMinDetailTVC: UITableViewCell {
     @IBOutlet weak var subtitleLabel: UILabel!
     
     // MARK: - Local Variables
-    
+    var delegate: ViewModalProtocol?
     
     // MARK: - Life Cycle Methods
     
