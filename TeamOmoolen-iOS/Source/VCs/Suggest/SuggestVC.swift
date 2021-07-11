@@ -17,6 +17,7 @@ class SuggestVC: UIViewController {
     
     //MARK: - Local Variables
     var suggestViews : [UIViewController] = []
+    var position: Int = 0
     
     lazy var suggestTabBar: SuggestTabBar = {
         let suggestTB = SuggestTabBar()
@@ -25,14 +26,32 @@ class SuggestVC: UIViewController {
     }()
     
     //MARK: - View Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        if position == 1 {
+            self.collectionView?.scrollToItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, at: .left, animated: true)
+        }
+        if position == 2 {
+            self.collectionView?.scrollToItem(at: NSIndexPath(item: 1, section: 0) as IndexPath, at: .left, animated: true)
+        }
+        if position == 3 {
+            self.collectionView?.scrollToItem(at: NSIndexPath(item: 2, section: 0) as IndexPath, at: .left, animated: true)
+        }
+        if position == 4 {
+            self.collectionView?.scrollToItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, at: .left, animated: true)
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUI()
         setVCs()
         setUpTabBar()
         registerXib()
         setCollectionViewDelegate()
-    
     }
     
    //MARK: - Methods
@@ -149,13 +168,13 @@ extension SuggestVC: PassTagProtocol {
     func passTag(tag: Int) {
         switch tag {
         case 1:
-            print("For you")
+            position = 1
         case 2:
-            print("Situation")
+            position = 2
         case 3:
-            print("New")
+            position = 3
         case 4:
-            print("Season")
+            position = 4
         default:
             return
         }
