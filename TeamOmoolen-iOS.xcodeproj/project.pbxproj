@@ -847,8 +847,6 @@
 				F86F7AC9269068960037081D /* Splash.storyboard */,
 				92A889DA2692FD4D00AC1B81 /* Tabbar.storyboard */,
 				92BC7DEB269641A10088E4EE /* Detail.storyboard */,
-				92BC7DE72695D9230088E4EE /* RecentSearchVC.storyboard */,
-				92BC7DE92695DB1B0088E4EE /* FIlterVC.storyboard */,
 				E8AF80202698410100D76A21 /* Suggest.storyboard */,
 				E8AF8032269842B100D76A21 /* ForYou.storyboard */,
 				E8AF8034269842CE00D76A21 /* Situation.storyboard */,
@@ -1151,6 +1149,8 @@
 			children = (
 				F85147A42696EA1D00C8532F /* SearchResult.storyboard */,
 				F82975BA269AE2590025CA64 /* SortPanModal.storyboard */,
+				92BC7DE72695D9230088E4EE /* RecentSearchVC.storyboard */,
+				92BC7DE92695DB1B0088E4EE /* FIlterVC.storyboard */,
 			);
 			path = Search;
 			sourceTree = "<group>";
