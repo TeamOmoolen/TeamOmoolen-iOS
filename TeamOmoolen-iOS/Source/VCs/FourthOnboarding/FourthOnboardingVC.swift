@@ -83,7 +83,6 @@ class FourthOnboardingVC: UIViewController {
     var lensBrand = ""
     var lensName = ""
     var lensWhen = ""
-    var onboardingDataModel: OnBoardingDataModel?
     
     private var brandList: [LensBrandDataModel] = []
     private var purposeList: [PurposeDataModel] = []
@@ -165,8 +164,10 @@ class FourthOnboardingVC: UIViewController {
         } else {
             lensWhen = "기타"
         }
-
-        let param = OnboardingRequest(gender, age, lensKind, lensColor, lensFunction, lensPeriod, lensBrand, lensName, lensWhen, "001628.1f39bf3727b44f1f8a6615166ae3b718.0924")
+        
+        let userIdentifier = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
+        
+        let param = OnboardingRequest(gender, age, lensKind, lensColor, lensFunction, lensPeriod, lensBrand, lensName, lensWhen, userIdentifier)
         
         print(param)
         
@@ -179,15 +180,16 @@ class FourthOnboardingVC: UIViewController {
                 }
                 homeVC.modalPresentationStyle = .fullScreen
                 homeVC.modalTransitionStyle = .crossDissolve
-                self.navigationController?.pushViewController(homeVC, animated: true)
+                
+                self.navigationController?.pushViewController(homeVC, animated: true )
             } else {
-                print("postOnboardingWithAPI: post Fail")
-                guard let loginVC = UIStoryboard(name: Const.Storyboard.Name.Login, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Login) as? LoginVC else {
-                    return
-                }
-                loginVC.modalPresentationStyle = .fullScreen
-                loginVC.modalTransitionStyle = .crossDissolve
-                self.navigationController?.pushViewController(loginVC, animated: true)
+                print("postOnboardingWithAPI: Fail")
+//                guard let loginVC = UIStoryboard(name: Const.Storyboard.Name.Login, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Login) as? LoginVC else {
+//                    return
+//                }
+//                loginVC.modalPresentationStyle = .fullScreen
+//                loginVC.modalTransitionStyle = .crossDissolve
+//                self.navigationController?.pushViewController(loginVC, animated: true)
             }
         }
     }
