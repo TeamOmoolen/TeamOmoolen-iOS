@@ -20,7 +20,7 @@ class RecommendTVC: UITableViewCell {
     
     // MARK: - Local Variables
     
-    private var recommendList: [RecommendLensDataModel] = []
+    private var recommendList = [RecommendLensDataModel]()
     var delegate: ViewModalProtocol?
     
     // MARK: - Life Cycle Methods
@@ -73,6 +73,10 @@ extension RecommendTVC {
         ])
     }
     
+    func initCell(recommendData: [RecommendLensDataModel]) {
+        self.recommendList = recommendData
+    }
+    
     func registerXib() {
         let recommendNib = UINib(nibName: RecommendCVC.identifier, bundle: nil)
         recommendCollectionView.register(recommendNib, forCellWithReuseIdentifier: RecommendCVC.identifier)
@@ -84,6 +88,12 @@ extension RecommendTVC {
         
         recommendCollectionView.showsHorizontalScrollIndicator = false
     }
+}
+
+// MARK: - Action Methods
+
+extension RecommendTVC {
+    
 }
 
 // MARK: - UICollectionView Delegate
@@ -117,7 +127,7 @@ extension RecommendTVC: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 }
 

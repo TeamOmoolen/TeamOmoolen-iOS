@@ -146,8 +146,6 @@ extension FilterVC {
     // MARK: - Filter View
     
     func setCustomView() {
-        view.backgroundColor = .omAlmostwhite
-        
         view.addSubview(colorFilterView)
         view.addSubview(brandFilterView)
         view.addSubview(diameterFilterView)

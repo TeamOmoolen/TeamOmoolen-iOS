@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwx-Mj-hJl">
-                        <rect key="frame" x="309" y="-4.5" width="46" height="30"/>
+                        <rect key="frame" x="296" y="-4.5" width="46" height="30"/>
                         <state key="normal" title="Button"/>
                     </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="USo-Du-ANJ">
@@ -54,9 +54,9 @@
                     <constraint firstAttribute="trailing" secondItem="V3I-dr-4kx" secondAttribute="trailing" constant="12" id="Bje-1h-IYD"/>
                     <constraint firstItem="USo-Du-ANJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="56" id="PtD-mM-Ldz"/>
                     <constraint firstItem="wP2-Q4-jCF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="SQi-34-dlA"/>
+                    <constraint firstAttribute="trailing" secondItem="jwx-Mj-hJl" secondAttribute="trailing" constant="33" id="Tuh-l4-d5g"/>
                     <constraint firstItem="wP2-Q4-jCF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="at7-60-p4e"/>
                     <constraint firstItem="V3I-dr-4kx" firstAttribute="centerY" secondItem="wP2-Q4-jCF" secondAttribute="centerY" id="u1x-Ku-Wig"/>
-                    <constraint firstItem="jwx-Mj-hJl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="309" id="v6N-W2-Vni"/>
                     <constraint firstItem="jwx-Mj-hJl" firstAttribute="centerY" secondItem="wP2-Q4-jCF" secondAttribute="centerY" id="xeP-hx-rss"/>
                 </constraints>
             </tableViewCellContentView>

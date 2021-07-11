@@ -106,7 +106,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQu-oL-TVb">
-                                <rect key="frame" x="0.0" y="644" width="414" height="76"/>
+                                <rect key="frame" x="0.0" y="681" width="414" height="76"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmJ-Ub-4UR">
                                         <rect key="frame" x="20" y="11" width="54" height="54"/>
@@ -152,12 +152,12 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="iQu-oL-TVb" secondAttribute="bottom" constant="105" id="5Dc-kv-az7"/>
                             <constraint firstItem="iQu-oL-TVb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="P50-LQ-Zgg"/>
                             <constraint firstItem="zma-fD-wL2" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="55" id="TW8-UI-kcZ"/>
                             <constraint firstItem="zma-fD-wL2" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="dey-je-DJP"/>
                             <constraint firstItem="iQu-oL-TVb" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="hp6-nC-lid"/>
                             <constraint firstItem="zma-fD-wL2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ps7-g0-RzJ"/>
-                            <constraint firstItem="iQu-oL-TVb" firstAttribute="top" secondItem="zma-fD-wL2" secondAttribute="bottom" constant="473" id="sQ1-Ka-w7W"/>
                         </constraints>
                     </view>
                     <connections>

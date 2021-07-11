@@ -22,6 +22,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var searchIcon: UIImageView!
     @IBOutlet weak var searchLabel: UILabel!
     
+    @IBOutlet weak var dividerView: UIView!
+    
     private lazy var topButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "icTop"), for: .normal)
@@ -30,6 +32,7 @@ class HomeVC: UIViewController {
     }()
     
     // MARK: - Local Variables
+    
     private var homeList = HomeResponse(username: "", findRecomendationByUser: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], guides: [Guide(id: 0, question: "", answer: "")], season: "", recommendationBySeason: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], deadlineEvent: [Event(id: 0, title: "", content: "", image: "")], newLens: NewLens(brand1: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], brand2: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], brand3: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])]) , situation: "", recommendationBySituation: [FindRecomendationByUser(id: 0, name: "", imageList: [""], category: "", color: 0, price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, otherColorList: [0])], lastestEvent: [Event(id: 0, title: "", content: "", image: "")])
     
     // MARK: - View Life Cycle Methods
@@ -52,7 +55,6 @@ class HomeVC: UIViewController {
         getHomeWithAPI()
         registerXib()
         setHomeTableView()
-
     }
 }
 
@@ -61,6 +63,7 @@ class HomeVC: UIViewController {
 extension HomeVC {
     func setUI() {
         view.backgroundColor = .white
+        dividerView.backgroundColor = .omAlmostwhite
         
         homeHeaderView.backgroundColor = .white
         homeTableView.backgroundColor = .white
@@ -166,7 +169,7 @@ extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section{
         case 0:
-            return 142
+            return 140
         case 1:
             return 387
         case 2:
@@ -194,10 +197,8 @@ extension HomeVC: UITableViewDelegate {
                 make.bottom.equalToSuperview().inset(100)
             }
         } else {
-            topButton.isHidden = true
-            
             topButton.snp.updateConstraints { make in
-                make.bottom.equalToSuperview().inset(-100)
+                make.bottom.equalToSuperview().inset(0)
             }
         }
         
@@ -241,7 +242,7 @@ extension HomeVC: UITableViewDataSource {
             cell.delegate = self
             return cell
         case 3:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier:  SeasonTVC.identifier, for: indexPath) as? SeasonTVC else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:  SituationTVC.identifier, for: indexPath) as? SituationTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
@@ -261,7 +262,7 @@ extension HomeVC: UITableViewDataSource {
             cell.delegate = self
             return cell
         case 6:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier:  SituationTVC.identifier, for: indexPath) as? SituationTVC else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:  SeasonTVC.identifier, for: indexPath) as? SeasonTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none

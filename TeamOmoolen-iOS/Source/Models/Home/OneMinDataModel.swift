@@ -7,13 +7,12 @@
 
 import Foundation
 
-struct LensInfoDataModel {
-    var brandName: String
-    var lensName: String
-    var price: Int
+struct OneMinDataModel {
+    var title: String
+    var oneMinDetailData: [OneMinDetailDataModel]
 }
 
-struct LensDetailInfoDataModel {
+struct OneMinDetailDataModel {
     var title: String
     var subTitle: String
 }
