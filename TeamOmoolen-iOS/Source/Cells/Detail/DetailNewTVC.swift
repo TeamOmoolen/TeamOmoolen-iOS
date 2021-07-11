@@ -87,12 +87,7 @@ extension DetailNewTVC {
 extension DetailNewTVC {
     @objc
     func touchUpMore(_ sender: UITapGestureRecognizer) {
-        guard let suggestVC = UIStoryboard(name: Const.Storyboard.Name.Suggest, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Suggest) as? SuggestVC else {
-            return
-        }
-        suggestVC.modalPresentationStyle = .fullScreen
-        suggestVC.modalTransitionStyle = .crossDissolve
-        self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
+        
     }
 }
 

@@ -23,6 +23,7 @@ class NewLensCVC: UICollectionViewCell {
     // MARK: - Local Variables
     
     private var newLensList: [NewLensDetailDataModel] = []
+    var delegate: ViewModalProtocol?
     
     // MARK: - Life Cycle Methods
     
@@ -96,12 +97,13 @@ extension NewLensCVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("cell clicked")
         guard let detailVC = UIStoryboard(name: Const.Storyboard.Name.Detail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Detail) as? DetailVC else {
             return
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
-        
+        delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
 

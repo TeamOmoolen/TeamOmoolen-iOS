@@ -10,6 +10,7 @@ import Foundation
 extension Const {
     struct ViewController {
         struct Name {
+            // onboading
             static let FirstOnboarding = "FirstOnboardingVC"
             static let SecondOnboarding = "SecondOnboardingVC"
             static let ThirdOnboarding = "ThirdOnboardingVC"
@@ -30,11 +31,13 @@ extension Const {
             
             static let Tabbar = "TabBarController"
             
+            // search
             static let SearchResult = "SearchResultVC"
             
             static let Event = "EventVC"
             static let Tip = "TipVC"
             static let MyPage = "MyPageVC"
+            static let SortPanModal = "SortPanModalVC"
         }
     }
 }

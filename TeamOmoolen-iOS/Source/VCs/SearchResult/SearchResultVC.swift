@@ -6,37 +6,91 @@
 //
 
 import UIKit
+import PanModal
 
 class SearchResultVC: UIViewController {
 
     // MARK: - Properties
-    var resultList = [SearchResultResponse]()
-    
+    var resultList = [Product]()
+    var productCount = 0
+    var searchKeyword = "keyword"
+
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var serperatorView: UIView!
     @IBOutlet weak var searchBarView: UIView!
+    @IBOutlet weak var countBackView: UIView!
+    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var resultCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         setCollectionViewDelegate()
+        resgisterNib()
+        setNotification()
+        
         // Do any additional setup after loading the view.
     }
     
+    // MARK: - @IBAction Properties
+    @IBAction func sortButton(_ sender: Any) {
+        let vc = UIStoryboard(name: Const.Storyboard.Name.SortPanModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SortPanModal) as! SortPanModalVC
+        presentPanModal(vc)
+    }
+    @IBAction func popToSearch(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: - Methods
+    func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(setPriceLowOrder), name: Notification.Name("SetLowOrder"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setPriceHighOrder), name: Notification.Name("SetHighOrder"), object: nil)
+    }
+    
     func resgisterNib() {
             let seasonNib = UINib(nibName: SeasonCVC.identifier, bundle: nil)
             resultCollectionView.register(seasonNib, forCellWithReuseIdentifier: SeasonCVC.identifier)
     }
     
     func setUI() {
+        serperatorView.backgroundColor = .omFifthGray
+        
         searchBarView.layer.cornerRadius = 6
         searchBarView.backgroundColor = .omFifthGray
+        
+        searchTextField.backgroundColor = .omFifthGray
+        searchTextField.layer.borderWidth = 1
+        searchTextField.layer.borderColor = UIColor.omFifthGray.cgColor
+        // 화면전환될 때 같이 데이터 전달.
+        searchTextField.text = searchKeyword
+        
+        countBackView.layer.cornerRadius = 10
+        countBackView.backgroundColor = .omFifthGray
+        
+        countLabel.text = "총 \(productCount)개의 상품"
+        countLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 13)
+        countLabel.textColor = .omSecondGray
     }
     
     func setCollectionViewDelegate() {
         resultCollectionView.delegate = self
         resultCollectionView.dataSource = self
         
+    }
+    
+    // MARK: - @objc Methods
+    @objc
+    func setPriceLowOrder() {
+        print("setPriceLowOrder()")
+        resultCollectionView.reloadData()
+        resultList.sort(by: {$0.price < $1.price})
+    }
+    
+    @objc
+    func setPriceHighOrder() {
+        print("setPriceHighOrder")
+        resultCollectionView.reloadData()
+        resultList.sort(by: {$0.price > $1.price})
     }
 }
 
@@ -55,8 +109,7 @@ extension SearchResultVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeasonCVC.identifier, for: indexPath) as? SeasonCVC else {
             return UICollectionViewCell()
         }
-        let data = resultList[indexPath.row]
-        let cellData = data.products[indexPath.row]
+        let cellData = resultList[indexPath.row]
         cell.initCell(brandName: cellData.brand, lensName: cellData.name, diameter: cellData.diameter, cycle: cellData.changeCycle, pieces: cellData.pieces, price: cellData.price, colorList: cellData.otherColorList)
         return cell
     }
@@ -66,5 +119,23 @@ extension SearchResultVC: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension SearchResultVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 34
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 12
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width
+//        let height = collectionView.frame.height
+        let cellWidth = (width - 24) / 3
+        let cellHeight = 191
+        return CGSize(width: cellWidth, height: CGFloat(cellHeight))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .zero
+    }
 }

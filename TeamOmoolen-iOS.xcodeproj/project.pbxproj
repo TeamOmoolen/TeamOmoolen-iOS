@@ -70,6 +70,7 @@
 		92B46AB72697417600217CD9 /* FilterCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B46AB52697417600217CD9 /* FilterCVC.xib */; };
 		92B46ABA269742F100217CD9 /* FilterDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B46AB9269742F100217CD9 /* FilterDataModel.swift */; };
 		92B46ABC2697678100217CD9 /* SearchFilterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B46ABB2697678100217CD9 /* SearchFilterRequest.swift */; };
+		92B56056269AF28A0046A9B3 /* PassTagProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B56055269AF28A0046A9B3 /* PassTagProtocols.swift */; };
 		92BAA04F2694FDE7004A155A /* OneMinDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BAA04D2694FDE7004A155A /* OneMinDetailTVC.swift */; };
 		92BAA0502694FDE7004A155A /* OneMinDetailTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BAA04E2694FDE7004A155A /* OneMinDetailTVC.xib */; };
 		92BAA052269500DA004A155A /* OneMinDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BAA051269500DA004A155A /* OneMinDataModel.swift */; };
@@ -146,6 +147,8 @@
 		F824590A268E1F3A0048BE84 /* TimeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8245906268E1F3A0048BE84 /* TimeCVC.xib */; };
 		F824590B268E1F3A0048BE84 /* FunctionCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8245907268E1F3A0048BE84 /* FunctionCVC.swift */; };
 		F824590C268E1F3A0048BE84 /* TimeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8245908268E1F3A0048BE84 /* TimeCVC.swift */; };
+		F82975BB269AE2590025CA64 /* SortPanModal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F82975BA269AE2590025CA64 /* SortPanModal.storyboard */; };
+		F82975BD269AE26B0025CA64 /* SortPanModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82975BC269AE26B0025CA64 /* SortPanModalVC.swift */; };
 		F831304C2697670A004A247C /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831304B2697670A004A247C /* LoginService.swift */; };
 		F831304E26976714004A247C /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831304D26976714004A247C /* LoginAPI.swift */; };
 		F831305126976A7E004A247C /* AppleLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831305026976A7E004A247C /* AppleLoginRequest.swift */; };
@@ -278,6 +281,7 @@
 		92B46AB52697417600217CD9 /* FilterCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCVC.xib; sourceTree = "<group>"; };
 		92B46AB9269742F100217CD9 /* FilterDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDataModel.swift; sourceTree = "<group>"; };
 		92B46ABB2697678100217CD9 /* SearchFilterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterRequest.swift; sourceTree = "<group>"; };
+		92B56055269AF28A0046A9B3 /* PassTagProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassTagProtocols.swift; sourceTree = "<group>"; };
 		92BAA04D2694FDE7004A155A /* OneMinDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMinDetailTVC.swift; sourceTree = "<group>"; };
 		92BAA04E2694FDE7004A155A /* OneMinDetailTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneMinDetailTVC.xib; sourceTree = "<group>"; };
 		92BAA051269500DA004A155A /* OneMinDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMinDataModel.swift; sourceTree = "<group>"; };
@@ -356,6 +360,8 @@
 		F8245906268E1F3A0048BE84 /* TimeCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCVC.xib; sourceTree = "<group>"; };
 		F8245907268E1F3A0048BE84 /* FunctionCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionCVC.swift; sourceTree = "<group>"; };
 		F8245908268E1F3A0048BE84 /* TimeCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCVC.swift; sourceTree = "<group>"; };
+		F82975BA269AE2590025CA64 /* SortPanModal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SortPanModal.storyboard; sourceTree = "<group>"; };
+		F82975BC269AE26B0025CA64 /* SortPanModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortPanModalVC.swift; sourceTree = "<group>"; };
 		F831304B2697670A004A247C /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		F831304D26976714004A247C /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		F831305026976A7E004A247C /* AppleLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRequest.swift; sourceTree = "<group>"; };
@@ -512,6 +518,7 @@
 			isa = PBXGroup;
 			children = (
 				922F49702699E95400447E8E /* ViewModelProtocols.swift */,
+				92B56055269AF28A0046A9B3 /* PassTagProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -890,9 +897,9 @@
 		F83BA034268C48A900E94E74 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				9225069E269AB05300419B40 /* Search */,
-				9225069D269AB03B00419B40 /* Home */,
+				F83CD800269B1B1700E0E127 /* Home */,
 				F885CB912698411100835B11 /* Onboarding */,
+				F8F835A5269AD25D00C17053 /* Search */,
 				F83BA029268C476C00E94E74 /* LaunchScreen.storyboard */,
 				F83BA024268C476B00E94E74 /* Login.storyboard */,
 				F86F7AC9269068960037081D /* Splash.storyboard */,
@@ -1040,6 +1047,15 @@
 			path = SecondOnboarding;
 			sourceTree = "<group>";
 		};
+		F83CD800269B1B1700E0E127 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F86F7AC726900A2F0037081D /* Home.storyboard */,
+				92A889DA2692FD4D00AC1B81 /* Tabbar.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		F8514793269366AC00C8532F /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -1062,6 +1078,7 @@
 			isa = PBXGroup;
 			children = (
 				F851479F2695CE5800C8532F /* SearchResultVC.swift */,
+				F82975BC269AE26B0025CA64 /* SortPanModalVC.swift */,
 			);
 			path = SearchResult;
 			sourceTree = "<group>";
@@ -1197,6 +1214,18 @@
 				F8CB27F426931FF700DEFA75 /* OnboardingRequest.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F8F835A5269AD25D00C17053 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F82975BA269AE2590025CA64 /* SortPanModal.storyboard */,
+				92BC7DE92695DB1B0088E4EE /* FIlterVC.storyboard */,
+				92BC7DE72695D9230088E4EE /* RecentSearchVC.storyboard */,
+				E8C9A42726908CF900E5BD9D /* Search.storyboard */,
+				F85147A42696EA1D00C8532F /* SearchResult.storyboard */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1344,6 +1373,7 @@
 				E8A6602126959B8100EB7EEA /* SearchWordTVC.xib in Resources */,
 				F8B91F70268E207A006114CD /* Roboto-BoldItalic.ttf in Resources */,
 				924751BA268E672300924891 /* LensBrandCVC.xib in Resources */,
+				F82975BB269AE2590025CA64 /* SortPanModal.storyboard in Resources */,
 				E82C5DC526937B87000EF460 /* PopularTVC.xib in Resources */,
 				F8B91F5C268E205E006114CD /* NotoSansCJKkr-Thin.otf in Resources */,
 				928E5032269827790086FC31 /* SearchFilter.xcassets in Resources */,
@@ -1451,6 +1481,7 @@
 				F83BA064268C6DA700E94E74 /* LensKindCVC.swift in Sources */,
 				E82C5DC826938926000EF460 /* PopularWordTVC.swift in Sources */,
 				92BAA04F2694FDE7004A155A /* OneMinDetailTVC.swift in Sources */,
+				F82975BD269AE26B0025CA64 /* SortPanModalVC.swift in Sources */,
 				E8AF8028269841E000D76A21 /* ForYouVC.swift in Sources */,
 				F8CB27ED2691FB8800DEFA75 /* GeneralAPI.swift in Sources */,
 				F86F7AD326918AC50037081D /* UIViewController+Extension.swift in Sources */,
@@ -1466,6 +1497,7 @@
 				F8514795269366C300C8532F /* HomeDataModel.swift in Sources */,
 				E8AF804B26984B3800D76A21 /* SuggestTabBarCVC.swift in Sources */,
 				E8AF80242698415100D76A21 /* SuggestVC.swift in Sources */,
+				92B56056269AF28A0046A9B3 /* PassTagProtocols.swift in Sources */,
 				F83BA072268CEB5D00E94E74 /* UIColor+Addition.swift in Sources */,
 				925644172692C1DB00A45945 /* NewLensTVC.swift in Sources */,
 				9276926A2694E28100201EE1 /* CategoryTVC.swift in Sources */,

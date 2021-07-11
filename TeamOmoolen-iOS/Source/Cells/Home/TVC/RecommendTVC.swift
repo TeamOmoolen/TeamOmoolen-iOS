@@ -46,20 +46,15 @@ extension RecommendTVC {
         recommendLabel.text = "오무렌2님! 이 렌즈 어때요?"
         recommendLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpMore(_:)))
+        
         moreButton.setTitle("더보기", for: .normal)
         moreButton.tintColor = .omFourthGray
-        
-        let moreAction = UIAction {_ in
-            guard let suggestVC = UIStoryboard(name: Const.Storyboard.Name.Suggest, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Suggest) as? SuggestVC else {
-                return
-            }
-            suggestVC.modalPresentationStyle = .fullScreen
-            suggestVC.modalTransitionStyle = .crossDissolve
-            self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
-        }
-        moreButton.addAction(moreAction, for: .touchUpInside)
+        moreButton.addTarget(self, action: #selector(touchUpMore(_:)), for: .touchUpInside)
         
         moreImageView.image = UIImage(named: "icFront")
+        moreImageView.addGestureRecognizer(tapGesture)
+        moreImageView.isUserInteractionEnabled = true
     }
     
     func setList() {
@@ -93,7 +88,16 @@ extension RecommendTVC {
 // MARK: - Action Methods
 
 extension RecommendTVC {
-    
+    @objc
+    func touchUpMore(_ sender: UITapGestureRecognizer) {
+        guard let suggestVC = UIStoryboard(name: Const.Storyboard.Name.Suggest, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Suggest) as? SuggestVC else {
+            return
+        }
+        suggestVC.modalPresentationStyle = .fullScreen
+        suggestVC.modalTransitionStyle = .crossDissolve
+        suggestVC.passTag(tag: 1)
+        self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
+    }
 }
 
 // MARK: - UICollectionView Delegate
