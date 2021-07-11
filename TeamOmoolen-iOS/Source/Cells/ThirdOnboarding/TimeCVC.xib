@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="115" height="55"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjX-o9-C4p">
-                                <rect key="frame" x="15" y="12" width="85" height="31"/>
+                                <rect key="frame" x="40" y="19" width="35.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -28,10 +28,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="NjX-o9-C4p" firstAttribute="leading" secondItem="bMI-pf-Scc" secondAttribute="leading" constant="15" id="KH4-Qt-kAA"/>
-                            <constraint firstAttribute="bottom" secondItem="NjX-o9-C4p" secondAttribute="bottom" constant="12" id="bRQ-Cc-Wwk"/>
-                            <constraint firstItem="NjX-o9-C4p" firstAttribute="top" secondItem="bMI-pf-Scc" secondAttribute="top" constant="12" id="r8f-kV-SYr"/>
-                            <constraint firstAttribute="trailing" secondItem="NjX-o9-C4p" secondAttribute="trailing" constant="15" id="rcD-ec-h21"/>
+                            <constraint firstItem="NjX-o9-C4p" firstAttribute="centerY" secondItem="bMI-pf-Scc" secondAttribute="centerY" id="FNH-Vh-4de"/>
+                            <constraint firstItem="NjX-o9-C4p" firstAttribute="centerX" secondItem="bMI-pf-Scc" secondAttribute="centerX" id="yBi-F4-j66"/>
                         </constraints>
                     </view>
                 </subviews>
