@@ -141,3 +141,23 @@ extension SuggestVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
 }
+
+
+// MARK: - Protocols
+
+extension SuggestVC: PassTagProtocol {
+    func passTag(tag: Int) {
+        switch tag {
+        case 1:
+            print("For you")
+        case 2:
+            print("Situation")
+        case 3:
+            print("New")
+        case 4:
+            print("Season")
+        default:
+            return
+        }
+    }
+}

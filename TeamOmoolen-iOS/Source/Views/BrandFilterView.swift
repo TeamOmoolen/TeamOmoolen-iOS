@@ -46,7 +46,6 @@ class BrandFilterView: UIView {
         self.addSubview(customView)
         
         setUI()
-        setButton()
         setList()
         registerXib()
         setCollectionView()
@@ -61,13 +60,15 @@ extension BrandFilterView {
         filterLabel.textColor = .omMainBlack
         filterLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
         
-        selectButton.setTitle(" 전체선택", for: .normal)
+        selectButton.setTitle("전체선택", for: .normal)
         selectButton.tintColor = .omFourthGray
         selectButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
+        selectButton.addTarget(self, action: #selector(touchUpAllSelect(_:)), for: .touchUpInside)
         
+        selectImage.image = UIImage(named: "icFilterNormal")
+        selectImage.isUserInteractionEnabled = true
         let selectGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpAllSelect(_:)))
         selectImage.addGestureRecognizer(selectGesture)
-        selectImage.image = UIImage(named: "icFilterNormal")
     }
     
     func setList() {
@@ -107,23 +108,6 @@ extension BrandFilterView {
 // MARK: - Action Methods
 
 extension BrandFilterView {
-    func setButton() {
-        let allSelectAction = UIAction { _ in
-            if !self.isAllSelected {
-                self.isAllSelected = true
-                self.selectButton.tintColor = .omMainOrange
-                self.selectImage.image = UIImage(named: "icFilterPressed")
-                self.brandListCollectionView.selectAll(animated: true)
-            } else {
-                self.isAllSelected = false
-                self.selectButton.tintColor = .omFourthGray
-                self.selectImage.image = UIImage(named: "icFilterNormal")
-                self.brandListCollectionView.deselectAll(animated: true)
-            }
-        }
-        selectButton.addAction(allSelectAction, for: .touchUpInside)
-    }
-    
     @objc
     func touchUpAllSelect(_ sender: UITapGestureRecognizer) {
         if !self.isAllSelected {
