@@ -32,21 +32,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dG6-X3-qnH">
-                                        <rect key="frame" x="380" y="7" width="14" height="14"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="14" id="9v2-AY-MrK"/>
-                                            <constraint firstAttribute="width" secondItem="dG6-X3-qnH" secondAttribute="height" multiplier="1:1" id="u1f-1q-Frf"/>
-                                        </constraints>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6D-dm-7HL">
+                                        <rect key="frame" x="364" y="1.5" width="30" height="30"/>
+                                        <connections>
+                                            <action selector="presentToPopupModal:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="XmA-IV-Pmz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.60392156862745094" blue="0.14117647058823529" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="dG6-X3-qnH" secondAttribute="trailing" constant="20" id="F57-0q-ubu"/>
+                                    <constraint firstItem="n6D-dm-7HL" firstAttribute="centerY" secondItem="JBU-Nl-h1q" secondAttribute="centerY" id="KVP-nn-XBK"/>
                                     <constraint firstAttribute="width" secondItem="JBU-Nl-h1q" secondAttribute="height" multiplier="375:30" id="Lgm-Vn-wUc"/>
                                     <constraint firstItem="6dv-Qe-fU0" firstAttribute="top" secondItem="JBU-Nl-h1q" secondAttribute="top" constant="8" id="c2v-Aw-H6U"/>
                                     <constraint firstItem="6dv-Qe-fU0" firstAttribute="leading" secondItem="JBU-Nl-h1q" secondAttribute="leading" constant="110" id="e2k-B5-oLO"/>
-                                    <constraint firstItem="dG6-X3-qnH" firstAttribute="top" secondItem="JBU-Nl-h1q" secondAttribute="top" constant="7" id="htJ-HX-cg0"/>
+                                    <constraint firstAttribute="trailing" secondItem="n6D-dm-7HL" secondAttribute="trailing" constant="20" id="sKv-eu-BQX"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SgH-HD-57c">
@@ -113,7 +112,7 @@
                         <outlet property="popLabel" destination="6dv-Qe-fU0" id="9V8-28-FTR"/>
                         <outlet property="popMiddleView" destination="JBU-Nl-h1q" id="i3q-zM-Q9R"/>
                         <outlet property="popTopView" destination="x4M-2f-aEt" id="CGe-I4-lS9"/>
-                        <outlet property="popUpButton" destination="dG6-X3-qnH" id="rfs-Ub-4xi"/>
+                        <outlet property="popUpButton" destination="n6D-dm-7HL" id="yvM-dJ-xqy"/>
                         <outlet property="sectionDivider" destination="ABb-Vu-9Qi" id="w0w-kz-YeK"/>
                         <outlet property="situationCollectionView" destination="YK4-K3-bWO" id="XAf-Ys-VFK"/>
                         <outlet property="sortButton" destination="GVL-Ff-BML" id="laA-nS-h3I"/>

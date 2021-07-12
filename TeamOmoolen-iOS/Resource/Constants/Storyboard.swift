@@ -29,6 +29,7 @@ extension Const {
             // search
             static let SearchResult = "SearchResult"
             static let SortPanModal = "SortPanModal"
+            static let PopupModal = "PopupModal"
             
             static let Event = "Event"
             static let Tip = "Tip"
