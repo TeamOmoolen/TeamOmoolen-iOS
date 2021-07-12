@@ -14,5 +14,5 @@ struct RecommendLensDataModel {
     var cycle: Int
     var pieces: Int
     var price: Int
-    var colorList: [Int]
+    var colorList: [String]
 }

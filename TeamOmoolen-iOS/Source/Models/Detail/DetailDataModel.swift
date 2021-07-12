@@ -15,7 +15,7 @@ struct DetailDataModel {
     var cycle: Int
     var texture: String
     var function: String
-    var colorList: [Int]
+    var colorList: [String]
     
     var silmilarList: [RecommendLensDataModel]
     var newList: [RecommendLensDataModel]
@@ -29,5 +29,5 @@ struct DetailMainDataModel {
     var cycle: Int
     var texture: String
     var function: String
-    var colorList: [Int]
+    var colorList: [String]
 }

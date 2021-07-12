@@ -43,7 +43,7 @@ class FilterVC: UIViewController {
     
     
     // MARK: - Local Variables
-    private var searchResultResponse = SearchResultResponse(products: [Product(id: 0, name: "", imageList: [""], category: "", color: 0, otherColorList: [0], price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, function: "", visionMinimum: 0, visionMaximum: 0, searchCount: 0)])
+    private var searchResultResponse = SearchResultResponse(products: [Product(id: 0, name: "", imageList: [""], category: "", color: "green", otherColorList: ["green"], price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, function: "", visionMinimum: 0, visionMaximum: 0, searchCount: 0)])
     
     private var lensBrand = [String]()
     private var lensColor = [String]()
