@@ -217,6 +217,7 @@
 		F8CB27ED2691FB8800DEFA75 /* GeneralAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CB27EC2691FB8800DEFA75 /* GeneralAPI.swift */; };
 		F8CB27F12692C1F700DEFA75 /* OnboardingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CB27F02692C1F700DEFA75 /* OnboardingDataModel.swift */; };
 		F8CB27F526931FF700DEFA75 /* OnboardingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CB27F426931FF700DEFA75 /* OnboardingRequest.swift */; };
+		F8F5250A269C34ED00EB6FF0 /* Suggest.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8F52509269C34ED00EB6FF0 /* Suggest.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -435,6 +436,7 @@
 		F8CB27EC2691FB8800DEFA75 /* GeneralAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAPI.swift; sourceTree = "<group>"; };
 		F8CB27F02692C1F700DEFA75 /* OnboardingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDataModel.swift; sourceTree = "<group>"; };
 		F8CB27F426931FF700DEFA75 /* OnboardingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRequest.swift; sourceTree = "<group>"; };
+		F8F52509269C34ED00EB6FF0 /* Suggest.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Suggest.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -978,6 +980,7 @@
 				928E502F269823A60086FC31 /* Home.xcassets */,
 				928E5031269827790086FC31 /* SearchFilter.xcassets */,
 				928E5039269887A00086FC31 /* Detail.xcassets */,
+				F8F52509269C34ED00EB6FF0 /* Suggest.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -1289,6 +1292,7 @@
 				E8A6602926959BAE00EB7EEA /* AllClearTVC.xib in Resources */,
 				E8A6602526959B9800EB7EEA /* NoRecentTVC.xib in Resources */,
 				E8C9A42826908CF900E5BD9D /* Search.storyboard in Resources */,
+				F8F5250A269C34ED00EB6FF0 /* Suggest.xcassets in Resources */,
 				92A889DB2692FD4D00AC1B81 /* Tabbar.storyboard in Resources */,
 				F8B91F75268E207A006114CD /* Roboto-Medium.ttf in Resources */,
 				F86F7ACF2690A1C20037081D /* Search.xcassets in Resources */,

@@ -30,6 +30,7 @@ class SituationVC: UIViewController {
         setRecommendList()
         registerXib()
         setCollectionViewDelegate()
+        setNotification()
     }
     
     // MARK: - @IBAction Properties
@@ -49,7 +50,11 @@ class SituationVC: UIViewController {
         
         self.present(popup, animated: true, completion: nil)
     }
-
+    @IBAction func presentSortModal(_ sender: Any) {
+        let vc = UIStoryboard(name: Const.Storyboard.Name.SortPanModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SortPanModal) as! SortPanModalVC
+        presentPanModal(vc)
+    }
+    
     //MARK: - functions
     func setUI()  {
         popTopView.backgroundColor = .omFifthGray
@@ -81,9 +86,30 @@ class SituationVC: UIViewController {
             RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"])
         ])
     }
+    
     func setCollectionViewDelegate(){
         situationCollectionView.delegate = self
         situationCollectionView.dataSource = self
+    }
+    
+    func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(setPriceLowOrder), name: Notification.Name("SetLowOrder"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setPriceHighOrder), name: Notification.Name("SetHighOrder"), object: nil)
+    }
+    
+    // MARK: - @objc Methods
+    @objc
+    func setPriceLowOrder() {
+        print("setPriceLowOrder()")
+//        resultList.sort(by: {$0.price < $1.price})
+//        resultCollectionView.reloadData()
+    }
+    
+    @objc
+    func setPriceHighOrder() {
+        print("setPriceHighOrder")
+//        resultList.sort(by: {$0.price > $1.price})
+//        resultCollectionView.reloadData()
     }
     
 }

@@ -32,8 +32,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6D-dm-7HL">
-                                        <rect key="frame" x="364" y="1.5" width="30" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6D-dm-7HL">
+                                        <rect key="frame" x="378" y="5.5" width="16" height="22"/>
+                                        <state key="normal" image="btnQuestionmark"/>
                                         <connections>
                                             <action selector="presentToPopupModal:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="XmA-IV-Pmz"/>
                                         </connections>
@@ -77,12 +78,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVL-Ff-BML">
-                                <rect key="frame" x="350" y="165" width="44" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="0jN-Yc-nyt"/>
-                                    <constraint firstAttribute="width" secondItem="GVL-Ff-BML" secondAttribute="height" multiplier="44:17" id="v7u-EM-LJU"/>
-                                </constraints>
+                                <rect key="frame" x="350" y="165" width="44" height="22"/>
                                 <state key="normal" image="btnSort"/>
+                                <connections>
+                                    <action selector="presentSortModal:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RpE-RB-l9R"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -124,6 +124,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btnQuestionmark" width="16" height="16"/>
         <image name="btnSort" width="44" height="17"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
