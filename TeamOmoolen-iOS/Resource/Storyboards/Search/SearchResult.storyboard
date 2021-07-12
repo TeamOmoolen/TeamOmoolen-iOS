@@ -37,7 +37,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3Z-7w-eiq">
-                                <rect key="frame" x="10" y="51" width="40" height="40"/>
+                                <rect key="frame" x="10" y="51" width="40" height="43"/>
                                 <state key="normal" image="icBack"/>
                                 <connections>
                                     <action selector="popToSearch:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="O4I-IW-N5w"/>
@@ -107,6 +107,7 @@
                             <constraint firstItem="HVR-Rw-0zV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="K59-fE-4QA"/>
                             <constraint firstItem="4O7-Bp-XWa" firstAttribute="top" secondItem="SgH-GA-B4P" secondAttribute="bottom" constant="3" id="SmZ-XP-mBA"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QbE-xu-afP" secondAttribute="trailing" constant="20" id="SqZ-h1-GDW"/>
+                            <constraint firstItem="HVR-Rw-0zV" firstAttribute="top" secondItem="p3Z-7w-eiq" secondAttribute="bottom" constant="10" id="VA1-uW-zQu"/>
                             <constraint firstItem="TA4-Ft-7Gk" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="aA1-ov-atZ"/>
                             <constraint firstItem="p3Z-7w-eiq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="ay4-fv-Fgf"/>
                             <constraint firstItem="SgH-GA-B4P" firstAttribute="top" secondItem="HVR-Rw-0zV" secondAttribute="bottom" constant="13" id="ehu-IO-W6a"/>
