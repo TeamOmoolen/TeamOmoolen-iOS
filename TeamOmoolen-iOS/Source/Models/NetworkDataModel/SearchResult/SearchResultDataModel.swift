@@ -43,8 +43,8 @@ struct Product: Codable {
     let name: String
     let imageList: [String]
     let category: String
-    let color: Int
-    let otherColorList: [Int]
+    let color: String
+    let otherColorList: [String]
     let price: Int
     let brand, releaseDate: String
     let diameter: Double

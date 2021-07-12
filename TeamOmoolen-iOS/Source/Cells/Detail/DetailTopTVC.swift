@@ -41,7 +41,7 @@ class DetailTopTVC: UITableViewCell {
     
     // MARK: - Local Variabels
     
-    private var colorList = [Int]()
+    private var colorList = [String]()
     var delegate: ViewModalProtocol?
     
     // MARK: - Life Cycle Methods
@@ -132,7 +132,7 @@ extension DetailTopTVC {
         compareButton.layer.masksToBounds = true
     }
     
-    func initCell(brand: String, lens: String, price: Int, diameter: Double, cycle: Int, function: String, colorList: [Int]) {
+    func initCell(brand: String, lens: String, price: Int, diameter: Double, cycle: Int, function: String, colorList: [String]) {
         brandLabel.text = brand
         lensLabel.text = lens
         

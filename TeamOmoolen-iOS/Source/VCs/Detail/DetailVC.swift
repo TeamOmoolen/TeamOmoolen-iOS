@@ -53,7 +53,7 @@ extension DetailVC {
     
     func setData() {
         mainData.append(contentsOf: [
-            DetailMainDataModel(brandName: "오렌즈", lensName: "브라운 컬러 렌즈", price: 18000, diameter: 13.5, cycle: 30, texture: "실리콘 하이드로겔", function: "난시", colorList: [888888, 111111])
+            DetailMainDataModel(brandName: "오렌즈", lensName: "브라운 컬러 렌즈", price: 18000, diameter: 13.5, cycle: 30, texture: "실리콘 하이드로겔", function: "난시", colorList: ["green", "blue"])
         ])
     }
     

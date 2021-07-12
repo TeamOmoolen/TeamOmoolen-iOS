@@ -31,9 +31,35 @@ extension ColorListCVC {
         contentView.layer.masksToBounds = true
     }
     
-    func initCell(color: Int) {
-        hexColor = "#\(color)"
-        contentView.layer.backgroundColor = UIColor(hex: hexColor).cgColor
+    func initCell(color: String) {
+//        hexColor = "#\(color)"
+//        contentView.layer.backgroundColor = UIColor(hex: hexColor).cgColor
+        
+        switch color {
+        case "clear":
+            return
+        case "black":
+            return
+        case "gray":
+            return
+        case "choco":
+            return
+        case "green":
+            return contentView.layer.backgroundColor = UIColor.omMainGreen.cgColor
+        case "brown":
+            return
+        case "purple":
+            return
+        case "blue":
+            return contentView.layer.backgroundColor = UIColor.blue.cgColor
+        case "gold":
+            return
+        case "pink":
+            return
+            
+        default:
+            return
+        }
     }
 }
 
