@@ -11,7 +11,7 @@ struct PopularDataModel: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: [PopularResponse]
+    let data: [PopularResponse]?
     
     enum CodingKeys: String, CodingKey {
         case status
@@ -26,7 +26,7 @@ struct PopularDataModel: Codable {
         status = (try? values.decode(Int.self, forKey: .status)) ?? 0
         success = (try? values.decode(Bool.self, forKey: .success)) ?? false
         message = (try? values.decode(String.self, forKey: .message)) ?? ""
-        data = (try? values.decode([PopularResponse].self, forKey: .data)) ?? [PopularResponse(id: 0, name: "")]
+        data = (try? values.decode([PopularResponse].self, forKey: .data)) ?? nil
     }
 }
 

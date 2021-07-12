@@ -27,7 +27,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1HX-L3-Yn0">
-                                <rect key="frame" x="61" y="124" width="41.5" height="20.5"/>
+                                <rect key="frame" x="61" y="118" width="41.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -35,7 +35,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1HX-L3-Yn0" firstAttribute="top" secondItem="2Pj-tY-m5d" secondAttribute="bottom" constant="14" id="4og-kn-yQP"/>
+                            <constraint firstItem="1HX-L3-Yn0" firstAttribute="top" secondItem="2Pj-tY-m5d" secondAttribute="bottom" constant="8" id="4og-kn-yQP"/>
                             <constraint firstItem="1HX-L3-Yn0" firstAttribute="centerX" secondItem="ZFt-X3-1fQ" secondAttribute="centerX" id="ShE-Pt-7uP"/>
                             <constraint firstAttribute="trailing" secondItem="2Pj-tY-m5d" secondAttribute="trailing" constant="36" id="Uiz-wO-pOf"/>
                             <constraint firstItem="2Pj-tY-m5d" firstAttribute="leading" secondItem="ZFt-X3-1fQ" secondAttribute="leading" constant="36" id="Y4o-Ve-LDt"/>
