@@ -40,8 +40,6 @@ class ForYouVC: UIViewController {
         popUpLabel.text = "나에게 딱 맞는 오무렌의 추천 렌즈를 소개합니다"
         popUpLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 10)
         popUpLabel.textColor = .omThirdGray
-        popUpLabel.centerXAnchor.constraint(equalTo: popUpMiddle.centerXAnchor).isActive = true
-        popUpLabel.centerYAnchor.constraint(equalTo: popUpMiddle.centerYAnchor).isActive = true
                 
         popUpBottom.backgroundColor = .omFifthGray
         

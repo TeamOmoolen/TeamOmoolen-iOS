@@ -26,9 +26,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JBU-Nl-h1q">
                                 <rect key="frame" x="0.0" y="112" width="414" height="33"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dv-Qe-fU0">
-                                        <rect key="frame" x="8" y="8" width="227" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dv-Qe-fU0">
+                                        <rect key="frame" x="110" y="8" width="41.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -37,6 +36,8 @@
                                 <color key="backgroundColor" red="1" green="0.60392156862745094" blue="0.14117647058823529" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JBU-Nl-h1q" secondAttribute="height" multiplier="375:30" id="Lgm-Vn-wUc"/>
+                                    <constraint firstItem="6dv-Qe-fU0" firstAttribute="top" secondItem="JBU-Nl-h1q" secondAttribute="top" constant="8" id="c2v-Aw-H6U"/>
+                                    <constraint firstItem="6dv-Qe-fU0" firstAttribute="leading" secondItem="JBU-Nl-h1q" secondAttribute="leading" constant="110" id="e2k-B5-oLO"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SgH-HD-57c">

@@ -35,11 +35,9 @@ class SituationVC: UIViewController {
     func setUI()  {
         popTopView.backgroundColor = .omFifthGray
         //서버에서 받아올 수도
-        popLabel.text = "나에게 딱 맞는 오무렌의 추천 렌즈를 소개합니다"
+        popLabel.text = "선택한 상황에 적절한 렌즈를 모아봤어요"
         popLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 10)
         popLabel.textColor = .omThirdGray
-        popLabel.centerXAnchor.constraint(equalTo: popMiddleView.centerXAnchor).isActive = true
-        popLabel.centerYAnchor.constraint(equalTo: popMiddleView.centerYAnchor).isActive = true
         
         popBottomView.backgroundColor = .omFifthGray
         sectionDivider.backgroundColor = .omAlmostwhite
