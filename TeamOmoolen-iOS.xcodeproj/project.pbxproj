@@ -135,6 +135,7 @@
 		E8AF804326984A3500D76A21 /* SuggestHomeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8AF804126984A3500D76A21 /* SuggestHomeCVC.xib */; };
 		E8AF804B26984B3800D76A21 /* SuggestTabBarCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF804926984B3800D76A21 /* SuggestTabBarCVC.swift */; };
 		E8AF804C26984B3800D76A21 /* SuggestTabBarCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8AF804A26984B3800D76A21 /* SuggestTabBarCVC.xib */; };
+		E8B29A9A269C2A6200D46B61 /* SearchKeywordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B29A99269C2A6200D46B61 /* SearchKeywordRequest.swift */; };
 		E8C9A42826908CF900E5BD9D /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C9A42726908CF900E5BD9D /* Search.storyboard */; };
 		E8C9A4372690AA3100E5BD9D /* SearchTabBarCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C9A4352690AA3100E5BD9D /* SearchTabBarCVC.swift */; };
 		E8C9A4382690AA3100E5BD9D /* SearchTabBarCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8C9A4362690AA3100E5BD9D /* SearchTabBarCVC.xib */; };
@@ -351,6 +352,7 @@
 		E8AF804126984A3500D76A21 /* SuggestHomeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestHomeCVC.xib; sourceTree = "<group>"; };
 		E8AF804926984B3800D76A21 /* SuggestTabBarCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestTabBarCVC.swift; sourceTree = "<group>"; };
 		E8AF804A26984B3800D76A21 /* SuggestTabBarCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestTabBarCVC.xib; sourceTree = "<group>"; };
+		E8B29A99269C2A6200D46B61 /* SearchKeywordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKeywordRequest.swift; sourceTree = "<group>"; };
 		E8C9A42726908CF900E5BD9D /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		E8C9A4352690AA3100E5BD9D /* SearchTabBarCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabBarCVC.swift; sourceTree = "<group>"; };
 		E8C9A4362690AA3100E5BD9D /* SearchTabBarCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTabBarCVC.xib; sourceTree = "<group>"; };
@@ -1059,6 +1061,7 @@
 				F85147A12696AC9800C8532F /* PopularDataModel.swift */,
 				E8A089D52697425C00089B6A /* PopularCellDataModel.swift */,
 				92B46ABB2697678100217CD9 /* SearchFilterRequest.swift */,
+				E8B29A99269C2A6200D46B61 /* SearchKeywordRequest.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1465,6 +1468,7 @@
 				F831305326976B8A004A247C /* AppleLoginDataModel.swift in Sources */,
 				F831304C2697670A004A247C /* LoginService.swift in Sources */,
 				E8AF80262698419F00D76A21 /* SuggestTabBar.swift in Sources */,
+				E8B29A9A269C2A6200D46B61 /* SearchKeywordRequest.swift in Sources */,
 				E8C9A43C2690B97C00E5BD9D /* SearchTabBar.swift in Sources */,
 				F824590B268E1F3A0048BE84 /* FunctionCVC.swift in Sources */,
 				E8C9A4372690AA3100E5BD9D /* SearchTabBarCVC.swift in Sources */,

@@ -12,6 +12,8 @@ enum SearchService {
     case searchWindow
     
     case searchFilter(param: SearchFilterRequest)
+    
+    case searchKeyword(param: SearchKeywordRequest)
 }
 
 extension SearchService: TargetType {
@@ -25,8 +27,9 @@ extension SearchService: TargetType {
             return "/api/searchWindow"
         case .searchFilter:
             return "/api/getFilteredList"
+        case .searchKeyword:
+            return "/api/searchProduct"
         }
-
     }
     
     var method: Moya.Method {
@@ -34,6 +37,8 @@ extension SearchService: TargetType {
         case .searchWindow:
             return .get
         case .searchFilter:
+            return .get
+        case .searchKeyword:
             return .get
         }
     }
@@ -46,8 +51,10 @@ extension SearchService: TargetType {
         switch self {
         case .searchWindow:
             return .requestPlain
-        case .searchFilter(let searchFilterRequest):
-            return .requestJSONEncodable(searchFilterRequest)
+        case .searchFilter(let searchFilterReques):
+            return .requestJSONEncodable(searchFilterReques)
+        case .searchKeyword(let searchKeywordRequest):
+            return .requestJSONEncodable(searchKeywordRequest)
         }
     }
     
