@@ -16,8 +16,10 @@ class SearchVC: UIViewController {
     
     //MARK: - Local Variables
     var searchViews : [UIViewController] = []
+    private var getSearchData = false
+    private var keyword = ""
+    private var searchResultResponse = SearchResultResponse(products:[Product(id: 0, name: "", imageList: [""], category: "", color: "green", otherColorList: ["green"], price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, function: "", visionMinimum: 0, visionMaximum: 0, searchCount: 0)])
 
-    
     lazy var searchTabBar: SearchTabBar = {
         let sTB = SearchTabBar()
         sTB.searchviewcontroller = self
@@ -32,7 +34,6 @@ class SearchVC: UIViewController {
         registerNib()
         setCollectionViewDelegate()
         setVCs()
-        
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -55,6 +56,11 @@ class SearchVC: UIViewController {
     //MARK: - IBAction Methods
     @IBAction func searchDidEnd(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name("SearchEntered"), object: searchTextField.text)
+        //서버통신
+        getSearchData = true
+        keyword = searchTextField.text!
+        getData()
+        
     }
     
     @IBAction func touchUpBackButton(_ sender: Any) {
@@ -151,4 +157,38 @@ extension SearchVC : UICollectionViewDelegate, UICollectionViewDataSource, UICol
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
     
+}
+
+//MARK: - Request API
+extension SearchVC {
+    func getData() {
+        if getSearchData {
+            requestAPI()
+        }
+    }
+    
+    func requestAPI(){
+        let param = SearchKeywordRequest(keyword)
+        
+        print(param)
+        
+        getSearchResultWithAPI(param: param)
+    }
+    
+    func getSearchResultWithAPI(param: SearchKeywordRequest) {
+        SearchAPI.shared.getKeywordResult(param: param) {
+            response in
+            print(response)
+            self.searchResultResponse = response
+            
+            guard let searchResultVC = UIStoryboard(name: Const.Storyboard.Name.SearchResult, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SearchResult) as? SearchResultVC else {
+                return
+            }
+            searchResultVC.modalPresentationStyle = .fullScreen
+            searchResultVC.modalTransitionStyle = .crossDissolve
+            searchResultVC.resultList = self.searchResultResponse.products
+            
+            self.navigationController?.pushViewController(searchResultVC, animated: true)
+        }
+    }
 }
