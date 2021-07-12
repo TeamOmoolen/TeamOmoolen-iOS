@@ -95,7 +95,7 @@ extension RecommendTVC {
         }
         suggestVC.modalPresentationStyle = .fullScreen
         suggestVC.modalTransitionStyle = .crossDissolve
-        suggestVC.passTag(tag: 1)
+        suggestVC.passTag(tag: 0)
         self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
     }
 }

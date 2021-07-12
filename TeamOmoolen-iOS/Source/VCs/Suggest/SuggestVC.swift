@@ -32,28 +32,28 @@ class SuggestVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        if position == 1 {
+        if position == 0 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, at: .left, animated: true)
             
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, animated: true, scrollPosition: .left)
-        }
-        if position == 2 {
+        } else if position == 1 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 1, section: 0) as IndexPath, at: .left, animated: true)
             
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 1, section: 0) as IndexPath, animated: true, scrollPosition: .left)
-        }
-        if position == 3 {
+        } else if position == 2 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 2, section: 0) as IndexPath, at: .left, animated: true)
             
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 2, section: 0) as IndexPath, animated: true, scrollPosition: .left)
-        }
-        if position == 4 {
+        } else {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, at: .left, animated: true)
             
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         }
         
         navigationController?.navigationBar.isHidden = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(getPosition(_:)), name: NSNotification.Name("PostPosition"), object: nil)
+         
     }
     
     override func viewDidLoad() {
@@ -68,7 +68,7 @@ class SuggestVC: UIViewController {
     
     // MARK: - IB Actions
     
-    @IBAction func touchUpBack(_ sender: Any) {
+    @IBAction func touchUpBackButton(_ sender: Any) {
         guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {
             return
         }
@@ -76,6 +76,7 @@ class SuggestVC: UIViewController {
         homeVC.modalTransitionStyle = .crossDissolve
         navigationController?.popViewController(animated: true)
     }
+    
     
    //MARK: - Methods
     
@@ -165,6 +166,8 @@ extension SuggestVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         
         let indexPath = NSIndexPath(item: Int(index), section: 0)
         suggestTabBar.collectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: [])
+        
+        position = indexPath.item
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -191,16 +194,23 @@ extension SuggestVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
 extension SuggestVC: PassTagProtocol {
     func passTag(tag: Int) {
         switch tag {
+        case 0:
+            position = 0
         case 1:
             position = 1
         case 2:
             position = 2
         case 3:
             position = 3
-        case 4:
-            position = 4
         default:
             return
         }
+    }
+}
+
+extension SuggestVC {
+    @objc
+    func getPosition(_ notification: Notification) {
+        position = notification.object as! Int
     }
 }

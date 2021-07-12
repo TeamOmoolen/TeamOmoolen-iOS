@@ -119,7 +119,7 @@ class ForYouVC: UIViewController {
             유저들에게 맞는 추천 제품을 제공합니다.
             """
         
-        popup.modalPresentationStyle = .overCurrentContext
+        popup.modalPresentationStyle = .overFullScreen
         popup.modalTransitionStyle = . crossDissolve
         
         self.present(popup, animated: true, completion: nil)

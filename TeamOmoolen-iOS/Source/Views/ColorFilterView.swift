@@ -208,6 +208,9 @@ extension ColorFilterView {
             lensColor.append("pink")
         }
         if lensColorList.contains([0,10]) {
+            lensColor.append("glitter")
+        }
+        if lensColorList.contains([0,11]) {
             lensColor.append("etc")
         }
         

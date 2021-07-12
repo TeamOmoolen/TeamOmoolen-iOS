@@ -59,7 +59,7 @@ class SuggestTabBar: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        NotificationCenter.default.post(name: NSNotification.Name("PostPosition"), object: indexPath.item)
         suggestViewController?.scrollToSuggestTabBarIndex(tabBarIdx: indexPath.item)
     }
     

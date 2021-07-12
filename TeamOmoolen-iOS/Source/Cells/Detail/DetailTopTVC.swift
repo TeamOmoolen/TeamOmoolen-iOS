@@ -132,7 +132,7 @@ extension DetailTopTVC {
         compareButton.layer.masksToBounds = true
     }
     
-    func initCell(brand: String, lens: String, price: Int, diameter: Double, cycle: Int, function: String, colorList: [String]) {
+    func initCell(brand: String, lens: String, price: Int, diameter: Double, cycle: Int, texture: String, function: String, colorList: [String]) {
         brandLabel.text = brand
         lensLabel.text = lens
         
@@ -142,8 +142,27 @@ extension DetailTopTVC {
         
         lensDiameterLabel.text = "\(diameter)mm"
         
-        // 서버에서 넘겨주는 데이터 가공할 것
-        lensCycleLabel.text = "\(cycle)Month"
+        var cycleData = ""
+        if cycle == 0 {
+            cycleData = "1 day"
+        } else if cycle == 1 {
+            cycleData = "2 ~ 6 days"
+        } else if cycle == 2 {
+            cycleData = "1 week"
+        } else if cycle == 3 {
+            cycleData = "2 weeks"
+        } else if cycle == 4 {
+            cycleData = "1 month"
+        } else if cycle == 5 {
+            cycleData = "2 ~ 3 months"
+        } else if cycle == 6 {
+            cycleData = "4 ~ 6 months"
+        } else if cycle == 7 {
+            cycleData = "6 months +"
+        }
+        lensCycleLabel.text = "\(cycleData)"
+        
+        lensTextureLabel.text = texture
         
         lensFunctionLabel.text = function
         

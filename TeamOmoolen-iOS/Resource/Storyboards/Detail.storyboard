@@ -17,20 +17,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dlm-eG-WE3">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="103" width="414" height="793"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxP-Ub-hdH">
+                                <rect key="frame" x="0.0" y="44" width="414" height="59"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="6A7-sc-0cX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="lxP-Ub-hdH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="3aT-Yk-ZGQ"/>
+                            <constraint firstItem="lxP-Ub-hdH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6cg-eL-cPa"/>
+                            <constraint firstItem="lxP-Ub-hdH" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="A82-zx-tcI"/>
                             <constraint firstItem="Dlm-eG-WE3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bgW-7v-jTs"/>
                             <constraint firstItem="Dlm-eG-WE3" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="feN-NI-UKV"/>
                             <constraint firstAttribute="bottom" secondItem="Dlm-eG-WE3" secondAttribute="bottom" id="ktX-ql-5e5"/>
-                            <constraint firstItem="Dlm-eG-WE3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ywa-8k-H2D"/>
+                            <constraint firstItem="Dlm-eG-WE3" firstAttribute="top" secondItem="lxP-Ub-hdH" secondAttribute="bottom" id="lkd-wj-evh"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="customNavigationBarView" destination="lxP-Ub-hdH" id="HF2-gh-MtQ"/>
                         <outlet property="detailTableView" destination="Dlm-eG-WE3" id="tCg-X7-L6I"/>
                     </connections>
                 </viewController>

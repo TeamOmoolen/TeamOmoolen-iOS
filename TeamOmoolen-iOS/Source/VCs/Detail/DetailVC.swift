@@ -11,6 +11,7 @@ class DetailVC: UIViewController {
     
     // MARK: - UI Components
     
+    @IBOutlet weak var customNavigationBarView: UIView!
     @IBOutlet weak var detailTableView: UITableView!
     
     private lazy var writeButton: UIButton = {
@@ -53,7 +54,7 @@ extension DetailVC {
     
     func setData() {
         mainData.append(contentsOf: [
-            DetailMainDataModel(brandName: "오렌즈", lensName: "브라운 컬러 렌즈", price: 18000, diameter: 13.5, cycle: 30, texture: "실리콘 하이드로겔", function: "난시", colorList: ["green", "pink", "black"])
+            DetailMainDataModel(brandName: "오렌즈", lensName: "브라운 컬러 렌즈", price: 18000, diameter: 13.5, cycle: 2, texture: "실리콘 하이드로겔", function: "난시", colorList: ["green", "pink", "black"])
         ])
     }
     
@@ -83,7 +84,9 @@ extension DetailVC {
     }
     
     func setNavigationController() {
-        navigationController?.navigationBar.isHidden = false
+        setupNavigationBar(customNavigationBarView: customNavigationBarView, title: "제품 상세 정보")
+    
+        navigationController?.navigationBar.isHidden = true
     }
 }
 
@@ -121,7 +124,7 @@ extension DetailVC: UITableViewDataSource {
             }
             cell.selectionStyle = .none
             cell.delegate = self
-            cell.initCell(brand: mainData[indexPath.row].brandName, lens: mainData[indexPath.row].lensName, price: mainData[indexPath.row].price, diameter: mainData[indexPath.row].diameter, cycle: mainData[indexPath.row].cycle, function: mainData[indexPath.row].function, colorList: mainData[indexPath.row].colorList)
+            cell.initCell(brand: mainData[indexPath.row].brandName, lens: mainData[indexPath.row].lensName, price: mainData[indexPath.row].price, diameter: mainData[indexPath.row].diameter, cycle: mainData[indexPath.row].cycle, texture: mainData[indexPath.row].texture, function: mainData[indexPath.row].function, colorList: mainData[indexPath.row].colorList)
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTVC.identifier) as? ReviewTVC else {
