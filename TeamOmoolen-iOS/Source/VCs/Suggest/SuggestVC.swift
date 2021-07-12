@@ -15,6 +15,8 @@ class SuggestVC: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionViewTopConstraint: NSLayoutConstraint!
+    
     
     //MARK: - Local Variables
     
@@ -64,6 +66,7 @@ class SuggestVC: UIViewController {
         setUpTabBar()
         registerXib()
         setCollectionViewDelegate()
+        setPhoneResolution()
     }
     
     // MARK: - IB Actions
@@ -130,9 +133,19 @@ class SuggestVC: UIViewController {
     private func setUpTabBar(){
         view.addSubview(suggestTabBar)
         
-        view.addConstraintsWithFormat(format: "H:|-20-[v0]-70-|", views: suggestTabBar)
+        if UIDevice.current.isiPhoneSE2 {
+            view.addConstraintsWithFormat(format: "H:|-20-[v0]-70-|", views: suggestTabBar)
+            view.addConstraintsWithFormat(format: "V:|-80-[v0(45)]", views: suggestTabBar)
 
-        view.addConstraintsWithFormat(format: "V:|-122-[v0(45)]", views: suggestTabBar)
+        } else if (UIDevice.current.isiPhone12Pro) {
+            view.addConstraintsWithFormat(format: "H:|-20-[v0]-70-|", views: suggestTabBar)
+            view.addConstraintsWithFormat(format: "V:|-10-[v0(45)]", views: suggestTabBar)
+
+        } else {
+            view.addConstraintsWithFormat(format: "H:|-20-[v0]-70-|", views: suggestTabBar)
+            view.addConstraintsWithFormat(format: "V:|-122-[v0(45)]", views: suggestTabBar)
+        }
+
     }
     
     func registerXib() {
@@ -146,6 +159,16 @@ class SuggestVC: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
+    func setPhoneResolution(){
+        if UIDevice.current.isiPhoneSE2 {
+            collectionViewTopConstraint.constant = 0
+        }
+        if UIDevice.current.isiPhone12Pro {
+            collectionViewTopConstraint.constant = 0
+        }
+    }
+    
     
     func scrollToSuggestTabBarIndex(tabBarIdx: Int){
         let indexPath = NSIndexPath(item: tabBarIdx, section: 0)
@@ -184,7 +207,15 @@ extension SuggestVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: view.frame.height)
+        
+        if UIDevice.current.isiPhoneSE2 {
+            return CGSize(width: view.frame.width, height: 700)
+        } else if (UIDevice.current.isiPhone12Pro) {
+            return CGSize(width: 390, height: 844)
+        } else {
+        
+            return CGSize(width: view.frame.width, height: view.frame.height)
+        }
     }
 }
 

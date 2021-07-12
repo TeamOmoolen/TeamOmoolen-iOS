@@ -74,6 +74,7 @@
                     <connections>
                         <outlet property="backButton" destination="X1e-YL-COy" id="sww-sj-Fi5"/>
                         <outlet property="collectionView" destination="e28-Ef-1UJ" id="0qO-vD-GtE"/>
+                        <outlet property="collectionViewTopConstraint" destination="OEo-lc-vl9" id="uqk-fV-50Z"/>
                         <outlet property="searchTextField" destination="ZJJ-4U-4Nr" id="kKn-j0-P72"/>
                         <outlet property="searchView" destination="1wi-za-t7V" id="ghc-vt-d8V"/>
                     </connections>

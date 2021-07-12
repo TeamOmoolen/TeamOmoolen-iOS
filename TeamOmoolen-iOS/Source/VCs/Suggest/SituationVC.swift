@@ -13,12 +13,12 @@ class SituationVC: UIViewController {
     @IBOutlet weak var popTopView: UIView!
     @IBOutlet weak var popMiddleView: UIView!
     @IBOutlet weak var popLabel: UILabel!
-    @IBOutlet weak var popBottomView: UIView!
-    @IBOutlet weak var sectionDivider: UIView!
     @IBOutlet weak var situationCollectionView:
         UICollectionView!
     @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var popUpButton: UIButton!
+    @IBOutlet weak var popUpTopConstraint: NSLayoutConstraint!
+    
     
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []
@@ -31,6 +31,7 @@ class SituationVC: UIViewController {
         registerXib()
         setCollectionViewDelegate()
         setNotification()
+        setPhoneResolution()
     }
     
     // MARK: - @IBAction Properties
@@ -63,8 +64,6 @@ class SituationVC: UIViewController {
         popLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 10)
         popLabel.textColor = .omThirdGray
         
-        popBottomView.backgroundColor = .omFifthGray
-        sectionDivider.backgroundColor = .omAlmostwhite
         
         popUpButton.setImage(UIImage(named: "btnQuestionmark"), for: .normal)
     }
@@ -96,6 +95,13 @@ class SituationVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(setPriceLowOrder), name: Notification.Name("SetLowOrder"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setPriceHighOrder), name: Notification.Name("SetHighOrder"), object: nil)
     }
+    
+    func setPhoneResolution() {
+        if UIDevice.current.isiPhoneSE2 {
+            popUpTopConstraint.constant = 0
+        }
+    }
+
     
     // MARK: - @objc Methods
     @objc
@@ -129,7 +135,7 @@ extension SituationVC: UICollectionViewDelegate {
 extension SituationVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width - 40 - 15) / 2
-        let height = (collectionView.frame.height - 120) / 2
+        let height = (collectionView.frame.height - 40) / 2
         return CGSize(width: width, height: height)
     }
     

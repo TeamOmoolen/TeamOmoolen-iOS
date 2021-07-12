@@ -37,7 +37,7 @@ extension UIDevice {
         return false
     }
     
-    public var isiPone12Pro: Bool {
+    public var isiPhone12Pro: Bool {
         if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad && (UIScreen.main.bounds.size.height == 844 && UIScreen.main.bounds.size.width == 390) {
             return true
         }
