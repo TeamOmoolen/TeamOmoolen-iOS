@@ -22,7 +22,7 @@ class SuggestTabBar: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         return cv
     }()
     
-    let views = ["ForYou", "운동할때", "신제품", "여름에 예쁜"]
+    let views = ["For You", "운동할 때", "신제품", "여름에 예쁜"]
     
     var suggestViewController : SuggestVC?
     
@@ -54,8 +54,8 @@ class SuggestTabBar: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         
         horizontalBarView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         //움직일때 하이라이트 되는 길이 - 나중에 디테일 잡기
-        horizontalBarView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.2).isActive = true
-        horizontalBarView.heightAnchor.constraint(equalToConstant: 3).isActive = true
+        horizontalBarView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.25).isActive = true
+        horizontalBarView.heightAnchor.constraint(equalToConstant: 4).isActive = true
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -70,14 +70,14 @@ class SuggestTabBar: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuggestTabBarCVC.identifier, for: indexPath) as! SuggestTabBarCVC
         cell.backgroundColor = .omWhite
-        cell.label.font = UIFont(name: "NotoSansCJKKR-Regular", size: 15)
+        cell.label.font = UIFont(name: "NotoSansCJKKR-Regular", size: 13)
         cell.label.text = views[indexPath.item]
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width / 4 , height: frame.height)
+        return CGSize(width: frame.width/4 , height: frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
