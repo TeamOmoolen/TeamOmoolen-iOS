@@ -13,12 +13,11 @@ class ForYouVC: UIViewController {
     @IBOutlet weak var popUpTop: UIView!
     @IBOutlet weak var popUpMiddle: UIView!
     @IBOutlet weak var popUpLabel: UILabel!
-    @IBOutlet weak var popUpBottom: UIView!
     @IBOutlet weak var myFilterLabel: UILabel!
-    @IBOutlet weak var sectionDivider: UIView!
     @IBOutlet weak var forYouCollectionView: UICollectionView!
     @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var popUpButton: UIButton!
+    @IBOutlet weak var popUpTopConstraint: NSLayoutConstraint!
     
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []
@@ -32,6 +31,7 @@ class ForYouVC: UIViewController {
         setRecommendList()
         setCollectionViewDelegate()
         setNotification()
+        setPhoneResolution()
 
     }
     
@@ -43,15 +43,11 @@ class ForYouVC: UIViewController {
         popUpLabel.text = "나에게 딱 맞는 오무렌의 추천 렌즈를 소개합니다"
         popUpLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 10)
         popUpLabel.textColor = .omThirdGray
-                
-        popUpBottom.backgroundColor = .omFifthGray
         
         myFilterLabel.text = "my필터"
         myFilterLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 12)
         myFilterLabel.textColor = .omSecondGray
-        
-        sectionDivider.backgroundColor = .omAlmostwhite
-        
+                
         popUpButton.setImage(UIImage(named: "btnQuestionmark"), for: .normal)
     }
     
@@ -82,6 +78,18 @@ class ForYouVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(setPriceLowOrder), name: Notification.Name("SetLowOrder"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setPriceHighOrder), name: Notification.Name("SetHighOrder"), object: nil)
     }
+    
+   func setPhoneResolution() {
+        if UIDevice.current.isiPhoneSE2 {
+            popUpTopConstraint.constant = 0
+        }
+    
+        if UIDevice.current.isiPhone12Pro {
+            popUpTopConstraint.constant = 200
+        }
+   }
+    
+
     
     // MARK: - @objc Methods
     @objc
@@ -141,7 +149,7 @@ extension ForYouVC: UICollectionViewDelegate {
 extension ForYouVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width - 40 - 15) / 2
-        let height = (collectionView.frame.height - 120) / 2
+        let height = (collectionView.frame.height - 40) / 2
         return CGSize(width: width, height: height)
     }
     
