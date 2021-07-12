@@ -33,6 +33,7 @@ extension Const {
             
             // search
             static let SearchResult = "SearchResultVC"
+            static let PopupModal = "PopupModalVC"
             
             static let Event = "EventVC"
             static let Tip = "TipVC"

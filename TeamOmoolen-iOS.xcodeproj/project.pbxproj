@@ -143,6 +143,8 @@
 		E8C9A4422690D06100E5BD9D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C9A4412690D06100E5BD9D /* UIView.swift */; };
 		E8C9A4452690D56000E5BD9D /* SearchHomeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C9A4432690D56000E5BD9D /* SearchHomeCVC.swift */; };
 		E8C9A4462690D56000E5BD9D /* SearchHomeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8C9A4442690D56000E5BD9D /* SearchHomeCVC.xib */; };
+		F802D770269C14FE0041383B /* PopupModal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F802D76F269C14FE0041383B /* PopupModal.storyboard */; };
+		F802D772269C171E0041383B /* PopupModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F802D771269C171E0041383B /* PopupModalVC.swift */; };
 		F8245909268E1F3A0048BE84 /* FunctionCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8245905268E1F3A0048BE84 /* FunctionCVC.xib */; };
 		F824590A268E1F3A0048BE84 /* TimeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8245906268E1F3A0048BE84 /* TimeCVC.xib */; };
 		F824590B268E1F3A0048BE84 /* FunctionCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8245907268E1F3A0048BE84 /* FunctionCVC.swift */; };
@@ -356,6 +358,8 @@
 		E8C9A4412690D06100E5BD9D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		E8C9A4432690D56000E5BD9D /* SearchHomeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeCVC.swift; sourceTree = "<group>"; };
 		E8C9A4442690D56000E5BD9D /* SearchHomeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHomeCVC.xib; sourceTree = "<group>"; };
+		F802D76F269C14FE0041383B /* PopupModal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopupModal.storyboard; sourceTree = "<group>"; };
+		F802D771269C171E0041383B /* PopupModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupModalVC.swift; sourceTree = "<group>"; };
 		F8245905268E1F3A0048BE84 /* FunctionCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FunctionCVC.xib; sourceTree = "<group>"; };
 		F8245906268E1F3A0048BE84 /* TimeCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCVC.xib; sourceTree = "<group>"; };
 		F8245907268E1F3A0048BE84 /* FunctionCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionCVC.swift; sourceTree = "<group>"; };
@@ -697,6 +701,7 @@
 				E8AF802E2698427A00D76A21 /* SituationVC.swift */,
 				E8AF802C2698424F00D76A21 /* NewProductVC.swift */,
 				E8AF80302698428D00D76A21 /* SeasonVC.swift */,
+				F802D771269C171E0041383B /* PopupModalVC.swift */,
 			);
 			path = Suggest;
 			sourceTree = "<group>";
@@ -892,6 +897,7 @@
 				9225069F269AD6E500419B40 /* Event.storyboard */,
 				922506A1269AD70D00419B40 /* Tip.storyboard */,
 				922506A3269AD71A00419B40 /* MyPage.storyboard */,
+				F802D76F269C14FE0041383B /* PopupModal.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -1298,6 +1304,7 @@
 				92F9950026918C8C0053ABD8 /* OneMinTVC.xib in Resources */,
 				928E5030269823A60086FC31 /* Home.xcassets in Resources */,
 				92F994FC26918BC30053ABD8 /* RecommendTVC.xib in Resources */,
+				F802D770269C14FE0041383B /* PopupModal.storyboard in Resources */,
 				F8B91F74268E207A006114CD /* Roboto-MediumItalic.ttf in Resources */,
 				927692612693CB9100201EE1 /* BrandFilterView.xib in Resources */,
 				F8B91F76268E207A006114CD /* Roboto-Regular.ttf in Resources */,
@@ -1424,6 +1431,7 @@
 				92A889D42692EC2800AC1B81 /* LastBannerTVC.swift in Sources */,
 				92B46ABA269742F100217CD9 /* FilterDataModel.swift in Sources */,
 				E82DE8FE268C748900296B53 /* FunctionDataModel.swift in Sources */,
+				F802D772269C171E0041383B /* PopupModalVC.swift in Sources */,
 				F85147992695839D00C8532F /* SearchAPI.swift in Sources */,
 				92B46ABC2697678100217CD9 /* SearchFilterRequest.swift in Sources */,
 				E8A078662690F35100D99444 /* FilterVC.swift in Sources */,
