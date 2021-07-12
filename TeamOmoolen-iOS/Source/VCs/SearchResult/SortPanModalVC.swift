@@ -72,6 +72,6 @@ extension SortPanModalVC: PanModalPresentable {
     }
 
     var longFormHeight: PanModalHeight {
-        return .maxHeightWithTopInset(0)
+        return .maxHeightWithTopInset(100)
     }
 }
