@@ -32,8 +32,8 @@ extension UIViewController {
     }
     
     // 커스텀 네비게이션바
-    func setupNavigationBar(customNavigationBarView: UIView) {
-        let navigationBar = CustomNavigationBar(vc: self)
+    func setupNavigationBar(customNavigationBarView: UIView, title: String) {
+        let navigationBar = CustomNavigationBar(vc: self, title: title)
 
         customNavigationBarView.addSubview(navigationBar)
         navigationBar.translatesAutoresizingMaskIntoConstraints = false

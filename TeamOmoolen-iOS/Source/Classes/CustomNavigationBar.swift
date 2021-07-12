@@ -16,9 +16,10 @@ class CustomNavigationBar: UIView {
         return button
     }()
     
-    let titleLabel: UILabel = {
+    var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "맞춤 정보 설정"
+//        label.text = "맞춤 정보 설정"
+        label.text = ""
         label.textColor = UIColor.omSecondGray
         label.font = UIFont(name: "NotoSansCJKKR-Medium", size: 16)
         return label
@@ -38,11 +39,12 @@ class CustomNavigationBar: UIView {
     }()
     
     // MARK: - Methods
-    init(vc: UIViewController) {
+    init(vc: UIViewController, title: String) {
         super.init(frame: .zero)
         setUI()
         setupLayout()
         setupAction(vc: vc)
+        setTitle(title: title)
     }
     
     required init?(coder: NSCoder) {
@@ -83,11 +85,19 @@ class CustomNavigationBar: UIView {
         ])
     }
     
+    private func setTitle(title: String) {
+        self.titleLabel.text = title
+    }
+    
     private func setupAction(vc: UIViewController) {
         let backAction = UIAction { _ in
 //            vc.dismiss(animated: true, completion: nil)
             vc.navigationController?.popViewController(animated: true)
         }
         backButton.addAction(backAction, for: .touchUpInside)
+    }
+    
+    func setUpTitle(title: String) {
+        titleLabel.text = title
     }
 }

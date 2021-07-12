@@ -67,7 +67,6 @@ extension RecommendCVC {
         brandNameLabel.text = brandName
         lensNameLabel.text = lensName
         
-        // MARK: - FIX ME : 주기 분기 처리
         var cycleData = ""
         if cycle == 0 {
             cycleData = "1Day"

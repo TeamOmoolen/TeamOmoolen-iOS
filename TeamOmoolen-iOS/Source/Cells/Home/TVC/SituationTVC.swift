@@ -100,7 +100,7 @@ extension SituationTVC {
         }
         suggestVC.modalPresentationStyle = .fullScreen
         suggestVC.modalTransitionStyle = .crossDissolve
-        suggestVC.passTag(tag: 2)
+        suggestVC.passTag(tag: 1)
         self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
     }
 }

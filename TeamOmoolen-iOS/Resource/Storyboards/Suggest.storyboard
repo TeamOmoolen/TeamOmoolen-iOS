@@ -41,7 +41,7 @@
                                 </constraints>
                                 <state key="normal" image="icBack"/>
                                 <connections>
-                                    <action selector="touchUpBack:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="sIe-ac-DAr"/>
+                                    <action selector="touchUpBackButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bx4-Mo-88i"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e28-Ef-1UJ">

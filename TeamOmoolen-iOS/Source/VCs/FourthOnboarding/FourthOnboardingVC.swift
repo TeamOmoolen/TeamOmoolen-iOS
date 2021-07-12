@@ -201,7 +201,7 @@ class FourthOnboardingVC: UIViewController {
 extension FourthOnboardingVC {
     func setNavigationBar() {
         self.navigationController?.navigationBar.isHidden = true
-        setupNavigationBar(customNavigationBarView: customNavigationBarView)
+        setupNavigationBar(customNavigationBarView: customNavigationBarView, title: "맞춤 정보 설정")
     }
     
     func setBrandListView() {

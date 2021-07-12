@@ -68,7 +68,7 @@ class SuggestVC: UIViewController {
     
     // MARK: - IB Actions
     
-    @IBAction func touchUpBack(_ sender: Any) {
+    @IBAction func touchUpBackButton(_ sender: Any) {
         guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {
             return
         }
@@ -76,6 +76,7 @@ class SuggestVC: UIViewController {
         homeVC.modalTransitionStyle = .crossDissolve
         navigationController?.popViewController(animated: true)
     }
+    
     
    //MARK: - Methods
     
@@ -191,14 +192,14 @@ extension SuggestVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
 extension SuggestVC: PassTagProtocol {
     func passTag(tag: Int) {
         switch tag {
+        case 0:
+            position = 0
         case 1:
             position = 1
         case 2:
             position = 2
         case 3:
             position = 3
-        case 4:
-            position = 4
         default:
             return
         }
