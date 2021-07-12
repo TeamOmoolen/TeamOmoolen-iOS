@@ -10,12 +10,14 @@ import UIKit
 class SuggestVC: UIViewController {
 
     //MARK: - IB Outlets
+    
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
     
     //MARK: - Local Variables
+    
     var suggestViews : [UIViewController] = []
     var position: Int = 0
     
@@ -26,20 +28,29 @@ class SuggestVC: UIViewController {
     }()
     
     //MARK: - View Life Cycle
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
         if position == 1 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, at: .left, animated: true)
+            
+            suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         }
         if position == 2 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 1, section: 0) as IndexPath, at: .left, animated: true)
+            
+            suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 1, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         }
         if position == 3 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 2, section: 0) as IndexPath, at: .left, animated: true)
+            
+            suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 2, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         }
         if position == 4 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, at: .left, animated: true)
+            
+            suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         }
         
     }
@@ -55,6 +66,7 @@ class SuggestVC: UIViewController {
     }
     
    //MARK: - Methods
+    
     func setUI() {
         
         let layout = UICollectionViewFlowLayout()
