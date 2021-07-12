@@ -17,6 +17,8 @@ class SituationVC: UIViewController {
     @IBOutlet weak var sectionDivider: UIView!
     @IBOutlet weak var situationCollectionView:
         UICollectionView!
+    @IBOutlet weak var sortButton: UIButton!
+    @IBOutlet weak var popUpButton: UIButton!
     
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []

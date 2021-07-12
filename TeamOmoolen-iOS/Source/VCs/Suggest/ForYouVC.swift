@@ -17,6 +17,8 @@ class ForYouVC: UIViewController {
     @IBOutlet weak var myFilterLabel: UILabel!
     @IBOutlet weak var sectionDivider: UIView!
     @IBOutlet weak var forYouCollectionView: UICollectionView!
+    @IBOutlet weak var sortButton: UIButton!
+    @IBOutlet weak var popUpButton: UIButton!
     
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []
