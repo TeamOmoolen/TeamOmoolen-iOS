@@ -32,28 +32,28 @@ class SuggestVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        if position == 1 {
+        if position == 0 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, at: .left, animated: true)
             
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, animated: true, scrollPosition: .left)
-        }
-        if position == 2 {
+        } else if position == 1 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 1, section: 0) as IndexPath, at: .left, animated: true)
             
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 1, section: 0) as IndexPath, animated: true, scrollPosition: .left)
-        }
-        if position == 3 {
+        } else if position == 2 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 2, section: 0) as IndexPath, at: .left, animated: true)
             
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 2, section: 0) as IndexPath, animated: true, scrollPosition: .left)
-        }
-        if position == 4 {
+        } else {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, at: .left, animated: true)
             
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         }
         
         navigationController?.navigationBar.isHidden = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(getPosition(_:)), name: NSNotification.Name("PostPosition"), object: nil)
+         
     }
     
     override func viewDidLoad() {
@@ -166,6 +166,8 @@ extension SuggestVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         
         let indexPath = NSIndexPath(item: Int(index), section: 0)
         suggestTabBar.collectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: [])
+        
+        position = indexPath.item
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -203,5 +205,12 @@ extension SuggestVC: PassTagProtocol {
         default:
             return
         }
+    }
+}
+
+extension SuggestVC {
+    @objc
+    func getPosition(_ notification: Notification) {
+        position = notification.object as! Int
     }
 }
