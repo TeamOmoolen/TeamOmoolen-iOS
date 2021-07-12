@@ -13,15 +13,12 @@ class DiameterFilterView: UIView {
     
     @IBOutlet weak var filterLabel: UILabel!
     
-    @IBOutlet weak var selectImage: UIImageView!
-    @IBOutlet weak var selectButton: UIButton!
-    
     @IBOutlet weak var diameterCollectionView: UICollectionView!
     
     // MARK: - Local Variables
     
     private var lensDiameterList = [FilterDataModel]()
-    var lensDiameter = [Int]()
+    var lensDiameter = Int()
     var isAllSelected = false
 
     // MARK: - init Methods
@@ -60,16 +57,6 @@ extension DiameterFilterView {
         filterLabel.text = "직경"
         filterLabel.textColor = .omMainBlack
         filterLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
-        
-        selectButton.setTitle("전체선택", for: .normal)
-        selectButton.tintColor = .omFourthGray
-        selectButton.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
-        selectButton.addTarget(self, action: #selector(touchUpAllSelect(_:)), for: .touchUpInside)
-        
-        selectImage.image = UIImage(named: "icFilterNormal")
-        selectImage.isUserInteractionEnabled = true
-        let selectGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpAllSelect(_:)))
-        selectImage.addGestureRecognizer(selectGesture)
     }
     
     func setList() {
@@ -91,8 +78,6 @@ extension DiameterFilterView {
     func setCollectionView() {
         diameterCollectionView.delegate = self
         diameterCollectionView.dataSource = self
-        
-        diameterCollectionView.allowsMultipleSelection = true
     }
 }
 
@@ -103,13 +88,9 @@ extension DiameterFilterView {
     func touchUpAllSelect(_ sender: UITapGestureRecognizer) {
         if !self.isAllSelected {
             self.isAllSelected = true
-            self.selectButton.tintColor = .omMainOrange
-            self.selectImage.image = UIImage(named: "icFilterPressed")
             self.diameterCollectionView.selectAll(animated: true)
         } else {
             self.isAllSelected = false
-            self.selectButton.tintColor = .omFourthGray
-            self.selectImage.image = UIImage(named: "icFilterNormal")
             self.diameterCollectionView.deselectAll(animated: true)
         }
     }
@@ -167,32 +148,28 @@ extension DiameterFilterView {
     
     @objc
     func postData(_ notification: Notification) {
-        lensDiameter = [0, 0, 0, 0, 0, 0]
+        lensDiameter = -1
         
         guard let lensDiameterList = diameterCollectionView.indexPathsForSelectedItems else {
             return
         }
         if lensDiameterList.contains([0,0]) {
-            lensDiameter[0] = 1
+            lensDiameter = 0
         }
         if lensDiameterList.contains([0,1]) {
-            lensDiameter[1] = 1
+            lensDiameter = 1
         }
         if lensDiameterList.contains([0,2]) {
-            lensDiameter[2] = 1
+            lensDiameter = 2
         }
         if lensDiameterList.contains([0,3]) {
-            lensDiameter[3] = 1
+            lensDiameter = 3
         }
         if lensDiameterList.contains([0,4]) {
-            lensDiameter[4] = 1
+            lensDiameter = 4
         }
         if lensDiameterList.contains([0,5]) {
-            lensDiameter[5] = 1
-        }
-        
-        if lensDiameter == [0, 0, 0, 0, 0, 0] {
-            lensDiameter = [1, 1, 1, 1, 1, 1]
+            lensDiameter = 5
         }
         
         NotificationCenter.default.post(name: NSNotification.Name("postDiameterList"), object: lensDiameter)
@@ -200,7 +177,7 @@ extension DiameterFilterView {
     
     @objc
     func resetData(_ notification: Notification) {
-        lensDiameter = []
+        lensDiameter = -1
         
         diameterCollectionView.deselectAll(animated: true)
         

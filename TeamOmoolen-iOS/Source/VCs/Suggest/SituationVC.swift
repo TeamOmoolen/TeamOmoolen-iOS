@@ -45,8 +45,8 @@ class SituationVC: UIViewController {
         데이터를 기반으로 상황별 맞춤 렌즈를 제공합니다.
         """
         
-        popup.modalPresentationStyle = .overCurrentContext
-        popup.modalTransitionStyle = . crossDissolve
+        popup.modalPresentationStyle = .overFullScreen
+        popup.modalTransitionStyle = .crossDissolve
         
         self.present(popup, animated: true, completion: nil)
     }
