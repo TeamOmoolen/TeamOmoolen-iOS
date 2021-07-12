@@ -178,37 +178,44 @@ extension ColorFilterView {
             return
         }
         if lensColorList.contains([0,0]) {
-            lensColor.append("투명")
+            lensColor.append("clear")
         }
         if lensColorList.contains([0,1]) {
-            lensColor.append("블랙")
+            lensColor.append("black")
         }
         if lensColorList.contains([0,2]) {
-            lensColor.append("그레이")
+            lensColor.append("gray")
         }
         if lensColorList.contains([0,3]) {
-            lensColor.append("초코")
+            lensColor.append("choco")
         }
         if lensColorList.contains([0,4]) {
-            lensColor.append("그린")
+            lensColor.append("green")
         }
         if lensColorList.contains([0,5]) {
-            lensColor.append("브라운")
+            lensColor.append("brown")
         }
         if lensColorList.contains([0,6]) {
-            lensColor.append("퍼플")
+            lensColor.append("purple")
         }
         if lensColorList.contains([0,7]) {
-            lensColor.append("블루")
+            lensColor.append("blue")
         }
         if lensColorList.contains([0,8]) {
-            lensColor.append("골드")
+            lensColor.append("gold")
         }
         if lensColorList.contains([0,9]) {
-            lensColor.append("핑크")
+            lensColor.append("pink")
         }
         if lensColorList.contains([0,10]) {
-            lensColor.append("기타")
+            lensColor.append("etc")
+        }
+        
+        if lensColor == [] {
+            lensColor.append(contentsOf: [
+                "clear", "black", "gray", "choco", "green", "brown", "purple", "blue", "gold",
+                "pink", "etc"
+            ])
         }
         
         NotificationCenter.default.post(name: NSNotification.Name("postColorList"), object: lensColor)

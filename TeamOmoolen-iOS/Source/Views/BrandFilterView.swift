@@ -231,6 +231,14 @@ extension BrandFilterView {
         if lensBrandList.contains([0,16]) {
             lensBrand.append("그 외")
         }
+        
+        if lensBrandList == [] {
+            lensBrand.append(contentsOf: [
+                "오렌즈", "렌즈미", "렌즈베리", "앤365", "렌즈타운", "다비치", "아이돌렌즈", "렌즈나인", "렌즈디바",
+                "아큐브", "바슈롬", "클라렌", "알콘", "뉴바이오", "프레쉬콘", "쿠버비전", "그 외"
+            ])
+        }
+        
         NotificationCenter.default.post(name: NSNotification.Name("postBrandList"), object: lensBrand)
     }
     
