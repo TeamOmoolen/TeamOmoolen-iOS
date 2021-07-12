@@ -53,6 +53,7 @@ class SuggestVC: UIViewController {
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         }
         
+        navigationController?.navigationBar.isHidden = true
     }
     
     override func viewDidLoad() {
@@ -63,6 +64,17 @@ class SuggestVC: UIViewController {
         setUpTabBar()
         registerXib()
         setCollectionViewDelegate()
+    }
+    
+    // MARK: - IB Actions
+    
+    @IBAction func touchUpBack(_ sender: Any) {
+        guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {
+            return
+        }
+        homeVC.modalPresentationStyle = .fullScreen
+        homeVC.modalTransitionStyle = .crossDissolve
+        navigationController?.popViewController(animated: true)
     }
     
    //MARK: - Methods

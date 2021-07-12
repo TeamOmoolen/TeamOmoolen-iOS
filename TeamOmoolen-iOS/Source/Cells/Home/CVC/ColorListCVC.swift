@@ -25,8 +25,6 @@ class ColorListCVC: UICollectionViewCell {
 
 extension ColorListCVC {
     func setUI() {
-        contentView.backgroundColor = .omMainOrange
-        
         contentView.layer.cornerRadius = 6
         contentView.layer.masksToBounds = true
     }
@@ -37,25 +35,26 @@ extension ColorListCVC {
         
         switch color {
         case "clear":
-            return
+            contentView.layer.borderColor = UIColor.omThirdGray.cgColor
+            contentView.layer.borderWidth = 1
         case "black":
-            return
+            contentView.layer.backgroundColor = UIColor.omMainBlack.cgColor
         case "gray":
-            return
+            contentView.layer.backgroundColor = UIColor.omSecondGray.cgColor
         case "choco":
             return
         case "green":
-            return contentView.layer.backgroundColor = UIColor.omMainGreen.cgColor
+            contentView.layer.backgroundColor = UIColor.omMainGreen.cgColor
         case "brown":
             return
         case "purple":
             return
         case "blue":
-            return contentView.layer.backgroundColor = UIColor.blue.cgColor
+            contentView.layer.backgroundColor = UIColor.blue.cgColor
         case "gold":
             return
         case "pink":
-            return
+            contentView.layer.backgroundColor = UIColor.omMainRed.cgColor
             
         default:
             return

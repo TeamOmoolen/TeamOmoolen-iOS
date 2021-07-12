@@ -40,6 +40,9 @@
                                     <constraint firstAttribute="width" secondItem="X1e-YL-COy" secondAttribute="height" multiplier="1:1" id="Cfc-Rt-ZBz"/>
                                 </constraints>
                                 <state key="normal" image="icBack"/>
+                                <connections>
+                                    <action selector="touchUpBack:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="sIe-ac-DAr"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e28-Ef-1UJ">
                                 <rect key="frame" x="0.0" y="94" width="375" height="812"/>
