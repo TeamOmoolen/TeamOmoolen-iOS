@@ -33,7 +33,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sR7-1k-vBP">
-                                        <rect key="frame" x="364" y="-2" width="30" height="34"/>
+                                        <rect key="frame" x="378" y="4" width="16" height="22"/>
+                                        <state key="normal" image="btnQuestionmark"/>
                                         <connections>
                                             <action selector="presentToPopupModal:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CHF-7g-Oep"/>
                                         </connections>
@@ -90,12 +91,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eL2-T9-MCo">
-                                <rect key="frame" x="350" y="162" width="44" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="eL2-T9-MCo" secondAttribute="height" multiplier="44:17" id="Cmc-yo-bIk"/>
-                                    <constraint firstAttribute="height" constant="17" id="QOc-vY-VFq"/>
-                                </constraints>
+                                <rect key="frame" x="350" y="162" width="44" height="22"/>
                                 <state key="normal" image="btnSort"/>
+                                <connections>
+                                    <action selector="presentToSortModal:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0xU-HF-NzI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -145,6 +145,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btnQuestionmark" width="16" height="16"/>
         <image name="btnSort" width="44" height="17"/>
         <image name="icToggleBrandselectNormal" width="12" height="8.5"/>
         <systemColor name="systemBackgroundColor">

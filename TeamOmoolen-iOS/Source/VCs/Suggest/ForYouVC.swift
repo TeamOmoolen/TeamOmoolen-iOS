@@ -31,6 +31,7 @@ class ForYouVC: UIViewController {
         registerXib()
         setRecommendList()
         setCollectionViewDelegate()
+        setNotification()
 
     }
     
@@ -77,7 +78,32 @@ class ForYouVC: UIViewController {
         forYouCollectionView.dataSource = self
     }
     
+    func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(setPriceLowOrder), name: Notification.Name("SetLowOrder"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setPriceHighOrder), name: Notification.Name("SetHighOrder"), object: nil)
+    }
+    
+    // MARK: - @objc Methods
+    @objc
+    func setPriceLowOrder() {
+        print("setPriceLowOrder()")
+//        resultList.sort(by: {$0.price < $1.price})
+//        resultCollectionView.reloadData()
+    }
+    
+    @objc
+    func setPriceHighOrder() {
+        print("setPriceHighOrder")
+//        resultList.sort(by: {$0.price > $1.price})
+//        resultCollectionView.reloadData()
+    }
+    
     // MARK: - @IBAction Properties
+    @IBAction func presentToSortModal(_ sender: Any) {
+        let vc = UIStoryboard(name: Const.Storyboard.Name.SortPanModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SortPanModal) as! SortPanModalVC
+        presentPanModal(vc)
+    }
+    
     @IBAction func presentToPopupModal(_ sender: Any) {
         guard let popup = UIStoryboard(name: Const.Storyboard.Name.PopupModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.PopupModal) as? PopupModalVC else {
             return
