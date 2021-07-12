@@ -16,6 +16,7 @@ class NewProductVC: UIViewController {
     @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var newProductCollectionView: UICollectionView!
     @IBOutlet weak var popUpButton: UIButton!
+    @IBOutlet weak var popUpTopConstraint: NSLayoutConstraint!
     
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []
@@ -27,6 +28,8 @@ class NewProductVC: UIViewController {
         registerXib()
         setRecommendList()
         setCollectionViewDelegate()
+        setPhoneResolution()
+
     }
     
     //MARK: - Methods
@@ -63,6 +66,12 @@ class NewProductVC: UIViewController {
     func setCollectionViewDelegate(){
         newProductCollectionView.delegate = self
         newProductCollectionView.dataSource = self
+    }
+    
+    func setPhoneResolution() {
+        if UIDevice.current.isiPhoneSE2 {
+            popUpTopConstraint.constant = 0
+        }
     }
     
 }

@@ -92,6 +92,7 @@
                         <outlet property="popUpButton" destination="iyN-5G-D94" id="swC-Yl-UNt"/>
                         <outlet property="popUpLabel" destination="8ph-jS-Ad6" id="Buu-xH-rPy"/>
                         <outlet property="popUpMiddleView" destination="Me5-Me-TDq" id="bb3-Gl-A9p"/>
+                        <outlet property="popUpTopConstraint" destination="gHk-eX-zd0" id="VIS-sr-I8X"/>
                         <outlet property="popUpTopView" destination="OG5-ML-SYD" id="LKY-A7-ASU"/>
                         <outlet property="sortButton" destination="hF3-8l-zfD" id="rTi-DW-W8S"/>
                     </connections>

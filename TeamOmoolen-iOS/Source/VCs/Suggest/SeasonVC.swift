@@ -17,6 +17,7 @@ class SeasonVC: UIViewController {
     @IBOutlet weak var popUpButton: UIButton!
     @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var seasonCollectionView: UICollectionView!
+    @IBOutlet weak var popUpTopConstraint: NSLayoutConstraint!
     
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []
@@ -28,6 +29,10 @@ class SeasonVC: UIViewController {
         registerXib()
         setRecommendList()
         setCollectionViewDelegate()
+        setPhoneResolution()
+        if (UIDevice.current.isiPhone12Pro) {
+            print("this is iphone 12")
+        }
     }
     
     //MARK: - Methods
@@ -64,12 +69,22 @@ class SeasonVC: UIViewController {
         seasonCollectionView.dataSource = self
     }
     
+    func setPhoneResolution() {
+        if UIDevice.current.isiPhoneSE2 {
+            popUpTopConstraint.constant = 0
+        }
+        else if UIDevice.current.isiPhone12Pro {
+            popUpTopConstraint.constant = 300
+            print("this is iphone 12")
+        }
+    }
+    
 }
 
 extension SeasonVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width - 40 - 15) / 2
-        let height = (collectionView.frame.height - 40) / 2
+        let height = (collectionView.frame.height-40)/2 
         return CGSize(width: width, height: height)
     }
     
