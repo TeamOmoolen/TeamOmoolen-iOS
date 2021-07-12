@@ -77,10 +77,11 @@ extension CycleFilterView {
             FilterDataModel(filter: "1 day"),
             FilterDataModel(filter: "2 ~ 6 days"),
             FilterDataModel(filter: "1 week"),
+            FilterDataModel(filter: "2 weeks"),
             FilterDataModel(filter: "1 month"),
             FilterDataModel(filter: "2 ~ 3 months"),
-            FilterDataModel(filter: "3 ~ 6 months"),
-            FilterDataModel(filter: "6 months")
+            FilterDataModel(filter: "4 ~ 6 months"),
+            FilterDataModel(filter: "6 months+")
         ])
     }
     
@@ -167,28 +168,38 @@ extension CycleFilterView {
     
     @objc
     func postData(_ notification: Notification) {
-        lensCycle = []
+        lensCycle = [0, 0, 0, 0, 0, 0, 0, 0]
         
         guard let lensCycleList = cycleCollectionView.indexPathsForSelectedItems else {
             return
         }
         if lensCycleList.contains([0,0]) {
-            lensCycle.append(0)
+            lensCycle[0] = 1
         }
         if lensCycleList.contains([0,1]) {
-            lensCycle.append(1)
+            lensCycle[1] = 1
         }
         if lensCycleList.contains([0,2]) {
-            lensCycle.append(2)
+            lensCycle[2] = 1
         }
         if lensCycleList.contains([0,3]) {
-            lensCycle.append(3)
+            lensCycle[3] = 1
         }
         if lensCycleList.contains([0,4]) {
-            lensCycle.append(4)
+            lensCycle[4] = 1
         }
         if lensCycleList.contains([0,5]) {
-            lensCycle.append(5)
+            lensCycle[5] = 1
+        }
+        if lensCycleList.contains([0,6]) {
+            lensCycle[6] = 1
+        }
+        if lensCycleList.contains([0,7]) {
+            lensCycle[7] = 1
+        }
+        
+        if lensCycle == [0, 0, 0, 0, 0, 0, 0, 0] {
+            lensCycle = [1, 1, 1, 1, 1, 1, 1, 1]
         }
         
         NotificationCenter.default.post(name: NSNotification.Name("postCycleList"), object: lensCycle)

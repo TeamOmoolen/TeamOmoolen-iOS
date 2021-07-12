@@ -47,7 +47,7 @@ class FilterVC: UIViewController {
     
     private var lensBrand = [String]()
     private var lensColor = [String]()
-    private var lensDiameter: Int = 0
+    private var lensDiameter = [Int]()
     private var lensCycle = [Int]()
     
     private var getBrandData = false
@@ -354,12 +354,12 @@ extension FilterVC {
     @objc
     func searchDiameterData(_ notification: Notification) {
         getDiameterData = true
-        lensDiameter = notification.object as! Int
+        lensDiameter = notification.object as! [Int]
         getData()
     }
     @objc
     func resetDiameterData(_ notification: Notification) {
-        lensDiameter = notification.object as! Int
+        lensDiameter = notification.object as! [Int]
     }
     
     // 주기 검색, 초기화
