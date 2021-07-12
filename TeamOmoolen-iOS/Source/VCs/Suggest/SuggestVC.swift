@@ -149,7 +149,7 @@ class SuggestVC: UIViewController {
     
     func scrollToSuggestTabBarIndex(tabBarIdx: Int){
         let indexPath = NSIndexPath(item: tabBarIdx, section: 0)
-        //collectionView.isPagingEnabled = false
+        collectionView.isPagingEnabled = false
         collectionView.scrollToItem(at: indexPath as IndexPath, at: [], animated: true)
         collectionView.isPagingEnabled = true
     }

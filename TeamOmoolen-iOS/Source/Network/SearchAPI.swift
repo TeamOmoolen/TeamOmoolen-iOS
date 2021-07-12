@@ -21,7 +21,10 @@ class SearchAPI {
                 do {
                     let results = try JSONDecoder().decode(SearchResultDataModel.self, from: result.data)
                     print("getSearchFilterResult: \(results.message)")
-                    completion(results.data!)
+                    guard let data = results.data else {
+                        return
+                    }
+                    completion(data)
                 } catch let err {
                     print("JSONDecode: \(err.localizedDescription)")
                     debugPrint(err)

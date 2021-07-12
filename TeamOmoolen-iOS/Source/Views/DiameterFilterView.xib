@@ -12,8 +12,6 @@
             <connections>
                 <outlet property="diameterCollectionView" destination="9P7-Y2-pcO" id="ZEY-mR-9bS"/>
                 <outlet property="filterLabel" destination="2os-XG-hUB" id="qks-a0-Ucx"/>
-                <outlet property="selectButton" destination="g1L-cC-Ell" id="aKv-A6-azO"/>
-                <outlet property="selectImage" destination="g8H-rw-uZJ" id="Va9-2p-e4u"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -40,30 +38,15 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g8H-rw-uZJ">
-                    <rect key="frame" x="332" y="67.5" width="14" height="14"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="14" id="jH4-kB-Fpv"/>
-                        <constraint firstAttribute="height" constant="14" id="vbC-AY-b9k"/>
-                    </constraints>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1L-cC-Ell">
-                    <rect key="frame" x="348" y="59.5" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="g1L-cC-Ell" firstAttribute="centerY" secondItem="2os-XG-hUB" secondAttribute="centerY" id="HO6-wo-zAT"/>
                 <constraint firstItem="2os-XG-hUB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Hss-zX-bSA"/>
                 <constraint firstItem="2os-XG-hUB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="LW8-Jh-Nu6"/>
                 <constraint firstItem="9P7-Y2-pcO" firstAttribute="top" secondItem="2os-XG-hUB" secondAttribute="bottom" id="W6g-PK-sjV"/>
-                <constraint firstItem="g1L-cC-Ell" firstAttribute="leading" secondItem="g8H-rw-uZJ" secondAttribute="trailing" constant="2" id="ZH3-jR-141"/>
-                <constraint firstItem="g8H-rw-uZJ" firstAttribute="centerY" secondItem="2os-XG-hUB" secondAttribute="centerY" id="dU6-el-YLg"/>
                 <constraint firstItem="9P7-Y2-pcO" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="gHw-6C-wcQ"/>
                 <constraint firstItem="9P7-Y2-pcO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="uJG-CG-cse"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="g1L-cC-Ell" secondAttribute="trailing" constant="20" id="vgQ-lC-4VY"/>
             </constraints>
             <point key="canvasLocation" x="15.942028985507248" y="82.366071428571431"/>
         </view>

@@ -199,7 +199,7 @@ extension HomeVC: UITableViewDelegate {
             }
         } else {
             topButton.snp.updateConstraints { make in
-                make.bottom.equalToSuperview().inset(0)
+                make.bottom.equalToSuperview().inset(-100)
             }
         }
         
