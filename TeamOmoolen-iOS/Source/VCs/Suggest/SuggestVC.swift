@@ -206,7 +206,7 @@ extension SuggestVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         if UIDevice.current.isiPhoneSE2 {
             return CGSize(width: view.frame.width, height: 700)
         } else if (UIDevice.current.isiPhone12Pro) {
-            return CGSize(width: 390, height: 844)
+            return CGSize(width: view.frame.width, height: 800)
         } else {
         
             return CGSize(width: view.frame.width, height: view.frame.height)
