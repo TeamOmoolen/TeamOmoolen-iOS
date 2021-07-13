@@ -167,11 +167,11 @@ class FourthOnboardingVC: UIViewController {
         
         let userIdentifier = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
 
-        let param = OnboardingRequest(gender: gender, age: age, wantedLens: WantedLens(category: lensKind, color: lensColor, function: lensFunction, changeCycleRange: lensPeriod), suitedLens: SuitedLens(brand: lensBrand, name: lensName), wearTime: lensWhen, userIdentifier: userIdentifier)
+        let param = OnboardingRequest(gender: gender, age: age, wantedLens: WantedLens(category: lensKind, color: lensColor, function: lensFunction, changeCycleRange: lensPeriod), suitedLens: SuitedLens(brand: lensBrand, name: lensName), wearTime: lensWhen)
         
         print(param)
         
-        OnboardingAPI.shared.postOnboarding(param: param) { response in
+        OnboardingAPI.shared.postOnboarding(param: param, accesstoken: userIdentifier) { response in
             print("data: \(response.success)")
             if response.success {
                 print("postOnboardingWithAPI: post success")
@@ -184,12 +184,6 @@ class FourthOnboardingVC: UIViewController {
                 self.navigationController?.pushViewController(homeVC, animated: true )
             } else {
                 print("postOnboardingWithAPI: Fail")
-//                guard let loginVC = UIStoryboard(name: Const.Storyboard.Name.Login, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Login) as? LoginVC else {
-//                    return
-//                }
-//                loginVC.modalPresentationStyle = .fullScreen
-//                loginVC.modalTransitionStyle = .crossDissolve
-//                self.navigationController?.pushViewController(loginVC, animated: true)
             }
         }
     }

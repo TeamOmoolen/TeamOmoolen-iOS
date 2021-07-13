@@ -13,7 +13,7 @@ enum SearchService {
     
     case searchFilter(param: SearchFilterRequest)
     
-    case searchKeyword(param: SearchKeywordRequest)
+    case searchKeyword(keyword: String)
 }
 
 extension SearchService: TargetType {
@@ -53,13 +53,15 @@ extension SearchService: TargetType {
             return .requestPlain
         case .searchFilter(let searchFilterReques):
             return .requestJSONEncodable(searchFilterReques)
-        case .searchKeyword(let searchKeywordRequest):
-            return .requestJSONEncodable(searchKeywordRequest)
+        case .searchKeyword(let keyword):
+            return .requestParameters(parameters: ["keyword" : keyword], encoding: URLEncoding.queryString)
         }
     }
     
     var headers: [String : String]? {
         switch self {
+        case .searchWindow:
+            return ["Content-Type": "application/json"]
         default:
             return ["Content-Type": "application/json"]
         }

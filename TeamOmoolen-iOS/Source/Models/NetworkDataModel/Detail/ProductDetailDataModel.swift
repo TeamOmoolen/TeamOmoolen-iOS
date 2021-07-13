@@ -7,7 +7,6 @@
 
 import Foundation
 
-import Foundation
 struct ProductDetailDataModel: Codable {
     let status: Int
     let success: Bool

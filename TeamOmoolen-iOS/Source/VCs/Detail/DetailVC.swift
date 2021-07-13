@@ -22,7 +22,7 @@ class DetailVC: UIViewController {
     
     // MARK: - Local Variables
     var id: String?
-    var lensData: ProductDetailResponse?
+    private var lensData: ProductDetailResponse?
     
     // MARK: - Life Cycle Methods
     

@@ -8,8 +8,12 @@
 import UIKit
 
 class SplashVC: UIViewController {
+    
     // MARK: - Properties
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
+    // MARK: - @IBOutlet Properties
+    @IBOutlet weak var splashImage: UIImageView!
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -19,7 +23,15 @@ class SplashVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        print("SplashVC: viewDidAppaer()")
+        if UIDevice.current.isiPhoneSE2 {
+            splashImage.image = UIImage(named: "splashIllustImageSe2")
+        } else if UIDevice.current.isiPhone12mini {
+            splashImage.image = UIImage(named: "splashIllustImage12Mini")
+        } else {
+            splashImage.image = UIImage(named: "splashIllustImage12Pro")
+        }
+
+
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             self.setIsLogin()
         }
@@ -36,7 +48,7 @@ class SplashVC: UIViewController {
     }
     
     func presentToHome(){
-        guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {
+        guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Tabbar, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Tabbar) as? TabBarController else {
             return
         }
         homeVC.modalPresentationStyle = .fullScreen
