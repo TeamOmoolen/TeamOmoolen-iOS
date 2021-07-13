@@ -745,10 +745,6 @@
 		E8AF803F269849FD00D76A21 /* Suggest */ = {
 			isa = PBXGroup;
 			children = (
-				E8AF804826984A5F00D76A21 /* NewProduct */,
-				E8AF804726984A5900D76A21 /* Situation */,
-				E8AF804626984A5400D76A21 /* Season */,
-				E8AF804526984A4900D76A21 /* ForYou */,
 				E8AF804426984A3D00D76A21 /* Home */,
 			);
 			path = Suggest;
@@ -763,34 +759,6 @@
 				E8AF804A26984B3800D76A21 /* SuggestTabBarCVC.xib */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		E8AF804526984A4900D76A21 /* ForYou */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ForYou;
-			sourceTree = "<group>";
-		};
-		E8AF804626984A5400D76A21 /* Season */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Season;
-			sourceTree = "<group>";
-		};
-		E8AF804726984A5900D76A21 /* Situation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Situation;
-			sourceTree = "<group>";
-		};
-		E8AF804826984A5F00D76A21 /* NewProduct */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NewProduct;
 			sourceTree = "<group>";
 		};
 		E8C9A4292690934C00E5BD9D /* Search */ = {

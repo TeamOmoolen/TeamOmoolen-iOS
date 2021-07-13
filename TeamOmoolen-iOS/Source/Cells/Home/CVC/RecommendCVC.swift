@@ -55,15 +55,15 @@ extension RecommendCVC {
         
         lensInfoLabel.text = "직경 / 교체시기"
         lensInfoLabel.textColor = .omThirdGray
-        lensInfoLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
+        lensInfoLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 11)
         
         priceLabel.text = "가격"
         priceLabel.textColor = .omMainBlack
-        priceLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
+        priceLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 14)
         
     }
     
-    func initCell(imageList: [String], brandName: String, lensName: String, diameter: Double, cycle: Int, pieces: Int, price: Int, colorList: [String]) {
+    func initCell(imageList: [String], brandName: String, lensName: String, diameter: Double, minCycle: Int, maxCycle: Int, pieces: Int, price: Int, colorList: [String]) {
 //        let modelString = imageList[0]
 //        let modelUrl = URL(string: modelString)!
 //        self.modelImageView.kf.setImage(with: modelUrl)
@@ -76,16 +76,17 @@ extension RecommendCVC {
         lensNameLabel.text = lensName
         
         var cycleData = ""
-        if cycle == 0 {
-            cycleData = "1Day"
-        } else if cycle == 1 {
-            cycleData = "1Week"
-        } else if cycle == 2 {
-            cycleData = "2Week"
-        } else if cycle == 3 {
-            cycleData = "1Month"
-        } else if cycle == 4 {
-            cycleData = "2~3Month"
+        if minCycle == maxCycle {
+            if minCycle < 7 { cycleData = "\(minCycle)Day" }
+            else if minCycle < 30 { cycleData = "\(minCycle/7)Week" }
+            else { cycleData = "\(minCycle/30)Month" }
+        } else if maxCycle < 7 {
+            cycleData = "\(minCycle)~\(maxCycle)Days"
+        } else if maxCycle < 30 {
+            cycleData = "\(minCycle/7)~\(maxCycle/7)Weeks"
+        } else if maxCycle > 30 {
+            if minCycle/30 >= 6 { cycleData = "6months+" }
+            else {cycleData = "\(minCycle/30)~\(maxCycle/30)Months"}
         }
         lensInfoLabel.text = "\(diameter)mm / \(cycleData)(\(pieces)p)"
                          

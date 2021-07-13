@@ -12,7 +12,8 @@ struct RecommendLensDataModel {
     var brandName: String
     var lensName: String
     var diameter: Double
-    var cycle: Int
+    var minCycle: Int
+    var maxCycle: Int
     var pieces: Int
     var price: Int
     var colorList: [String]

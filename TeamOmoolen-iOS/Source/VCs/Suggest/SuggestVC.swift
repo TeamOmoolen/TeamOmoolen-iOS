@@ -63,12 +63,12 @@ class SuggestVC: UIViewController {
     
     // MARK: - IBActions
     @IBAction func touchUpBackButton(_ sender: Any) {
-        guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {
+        guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Tabbar, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Tabbar) as? TabBarController else {
             return
         }
         homeVC.modalPresentationStyle = .fullScreen
         homeVC.modalTransitionStyle = .crossDissolve
-        navigationController?.popViewController(animated: true)
+        present(homeVC, animated: true, completion: nil)
     }
     
     

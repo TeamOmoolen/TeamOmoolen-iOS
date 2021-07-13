@@ -13,6 +13,12 @@ class ColorListCVC: UICollectionViewCell {
     // MARK: - Local Variables
     private var hexColor = ""
     
+    private lazy var colorImageView: UIImageView = {
+        let imageView = UIImageView()
+        
+        return imageView
+    }()
+    
     // MARK: - Life Cycle Methods
     
     override func awakeFromNib() {
@@ -25,6 +31,8 @@ class ColorListCVC: UICollectionViewCell {
 
 extension ColorListCVC {
     func setUI() {
+        contentView.addSubview(colorImageView)
+        
         contentView.layer.cornerRadius = 6
         contentView.layer.masksToBounds = true
     }
