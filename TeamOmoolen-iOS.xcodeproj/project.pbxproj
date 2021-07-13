@@ -224,6 +224,9 @@
 		F8F52512269D5CA900EB6FF0 /* ProductDetailDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F52511269D5CA900EB6FF0 /* ProductDetailDataModel.swift */; };
 		F8F52515269D789A00EB6FF0 /* PopularCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F52513269D789A00EB6FF0 /* PopularCVC.swift */; };
 		F8F52516269D789A00EB6FF0 /* PopularCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8F52514269D789A00EB6FF0 /* PopularCVC.xib */; };
+		F8F52518269DDF1400EB6FF0 /* SuggestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F52517269DDF1400EB6FF0 /* SuggestAPI.swift */; };
+		F8F5251A269DDF1C00EB6FF0 /* SuggestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F52519269DDF1C00EB6FF0 /* SuggestService.swift */; };
+		F8F5251D269DE4FE00EB6FF0 /* SuggestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F5251C269DE4FE00EB6FF0 /* SuggestDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -449,6 +452,9 @@
 		F8F52511269D5CA900EB6FF0 /* ProductDetailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailDataModel.swift; sourceTree = "<group>"; };
 		F8F52513269D789A00EB6FF0 /* PopularCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCVC.swift; sourceTree = "<group>"; };
 		F8F52514269D789A00EB6FF0 /* PopularCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularCVC.xib; sourceTree = "<group>"; };
+		F8F52517269DDF1400EB6FF0 /* SuggestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestAPI.swift; sourceTree = "<group>"; };
+		F8F52519269DDF1C00EB6FF0 /* SuggestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestService.swift; sourceTree = "<group>"; };
+		F8F5251C269DE4FE00EB6FF0 /* SuggestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1188,6 +1194,8 @@
 				F831304D26976714004A247C /* LoginAPI.swift */,
 				F8F5250C269D511A00EB6FF0 /* DetailService.swift */,
 				F8F5250E269D550600EB6FF0 /* DetailAPI.swift */,
+				F8F52519269DDF1C00EB6FF0 /* SuggestService.swift */,
+				F8F52517269DDF1400EB6FF0 /* SuggestAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1195,6 +1203,7 @@
 		F8CB27EF2692C1DA00DEFA75 /* NetworkDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				F8F5251B269DE4F400EB6FF0 /* Suggest */,
 				F8F52510269D5C9B00EB6FF0 /* Detail */,
 				F8514793269366AC00C8532F /* Home */,
 				F885CB882698101700835B11 /* SearchResult */,
@@ -1229,6 +1238,14 @@
 				F8F52511269D5CA900EB6FF0 /* ProductDetailDataModel.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		F8F5251B269DE4F400EB6FF0 /* Suggest */ = {
+			isa = PBXGroup;
+			children = (
+				F8F5251C269DE4FE00EB6FF0 /* SuggestDataModel.swift */,
+			);
+			path = Suggest;
 			sourceTree = "<group>";
 		};
 		F8F835A5269AD25D00C17053 /* Search */ = {
@@ -1455,6 +1472,7 @@
 				E8A089D62697425C00089B6A /* PopularCellDataModel.swift in Sources */,
 				F83BA06F268CE4FD00E94E74 /* CALayer+applyShadow.swift in Sources */,
 				924751B9268E672300924891 /* LensBrandCVC.swift in Sources */,
+				F8F5251D269DE4FE00EB6FF0 /* SuggestDataModel.swift in Sources */,
 				E82DE8F1268C5D5600296B53 /* ThirdOnboardingVC.swift in Sources */,
 				E8A6602826959BAE00EB7EEA /* AllClearTVC.swift in Sources */,
 				92BC7DEF269641BE0088E4EE /* DetailVC.swift in Sources */,
@@ -1465,6 +1483,7 @@
 				F802D772269C171E0041383B /* PopupModalVC.swift in Sources */,
 				F85147992695839D00C8532F /* SearchAPI.swift in Sources */,
 				92B46ABC2697678100217CD9 /* SearchFilterRequest.swift in Sources */,
+				F8F52518269DDF1400EB6FF0 /* SuggestAPI.swift in Sources */,
 				E8A078662690F35100D99444 /* FilterVC.swift in Sources */,
 				F831304E26976714004A247C /* LoginAPI.swift in Sources */,
 				E82C5DC426937B87000EF460 /* PopularTVC.swift in Sources */,
@@ -1515,6 +1534,7 @@
 				92B46AB62697417600217CD9 /* FilterCVC.swift in Sources */,
 				922506AB269AD78400419B40 /* TipVC.swift in Sources */,
 				92BC7DF3269645450088E4EE /* DetailTopTVC.swift in Sources */,
+				F8F5251A269DDF1C00EB6FF0 /* SuggestService.swift in Sources */,
 				92A889DE26931A6900AC1B81 /* RecommendLensDataModel.swift in Sources */,
 				F8514795269366C300C8532F /* HomeDataModel.swift in Sources */,
 				E8AF804B26984B3800D76A21 /* SuggestTabBarCVC.swift in Sources */,

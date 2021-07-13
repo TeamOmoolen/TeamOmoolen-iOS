@@ -31,44 +31,25 @@ struct SearchResultDataModel: Codable {
 
 struct SearchResultResponse: Codable {
     let products: [Product]
+    let totalPage: Int
     
     enum CodingKeys: String, CodingKey {
-        case products
+        case products = "items"
+        case totalPage
     }
     
 }
 
 // MARK: - Product
 struct Product: Codable {
-    let id: Int
-    let name: String
+    let id, name: String
     let imageList: [String]
-    let category: String
-    let color: String
+    let category, color: String
     let otherColorList: [String]
     let price: Int
     let brand, releaseDate: String
     let diameter: Double
-    let changeCycle,changeCycleRange, pieces: Int
-    let function: String
+    let changeCycle, changeCycleRange, pieces: Int
+    let function, material: String
     let visionMinimum, visionMaximum, searchCount: Int
-    
-//    enum CodingKeys: String, CodingKey {
-//        case id
-//        case name
-//        case imageList
-//        case category
-//        case color
-//        case otherColorList
-//        case price
-//        case brand
-//        case releaseData
-//        case diameter
-//        case changeCycle
-//        case pieces
-//        case function
-//        case visionMinimum
-//        case visionMaximum
-//        case searchCount
-//    }
 }

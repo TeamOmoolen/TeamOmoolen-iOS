@@ -60,6 +60,8 @@ extension SearchService: TargetType {
     
     var headers: [String : String]? {
         switch self {
+        case .searchWindow:
+            return ["Content-Type": "application/json"]
         default:
             return ["Content-Type": "application/json"]
         }

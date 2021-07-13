@@ -127,7 +127,8 @@ extension HomeVC {
     }
     
     func getHomeWithAPI() {
-        OnboardingAPI.shared.getHome() { response in
+        let userIdentifier = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
+        OnboardingAPI.shared.getHome(accesstoken: userIdentifier) { response in
             self.homeList = response
         }
     }
