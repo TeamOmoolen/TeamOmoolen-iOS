@@ -18,8 +18,7 @@ class DetailSimilarTVC: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Local Variables
-    
-    private var recommendList: [RecommendLensDataModel] = []
+    var suggestList: [SuggestList]?
     var delegate: ViewModalProtocol?
     
     // MARK: - Life Cycle Methdos
@@ -28,7 +27,6 @@ class DetailSimilarTVC: UITableViewCell {
         super.awakeFromNib()
         
         setUI()
-        setList()
         registerXib()
         setCollectionView()
     }
@@ -49,14 +47,6 @@ extension DetailSimilarTVC {
         guideLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
     }
     
-    func setList() {
-        recommendList.append(contentsOf: [
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"])
-        ])
-    }
     
     func registerXib() {
         let nib = UINib(nibName: SeasonCVC.identifier, bundle: nil)
@@ -117,8 +107,8 @@ extension DetailSimilarTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeasonCVC.identifier, for: indexPath) as? SeasonCVC else {
             return UICollectionViewCell()
         }
-        let data = recommendList[indexPath.row]
-        cell.initCell(brandName: data.brandName, lensName: data.lensName, diameter: data.diameter, cycle: data.cycle, pieces: data.pieces, price: data.price, colorList: data.colorList)
+        let data = suggestList?[indexPath.row]
+        cell.initCell(brandName: data?.brand ?? "", lensName: data?.name ?? "", diameter: data?.diameter ?? 0, cycle: data?.changeCycle ?? 0, pieces: data?.pieces ?? 0, price: data?.price ?? 0, colorList: data?.otherColorList ?? [""])
         return cell
     }
 }

@@ -14,6 +14,7 @@ class SortPanModalVC: UIViewController {
     @IBOutlet weak var sortTitleLabel: UILabel!
     @IBOutlet weak var firstSortLabel: UILabel!
     @IBOutlet weak var secondSortLabel: UILabel!
+    @IBOutlet weak var closeButton: UIButton!
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -24,6 +25,7 @@ class SortPanModalVC: UIViewController {
     
     // MARK: - Methods
     private func setUI() {
+        
         sortTitleLabel.text = "정렬"
         sortTitleLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 18)
         sortTitleLabel.textColor = .omMainBlack
@@ -35,6 +37,9 @@ class SortPanModalVC: UIViewController {
         secondSortLabel.text = "가격높은순"
         secondSortLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 16)
         secondSortLabel.textColor = .omThirdGray
+    }
+    @IBAction func dismissToSuggest(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func setTapAction() {
