@@ -8,6 +8,7 @@
 import Foundation
 
 struct RecommendLensDataModel {
+    var imageList: [String]
     var brandName: String
     var lensName: String
     var diameter: Double

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SeasonCVC: UICollectionViewCell {
     static let identifier = "SeasonCVC"
@@ -61,7 +62,15 @@ extension SeasonCVC {
         priceLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
     }
     
-    func initCell(brandName: String, lensName: String, diameter: Double, cycle: Int, pieces: Int, price: Int, colorList: [String]) {
+    func initCell(imageList: [String], brandName: String, lensName: String, diameter: Double, cycle: Int, pieces: Int, price: Int, colorList: [String]) {
+//        let modelString = imageList[0]
+//        let modelUrl = URL(string: modelString)!
+//        self.modelImageView.kf.setImage(with: modelUrl)
+//        
+//        let lensString = imageList[1]
+//        let lensUrl = URL(string: lensString)!
+//        self.lensImageView.kf.setImage(with: lensUrl)
+        
         brandNameLabel.text = brandName
         lensNameLabel.text = lensName
         
