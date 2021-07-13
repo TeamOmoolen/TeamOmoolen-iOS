@@ -21,7 +21,8 @@ class SituationTVC: UITableViewCell {
     @IBOutlet weak var timeRecommendCollectionView: UICollectionView!
     
     // MARK: - Local Variables
-    
+    var situation: String? = nil
+    var recommendationBySituation: [RecommendationBySituation]? = nil
     private var recommendList: [RecommendLensDataModel] = []
     var delegate: ViewModalProtocol?
     

@@ -9,7 +9,7 @@ import UIKit
 
 class FirstOnboardingVC: UIViewController {
     var gender = ""
-    var age = ""
+    var age = -1
     
     // MARK: - UIComponents
     @IBOutlet weak var customNavigationBarViewHeight: NSLayoutConstraint!
@@ -78,13 +78,13 @@ class FirstOnboardingVC: UIViewController {
         }
         
         if ageListCollectionView.indexPathsForSelectedItems! == [[0,0]] {
-            age = "10대"
+            age = 0
         } else if ageListCollectionView.indexPathsForSelectedItems! == [[0,1]] {
-            age = "20대"
+            age = 1
         } else if ageListCollectionView.indexPathsForSelectedItems! == [[0,2]] {
-            age = "30대"
+            age = 2
         } else {
-            age = "40대 이상"
+            age = 3
         }
         nextVC.gender = gender
         nextVC.age = age

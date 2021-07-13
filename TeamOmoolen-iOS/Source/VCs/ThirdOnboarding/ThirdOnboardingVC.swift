@@ -13,11 +13,11 @@ class ThirdOnboardingVC: UIViewController {
     private var functionList: [FunctionDataModel] = []
     private var timeList: [TimeDataModel] = []
     var gender = ""
-    var age = ""
+    var age = -1
     var lensKind = [String]()
     var lensColor = [String]()
     var lensFunction = ""
-    var lensPeriod = ""
+    var lensPeriod = [Int]()
     
     // MARK: - IBOutlet Properties
     @IBOutlet weak var customNavigationBarViewHeight: NSLayoutConstraint!
@@ -62,25 +62,56 @@ class ThirdOnboardingVC: UIViewController {
             lensFunction = "없음"
         }
         
-        if timeCollectionView.indexPathsForSelectedItems! == [[0,0]] {
-            lensPeriod = "원데이"
-        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,1]] {
-            lensPeriod = "2~6 days"
-        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,2]] {
-            lensPeriod = "1 week"
-        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,3]] {
-            lensPeriod = "2 weeks"
-        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,4]] {
-            lensPeriod = "1 month"
-        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,5]] {
-            lensPeriod = "2~3 months"
-        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,6]] {
-            lensPeriod = "4~6 months"
-        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,7]] {
-            lensPeriod = "6 months +"
-        } else {
-            lensPeriod = "없음"
+        let lensPeriodList = timeCollectionView.indexPathsForSelectedItems!
+        
+        if lensPeriodList.contains([0,0]) {
+            lensPeriod.append(0)
         }
+        if lensPeriodList.contains([0,1]) {
+            lensPeriod.append(1)
+        }
+        if lensPeriodList.contains([0,2]) {
+            lensPeriod.append(2)
+        }
+        if lensPeriodList.contains([0,3]) {
+            lensPeriod.append(3)
+        }
+        if lensPeriodList.contains([0,4]) {
+            lensPeriod.append(4)
+        }
+        if lensPeriodList.contains([0,5]) {
+            lensPeriod.append(5)
+        }
+        if lensPeriodList.contains([0,6]) {
+            lensPeriod.append(6)
+        }
+        if lensPeriodList.contains([0,7]) {
+            lensPeriod.append(6)
+        }
+        if lensPeriodList.contains([0,8]) {
+            lensPeriod.append(7)
+        }
+        
+        
+//        if timeCollectionView.indexPathsForSelectedItems! == [[0,0]] {
+//            lensPeriod = "원데이"
+//        if timeCollectionView.indexPathsForSelectedItems! == [[0,1]] {
+//            lensPeriod = "2~6 days"
+//        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,2]] {
+//            lensPeriod = "1 week"
+//        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,3]] {
+//            lensPeriod = "2 weeks"
+//        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,4]] {
+//            lensPeriod = "1 month"
+//        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,5]] {
+//            lensPeriod = "2~3 months"
+//        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,6]] {
+//            lensPeriod = "4~6 months"
+//        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,7]] {
+//            lensPeriod = "6 months +"
+//        } else {
+//            lensPeriod = "없음"
+//        }
 
         
         nextVC.age = age
@@ -186,6 +217,7 @@ class ThirdOnboardingVC: UIViewController {
         
         timeCollectionView.delegate = self
         timeCollectionView.dataSource = self
+        timeCollectionView.allowsMultipleSelection = true
         
     }
     

@@ -19,7 +19,7 @@ class OneMinTVC: UITableViewCell {
     @IBOutlet weak var oneMinCollectionView: UICollectionView!
     
     // MARK: - Local Variables
-    
+    var guides = [Guide]()
     var oneMinDataList = [OneMinDataModel]()
     var delegate: ViewModalProtocol?
     
@@ -57,15 +57,12 @@ extension OneMinTVC {
         moreImageView.isUserInteractionEnabled = true
     }
     
-    func initCell(title: String, oneMinDetailData: [OneMinDetailDataModel]) {
-        
-    }
-    
     func setList() {
         oneMinDataList.append(contentsOf: [
             OneMinDataModel(title: "이런이런 정보가 들어가요!", oneMinDetailData: []),
             OneMinDataModel(title: "이런이런 정보가 들어가요!", oneMinDetailData: []),
             OneMinDataModel(title: "이런이런 정보가 들어가요!", oneMinDetailData: [])
+
         ])
     }
     

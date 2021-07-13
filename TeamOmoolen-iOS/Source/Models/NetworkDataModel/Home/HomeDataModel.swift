@@ -7,19 +7,20 @@
 
 import Foundation
 
+// MARK: - HomeDataModel
 struct HomeDataModel: Codable {
     let status: Int
     let success: Bool
     let message: String
     let data: HomeResponse?
-
+    
     enum CodingKeys: String, CodingKey {
         case status
         case success
         case message
         case data
     }
-
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 
@@ -33,91 +34,52 @@ struct HomeDataModel: Codable {
 // MARK: - DataClass
 struct HomeResponse: Codable {
     let username: String
-    let findRecomendationByUser: [FindRecomendationByUser]
+    let recommendationByUser: [RecommendationBy]
     let guides: [Guide]
     let season: String
-    let recommendationBySeason: [FindRecomendationByUser]
+    let recommendationBySeason: [RecommendationBy]
     let deadlineEvent: [Event]
-    let newLens: NewLens
+    let newLens: [[RecommendationBySituation]]
     let situation: String
-    let recommendationBySituation: [FindRecomendationByUser]
+    let recommendationBySituation: [RecommendationBySituation]
     let lastestEvent: [Event]
-
-    enum CodingKeys: String, CodingKey {
-        case username
-        case findRecomendationByUser
-        case guides
-        case season
-        case recommendationBySeason
-        case deadlineEvent
-        case newLens
-        case situation
-        case recommendationBySituation
-        case lastestEvent
-    }
 }
 
 // MARK: - Event
 struct Event: Codable {
-    let id: Int
-    let title, content, image: String
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case title
-        case content
-        case image
-    }
-}
-
-// MARK: - FindRecomendationByUser
-struct FindRecomendationByUser: Codable {
-    let id: Int
-    let name: String
-    let imageList: [String]
-    let category: String
-    let color, price: Int
-    let brand: String
-    let releaseDate: String
-    let diameter: Double
-    let changeCycle, pieces: Int
-    let otherColorList: [Int]
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case imageList
-        case category
-        case color
-        case price
-        case brand
-        case releaseDate
-        case diameter
-        case changeCycle
-        case pieces
-        case otherColorList
-    }
+    let id, title, content, image: String
+    let endDate, startDate, createAt, updateAt: String
+    let deleteAt: String
 }
 
 // MARK: - Guide
 struct Guide: Codable {
-    let id: Int
-    let question, answer: String
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case question
-        case answer
-    }
+    let id, question, answer, createAt: String
+    let updateAt, deleteAt: String
 }
 
-// MARK: - NewLens
-struct NewLens: Codable {
-    let brand1, brand2, brand3: [FindRecomendationByUser]
+// MARK: - RecommendationBySituation
+struct RecommendationBySituation: Codable {
+    let id, name: String
+    let imageList: [String]
+    let category, color: String
+    let otherColorList: [String]
+    let price: Int
+    let brand, releaseDate: String
+    let diameter: Double
+    let changeCycleRange, pieces: Int
+    let function: String
+    let visionMinimum, visionMaximum, searchCount: Int
+}
 
-    enum CodingKeys: String, CodingKey {
-        case brand1
-        case brand2
-        case brand3
-    }
+// MARK: - RecommendationBy
+struct RecommendationBy: Codable {
+    let id, name: String
+    let imageList: [String]
+    let category, color: String
+    let otherColorList: [String]
+    let price: Int
+    let brand, releaseDate: String
+    let diameter: Double
+    let pieces: Int
 }

@@ -964,11 +964,11 @@
 				F8CB27EF2692C1DA00DEFA75 /* NetworkDataModel */,
 				9225069A269A8EA800419B40 /* Detail */,
 				92B46AB8269742D600217CD9 /* SearchFilter */,
-				F8CB27F626932EB100DEFA75 /* ThirdOnboarding */,
 				92A889DC26931A3D00AC1B81 /* Home */,
-				924751A7268E2CC500924891 /* FourthOnboarding */,
-				F85CD050268DB0F3005A3C95 /* SecondOnboarding */,
 				92BF879B268CCC5A00706384 /* FirstOnboarding */,
+				F85CD050268DB0F3005A3C95 /* SecondOnboarding */,
+				F8CB27F626932EB100DEFA75 /* ThirdOnboarding */,
+				924751A7268E2CC500924891 /* FourthOnboarding */,
 			);
 			path = Models;
 			sourceTree = "<group>";

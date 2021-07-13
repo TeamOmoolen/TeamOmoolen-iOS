@@ -23,6 +23,9 @@ class RecommendTVC: UITableViewCell {
     private var recommendList = [RecommendLensDataModel]()
     var delegate: ViewModalProtocol?
     
+    var username: String? = nil
+    var recommendationByUser: [RecommendationBy]? = nil
+    
     // MARK: - Life Cycle Methods
     
     override func awakeFromNib() {
@@ -42,8 +45,7 @@ class RecommendTVC: UITableViewCell {
 extension RecommendTVC {
     func setUI() {
         contentView.backgroundColor = .white
-        
-        recommendLabel.text = "오무렌2님! 이 렌즈 어때요?"
+        recommendLabel.text = "\(username)님! 이 렌즈 어때요?"
         recommendLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpMore(_:)))

@@ -233,6 +233,8 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.username = homeList?.username
+            cell.recommendationByUser = homeList?.recommendationByUser
             cell.delegate = self
             return cell
         case 2:
@@ -240,6 +242,7 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.guides = homeList?.guides ?? [Guide(id: "", question: "", answer: "", createAt: "", updateAt: "", deleteAt: "")]
             cell.delegate = self
             return cell
         case 3:
@@ -247,6 +250,8 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.situation = homeList?.situation
+            cell.recommendationBySituation = homeList?.recommendationBySituation
             cell.delegate = self
             return cell
         case 4:
@@ -254,12 +259,14 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.event = homeList?.deadlineEvent
             return cell
         case 5:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  NewLensTVC.identifier, for: indexPath) as? NewLensTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.newLans = homeList?.newLens
             cell.delegate = self
             return cell
         case 6:
@@ -267,6 +274,8 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.season = homeList?.season
+            cell.recommendationBy = homeList?.recommendationBySeason
             cell.delegate = self
             return cell
         case 7:
@@ -274,6 +283,7 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.event = homeList?.lastestEvent
             return cell
         default:
             return UITableViewCell()

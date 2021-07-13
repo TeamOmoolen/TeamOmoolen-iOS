@@ -19,7 +19,7 @@ class LastBannerTVC: UITableViewCell {
     @IBOutlet weak var thirdIndicator: UIView!
     
     // MARK: - Local Variables
-    
+    var event: [Event]?
     private var imageList = [String]()
     
     // MARK: - Life Cycle Methods

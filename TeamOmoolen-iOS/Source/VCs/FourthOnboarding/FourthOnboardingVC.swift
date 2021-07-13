@@ -75,11 +75,11 @@ class FourthOnboardingVC: UIViewController {
     
     // MARK: - Local Variables
     var gender = ""
-    var age = ""
+    var age = -1
     var lensKind = [String]()
     var lensColor = [String]()
     var lensFunction = ""
-    var lensPeriod = ""
+    var lensPeriod = [Int]()
     var lensBrand = ""
     var lensName = ""
     var lensWhen = ""
@@ -166,8 +166,8 @@ class FourthOnboardingVC: UIViewController {
         }
         
         let userIdentifier = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
-        
-        let param = OnboardingRequest(gender, age, lensKind, lensColor, lensFunction, lensPeriod, lensBrand, lensName, lensWhen, userIdentifier)
+
+        let param = OnboardingRequest(gender: gender, age: age, wantedLens: WantedLens(category: lensKind, color: lensColor, function: lensFunction, changeCycleRange: lensPeriod), suitedLens: SuitedLens(brand: lensBrand, name: lensName), wearTime: lensWhen, userIdentifier: userIdentifier)
         
         print(param)
         
