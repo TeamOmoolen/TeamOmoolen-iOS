@@ -18,7 +18,7 @@ class SearchVC: UIViewController {
     var searchViews : [UIViewController] = []
     private var getSearchData = false
     private var keyword = ""
-    private var searchResultResponse = SearchResultResponse(products:[Product(id: 0, name: "", imageList: [""], category: "", color: "green", otherColorList: ["green"], price: 0, brand: "", releaseDate: "", diameter: 0, changeCycle: 0, pieces: 0, function: "", visionMinimum: 0, visionMaximum: 0, searchCount: 0)])
+    private var searchResultResponse: SearchResultResponse?
 
     lazy var searchTabBar: SearchTabBar = {
         let sTB = SearchTabBar()
@@ -186,7 +186,7 @@ extension SearchVC {
             }
             searchResultVC.modalPresentationStyle = .fullScreen
             searchResultVC.modalTransitionStyle = .crossDissolve
-            searchResultVC.resultList = self.searchResultResponse.products
+            searchResultVC.resultList = self.searchResultResponse?.products
             
             self.navigationController?.pushViewController(searchResultVC, animated: true)
         }

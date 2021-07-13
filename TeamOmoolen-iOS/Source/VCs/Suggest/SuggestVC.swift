@@ -10,7 +10,6 @@ import UIKit
 class SuggestVC: UIViewController {
 
     //MARK: - IB Outlets
-    
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
@@ -19,7 +18,6 @@ class SuggestVC: UIViewController {
     
     
     //MARK: - Local Variables
-    
     var suggestViews : [UIViewController] = []
     var position: Int = 0
     
@@ -30,7 +28,6 @@ class SuggestVC: UIViewController {
     }()
     
     //MARK: - View Life Cycle
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
@@ -70,7 +67,6 @@ class SuggestVC: UIViewController {
     }
     
     // MARK: - IBActions
-    
     @IBAction func touchUpBackButton(_ sender: Any) {
         guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {
             return
@@ -82,7 +78,6 @@ class SuggestVC: UIViewController {
     
     
    //MARK: - Methods
-    
     func setUI() {
         
         let layout = UICollectionViewFlowLayout()
@@ -139,7 +134,7 @@ class SuggestVC: UIViewController {
 
         } else if (UIDevice.current.isiPhone12Pro) {
             view.addConstraintsWithFormat(format: "H:|-20-[v0]-70-|", views: suggestTabBar)
-            view.addConstraintsWithFormat(format: "V:|-10-[v0(45)]", views: suggestTabBar)
+            view.addConstraintsWithFormat(format: "V:|-104-[v0(45)]", views: suggestTabBar)
 
         } else {
             view.addConstraintsWithFormat(format: "H:|-20-[v0]-70-|", views: suggestTabBar)

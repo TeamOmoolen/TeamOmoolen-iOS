@@ -20,8 +20,8 @@ class DetailNewTVC: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Local Variables
-    
-    private var recommendList: [RecommendLensDataModel] = []
+    var popularList: [PopularList]?
+//    private var recommendList: [RecommendLensDataModel] = []
     var delegate: ViewModalProtocol?
     
     // MARK: - Life Cycle Methods
@@ -30,7 +30,6 @@ class DetailNewTVC: UITableViewCell {
         super.awakeFromNib()
         
         setUI()
-        setList()
         registerXib()
         setCollectionView()
     }
@@ -58,20 +57,9 @@ extension DetailNewTVC {
         moreImageView.addGestureRecognizer(moreTapGesture)
     }
     
-    func setList() {
-        recommendList.append(contentsOf: [
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"])
-        ])
-    }
-    
     func registerXib() {
-        let recommendNib = UINib(nibName: RecommendCVC.identifier, bundle: nil)
-        collectionView.register(recommendNib, forCellWithReuseIdentifier: RecommendCVC.identifier)
+        let recommendNib = UINib(nibName: PopularCVC.identifier, bundle: nil)
+        collectionView.register(recommendNib, forCellWithReuseIdentifier: PopularCVC.identifier)
     }
     
     func setCollectionView() {
@@ -124,10 +112,11 @@ extension DetailNewTVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendCVC.identifier, for: indexPath) as? RecommendCVC else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularCVC.identifier, for: indexPath) as? PopularCVC else {
             return UICollectionViewCell()
         }
-        let data = recommendList[indexPath.row]
+        let data = popularList?[indexPath.row]
+        cell.initCell(imageList: data?.imageList ?? ["",""], brandName: data?.brand ?? "", lensName: data?.name ?? "", diameter: data?.diameter ?? 0, cycle: data?.changeCycle ?? 0, pieces: data?.pieces ?? 0)
         return cell
     }
 }

@@ -35,6 +35,7 @@
                     <connections>
                         <outlet property="searchInTableView" destination="Rth-eo-KOw" id="XpM-9L-IMr"/>
                         <outlet property="tableViewHeight" destination="UAt-gf-BBE" id="0c2-EA-QkL"/>
+                        <outlet property="tableViewTopConstraint" destination="KBm-E0-puh" id="oUj-2O-cC8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

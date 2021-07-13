@@ -89,7 +89,7 @@
                         <constraints>
                             <constraint firstItem="QIP-D8-QmS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="1n1-3b-ljU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QIP-D8-QmS" secondAttribute="trailing" id="3IZ-CP-56Z"/>
-                            <constraint firstAttribute="bottom" secondItem="QIP-D8-QmS" secondAttribute="bottom" id="5aB-lh-nwx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="QIP-D8-QmS" secondAttribute="bottom" constant="-34" id="5aB-lh-nwx"/>
                             <constraint firstItem="Yc7-Mq-rnK" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="6sx-ui-ypH"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eL2-T9-MCo" secondAttribute="trailing" constant="20" id="7Qn-zA-0Y3"/>
                             <constraint firstItem="5VU-zW-KMT" firstAttribute="top" secondItem="Yc7-Mq-rnK" secondAttribute="bottom" id="8sq-Ff-0iF"/>

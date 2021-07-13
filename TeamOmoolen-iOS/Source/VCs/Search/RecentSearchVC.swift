@@ -12,12 +12,14 @@ class RecentSearchVC: UIViewController {
     //Mark: - UI Components
     @IBOutlet weak var searchInTableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     
     var recentSearchCellHeight = 120
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setPhoneResolution()
         registerXib()
         setSearchInTableView()
         checkNotification()
@@ -25,6 +27,14 @@ class RecentSearchVC: UIViewController {
     }
     
     //MARK: - Methods
+    func setPhoneResolution(){
+        if UIDevice.current.isiPhoneSE2 {
+            tableViewTopConstraint.constant = 0
+        } else if UIDevice.current.isiPhone12Pro {
+            tableViewTopConstraint.constant = 85
+        }
+    }
+    
     func registerXib(){
         let searchInNib = UINib(nibName:SearchInTVC.identifier, bundle: nil)
         searchInTableView.register(searchInNib, forCellReuseIdentifier: SearchInTVC.identifier)
@@ -61,8 +71,12 @@ extension RecentSearchVC: UITableViewDelegate {
         case 0:
             return CGFloat(recentSearchCellHeight) + 10
         case 1:
-           return 660
-            
+            if UIDevice.current.isiPhoneSE2 {
+                return 750
+            }
+            else {
+                return 660
+            }
         
         default:
             return UITableView.automaticDimension
@@ -73,6 +87,7 @@ extension RecentSearchVC: UITableViewDelegate {
         return 335
     
     }
+    
 }
 
 extension RecentSearchVC: UITableViewDataSource {

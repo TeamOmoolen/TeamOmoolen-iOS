@@ -42,6 +42,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBO-uQ-7Ql">
+                                <rect key="frame" x="363" y="60" width="40" height="40"/>
+                                <state key="normal" image="icClose"/>
+                                <connections>
+                                    <action selector="dismissToSuggest:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="sWH-wi-b6s"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -50,6 +57,8 @@
                             <constraint firstAttribute="trailing" secondItem="Dq7-Jx-zNe" secondAttribute="trailing" id="1Ko-Ea-fYG"/>
                             <constraint firstItem="Y3w-Ev-7Wc" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="FZR-tn-RuE"/>
                             <constraint firstItem="I1P-dC-cwm" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Mah-Cz-oBW"/>
+                            <constraint firstItem="eBO-uQ-7Ql" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="OMa-mF-T3M"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eBO-uQ-7Ql" secondAttribute="trailing" constant="11" id="QD6-ya-pCh"/>
                             <constraint firstItem="Dq7-Jx-zNe" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="RHj-bj-cg1"/>
                             <constraint firstItem="Dq7-Jx-zNe" firstAttribute="top" secondItem="I1P-dC-cwm" secondAttribute="bottom" constant="13" id="Zf0-q6-AG8"/>
                             <constraint firstItem="Y3w-Ev-7Wc" firstAttribute="top" secondItem="qFI-Lw-mAY" secondAttribute="bottom" constant="24" id="eOv-r3-rFe"/>
@@ -58,6 +67,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="eBO-uQ-7Ql" id="k6q-d4-g1U"/>
                         <outlet property="firstSortLabel" destination="qFI-Lw-mAY" id="fzS-eg-g8w"/>
                         <outlet property="secondSortLabel" destination="Y3w-Ev-7Wc" id="Yhe-zZ-ZmB"/>
                         <outlet property="sortTitleLabel" destination="I1P-dC-cwm" id="fZ6-Gj-fhH"/>
@@ -69,8 +79,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icClose" width="40" height="40"/>
         <namedColor name="omFifthGray">
-            <color red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94099998474121094" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

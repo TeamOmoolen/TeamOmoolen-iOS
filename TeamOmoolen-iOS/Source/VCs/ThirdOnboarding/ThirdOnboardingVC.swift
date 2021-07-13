@@ -124,7 +124,7 @@ class ThirdOnboardingVC: UIViewController {
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
-    //Mark: - View Life Cycle
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -140,7 +140,7 @@ class ThirdOnboardingVC: UIViewController {
         }
         
     }
-    //Mark: - Methods
+    //MARK: - Methods
     func setUI(){
         baseView.backgroundColor = .omAlmostwhite
         
@@ -257,8 +257,8 @@ class ThirdOnboardingVC: UIViewController {
 
 }
 
-//Mark: - Extensions
-//Mark: - UICollectionViewDataSource
+//MARK: - Extensions
+//MARK: - UICollectionViewDataSource
 
 extension ThirdOnboardingVC: UICollectionViewDataSource {
     
@@ -325,7 +325,7 @@ extension ThirdOnboardingVC: UICollectionViewDelegate {
 }
 
 
-//Mark: - UICollectionViewDelegate
+//MARK: - UICollectionViewDelegate
 
 extension ThirdOnboardingVC: UICollectionViewDelegateFlowLayout {
     

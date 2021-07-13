@@ -99,8 +99,12 @@ class NewProductVC: UIViewController {
     
 }
 
+//MARK: - CollectionViewDelegateFlowLayout
 extension NewProductVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if (UIDevice.current.isiPhone12Pro) {
+            return CGSize(width:(collectionView.frame.width - 100) / 2, height:(collectionView.frame.height - 40) / 2)
+        }
         let width = (collectionView.frame.width - 40 - 15) / 2
         let height = (collectionView.frame.height - 40) / 2
         return CGSize(width: width, height: height)
@@ -115,12 +119,11 @@ extension NewProductVC: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        return UIEdgeInsets(top: 0, left: 20, bottom: 200, right: 20)
     }
 }
 
 // MARK: - UICollectionView DataSource
-
 extension NewProductVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return recommendList.count
