@@ -49,7 +49,7 @@ struct Product: Codable {
     let price: Int
     let brand, releaseDate: String
     let diameter: Double
-    let changeCycle, pieces: Int
+    let changeCycle,changeCycleRange, pieces: Int
     let function: String
     let visionMinimum, visionMaximum, searchCount: Int
     

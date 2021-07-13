@@ -21,9 +21,10 @@ class DetailVC: UIViewController {
     }()
     
     // MARK: - Local Variables
-    
-    private var lensData = [DetailDataModel]()
-    private var mainData = [DetailMainDataModel]()
+    var id: String?
+//    private var lensData = [DetailDataModel]()
+//    private var mainData = [DetailMainDataModel]()
+    private var lensData: ProductDetailResponse?
     
     // MARK: - Life Cycle Methods
     
@@ -32,7 +33,8 @@ class DetailVC: UIViewController {
         
         setUI()
         setData()
-        
+        getProductDetailWithAPI()
+
         registerXib()
         setTableView()
         
@@ -51,11 +53,17 @@ extension DetailVC {
             make.top.equalToSuperview().offset(700)
         }
     }
-    
+    func getProductDetailWithAPI() {
+        DetailAPI.shared.getProductDetail(param: id ?? "") { response in
+            self.lensData = response
+        }
+    }
     func setData() {
-        mainData.append(contentsOf: [
-            DetailMainDataModel(brandName: "오렌즈", lensName: "브라운 컬러 렌즈", price: 18000, diameter: 13.5, cycle: 2, texture: "실리콘 하이드로겔", function: "난시", colorList: ["green", "pink", "black"])
-        ])
+        
+//
+//        mainData.append(contentsOf: [
+//            DetailMainDataModel(brandName: "오렌즈", lensName: "브라운 컬러 렌즈", price: 18000, diameter: 13.5, cycle: 2, texture: "실리콘 하이드로겔", function: "난시", colorList: ["green", "pink", "black"])
+//        ])
     }
     
     func registerXib() {
@@ -124,7 +132,14 @@ extension DetailVC: UITableViewDataSource {
             }
             cell.selectionStyle = .none
             cell.delegate = self
-            cell.initCell(brand: mainData[indexPath.row].brandName, lens: mainData[indexPath.row].lensName, price: mainData[indexPath.row].price, diameter: mainData[indexPath.row].diameter, cycle: mainData[indexPath.row].cycle, texture: mainData[indexPath.row].texture, function: mainData[indexPath.row].function, colorList: mainData[indexPath.row].colorList)
+            cell.initCell(brand: lensData?.brand ?? "",
+                          lens: lensData?.name ?? "",
+                          price: lensData?.price ?? 0,
+                          diameter: lensData?.diameter ?? 0,
+                          cycle: lensData?.changeCycle ?? 0,
+                          texture: lensData?.material ?? "",
+                          function: lensData?.function ?? "",
+                          colorList: lensData?.otherColorList ?? [""])
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTVC.identifier) as? ReviewTVC else {
@@ -137,6 +152,7 @@ extension DetailVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.suggestList = lensData?.suggestList
             cell.delegate = self
             return cell
         case 3:
@@ -144,6 +160,7 @@ extension DetailVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.popularList = lensData?.popularList
             cell.delegate = self
             return cell
         default:
