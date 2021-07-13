@@ -31,28 +31,23 @@ class SuggestVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(getPosition(_:)), name: NSNotification.Name("PostPosition"), object: nil)
+        
         if position == 0 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, at: .left, animated: true)
-            
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         } else if position == 1 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 1, section: 0) as IndexPath, at: .left, animated: true)
-            
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 1, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         } else if position == 2 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 2, section: 0) as IndexPath, at: .left, animated: true)
-            
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 2, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         } else {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, at: .left, animated: true)
-            
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         }
         
         navigationController?.navigationBar.isHidden = true
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(getPosition(_:)), name: NSNotification.Name("PostPosition"), object: nil)
-         
     }
     
     override func viewDidLoad() {

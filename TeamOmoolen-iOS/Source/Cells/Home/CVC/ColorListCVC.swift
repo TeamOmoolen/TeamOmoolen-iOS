@@ -30,9 +30,6 @@ extension ColorListCVC {
     }
     
     func initCell(color: String) {
-//        hexColor = "#\(color)"
-//        contentView.layer.backgroundColor = UIColor(hex: hexColor).cgColor
-        
         switch color {
         case "clear":
             contentView.layer.borderColor = UIColor.omThirdGray.cgColor
@@ -54,7 +51,7 @@ extension ColorListCVC {
         case "gold":
             return
         case "pink":
-            contentView.layer.backgroundColor = UIColor.omMainRed.cgColor
+            contentView.layer.backgroundColor = UIColor.bubbleGumPink.cgColor
             
         default:
             return

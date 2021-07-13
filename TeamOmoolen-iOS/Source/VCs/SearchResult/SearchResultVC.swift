@@ -110,7 +110,7 @@ extension SearchResultVC: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let cellData = resultList![indexPath.row]
-        cell.initCell(brandName: cellData.brand, lensName: cellData.name, diameter: cellData.diameter, cycle: cellData.changeCycle, pieces: cellData.pieces, price: cellData.price, colorList: cellData.otherColorList)
+        
         return cell
     }
     

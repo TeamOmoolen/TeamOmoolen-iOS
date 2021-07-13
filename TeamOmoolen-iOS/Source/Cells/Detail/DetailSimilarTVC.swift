@@ -108,7 +108,7 @@ extension DetailSimilarTVC: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let data = suggestList?[indexPath.row]
-        cell.initCell(brandName: data?.brand ?? "", lensName: data?.name ?? "", diameter: data?.diameter ?? 0, cycle: data?.changeCycle ?? 0, pieces: data?.pieces ?? 0, price: data?.price ?? 0, colorList: data?.otherColorList ?? [""])
+        
         return cell
     }
 }

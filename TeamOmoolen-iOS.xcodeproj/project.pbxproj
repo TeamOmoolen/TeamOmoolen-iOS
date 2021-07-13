@@ -15,6 +15,7 @@
 		922506AB269AD78400419B40 /* TipVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922506AA269AD78400419B40 /* TipVC.swift */; };
 		922506AD269AD78E00419B40 /* EventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922506AC269AD78E00419B40 /* EventVC.swift */; };
 		922F49712699E95400447E8E /* ViewModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922F49702699E95400447E8E /* ViewModelProtocols.swift */; };
+		9233B277269DBF3B000DF624 /* SuggestRequestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9233B276269DBF3B000DF624 /* SuggestRequestDataModel.swift */; };
 		924751A9268E2CFE00924891 /* FourthOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924751A8268E2CFE00924891 /* FourthOnboarding.storyboard */; };
 		924751AC268E329400924891 /* FourthOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924751AB268E329400924891 /* FourthOnboardingVC.swift */; };
 		924751AE268E42E200924891 /* LensBrandDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924751AD268E42E200924891 /* LensBrandDataModel.swift */; };
@@ -236,6 +237,7 @@
 		922506AA269AD78400419B40 /* TipVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipVC.swift; sourceTree = "<group>"; };
 		922506AC269AD78E00419B40 /* EventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventVC.swift; sourceTree = "<group>"; };
 		922F49702699E95400447E8E /* ViewModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocols.swift; sourceTree = "<group>"; };
+		9233B276269DBF3B000DF624 /* SuggestRequestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestRequestDataModel.swift; sourceTree = "<group>"; };
 		924751A8268E2CFE00924891 /* FourthOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FourthOnboarding.storyboard; sourceTree = "<group>"; };
 		924751AB268E329400924891 /* FourthOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthOnboardingVC.swift; sourceTree = "<group>"; };
 		924751AD268E42E200924891 /* LensBrandDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensBrandDataModel.swift; sourceTree = "<group>"; };
@@ -519,6 +521,14 @@
 				92B56055269AF28A0046A9B3 /* PassTagProtocols.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9233B275269DBF13000DF624 /* Suggest */ = {
+			isa = PBXGroup;
+			children = (
+				9233B276269DBF3B000DF624 /* SuggestRequestDataModel.swift */,
+			);
+			path = Suggest;
 			sourceTree = "<group>";
 		};
 		924751A6268E2C6900924891 /* FourthOnboarding */ = {
@@ -1195,6 +1205,7 @@
 		F8CB27EF2692C1DA00DEFA75 /* NetworkDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				9233B275269DBF13000DF624 /* Suggest */,
 				F8F52510269D5C9B00EB6FF0 /* Detail */,
 				F8514793269366AC00C8532F /* Home */,
 				F885CB882698101700835B11 /* SearchResult */,
@@ -1475,6 +1486,7 @@
 				92F9950326918D4D0053ABD8 /* SeasonTVC.swift in Sources */,
 				92A889E3269334DB00AC1B81 /* NewLensDetailTVC.swift in Sources */,
 				927F97FE268C840100E893F2 /* GenderDataModel.swift in Sources */,
+				9233B277269DBF3B000DF624 /* SuggestRequestDataModel.swift in Sources */,
 				E8A078622690F32200D99444 /* RecentSearchVC.swift in Sources */,
 				922F49712699E95400447E8E /* ViewModelProtocols.swift in Sources */,
 				92A889D92692FBD200AC1B81 /* TabBarController.swift in Sources */,
