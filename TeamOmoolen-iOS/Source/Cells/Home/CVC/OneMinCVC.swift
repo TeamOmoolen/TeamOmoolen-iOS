@@ -32,7 +32,6 @@ class OneMinCVC: UICollectionViewCell {
         super.awakeFromNib()
         
         setUI()
-        setList()
         registerXib()
         setTableView()
     }
@@ -67,18 +66,19 @@ extension OneMinCVC {
         moreButton.layer.masksToBounds = true
     }
     
-    func setList() {
-        oneMinDetailData.append(contentsOf: [
-            OneMinDetailDataModel(title: "렌즈 눈치 안보고 패션을 꾸밀 수 있다?", subTitle: "1분 렌즈 상식에 대한 간단 설명"),
-            OneMinDetailDataModel(title: "렌즈 눈치 안보고 패션을 꾸밀 수 있다?", subTitle: "1분 렌즈 상식에 대한 간단 설명"),
-            OneMinDetailDataModel(title: "렌즈 눈치 안보고 패션을 꾸밀 수 있다?", subTitle: "1분 렌즈 상식에 대한 간단 설명")
-        ])
-    }
+//    func setList() {
+//        oneMinDetailData.append(contentsOf: [
+//            OneMinDetailDataModel(title: "렌즈 눈치 안보고 패션을 꾸밀 수 있다?", subTitle: "1분 렌즈 상식에 대한 간단 설명"),
+//            OneMinDetailDataModel(title: "렌즈 눈치 안보고 패션을 꾸밀 수 있다?", subTitle: "1분 렌즈 상식에 대한 간단 설명"),
+//            OneMinDetailDataModel(title: "렌즈 눈치 안보고 패션을 꾸밀 수 있다?", subTitle: "1분 렌즈 상식에 대한 간단 설명")
+//        ])
+//    }
     
     func initCell(subTitle: String, oneMinDetail: [OneMinDetailDataModel]) {
         subtitleLabel.text = subTitle
         
         oneMinDetailData = oneMinDetail
+        print(oneMinDetailData)
     }
     
     func registerXib() {
@@ -115,6 +115,7 @@ extension OneMinCVC: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: OneMinDetailTVC.identifier) as? OneMinDetailTVC else {
             return UITableViewCell()
         }
+        cell.selectionStyle = .none
         cell.initCell(title: oneMinDetailData[indexPath.row].title, subTitle: oneMinDetailData[indexPath.row].subTitle)
         return cell
     }

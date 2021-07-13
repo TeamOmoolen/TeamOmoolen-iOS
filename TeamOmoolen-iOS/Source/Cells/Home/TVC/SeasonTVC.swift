@@ -110,6 +110,7 @@ extension SeasonTVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
+        detailVC.id = recommendationBy?[indexPath.row].id
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
@@ -147,8 +148,6 @@ extension SeasonTVC: UICollectionViewDataSource {
         }
         let data = seasonList[indexPath.row]
         cell.initCell(imageList: data.imageList, brandName: data.brandName, lensName: data.lensName, diameter: data.diameter, cycle: data.cycle, pieces: data.pieces, price: data.price, colorList: data.colorList)
-        
-        let serverData = recommendationBy?[indexPath.row]
         return cell
     }
 }

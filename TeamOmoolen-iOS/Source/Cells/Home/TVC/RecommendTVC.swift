@@ -21,6 +21,7 @@ class RecommendTVC: UITableViewCell {
     // MARK: - Local Variables
     
     private var recommendList = [RecommendLensDataModel]()
+    
     var delegate: ViewModalProtocol?
     
     var username: String? = nil
@@ -107,6 +108,7 @@ extension RecommendTVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
+        detailVC.id = recommendationByUser?[indexPath.row].id
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }

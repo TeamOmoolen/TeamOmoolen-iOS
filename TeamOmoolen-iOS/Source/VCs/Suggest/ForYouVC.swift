@@ -187,9 +187,9 @@ extension ForYouVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendCVC.identifier, for: indexPath) as? RecommendCVC else {
-                return UICollectionViewCell()
+            return UICollectionViewCell()
         }
         let data = recommendList[indexPath.row]
         return cell
-        }
+    }
 }

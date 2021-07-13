@@ -152,8 +152,6 @@ extension SituationTVC: UICollectionViewDataSource {
         }
         let data = recommendList[indexPath.row]
         cell.initCell(imageList: data.imageList, brandName: data.brandName, lensName: data.lensName, diameter: data.diameter, cycle: data.cycle, pieces: data.pieces, price: data.price, colorList: data.colorList)
-        
-        let serverData = recommendationBySituation?[indexPath.row]
         return cell
     }
 }

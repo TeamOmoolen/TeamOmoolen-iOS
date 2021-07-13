@@ -46,6 +46,7 @@ struct ProductDetailResponse: Codable {
     let popularList: [PopularList]
 }
 struct SuggestList: Codable {
+    let id: String
     let imageList: [String]
     let brand: String
     let name: String
@@ -56,6 +57,7 @@ struct SuggestList: Codable {
     let otherColorList: [String]
 }
 struct PopularList: Codable {
+    let id: String
     let imageList: [String]
     let brand: String
     let name: String

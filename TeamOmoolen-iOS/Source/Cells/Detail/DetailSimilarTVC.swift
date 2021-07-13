@@ -18,6 +18,7 @@ class DetailSimilarTVC: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Local Variables
+    
     var suggestList: [SuggestList]?
     var delegate: ViewModalProtocol?
     
@@ -70,6 +71,7 @@ extension DetailSimilarTVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
+        detailVC.id = suggestList?[indexPath.row].id
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
