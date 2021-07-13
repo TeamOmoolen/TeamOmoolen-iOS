@@ -99,6 +99,8 @@ class SituationVC: UIViewController {
     func setPhoneResolution() {
         if UIDevice.current.isiPhoneSE2 {
             popUpTopConstraint.constant = 0
+        } else if UIDevice.current.isiPhone12Pro {
+            popUpTopConstraint.constant  = 46
         }
     }
     
