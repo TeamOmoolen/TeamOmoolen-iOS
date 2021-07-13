@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController storyboardIdentifier="FilterVC" id="Y6W-OH-hqX" customClass="FilterVC" customModule="TeamOmoolen_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zma-fD-wL2">
-                                <rect key="frame" x="0.0" y="99" width="414" height="72"/>
+                                <rect key="frame" x="0.0" y="55" width="375" height="72"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3W-Ns-n8K">
                                         <rect key="frame" x="20" y="21" width="63" height="30"/>
@@ -106,7 +106,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQu-oL-TVb">
-                                <rect key="frame" x="0.0" y="681" width="414" height="76"/>
+                                <rect key="frame" x="0.0" y="486" width="375" height="76"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmJ-Ub-4UR">
                                         <rect key="frame" x="20" y="11" width="54" height="54"/>
@@ -128,7 +128,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxo-CN-C7r">
-                                        <rect key="frame" x="82" y="11" width="312" height="54"/>
+                                        <rect key="frame" x="82" y="11" width="273" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" id="Dcl-or-AM9"/>
                                         </constraints>
@@ -163,6 +163,7 @@
                     <connections>
                         <outlet property="brandLabel" destination="ZC9-wx-4NT" id="EYI-Wf-kfN"/>
                         <outlet property="brandView" destination="F3W-Ns-n8K" id="VxB-3T-x8U"/>
+                        <outlet property="buttonButtomConstraint" destination="5Dc-kv-az7" id="h3y-fh-ueF"/>
                         <outlet property="buttonView" destination="iQu-oL-TVb" id="G3z-Wj-soD"/>
                         <outlet property="colorLabel" destination="W0d-Mf-Swj" id="RJ4-UJ-2xQ"/>
                         <outlet property="colorView" destination="RGj-rg-p6V" id="skL-k0-oeG"/>
@@ -171,6 +172,7 @@
                         <outlet property="diameterLabel" destination="m6u-Mm-Ide" id="wgW-fV-6zS"/>
                         <outlet property="diameterView" destination="h7v-Oa-DX7" id="PXa-SO-fT7"/>
                         <outlet property="filterView" destination="zma-fD-wL2" id="cJn-G0-FIn"/>
+                        <outlet property="filterViewTopConstraint" destination="TW8-UI-kcZ" id="AbZ-a1-G3b"/>
                         <outlet property="resetBackView" destination="gmJ-Ub-4UR" id="Ili-65-J6s"/>
                         <outlet property="resetImageView" destination="CZN-j8-6Bc" id="8jb-ay-kqx"/>
                         <outlet property="searchButton" destination="pxo-CN-C7r" id="7ux-qE-s2R"/>
