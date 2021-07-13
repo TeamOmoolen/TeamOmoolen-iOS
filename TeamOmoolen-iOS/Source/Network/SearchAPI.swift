@@ -36,8 +36,8 @@ class SearchAPI {
     }
     
     //get data for keyWord Result
-    func getKeywordResult(param: SearchKeywordRequest, completion: @escaping (SearchResultResponse) -> ()) {
-        SearchAPI.provider.request(.searchKeyword(param: param)) { response in
+    func getKeywordResult(param: String, completion: @escaping (SearchResultResponse) -> ()) {
+        SearchAPI.provider.request(.searchKeyword(keyword: param)) { response in
             switch response {
             case .success(let result):
                 do {
