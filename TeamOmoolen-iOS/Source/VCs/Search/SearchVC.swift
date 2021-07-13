@@ -168,14 +168,15 @@ extension SearchVC {
     }
     
     func requestAPI(){
-        let param = SearchKeywordRequest(keyword)
+//        let param = SearchKeywordRequest(keyword)
+        let param = keyword
         
         print(param)
         
         getSearchResultWithAPI(param: param)
     }
     
-    func getSearchResultWithAPI(param: SearchKeywordRequest) {
+    func getSearchResultWithAPI(param: String) {
         SearchAPI.shared.getKeywordResult(param: param) {
             response in
             print(response)
