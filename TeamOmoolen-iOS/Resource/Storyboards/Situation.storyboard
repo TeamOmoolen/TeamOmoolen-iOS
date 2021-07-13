@@ -75,7 +75,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVL-Ff-BML">
-                                <rect key="frame" x="350" y="173.5" width="44" height="22"/>
+                                <rect key="frame" x="337" y="173.5" width="57" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GVL-Ff-BML" secondAttribute="height" multiplier="44:17" id="we2-1j-TNN"/>
+                                </constraints>
                                 <state key="normal" image="btnSort"/>
                                 <connections>
                                     <action selector="presentSortModal:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RpE-RB-l9R"/>

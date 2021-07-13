@@ -35,6 +35,7 @@ struct SearchResultResponse: Codable {
     enum CodingKeys: String, CodingKey {
         case products
     }
+    
 }
 
 // MARK: - Product

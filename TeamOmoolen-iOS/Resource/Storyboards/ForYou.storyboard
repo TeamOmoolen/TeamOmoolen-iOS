@@ -74,7 +74,10 @@
                                 <cells/>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eL2-T9-MCo">
-                                <rect key="frame" x="350" y="167" width="44" height="22"/>
+                                <rect key="frame" x="337" y="167" width="57" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eL2-T9-MCo" secondAttribute="height" multiplier="44:17" id="nGC-L5-4z9"/>
+                                </constraints>
                                 <state key="normal" image="btnSort"/>
                                 <connections>
                                     <action selector="presentToSortModal:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0xU-HF-NzI"/>
