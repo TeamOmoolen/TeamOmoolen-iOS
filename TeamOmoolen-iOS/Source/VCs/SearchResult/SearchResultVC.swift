@@ -11,7 +11,7 @@ import PanModal
 class SearchResultVC: UIViewController {
 
     // MARK: - Properties
-    var resultList = [Product]()
+    var resultList: [Product]?
     var productCount = 0
     var searchKeyword = "keyword"
 
@@ -82,14 +82,14 @@ class SearchResultVC: UIViewController {
     @objc
     func setPriceLowOrder() {
         print("setPriceLowOrder()")
-        resultList.sort(by: {$0.price < $1.price})
+        resultList!.sort(by: {$0.price < $1.price})
         resultCollectionView.reloadData()
     }
     
     @objc
     func setPriceHighOrder() {
         print("setPriceHighOrder")
-        resultList.sort(by: {$0.price > $1.price})
+        resultList!.sort(by: {$0.price > $1.price})
         resultCollectionView.reloadData()
     }
 }
@@ -102,14 +102,14 @@ extension SearchResultVC: UICollectionViewDelegate {
 // MARK: - UICollectionViewDataSource
 extension SearchResultVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return resultList.count
+        return resultList!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeasonCVC.identifier, for: indexPath) as? SeasonCVC else {
             return UICollectionViewCell()
         }
-        let cellData = resultList[indexPath.row]
+        let cellData = resultList![indexPath.row]
         cell.initCell(brandName: cellData.brand, lensName: cellData.name, diameter: cellData.diameter, cycle: cellData.changeCycle, pieces: cellData.pieces, price: cellData.price, colorList: cellData.otherColorList)
         return cell
     }

@@ -219,6 +219,11 @@
 		F8CB27F12692C1F700DEFA75 /* OnboardingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CB27F02692C1F700DEFA75 /* OnboardingDataModel.swift */; };
 		F8CB27F526931FF700DEFA75 /* OnboardingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CB27F426931FF700DEFA75 /* OnboardingRequest.swift */; };
 		F8F5250A269C34ED00EB6FF0 /* Suggest.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8F52509269C34ED00EB6FF0 /* Suggest.xcassets */; };
+		F8F5250D269D511A00EB6FF0 /* DetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F5250C269D511A00EB6FF0 /* DetailService.swift */; };
+		F8F5250F269D550600EB6FF0 /* DetailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F5250E269D550600EB6FF0 /* DetailAPI.swift */; };
+		F8F52512269D5CA900EB6FF0 /* ProductDetailDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F52511269D5CA900EB6FF0 /* ProductDetailDataModel.swift */; };
+		F8F52515269D789A00EB6FF0 /* PopularCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F52513269D789A00EB6FF0 /* PopularCVC.swift */; };
+		F8F52516269D789A00EB6FF0 /* PopularCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8F52514269D789A00EB6FF0 /* PopularCVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -439,6 +444,11 @@
 		F8CB27F02692C1F700DEFA75 /* OnboardingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDataModel.swift; sourceTree = "<group>"; };
 		F8CB27F426931FF700DEFA75 /* OnboardingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRequest.swift; sourceTree = "<group>"; };
 		F8F52509269C34ED00EB6FF0 /* Suggest.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Suggest.xcassets; sourceTree = "<group>"; };
+		F8F5250C269D511A00EB6FF0 /* DetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailService.swift; sourceTree = "<group>"; };
+		F8F5250E269D550600EB6FF0 /* DetailAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAPI.swift; sourceTree = "<group>"; };
+		F8F52511269D5CA900EB6FF0 /* ProductDetailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailDataModel.swift; sourceTree = "<group>"; };
+		F8F52513269D789A00EB6FF0 /* PopularCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCVC.swift; sourceTree = "<group>"; };
+		F8F52514269D789A00EB6FF0 /* PopularCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularCVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -542,6 +552,8 @@
 		9261598626920EA600E1E87F /* CVC */ = {
 			isa = PBXGroup;
 			children = (
+				F8F52513269D789A00EB6FF0 /* PopularCVC.swift */,
+				F8F52514269D789A00EB6FF0 /* PopularCVC.xib */,
 				9261598726920EBE00E1E87F /* RecommendCVC.swift */,
 				9261598826920EBE00E1E87F /* RecommendCVC.xib */,
 				9261598B26921B4700E1E87F /* OneMinCVC.swift */,
@@ -1174,6 +1186,8 @@
 				F85147982695839D00C8532F /* SearchAPI.swift */,
 				F831304B2697670A004A247C /* LoginService.swift */,
 				F831304D26976714004A247C /* LoginAPI.swift */,
+				F8F5250C269D511A00EB6FF0 /* DetailService.swift */,
+				F8F5250E269D550600EB6FF0 /* DetailAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1181,6 +1195,7 @@
 		F8CB27EF2692C1DA00DEFA75 /* NetworkDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				F8F52510269D5C9B00EB6FF0 /* Detail */,
 				F8514793269366AC00C8532F /* Home */,
 				F885CB882698101700835B11 /* SearchResult */,
 				F831304F26976A72004A247C /* Login */,
@@ -1206,6 +1221,14 @@
 				F8CB27F426931FF700DEFA75 /* OnboardingRequest.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F8F52510269D5C9B00EB6FF0 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F8F52511269D5CA900EB6FF0 /* ProductDetailDataModel.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		F8F835A5269AD25D00C17053 /* Search */ = {
@@ -1309,6 +1332,7 @@
 				9261599226921B6600E1E87F /* SeasonCVC.xib in Resources */,
 				9261598E26921B4700E1E87F /* OneMinCVC.xib in Resources */,
 				92F9950026918C8C0053ABD8 /* OneMinTVC.xib in Resources */,
+				F8F52516269D789A00EB6FF0 /* PopularCVC.xib in Resources */,
 				928E5030269823A60086FC31 /* Home.xcassets in Resources */,
 				92F994FC26918BC30053ABD8 /* RecommendTVC.xib in Resources */,
 				F802D770269C14FE0041383B /* PopupModal.storyboard in Resources */,
@@ -1444,6 +1468,7 @@
 				E8A078662690F35100D99444 /* FilterVC.swift in Sources */,
 				F831304E26976714004A247C /* LoginAPI.swift in Sources */,
 				E82C5DC426937B87000EF460 /* PopularTVC.swift in Sources */,
+				F8F52515269D789A00EB6FF0 /* PopularCVC.swift in Sources */,
 				E8C9A43A2690AD1000E5BD9D /* SearchVC.swift in Sources */,
 				F83BA04E268C4C3500E94E74 /* Storyboard.swift in Sources */,
 				E8A660152695821B00EB7EEA /* RecentSearch.swift in Sources */,
@@ -1478,6 +1503,7 @@
 				E82C5DC826938926000EF460 /* PopularWordTVC.swift in Sources */,
 				92BAA04F2694FDE7004A155A /* OneMinDetailTVC.swift in Sources */,
 				F82975BD269AE26B0025CA64 /* SortPanModalVC.swift in Sources */,
+				F8F52512269D5CA900EB6FF0 /* ProductDetailDataModel.swift in Sources */,
 				E8AF8028269841E000D76A21 /* ForYouVC.swift in Sources */,
 				F8CB27ED2691FB8800DEFA75 /* GeneralAPI.swift in Sources */,
 				F86F7AD326918AC50037081D /* UIViewController+Extension.swift in Sources */,
@@ -1501,6 +1527,7 @@
 				928E503526982C3F0086FC31 /* ColorListCVC.swift in Sources */,
 				924751AE268E42E200924891 /* LensBrandDataModel.swift in Sources */,
 				F83BA050268C4C3F00E94E74 /* ViewController.swift in Sources */,
+				F8F5250D269D511A00EB6FF0 /* DetailService.swift in Sources */,
 				E8A6602026959B8100EB7EEA /* SearchWordTVC.swift in Sources */,
 				E82DE904268CF6D400296B53 /* LeftAlignedCVFlowLayout.swift in Sources */,
 				924751B5268E49B500924891 /* PurposeCVC.swift in Sources */,
@@ -1530,6 +1557,7 @@
 				E8AF802F2698427A00D76A21 /* SituationVC.swift in Sources */,
 				E8AF804226984A3500D76A21 /* SuggestHomeCVC.swift in Sources */,
 				9276925F2693CB7D00201EE1 /* BrandFilterView.swift in Sources */,
+				F8F5250F269D550600EB6FF0 /* DetailAPI.swift in Sources */,
 				92A889CC2692E11A00AC1B81 /* SituationTVC.swift in Sources */,
 				928E503826987CAB0086FC31 /* NaviController.swift in Sources */,
 				92BF87A2268D908C00706384 /* GenderCVC.swift in Sources */,
