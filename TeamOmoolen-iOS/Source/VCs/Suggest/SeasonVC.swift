@@ -34,6 +34,28 @@ class SeasonVC: UIViewController {
             print("this is iphone 12")
         }
     }
+    // MARK: - @IBAction Properties
+    @IBAction func presentToPopupModal(_ sender: Any) {
+        guard let popup = UIStoryboard(name: Const.Storyboard.Name.PopupModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.PopupModal) as? PopupModalVC else {
+            return
+        }
+        popup.titleText = "상황에 어울리는 렌즈 추천"
+        
+        popup.subtitleText = """
+        상황에 어울리는 렌즈 추천은 실제 렌즈 사용자들의
+        데이터를 기반으로 상황별 맞춤 렌즈를 제공합니다.
+        """
+        
+        popup.modalPresentationStyle = .overFullScreen
+        popup.modalTransitionStyle = .crossDissolve
+        
+        self.present(popup, animated: true, completion: nil)
+    }
+    
+    @IBAction func presentSortModal(_ sender: Any) {
+        let vc = UIStoryboard(name: Const.Storyboard.Name.SortPanModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SortPanModal) as! SortPanModalVC
+        presentPanModal(vc)
+    }
     
     //MARK: - Methods
     func setUI() {

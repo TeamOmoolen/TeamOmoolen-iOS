@@ -69,7 +69,7 @@ class SuggestVC: UIViewController {
         setPhoneResolution()
     }
     
-    // MARK: - IB Actions
+    // MARK: - IBActions
     
     @IBAction func touchUpBackButton(_ sender: Any) {
         guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {

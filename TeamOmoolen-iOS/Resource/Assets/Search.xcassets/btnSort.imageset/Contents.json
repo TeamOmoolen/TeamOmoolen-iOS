@@ -1,14 +1,14 @@
 {
   "images" : [
     {
-      "filename" : "btnSort.png",
       "idiom" : "universal",
+      "filename" : "btnSort.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "universal",
       "filename" : "btnSort@2x.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "idiom" : "universal"
     },
     {
       "filename" : "btnSort@3x.png",

@@ -33,12 +33,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Asr-aH-QvX">
-                                        <rect key="frame" x="378" y="11" width="16" height="16"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Asr-aH-QvX" secondAttribute="height" multiplier="1:1" id="Y3L-LN-wvK"/>
-                                            <constraint firstAttribute="height" constant="16" id="dD5-cJ-OOJ"/>
-                                        </constraints>
+                                        <rect key="frame" x="378" y="11" width="16" height="22"/>
                                         <state key="normal" image="btnQuestionmark"/>
+                                        <connections>
+                                            <action selector="presentToPopupModal:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dX1-aq-4if"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.60392156862745094" blue="0.14117647058823529" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -51,15 +50,17 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9E9-cA-rpK">
-                                <rect key="frame" x="350" y="171" width="44" height="17"/>
+                                <rect key="frame" x="337" y="171" width="57" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="Iga-Pn-GVr"/>
                                     <constraint firstAttribute="width" secondItem="9E9-cA-rpK" secondAttribute="height" multiplier="44:17" id="wvW-Pm-nPK"/>
                                 </constraints>
                                 <state key="normal" image="btnSort"/>
+                                <connections>
+                                    <action selector="presentSortModal:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="b8h-9U-AqU"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xlx-O0-smu">
-                                <rect key="frame" x="0.0" y="215" width="414" height="647"/>
+                                <rect key="frame" x="0.0" y="220" width="414" height="642"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eQE-0e-N2Z">
                                     <size key="itemSize" width="128" height="128"/>
