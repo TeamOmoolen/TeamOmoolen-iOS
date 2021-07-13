@@ -39,11 +39,12 @@ class SeasonVC: UIViewController {
         guard let popup = UIStoryboard(name: Const.Storyboard.Name.PopupModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.PopupModal) as? PopupModalVC else {
             return
         }
-        popup.titleText = "상황에 어울리는 렌즈 추천"
+        popup.titleText = "여름과 잘 어울리는 렌즈"
         
         popup.subtitleText = """
-        상황에 어울리는 렌즈 추천은 실제 렌즈 사용자들의
-        데이터를 기반으로 상황별 맞춤 렌즈를 제공합니다.
+                여름과 잘 어울리는 렌즈 추천은 계절별 많이
+                구매한 제품에 대한 데이터를 기반으로
+                추천해드리는 제품입니다.
         """
         
         popup.modalPresentationStyle = .overFullScreen

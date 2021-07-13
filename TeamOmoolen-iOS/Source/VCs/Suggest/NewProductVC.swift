@@ -37,11 +37,13 @@ class NewProductVC: UIViewController {
         guard let popup = UIStoryboard(name: Const.Storyboard.Name.PopupModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.PopupModal) as? PopupModalVC else {
             return
         }
-        popup.titleText = "상황에 어울리는 렌즈 추천"
+        popup.titleText = """
+        신제품 추천 기준
+        """
         
         popup.subtitleText = """
-        상황에 어울리는 렌즈 추천은 실제 렌즈 사용자들의
-        데이터를 기반으로 상황별 맞춤 렌즈를 제공합니다.
+                신제품 추천은 3개월 이내에 등록된
+                제품을 추천해드립니다.
         """
         
         popup.modalPresentationStyle = .overFullScreen
