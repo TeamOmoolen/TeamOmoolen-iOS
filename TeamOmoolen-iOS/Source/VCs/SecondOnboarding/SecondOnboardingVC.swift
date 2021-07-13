@@ -13,7 +13,7 @@ class SecondOnboardingVC: UIViewController {
     private var lensKindList = [LensKindDataModel]()
     private var lensColorList = [LensColorDataModel]()
     var gender = ""
-    var age = ""
+    var age = -1
     var lensKind = [String]()
     var lensColor = [String]()
 

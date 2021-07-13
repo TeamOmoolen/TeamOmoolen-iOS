@@ -7,30 +7,54 @@
 
 import Foundation
 
+// MARK: - OnboardingRequest
 struct OnboardingRequest: Codable {
     let gender: String
-    let age: String
-    let lensKind: [String]
-    let lensColor: [String]
-    let lensFunction: String
-    let lensPeriod: String
-    let lensBrand: String
-    let lensName: String
-    let lensWhen: String
+    let age: Int
+    let wantedLens: WantedLens
+    let suitedLens: SuitedLens
+    let wearTime: String
     
     let userIdentifier: String
-    
-    init(_ gender: String, _ age: String, _ lensKind: [String], _ lensColor: [String], _ lensFunction: String, _ lensPeriod: String, _ lensBrand: String, _ lensName: String, _ lensWhen: String, _ userIdentifier: String) {
-        self.gender = gender
-        self.age = age
-        self.lensKind = lensKind
-        self.lensColor = lensColor
-        self.lensFunction = lensFunction
-        self.lensPeriod = lensPeriod
-        self.lensBrand = lensBrand
-        self.lensName = lensName
-        self.lensWhen = lensWhen
-        
-        self.userIdentifier = userIdentifier
-    }
 }
+
+// MARK: - SuitedLens
+struct SuitedLens: Codable {
+    let brand, name: String
+}
+
+// MARK: - WantedLens
+struct WantedLens: Codable {
+    let category, color: [String]
+    let function: String
+    let changeCycleRange: [Int]
+}
+
+
+//struct OnboardingRequest: Codable {
+//    let gender: String
+//    let age: String
+//    let lensKind: [String]
+//    let lensColor: [String]
+//    let lensFunction: String
+//    let lensPeriod: String
+//    let lensBrand: String
+//    let lensName: String
+//    let lensWhen: String
+//
+//    let userIdentifier: String
+//
+//    init(_ gender: String, _ age: String, _ lensKind: [String], _ lensColor: [String], _ lensFunction: String, _ lensPeriod: String, _ lensBrand: String, _ lensName: String, _ lensWhen: String, _ userIdentifier: String) {
+//        self.gender = gender
+//        self.age = age
+//        self.lensKind = lensKind
+//        self.lensColor = lensColor
+//        self.lensFunction = lensFunction
+//        self.lensPeriod = lensPeriod
+//        self.lensBrand = lensBrand
+//        self.lensName = lensName
+//        self.lensWhen = lensWhen
+//
+//        self.userIdentifier = userIdentifier
+//    }
+//}

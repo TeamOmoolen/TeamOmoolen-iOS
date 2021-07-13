@@ -19,7 +19,7 @@ class NewLensTVC: UITableViewCell {
     @IBOutlet weak var newLensCollectionView: UICollectionView!
     
     // MARK: - Local Variables
-    
+    var newLans: [[RecommendationBySituation]]?
     var delegate: ViewModalProtocol?
 
     // MARK: - Life Cycle Methods

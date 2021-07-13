@@ -19,7 +19,7 @@ class MiddleBannerTVC: UITableViewCell {
     @IBOutlet weak var thirdIndicator: UIView!
     
     // MARK: - Local Variables
-    
+    var event: [Event]?
     private var imageList = [String]()
 
     // MARK: - Life Cycle Methods
@@ -56,9 +56,12 @@ extension MiddleBannerTVC {
     }
     
     func setList() {
-        imageList.append("btnBluecolor")
-        imageList.append("btnBluecolor")
-        imageList.append("btnBluecolor")
+        imageList.append(event?[0].image ?? "")
+        imageList.append(event?[1].image ?? "")
+        imageList.append(event?[2].image ?? "")
+//        imageList.append("btnBluecolor")
+//        imageList.append("btnBluecolor")
+//        imageList.append("btnBluecolor")
     }
     
     func registerXib() {

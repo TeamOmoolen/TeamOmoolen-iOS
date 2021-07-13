@@ -20,7 +20,8 @@ class SeasonTVC: UITableViewCell {
     @IBOutlet weak var seasonCollectionView: UICollectionView!
     
     // MARK: - Local Variables
-    
+    var season: String?
+    var recommendationBy: [RecommendationBy]?
     private var seasonList: [RecommendLensDataModel] = []
     var delegate: ViewModalProtocol?
     var tagDelegate: PassTagProtocol?
