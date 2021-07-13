@@ -9,8 +9,8 @@ import Foundation
 import Moya
 
 enum OnboardingService {
-    case onboarding(param: OnboardingRequest)
-    case home
+    case onboarding(param: OnboardingRequest, accesstoken: String)
+    case home(accesstoken: String)
 }
 
 extension OnboardingService: TargetType {
@@ -41,7 +41,7 @@ extension OnboardingService: TargetType {
     
     public var task: Task {
         switch self {
-        case .onboarding(let param):
+        case .onboarding(let param, _):
             return .requestJSONEncodable(param)
         case .home:
             return .requestPlain
@@ -50,8 +50,10 @@ extension OnboardingService: TargetType {
     
     public var headers: [String : String]? {
         switch self {
-        default:
-            return ["Content-Type": "application/json"]
+        case .onboarding(_, let accesstoken):
+            return ["Content-Type": "application/json", "accesstoken" : accesstoken]
+        case .home(let accesstoken):
+            return ["Content-Type": "application/json", "accesstoken" : accesstoken]
         }
     }
 }

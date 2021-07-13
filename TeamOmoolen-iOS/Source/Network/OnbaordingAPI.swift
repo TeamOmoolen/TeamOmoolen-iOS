@@ -12,13 +12,13 @@ class OnboardingAPI {
     static let shared = OnboardingAPI()
     static let provider = MoyaProvider<OnboardingService>()
 
-    func postOnboarding(param: OnboardingRequest, completion: @escaping (OnBoardingDataModel) -> ()) {
-        OnboardingAPI.provider.request(.onboarding(param: param)) { response in
+    func postOnboarding(param: OnboardingRequest, accesstoken: String ,completion: @escaping (OnBoardingDataModel) -> ()) {
+        OnboardingAPI.provider.request(.onboarding(param: param, accesstoken: accesstoken)) { response in
             switch response {
             case .success(let result):
                 do {
                     let results = try JSONDecoder().decode(OnBoardingDataModel.self, from: result.data)
-                    print("postOnboardingWithAPI\(results.message)")
+                    print("OnboadingAPI - postOnboarding():\(results.message)")
                     completion(results)
                 } catch let err {
                     print("JSONDecode: \(err.localizedDescription)")
@@ -31,13 +31,13 @@ class OnboardingAPI {
         }
     }
     
-    func getHome(completion: @escaping (HomeResponse) -> ()) {
-        OnboardingAPI.provider.request(.home) { response in
+    func getHome(accesstoken: String, completion: @escaping (HomeResponse) -> ()) {
+        OnboardingAPI.provider.request(.home(accesstoken: accesstoken)) { response in
             switch response {
             case .success(let result):
                 do {
                     let results = try JSONDecoder().decode(HomeDataModel.self, from: result.data)
-                    print("postOnboardingWithAPI: \(results.message)")
+                    print("OnboadingAPI - getHome(): \(results.success)")
                     guard let data = results.data else {
                         return
                     }

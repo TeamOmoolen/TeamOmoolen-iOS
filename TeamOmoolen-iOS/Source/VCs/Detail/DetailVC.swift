@@ -22,8 +22,6 @@ class DetailVC: UIViewController {
     
     // MARK: - Local Variables
     var id: String?
-//    private var lensData = [DetailDataModel]()
-//    private var mainData = [DetailMainDataModel]()
     private var lensData: ProductDetailResponse?
     
     // MARK: - Life Cycle Methods
@@ -32,7 +30,6 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
         
         setUI()
-        setData()
         getProductDetailWithAPI()
 
         registerXib()
@@ -57,13 +54,6 @@ extension DetailVC {
         DetailAPI.shared.getProductDetail(param: id ?? "") { response in
             self.lensData = response
         }
-    }
-    func setData() {
-        
-//
-//        mainData.append(contentsOf: [
-//            DetailMainDataModel(brandName: "오렌즈", lensName: "브라운 컬러 렌즈", price: 18000, diameter: 13.5, cycle: 2, texture: "실리콘 하이드로겔", function: "난시", colorList: ["green", "pink", "black"])
-//        ])
     }
     
     func registerXib() {
