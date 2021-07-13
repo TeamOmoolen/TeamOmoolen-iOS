@@ -56,7 +56,7 @@ class SituationVC: UIViewController {
         presentPanModal(vc)
     }
     
-    //MARK: - functions
+    //MARK: - Methods
     func setUI()  {
         popTopView.backgroundColor = .omFifthGray
         //서버에서 받아올 수도
@@ -136,6 +136,11 @@ extension SituationVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width - 40 - 15) / 2
         let height = (collectionView.frame.height - 40) / 2
+        
+        if (UIDevice.current.isiPhone12Pro) {
+            return CGSize(width:(collectionView.frame.width - 100) / 2, height:(collectionView.frame.height - 40) / 2)
+        }
+        
         return CGSize(width: width, height: height)
     }
     
@@ -148,12 +153,11 @@ extension SituationVC: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        return UIEdgeInsets(top: 0, left: 20, bottom: 200, right: 20)
     }
 }
 
 // MARK: - UICollectionView DataSource
-
 extension SituationVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return recommendList.count

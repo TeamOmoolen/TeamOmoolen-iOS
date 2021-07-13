@@ -157,6 +157,9 @@ extension ColorFilterView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if UIDevice.current.isiPhoneSE2 {
+            return UIEdgeInsets(top: 20, left: 20, bottom: 130, right: 20)
+        }
         return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
 }

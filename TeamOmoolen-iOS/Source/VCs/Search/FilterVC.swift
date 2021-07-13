@@ -34,6 +34,10 @@ class FilterVC: UIViewController {
     
     @IBOutlet weak var searchButton: UIButton!
     
+    //기기대응
+    @IBOutlet weak var filterViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var buttonButtomConstraint: NSLayoutConstraint!
+    
     // MARK: - Custom Views
     
     let colorFilterView = ColorFilterView()
@@ -60,10 +64,11 @@ class FilterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setPhoneResolution()
         setCategoryView()
-        setCustomView()
+        //setCustomView()
         setButtonView()
-        
+        setCustomView()
         setNotification()
         
         getData()
@@ -79,8 +84,16 @@ class FilterVC: UIViewController {
 
 extension FilterVC {
     
+    func setPhoneResolution(){
+        if UIDevice.current.isiPhoneSE2 {
+            filterViewTopConstraint.constant = 0
+            print("버튼")
+            buttonButtomConstraint.constant = 140
+        } else if UIDevice.current.isiPhone12Pro {
+            filterViewTopConstraint.constant = 85
+        }
+    }
     // MARK: - Category View
-    
     func setCategoryView() {
         // 브랜드 필터
         brandView.backgroundColor = .omMainOrange
@@ -156,7 +169,10 @@ extension FilterVC {
             make.top.equalTo(filterView.snp.bottom).offset(1)
             make.height.equalTo(472)
         }
+        
         brandFilterView.isHidden = false
+        self.view.sendSubviewToBack(brandFilterView)
+        self.view.bringSubviewToFront(buttonView)
         
         
         colorFilterView.snp.makeConstraints { make in
@@ -165,6 +181,7 @@ extension FilterVC {
             make.height.equalTo(472)
         }
         colorFilterView.isHidden = true
+        self.view.sendSubviewToBack(colorFilterView)
         
         diameterFilterView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(0)
