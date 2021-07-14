@@ -23,16 +23,16 @@ class SplashVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if UIDevice.current.isiPhoneSE2 {
-            splashImage.image = UIImage(named: "splashIllustImageSe2")
-        } else if UIDevice.current.isiPhone12mini {
-            splashImage.image = UIImage(named: "splashIllustImage12Mini")
-        } else {
-            splashImage.image = UIImage(named: "splashIllustImage12Pro")
-        }
+//        if UIDevice.current.isiPhoneSE2 {
+//            splashImage.image = UIImage(named: "splashIllustImageSe2")
+//        } else if UIDevice.current.isiPhone12mini {
+//            splashImage.image = UIImage(named: "splashIllustImage12Mini")
+//        } else {
+//            splashImage.image = UIImage(named: "splashIllustImage12Pro")
+//        }
 
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
             self.setIsLogin()
         }
         

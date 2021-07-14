@@ -31,15 +31,15 @@ struct SuggestDataModel: Codable {
 }
 
 struct SuggestResponse: Codable {
-    let SuggestForYou: [SuggestProduct]
-    let SuggestForSituation: [SuggestProduct]
-    let SuggestForNew: [SuggestProduct]
+    let suggestForYou: [SuggestProduct]
+    let suggestForSituation: [SuggestProduct]
+    let suggestForNew: [SuggestProduct]
     let suggestForSeason: [SuggestProduct]
     
     enum CodingKeys: String, CodingKey {
-        case SuggestForYou
-        case SuggestForSituation
-        case SuggestForNew
+        case suggestForYou
+        case suggestForSituation
+        case suggestForNew
         case suggestForSeason
     }
 }
