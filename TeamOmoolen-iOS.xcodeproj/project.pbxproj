@@ -719,6 +719,7 @@
 		E8AF80222698412300D76A21 /* Suggest */ = {
 			isa = PBXGroup;
 			children = (
+				F82975BC269AE26B0025CA64 /* SortPanModalVC.swift */,
 				E8AF80232698415100D76A21 /* SuggestVC.swift */,
 				E8AF80252698419E00D76A21 /* SuggestTabBar.swift */,
 				E8AF8027269841E000D76A21 /* ForYouVC.swift */,
@@ -1058,7 +1059,6 @@
 			isa = PBXGroup;
 			children = (
 				F851479F2695CE5800C8532F /* SearchResultVC.swift */,
-				F82975BC269AE26B0025CA64 /* SortPanModalVC.swift */,
 			);
 			path = SearchResult;
 			sourceTree = "<group>";

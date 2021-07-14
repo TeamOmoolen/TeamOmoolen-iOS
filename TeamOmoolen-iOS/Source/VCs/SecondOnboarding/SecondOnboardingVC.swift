@@ -111,7 +111,7 @@ class SecondOnboardingVC: UIViewController {
         lensKindList.append(contentsOf: [
         LensKindDataModel(image: "imgColorlens", title: "컬러렌즈"),
             LensKindDataModel(image: "imgTrans", title: "투명렌즈"),
-            LensKindDataModel(image: "imgCoslens", title: "코스프레/공막렌즈"),
+            LensKindDataModel(image: "imgCosplaylens", title: "코스프레/공막렌즈"),
         ])
         
         lensColorList.append(contentsOf: [

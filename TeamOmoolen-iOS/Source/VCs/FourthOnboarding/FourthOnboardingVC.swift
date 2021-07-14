@@ -172,7 +172,6 @@ class FourthOnboardingVC: UIViewController {
         print(param)
         
         OnboardingAPI.shared.postOnboarding(param: param, accesstoken: userIdentifier) { response in
-            print("data: \(response.success)")
             if response.success {
                 print("postOnboardingWithAPI: post success")
                 guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Tabbar, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Tabbar) as? TabBarController else {

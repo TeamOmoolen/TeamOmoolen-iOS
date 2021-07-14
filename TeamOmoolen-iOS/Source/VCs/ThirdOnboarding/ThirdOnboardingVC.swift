@@ -86,9 +86,15 @@ class ThirdOnboardingVC: UIViewController {
             lensPeriod.append(6)
         }
         if lensPeriodList.contains([0,7]) {
-            lensPeriod.append(6)
+            lensPeriod.append(7)
         }
         if lensPeriodList.contains([0,8]) {
+            lensPeriod.append(0)
+            lensPeriod.append(1)
+            lensPeriod.append(2)
+            lensPeriod.append(4)
+            lensPeriod.append(5)
+            lensPeriod.append(6)
             lensPeriod.append(7)
         }
         

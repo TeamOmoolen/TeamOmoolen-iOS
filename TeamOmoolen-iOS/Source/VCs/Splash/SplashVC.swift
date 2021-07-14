@@ -10,7 +10,7 @@ import UIKit
 class SplashVC: UIViewController {
     
     // MARK: - Properties
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     // MARK: - @IBOutlet Properties
     @IBOutlet weak var splashImage: UIImageView!
@@ -39,7 +39,7 @@ class SplashVC: UIViewController {
     }
     
     // MARK: - Methods
-    func setIsLogin() {
+    private func setIsLogin() {
         if appDelegate?.isLogin == true {
             presentToHome()
         } else {
@@ -47,7 +47,7 @@ class SplashVC: UIViewController {
         }
     }
     
-    func presentToHome(){
+    private func presentToHome(){
         guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Tabbar, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Tabbar) as? TabBarController else {
             return
         }
@@ -56,7 +56,7 @@ class SplashVC: UIViewController {
         self.present(homeVC, animated: true, completion: nil)
     }
     
-    func presentToLogin() {
+    private func presentToLogin() {
         guard let loginVC = UIStoryboard(name: Const.Storyboard.Name.Login, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Login) as? UINavigationController else {
             return
         }
