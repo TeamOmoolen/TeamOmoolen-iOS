@@ -158,7 +158,6 @@
 		F83BA01F268C476B00E94E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA01E268C476B00E94E74 /* AppDelegate.swift */; };
 		F83BA028268C476C00E94E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BA027268C476C00E94E74 /* Assets.xcassets */; };
 		F83BA02B268C476C00E94E74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83BA029268C476C00E94E74 /* LaunchScreen.storyboard */; };
-		F83BA040268C4A4A00E94E74 /* TempLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA03F268C4A4A00E94E74 /* TempLottie.swift */; };
 		F83BA04C268C4C1600E94E74 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA04B268C4C1600E94E74 /* Const.swift */; };
 		F83BA04E268C4C3500E94E74 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA04D268C4C3500E94E74 /* Storyboard.swift */; };
 		F83BA050268C4C3F00E94E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BA04F268C4C3F00E94E74 /* ViewController.swift */; };
@@ -387,7 +386,6 @@
 		F83BA027268C476C00E94E74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F83BA02A268C476C00E94E74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F83BA02C268C476C00E94E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F83BA03F268C4A4A00E94E74 /* TempLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempLottie.swift; sourceTree = "<group>"; };
 		F83BA04B268C4C1600E94E74 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		F83BA04D268C4C3500E94E74 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		F83BA04F268C4C3F00E94E74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -850,7 +848,6 @@
 				F83BA04A268C4BF600E94E74 /* Constants */,
 				F83BA047268C4AD200E94E74 /* Extensions */,
 				F8B91F4B268E2028006114CD /* Fonts */,
-				F83BA036268C48DA00E94E74 /* LottieAnimationFiles */,
 				F83BA034268C48A900E94E74 /* Storyboards */,
 			);
 			path = Resource;
@@ -891,14 +888,6 @@
 				F802D76F269C14FE0041383B /* PopupModal.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		F83BA036268C48DA00E94E74 /* LottieAnimationFiles */ = {
-			isa = PBXGroup;
-			children = (
-				F83BA03F268C4A4A00E94E74 /* TempLottie.swift */,
-			);
-			path = LottieAnimationFiles;
 			sourceTree = "<group>";
 		};
 		F83BA037268C491900E94E74 /* VCs */ = {
@@ -1511,7 +1500,6 @@
 				F83BA072268CEB5D00E94E74 /* UIColor+Addition.swift in Sources */,
 				925644172692C1DB00A45945 /* NewLensTVC.swift in Sources */,
 				9276926A2694E28100201EE1 /* CategoryTVC.swift in Sources */,
-				F83BA040268C4A4A00E94E74 /* TempLottie.swift in Sources */,
 				928E503526982C3F0086FC31 /* ColorListCVC.swift in Sources */,
 				924751AE268E42E200924891 /* LensBrandDataModel.swift in Sources */,
 				F83BA050268C4C3F00E94E74 /* ViewController.swift in Sources */,

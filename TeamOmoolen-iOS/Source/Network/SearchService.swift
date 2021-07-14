@@ -51,8 +51,8 @@ extension SearchService: TargetType {
         switch self {
         case .searchWindow:
             return .requestPlain
-        case .searchFilter(let searchFilterReques):
-            return .requestJSONEncodable(searchFilterReques)
+        case .searchFilter(let searchFilterRequest):
+            return .requestJSONEncodable(searchFilterRequest)
         case .searchKeyword(let keyword):
             return .requestParameters(parameters: ["keyword" : keyword], encoding: URLEncoding.queryString)
         }
