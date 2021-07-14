@@ -19,7 +19,8 @@ class NewLensTVC: UITableViewCell {
     @IBOutlet weak var newLensCollectionView: UICollectionView!
     
     // MARK: - Local Variables
-    var newLans: [RecommendationBySituation]?
+    var newLens = [NewLens(mainData: [NewLensDetailData]())]
+    
     var delegate: ViewModalProtocol?
 
     // MARK: - Life Cycle Methods
@@ -117,7 +118,10 @@ extension NewLensTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewLensCVC.identifier, for: indexPath) as? NewLensCVC else {
             return UICollectionViewCell()
         }
-        cell.initCell(lensData: newLans ?? [])
+//        cell.brandLabel.text = newLens[indexPath.row].mainData[0].brand
+//        cell.lensLabel.text = newLens[indexPath.row].mainData[0].name
+        cell.initCell(lensData: newLens[indexPath.row].mainData)
+        
         return cell
     }
 }

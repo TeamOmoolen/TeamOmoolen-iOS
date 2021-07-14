@@ -215,12 +215,14 @@ extension ColorFilterView {
             lensColor.append("glitter")
         }
         if lensColorList.contains([0,11]) {
-            lensColor = ["clear", "black", "gray", "choco", "green",
-                         "brown", "purple", "blue", "gold", "pink" ]
+            lensColor.append(contentsOf: [
+                "yellow", "espressogold", "hazel", "rich brown", "white", "red"
+            ])
         }
         
-        if lensColor == [] || lensColor == ["clear", "black", "gray", "choco", "green", "brown", "purple", "blue", "gold", "pink"] {
-            lensColor = ["clear", "black", "gray", "choco", "green", "brown", "purple", "blue", "gold", "pink" ]
+        if lensColor == [] {
+            lensColor = ["clear", "black", "gray", "choco", "green", "brown", "purple", "blue", "gold", "pink", "yellow", "espressogold", "hazel", "rich brown", "white", "red"
+            ]
         }
         
         NotificationCenter.default.post(name: NSNotification.Name("postColorList"), object: lensColor)

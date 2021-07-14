@@ -55,11 +55,11 @@ extension NewLensDetailTVC {
         priceLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 14)
     }
     
-    func initCell(lensImage: String, brandName: String, lensName: String, price: Int) {
+    func initCell(brand: String, name: String, price: Int, imageList: [String]) {
         // 이미지 킹피셔로 처리
         
-        brandNameLabel.text = brandName
-        lensNameLabel.text = lensName
+        brandNameLabel.text = brand
+        lensNameLabel.text = name
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal

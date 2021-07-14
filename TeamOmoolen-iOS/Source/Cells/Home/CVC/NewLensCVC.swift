@@ -22,10 +22,7 @@ class NewLensCVC: UICollectionViewCell {
     
     // MARK: - Local Variables
     
-    private var newLensList: [NewLensDetailDataModel] = []
-    
-    var newLens: [RecommendationBySituation]? = nil
-    private var newLensLists = [RecommendationBySituation]()
+    var newLens: [NewLensDetailData]? = nil
     
     // MARK: - Life Cycle Methods
     
@@ -33,7 +30,7 @@ class NewLensCVC: UICollectionViewCell {
         super.awakeFromNib()
         
         setUI()
-        setList()
+        
         registerXib()
         setTableView()
     }
@@ -51,21 +48,15 @@ extension NewLensCVC {
         brandImageView.layer.cornerRadius = brandImageView.frame.width / 2
         brandImageView.layer.masksToBounds = true
         
-        brandLabel.text = "브랜드명"
         brandLabel.textColor = .omWhite
         brandLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
         
-        lensLabel.text = "제품 상세 정보 이름"
         lensLabel.textColor = .omWhite
         lensLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
     }
     
     func setList() {
-        newLensList.append(contentsOf: [
-            NewLensDetailDataModel(lensImage: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
-            NewLensDetailDataModel(lensImage: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
-            NewLensDetailDataModel(lensImage: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000)
-        ])
+        
     }
     
     func registerXib() {
@@ -82,8 +73,8 @@ extension NewLensCVC {
         newLensTableView.isScrollEnabled = false
     }
     
-    func initCell(lensData: [RecommendationBySituation]) {
-        newLensLists = lensData
+    func initCell(lensData: [NewLensDetailData]) {
+        newLens = lensData
     }
 }
 
@@ -104,15 +95,17 @@ extension NewLensCVC: UITableViewDelegate {
 
 extension NewLensCVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newLensList.count
+        return newLens?.count ?? 0 - 1
+//        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewLensDetailTVC.identifier) as? NewLensDetailTVC else {
             return UITableViewCell()
         }
-        
-        
+        let data = newLens?[indexPath.row + 1]
+        cell.initCell(brand: data?.brand ?? "", name: data?.name ?? "", price: data?.price ?? 0, imageList: data?.imageList ?? [""])
+//        cell.initCell()
         return cell
     }
     

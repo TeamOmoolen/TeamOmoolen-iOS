@@ -168,38 +168,38 @@ extension CycleFilterView {
     
     @objc
     func postData(_ notification: Notification) {
-        lensCycle = [0, 0, 0, 0, 0, 0, 0, 0]
+        lensCycle = []
         
         guard let lensCycleList = cycleCollectionView.indexPathsForSelectedItems else {
             return
         }
         if lensCycleList.contains([0,0]) {
-            lensCycle[0] = 1
+            lensCycle.append(0)
         }
         if lensCycleList.contains([0,1]) {
-            lensCycle[1] = 1
+            lensCycle.append(1)
         }
         if lensCycleList.contains([0,2]) {
-            lensCycle[2] = 1
+            lensCycle.append(2)
         }
         if lensCycleList.contains([0,3]) {
-            lensCycle[3] = 1
+            lensCycle.append(3)
         }
         if lensCycleList.contains([0,4]) {
-            lensCycle[4] = 1
+            lensCycle.append(4)
         }
         if lensCycleList.contains([0,5]) {
-            lensCycle[5] = 1
+            lensCycle.append(5)
         }
         if lensCycleList.contains([0,6]) {
-            lensCycle[6] = 1
+            lensCycle.append(6)
         }
         if lensCycleList.contains([0,7]) {
-            lensCycle[7] = 1
+            lensCycle.append(7)
         }
         
-        if lensCycle == [0, 0, 0, 0, 0, 0, 0, 0] {
-            lensCycle = [1, 1, 1, 1, 1, 1, 1, 1]
+        if lensCycle == [] {
+            lensCycle = [0, 1, 2, 3, 4, 5, 6, 7]
         }
         
         NotificationCenter.default.post(name: NSNotification.Name("postCycleList"), object: lensCycle)
