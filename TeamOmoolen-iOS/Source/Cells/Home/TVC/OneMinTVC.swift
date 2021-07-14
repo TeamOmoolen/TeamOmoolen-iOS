@@ -21,6 +21,8 @@ class OneMinTVC: UITableViewCell {
     // MARK: - Local Variables
     var guides = [Guide]()
     var oneMinDataList = [OneMinDataModel]()
+    var oneMinDetailList = [OneMinDetailDataModel]()
+    
     var delegate: ViewModalProtocol?
     
     // MARK: - Life Cycle Methods
@@ -58,11 +60,16 @@ extension OneMinTVC {
     }
     
     func setList() {
+        oneMinDetailList.append(contentsOf: [
+            OneMinDetailDataModel(title: "제목1", subTitle: "부제목1"),
+            OneMinDetailDataModel(title: "제목2", subTitle: "부제목2"),
+            OneMinDetailDataModel(title: "제목3", subTitle: "부제목3")
+        ])
+        
         oneMinDataList.append(contentsOf: [
-            OneMinDataModel(title: "이런이런 정보가 들어가요!", oneMinDetailData: []),
-            OneMinDataModel(title: "이런이런 정보가 들어가요!", oneMinDetailData: []),
-            OneMinDataModel(title: "이런이런 정보가 들어가요!", oneMinDetailData: [])
-
+            OneMinDataModel(title: "이런이런 정보가 들어가요1", oneMinDetailData: oneMinDetailList),
+            OneMinDataModel(title: "이런이런 정보가 들어가요2", oneMinDetailData: oneMinDetailList),
+            OneMinDataModel(title: "이런이런 정보가 들어가요3", oneMinDetailData: oneMinDetailList)
         ])
     }
     

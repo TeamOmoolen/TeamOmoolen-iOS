@@ -82,4 +82,8 @@ struct RecommendationBy: Codable {
     let brand, releaseDate: String
     let diameter: Double
     let pieces: Int
+    let changeCycle, changeCycleRange: Int
 }
+
+
+// MARK: - NewLens

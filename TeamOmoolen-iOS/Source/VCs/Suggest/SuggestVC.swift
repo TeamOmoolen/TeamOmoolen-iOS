@@ -32,28 +32,23 @@ class SuggestVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(getPosition(_:)), name: NSNotification.Name("PostPosition"), object: nil)
+        
         if position == 0 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, at: .left, animated: true)
-            
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         } else if position == 1 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 1, section: 0) as IndexPath, at: .left, animated: true)
-            
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 1, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         } else if position == 2 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 2, section: 0) as IndexPath, at: .left, animated: true)
-            
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 2, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         } else {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, at: .left, animated: true)
-            
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         }
         
         navigationController?.navigationBar.isHidden = true
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(getPosition(_:)), name: NSNotification.Name("PostPosition"), object: nil)
-         
     }
     
     override func viewDidLoad() {
@@ -70,12 +65,12 @@ class SuggestVC: UIViewController {
     // MARK: - IBActions
     //여기 연결 끊어야 함
     @IBAction func touchUpBackButton(_ sender: Any) {
-        guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {
+        guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Tabbar, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Tabbar) as? TabBarController else {
             return
         }
         homeVC.modalPresentationStyle = .fullScreen
         homeVC.modalTransitionStyle = .crossDissolve
-        navigationController?.popViewController(animated: true)
+        present(homeVC, animated: true, completion: nil)
     }
     
     /*

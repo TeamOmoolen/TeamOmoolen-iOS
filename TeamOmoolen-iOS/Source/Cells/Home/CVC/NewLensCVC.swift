@@ -60,9 +60,9 @@ extension NewLensCVC {
     
     func setList() {
         newLensList.append(contentsOf: [
-            NewLensDetailDataModel(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
-            NewLensDetailDataModel(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
-            NewLensDetailDataModel(brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000)
+            NewLensDetailDataModel(lensImage: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
+            NewLensDetailDataModel(lensImage: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000),
+            NewLensDetailDataModel(lensImage: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러 익스 렌즈", price: 18000)
         ])
     }
     
@@ -117,7 +117,7 @@ extension NewLensCVC: UITableViewDataSource {
             return UITableViewCell()
         }
         let data = newLensList[indexPath.row]
-        cell.initCell(lensImage: "abc", brandName: data.brandName, lensName: data.lensName, price: data.price)
+        // 모르겠음
         return cell
     }
     

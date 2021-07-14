@@ -9,10 +9,11 @@ import Foundation
 
 struct NewLensDataModel {
     var brandName: String
-    var lensName: String
+    var detailData: [NewLensDetailDataModel]
 }
 
 struct NewLensDetailDataModel {
+    var lensImage: [String]
     var brandName: String
     var lensName: String
     var price: Int

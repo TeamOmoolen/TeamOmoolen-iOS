@@ -56,10 +56,6 @@ extension NewLensTVC {
         moreImageView.isUserInteractionEnabled = true
     }
     
-    func initCell() {
-        
-    }
-    
     func registerXib() {
         let recommendNib = UINib(nibName: NewLensCVC.identifier, bundle: nil)
         newLensCollectionView.register(recommendNib, forCellWithReuseIdentifier: NewLensCVC.identifier)

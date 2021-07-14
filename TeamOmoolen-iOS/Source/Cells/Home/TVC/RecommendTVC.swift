@@ -21,6 +21,7 @@ class RecommendTVC: UITableViewCell {
     // MARK: - Local Variables
     
     private var recommendList = [RecommendLensDataModel]()
+    
     var delegate: ViewModalProtocol?
     
     var username: String? = nil
@@ -61,17 +62,14 @@ extension RecommendTVC {
     
     func setList() {
         recommendList.append(contentsOf: [
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"])
+            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 30, maxCycle: 90, pieces: 10, price: 18000, colorList: ["green"]),
+            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 180, maxCycle: 200, pieces: 10, price: 18000, colorList: ["green"]),
+            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
+            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
+            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
+            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"])
+            
         ])
-    }
-    
-    func initCell(recommendData: [RecommendLensDataModel]) {
-        self.recommendList = recommendData
     }
     
     func registerXib() {
@@ -111,6 +109,7 @@ extension RecommendTVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
+        detailVC.id = recommendationByUser?[indexPath.row].id
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
@@ -149,7 +148,7 @@ extension RecommendTVC: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let data = recommendList[indexPath.row]
-        cell.initCell(brandName: data.brandName, lensName: data.lensName, diameter: data.diameter, cycle: data.cycle, pieces: data.pieces, price: data.price, colorList: data.colorList)
+        cell.initCell(imageList: data.imageList, brandName: data.brandName, lensName: data.lensName, diameter: data.diameter, minCycle: data.minCycle, maxCycle: data.maxCycle, pieces: data.pieces, price: data.price, colorList: data.colorList)
         return cell
     }
 }
