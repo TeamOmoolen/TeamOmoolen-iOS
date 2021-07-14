@@ -244,7 +244,7 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.guides = homeList?.guides ?? [Guide(id: "", question: "", answer: "", createAt: "", updateAt: "", deleteAt: "")]
+            cell.guides = homeList?.guides ?? [Guide(title: "", guideDetail: [GuideDetail]())]
             cell.delegate = self
             return cell
         case 3:

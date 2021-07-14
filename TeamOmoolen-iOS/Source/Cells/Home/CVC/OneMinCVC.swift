@@ -28,6 +28,9 @@ class OneMinCVC: UICollectionViewCell {
     private var oneMinDetailData = [OneMinDetailDataModel]()
     var delegate: ViewModalProtocol?
     
+    var title: String = ""
+    var guideDetail: [GuideDetail]? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -66,11 +69,16 @@ extension OneMinCVC {
         moreButton.layer.masksToBounds = true
     }
     
-    func initCell(subTitle: String, oneMinDetail: [OneMinDetailDataModel]) {
+//    func initCell(subTitle: String, oneMinDetail: [OneMinDetailDataModel]) {
+//        subtitleLabel.text = subTitle
+//
+//        oneMinDetailData = oneMinDetail
+//    }
+    
+    func initCell(subTitle: String, oneMinDetail: [GuideDetail]) {
         subtitleLabel.text = subTitle
         
-        oneMinDetailData = oneMinDetail
-//        print(oneMinDetailData)
+        guideDetail = oneMinDetail
     }
     
     func registerXib() {
@@ -108,7 +116,8 @@ extension OneMinCVC: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.selectionStyle = .none
-        cell.initCell(title: oneMinDetailData[indexPath.row].title, subTitle: oneMinDetailData[indexPath.row].subTitle)
+//        cell.initCell(title: oneMinDetailData[indexPath.row].title, subTitle: oneMinDetailData[indexPath.row].subTitle)
+        cell.initCell(title: guideDetail?[indexPath.row].question ?? "", subTitle: guideDetail?[indexPath.row].answer ?? "")
         return cell
     }
 }
