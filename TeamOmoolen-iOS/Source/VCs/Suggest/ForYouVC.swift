@@ -24,7 +24,7 @@ class ForYouVC: UIViewController {
     var suggestForYou: [SuggestProduct]? = nil
     
     private var currPage: Int = 1
-    private var totalPage: Int = 1
+    private var totalPage: Int = -1
     private var canFetchData: Bool = true
     
     //MARK: - View Life Cycle
@@ -151,7 +151,6 @@ extension ForYouVC: UICollectionViewDelegate {
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
-    // MARK: - 무한 스크롤
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
             print("끝에 닿음")
@@ -159,7 +158,7 @@ extension ForYouVC: UICollectionViewDelegate {
                 currPage += 1
                 canFetchData = false
                 // 서버 통신하는 곳
-                // getSuggestForYouData(page: currPage)
+                // getSuggestForYouWithAPI(page: currPage)
             }
         }
     }

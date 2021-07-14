@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Svb-3x-M2m">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -18,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1wi-za-t7V">
-                                <rect key="frame" x="87" y="64" width="268" height="40"/>
+                                <rect key="frame" x="87" y="108" width="268" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="오늘 무슨 렌즈끼지?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZJJ-4U-4Nr">
                                         <rect key="frame" x="27" y="2.6666666666666714" width="140" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="editingSearch:" destination="Y6W-OH-hqX" eventType="editingDidBegin" id="meY-vc-j8p"/>
+                                            <action selector="touchUpSearch:" destination="Y6W-OH-hqX" eventType="touchDown" id="yF6-9Z-RaQ"/>
                                         </connections>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icSearchSmall" translatesAutoresizingMaskIntoConstraints="NO" id="MQQ-co-k92">
@@ -46,7 +46,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1e-YL-COy">
-                                <rect key="frame" x="21" y="69" width="47" height="32"/>
+                                <rect key="frame" x="21" y="113" width="47" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="2Ac-3F-jg9"/>
                                     <constraint firstAttribute="width" constant="47" id="zur-c1-cAM"/>
@@ -54,7 +54,7 @@
                                 <state key="normal" image="imgLogo"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e28-Ef-1UJ">
-                                <rect key="frame" x="0.0" y="104" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="148" width="375" height="812"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="812" id="Eao-aO-sjE"/>
@@ -81,6 +81,7 @@
                             <constraint firstItem="X1e-YL-COy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="21" id="zIM-B5-a2q"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="hPM-8V-2Ov"/>
                     <connections>
                         <outlet property="backButton" destination="X1e-YL-COy" id="sww-sj-Fi5"/>
                         <outlet property="collectionView" destination="e28-Ef-1UJ" id="0qO-vD-GtE"/>
@@ -91,6 +92,24 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="992.79999999999995" y="41.379310344827587"/>
+        </scene>
+        <!--Navi Controller-->
+        <scene sceneID="KZ4-HD-XlF">
+            <objects>
+                <navigationController storyboardIdentifier="NaviController" automaticallyAdjustsScrollViewInsets="NO" id="Svb-3x-M2m" customClass="NaviController" customModule="TeamOmoolen_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e6E-1o-vVZ">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="0cz-b0-rcY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8jr-fP-azp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="50.399999999999999" y="41.379310344827587"/>
         </scene>

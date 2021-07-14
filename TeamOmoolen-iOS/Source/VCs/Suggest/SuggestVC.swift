@@ -49,7 +49,6 @@ class SuggestVC: UIViewController {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, at: .left, animated: true)
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         }
-        
         navigationController?.navigationBar.isHidden = true
     }
     
@@ -65,18 +64,7 @@ class SuggestVC: UIViewController {
     }
     
     // MARK: - IBActions
-    @IBAction func editingSearch(_ sender: Any) {
-        guard let searchVC = UIStoryboard(name: Const.Storyboard.Name.Search, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Search) as? SearchVC else {
-            return
-        }
-        searchVC.modalPresentationStyle = .fullScreen
-        searchVC.modalTransitionStyle = .crossDissolve
-        present(searchVC, animated: true, completion: nil)
-    }
     
-    
-    
-    /*
     @IBAction func touchUpSearch(_ sender: Any) {
         guard let searchVC = UIStoryboard(name: Const.Storyboard.Name.Search, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Search) as? SearchVC else {
             return
@@ -85,14 +73,9 @@ class SuggestVC: UIViewController {
         searchVC.modalTransitionStyle = .crossDissolve
         self.navigationController?.pushViewController(searchVC, animated: true)
     }
-    */
-
-    
-    
     
    //MARK: - Methods
     func setUI() {
-        
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.frame.width, height: view.frame.height)
         layout.scrollDirection = .horizontal
@@ -139,7 +122,6 @@ class SuggestVC: UIViewController {
         suggestViews.append(newproductVC)
         suggestViews.append(seasonVC)
         
-        // MARK: - 현규선배 검사 필요
         foryouVC.suggestForYou = suggestList?.SuggestForYou
         situationVC.suggestForSituation = suggestList?.SuggestForSituation
         newproductVC.suggestForNew = suggestList?.SuggestForNew
