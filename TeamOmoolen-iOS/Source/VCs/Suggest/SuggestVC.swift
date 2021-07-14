@@ -33,7 +33,6 @@ class SuggestVC: UIViewController {
     //MARK: - View Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(getPosition(_:)), name: NSNotification.Name("PostPosition"), object: nil)
         
         if position == 0 {
@@ -186,7 +185,6 @@ class SuggestVC: UIViewController {
         collectionView.isPagingEnabled = true
     }
     
-    // MARK: - 현규교수님 검사받을 것 1
     func getSuggestWithAPI() {
         let userIdentifier = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
         SuggestAPI.shared.getSuggest(accesstoken: userIdentifier) { response in

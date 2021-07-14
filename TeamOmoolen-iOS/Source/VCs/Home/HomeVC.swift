@@ -268,7 +268,7 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.newLans = homeList?.newLens
+            cell.newLens = homeList?.newLens ?? [NewLens(mainData: [NewLensDetailData]())]
             cell.delegate = self
             return cell
         case 6:
