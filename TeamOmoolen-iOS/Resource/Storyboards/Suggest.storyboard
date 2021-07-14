@@ -3,6 +3,7 @@
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,35 +18,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1wi-za-t7V">
-                                <rect key="frame" x="39" y="54" width="316" height="40"/>
+                                <rect key="frame" x="87" y="64" width="268" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="원하는 렌즈를 검색해보세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZJJ-4U-4Nr">
-                                        <rect key="frame" x="14" y="3" width="181" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="오늘 무슨 렌즈끼지?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZJJ-4U-4Nr">
+                                        <rect key="frame" x="27" y="2.6666666666666714" width="140" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="editingSearch:" destination="Y6W-OH-hqX" eventType="editingDidBegin" id="meY-vc-j8p"/>
+                                        </connections>
                                     </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icSearchSmall" translatesAutoresizingMaskIntoConstraints="NO" id="MQQ-co-k92">
+                                        <rect key="frame" x="14" y="11" width="14" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="978-rn-SY8"/>
+                                            <constraint firstAttribute="width" constant="14" id="9xE-7c-scL"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <color key="backgroundColor" name="omFifthGray"/>
                                 <constraints>
-                                    <constraint firstItem="ZJJ-4U-4Nr" firstAttribute="top" secondItem="1wi-za-t7V" secondAttribute="top" constant="3" id="6Hk-AT-MIj"/>
+                                    <constraint firstItem="ZJJ-4U-4Nr" firstAttribute="top" secondItem="1wi-za-t7V" secondAttribute="top" constant="2.5" id="6Hk-AT-MIj"/>
                                     <constraint firstAttribute="height" constant="40" id="La5-E6-UW0"/>
-                                    <constraint firstItem="ZJJ-4U-4Nr" firstAttribute="leading" secondItem="1wi-za-t7V" secondAttribute="leading" constant="14" id="QmR-eb-ifi"/>
-                                    <constraint firstAttribute="width" secondItem="1wi-za-t7V" secondAttribute="height" multiplier="316:40" id="oKd-1e-dSj"/>
+                                    <constraint firstItem="ZJJ-4U-4Nr" firstAttribute="leading" secondItem="MQQ-co-k92" secondAttribute="trailing" constant="-1" id="oyG-4O-sHq"/>
+                                    <constraint firstItem="MQQ-co-k92" firstAttribute="top" secondItem="1wi-za-t7V" secondAttribute="top" constant="11" id="rHB-bM-PvK"/>
+                                    <constraint firstItem="MQQ-co-k92" firstAttribute="leading" secondItem="1wi-za-t7V" secondAttribute="leading" constant="14" id="zeO-ID-rYS"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1e-YL-COy">
-                                <rect key="frame" x="7" y="54" width="40" height="40"/>
+                                <rect key="frame" x="21" y="69" width="47" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="2Ac-3F-jg9"/>
-                                    <constraint firstAttribute="width" secondItem="X1e-YL-COy" secondAttribute="height" multiplier="1:1" id="Cfc-Rt-ZBz"/>
+                                    <constraint firstAttribute="height" constant="32" id="2Ac-3F-jg9"/>
+                                    <constraint firstAttribute="width" constant="47" id="zur-c1-cAM"/>
                                 </constraints>
-                                <state key="normal" image="icBack"/>
-                                <connections>
-                                    <action selector="touchUpBackButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bx4-Mo-88i"/>
-                                </connections>
+                                <state key="normal" image="imgLogo"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e28-Ef-1UJ">
-                                <rect key="frame" x="0.0" y="94" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="812"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="812" id="Eao-aO-sjE"/>
@@ -62,35 +71,38 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="1wi-za-t7V" firstAttribute="leading" secondItem="X1e-YL-COy" secondAttribute="trailing" constant="19" id="0FZ-Gt-CPp"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="e28-Ef-1UJ" secondAttribute="trailing" id="1wn-3q-NzY"/>
-                            <constraint firstItem="1wi-za-t7V" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="B3b-zV-fS1"/>
+                            <constraint firstItem="1wi-za-t7V" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="B3b-zV-fS1"/>
+                            <constraint firstAttribute="trailing" secondItem="1wi-za-t7V" secondAttribute="trailing" constant="20" id="I8n-j2-w5K"/>
+                            <constraint firstItem="X1e-YL-COy" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="25" id="NcC-3F-mNk"/>
                             <constraint firstItem="e28-Ef-1UJ" firstAttribute="top" secondItem="1wi-za-t7V" secondAttribute="bottom" id="OEo-lc-vl9"/>
-                            <constraint firstItem="X1e-YL-COy" firstAttribute="centerY" secondItem="1wi-za-t7V" secondAttribute="centerY" id="Rr9-fO-ouT"/>
                             <constraint firstItem="e28-Ef-1UJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="m5X-df-I7G"/>
-                            <constraint firstItem="1wi-za-t7V" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="39" id="ujO-aW-ixd"/>
-                            <constraint firstItem="X1e-YL-COy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="7" id="zIM-B5-a2q"/>
+                            <constraint firstItem="X1e-YL-COy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="21" id="zIM-B5-a2q"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="X1e-YL-COy" id="sww-sj-Fi5"/>
                         <outlet property="collectionView" destination="e28-Ef-1UJ" id="0qO-vD-GtE"/>
                         <outlet property="collectionViewTopConstraint" destination="OEo-lc-vl9" id="uqk-fV-50Z"/>
+                        <outlet property="searchLeadingConstraint" destination="0FZ-Gt-CPp" id="EiF-jD-QQr"/>
                         <outlet property="searchTextField" destination="ZJJ-4U-4Nr" id="kKn-j0-P72"/>
                         <outlet property="searchView" destination="1wi-za-t7V" id="ghc-vt-d8V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="50.724637681159422" y="41.517857142857139"/>
+            <point key="canvasLocation" x="50.399999999999999" y="41.379310344827587"/>
         </scene>
     </scenes>
     <resources>
-        <image name="icBack" width="40" height="40"/>
+        <image name="icSearchSmall" width="18" height="17"/>
+        <image name="imgLogo" width="48" height="32"/>
+        <namedColor name="omFifthGray">
+            <color red="0.94099998474121094" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -17,14 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yc7-Mq-rnK">
-                                <rect key="frame" x="0.0" y="111" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="101" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="0Cf-Ez-acs"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5VU-zW-KMT">
-                                <rect key="frame" x="0.0" y="112" width="414" height="36"/>
+                                <rect key="frame" x="0.0" y="102" width="414" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Mz-vJ-2XQ">
                                         <rect key="frame" x="95" y="11" width="41.5" height="21"/>
@@ -50,20 +50,20 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNo-3u-DLk">
-                                <rect key="frame" x="20" y="167" width="42" height="21"/>
+                                <rect key="frame" x="20" y="157" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icToggleBrandselectNormal" translatesAutoresizingMaskIntoConstraints="NO" id="dus-Od-O22">
-                                <rect key="frame" x="69" y="174" width="10" height="7"/>
+                                <rect key="frame" x="69" y="164" width="10" height="7"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dus-Od-O22" secondAttribute="height" multiplier="10:7" id="OkX-t7-iwd"/>
                                     <constraint firstAttribute="height" constant="7" id="iqv-iB-49x"/>
                                 </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QIP-D8-QmS">
-                                <rect key="frame" x="0.0" y="217" width="414" height="679"/>
+                                <rect key="frame" x="0.0" y="207" width="414" height="689"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="piO-us-Vb7">
                                     <size key="itemSize" width="128" height="128"/>
@@ -74,7 +74,7 @@
                                 <cells/>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eL2-T9-MCo">
-                                <rect key="frame" x="337" y="167" width="57" height="22"/>
+                                <rect key="frame" x="337" y="157" width="57" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eL2-T9-MCo" secondAttribute="height" multiplier="44:17" id="nGC-L5-4z9"/>
                                 </constraints>
@@ -99,7 +99,7 @@
                             <constraint firstItem="QIP-D8-QmS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MVd-BK-SBF"/>
                             <constraint firstItem="vNo-3u-DLk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="PzR-gm-usv"/>
                             <constraint firstItem="vNo-3u-DLk" firstAttribute="top" secondItem="5VU-zW-KMT" secondAttribute="bottom" constant="19" id="RMi-D1-Xsw"/>
-                            <constraint firstItem="Yc7-Mq-rnK" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="67" id="Tki-Pb-4O0"/>
+                            <constraint firstItem="Yc7-Mq-rnK" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="57" id="Tki-Pb-4O0"/>
                             <constraint firstItem="dus-Od-O22" firstAttribute="centerY" secondItem="vNo-3u-DLk" secondAttribute="centerY" id="YnS-eP-yu4"/>
                             <constraint firstItem="5VU-zW-KMT" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="erG-8u-anx"/>
                             <constraint firstItem="eL2-T9-MCo" firstAttribute="top" secondItem="5VU-zW-KMT" secondAttribute="bottom" constant="19" id="iri-iN-RZl"/>
