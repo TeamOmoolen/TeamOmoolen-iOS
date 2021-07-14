@@ -129,7 +129,7 @@ extension MiddleBannerTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCVC.identifier, for: indexPath) as? BannerCVC else {
             return UICollectionViewCell()
         }
-        cell.initCell(image: imageList[indexPath.row])
+        cell.initCell(image: event?[indexPath.row].image ?? "")
         return cell
     }
 }

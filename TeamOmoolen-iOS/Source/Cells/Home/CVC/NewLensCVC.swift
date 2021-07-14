@@ -98,11 +98,7 @@ extension NewLensCVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailVC = UIStoryboard(name: Const.Storyboard.Name.Detail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Detail) as? DetailVC else {
-            return
-        }
-        detailVC.modalPresentationStyle = .fullScreen
-        detailVC.modalTransitionStyle = .crossDissolve
+        NotificationCenter.default.post(name: NSNotification.Name("PushtoDetailVC"), object: nil)
     }
 }
 
@@ -115,8 +111,8 @@ extension NewLensCVC: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewLensDetailTVC.identifier) as? NewLensDetailTVC else {
             return UITableViewCell()
         }
-//        let data = newLensLists[indexPath.row+1]
-//        cell.initCell(lensImage: data.imageList[0], brandName: data.brand, lensName: data.name, price: data.price)
+        
+        
         return cell
     }
     

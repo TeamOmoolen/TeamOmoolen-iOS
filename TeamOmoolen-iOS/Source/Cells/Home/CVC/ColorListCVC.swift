@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ColorListCVC: UICollectionViewCell {
     static let identifier = "ColorListCVC"
@@ -15,7 +16,7 @@ class ColorListCVC: UICollectionViewCell {
     
     private lazy var colorImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .clear
+        imageView.image = UIImage(named: "lensDescribeGlitter")
         return imageView
     }()
     
@@ -31,8 +32,6 @@ class ColorListCVC: UICollectionViewCell {
 
 extension ColorListCVC {
     func setUI() {
-//        contentView.addSubview(colorImageView)
-        
         contentView.layer.cornerRadius = 6
         contentView.layer.masksToBounds = true
     }
@@ -61,8 +60,10 @@ extension ColorListCVC {
             contentView.layer.backgroundColor = UIColor.bubbleGumPink.cgColor
             
         case "glitter":
-            return
-
+            contentView.addSubview(colorImageView)
+            colorImageView.snp.makeConstraints { make in
+                make.centerX.centerY.equalToSuperview()
+            }
         default:
             return
         }

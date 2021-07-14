@@ -67,7 +67,7 @@ struct RecommendationBySituation: Codable {
     let price: Int
     let brand, releaseDate: String
     let diameter: Double
-    let changeCycleRange, pieces: Int
+    let changeCycleRange, pieces, minCycle, maxCycle: Int
     let function: String
     let visionMinimum, visionMaximum, searchCount: Int
 }
@@ -82,6 +82,6 @@ struct RecommendationBy: Codable {
     let brand, releaseDate: String
     let diameter: Double
     let pieces: Int
-    let changeCycle, changeCycleRange: Int
+    let minCycle, maxCycle, changeCycleRange: Int
 }
 

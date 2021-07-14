@@ -55,6 +55,7 @@ class HomeVC: UIViewController {
         getHomeWithAPI()
         registerXib()
         setHomeTableView()
+        getNotification()
     }
 }
 
@@ -276,7 +277,7 @@ extension HomeVC: UITableViewDataSource {
             }
             cell.selectionStyle = .none
             cell.season = homeList?.season
-            cell.recommendationBy = homeList?.recommendationBySeason
+            cell.recommendationBySeason = homeList?.recommendationBySeason
             cell.delegate = self
             return cell
         case 7:
@@ -301,5 +302,23 @@ extension HomeVC: ViewModalProtocol {
     
     func suggestViewModalDelegate(dvc: SuggestVC) {
         navigationController?.pushViewController(dvc, animated: true)
+    }
+}
+
+// MARK: - Notification
+
+extension HomeVC {
+    func getNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(pushToDetailVC(_:)), name: NSNotification.Name("PushtoDetailVC"), object: nil)
+    }
+    
+    @objc
+    func pushToDetailVC(_ notification: Notification) {
+        guard let detailVC = UIStoryboard(name: Const.Storyboard.Name.Detail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Detail) as? DetailVC else {
+            return
+        }
+        detailVC.modalPresentationStyle = .fullScreen
+        detailVC.modalTransitionStyle = .crossDissolve
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

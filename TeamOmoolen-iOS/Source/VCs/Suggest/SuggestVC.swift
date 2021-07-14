@@ -76,6 +76,15 @@ class SuggestVC: UIViewController {
         self.navigationController?.pushViewController(searchVC, animated: true)
     }
     
+    @IBAction func touchUpLogo(_ sender: Any) {
+        guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Tabbar, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Tabbar) as? TabBarController else {
+            return
+        }
+        homeVC.modalPresentationStyle = .fullScreen
+        homeVC.modalTransitionStyle = .crossDissolve
+        present(homeVC, animated: true, completion: nil)
+    }
+    
    //MARK: - Methods
     func setUI() {
         let layout = UICollectionViewFlowLayout()
