@@ -70,7 +70,7 @@ extension OneMinCVC {
         subtitleLabel.text = subTitle
         
         oneMinDetailData = oneMinDetail
-        print(oneMinDetailData)
+//        print(oneMinDetailData)
     }
     
     func registerXib() {
