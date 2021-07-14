@@ -116,6 +116,13 @@ class SeasonVC: UIViewController {
     func getSuggestSeasonWithAPI(accesstoken: String, page: Int, sort: String, order: String) {
         SuggestAPI.shared.getSeason(accesstoken: accesstoken, page: page, sort: sort, order: order) { response in
             self.suggestDetailForSeason = response
+            
+            var appendList = [SuggestProduct]()
+            for i in 0..<(self.suggestDetailForSeason?.items.count)! {
+                appendList.append(SuggestProduct(id: self.suggestDetailForSeason!.items[i].id, imageList: self.suggestDetailForSeason!.items[i].imageList, brand: self.suggestDetailForSeason!.items[i].brand, name: self.suggestDetailForSeason!.items[i].name, diameter: self.suggestDetailForSeason!.items[i].diameter, minCycle: self.suggestDetailForSeason!.items[i].changeCycleMinimum, maxCycle: self.suggestDetailForSeason!.items[i].changeCycleMaximum, pieces: self.suggestDetailForSeason!.items[i].pieces, price: self.suggestDetailForSeason!.items[i].price, otherColorList: self.suggestDetailForSeason!.items[i].otherColorList))
+            }
+            
+
         }
     
     }

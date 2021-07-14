@@ -120,6 +120,11 @@ class NewProductVC: UIViewController {
         SuggestAPI.shared.getNew(accesstoken: accesstoken, page: page, sort: sort, order: order) {
             response in
             self.suggestDetailNew = response
+            
+            var appendList = [SuggestProduct]()
+            for i in 0..<(self.suggestDetailNew?.items.count)! {
+                appendList.append(SuggestProduct(id: self.suggestDetailNew!.items[i].id, imageList: self.suggestDetailNew!.items[i].imageList, brand: self.suggestDetailNew!.items[i].brand, name: self.suggestDetailNew!.items[i].name, diameter: self.suggestDetailNew!.items[i].diameter, minCycle: self.suggestDetailNew!.items[i].changeCycleMinimum, maxCycle: self.suggestDetailNew!.items[i].changeCycleMaximum, pieces: self.suggestDetailNew!.items[i].pieces, price: self.suggestDetailNew!.items[i].price, otherColorList: self.suggestDetailNew!.items[i].otherColorList))
+            }
         }
     }
     
