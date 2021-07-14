@@ -27,6 +27,9 @@ class ForYouVC: UIViewController {
     private var totalPage: Int = -1
     private var canFetchData: Bool = true
     
+    private var sort = "price"
+    private var order = ""
+    
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,8 +93,6 @@ class ForYouVC: UIViewController {
         } else if UIDevice.current.isiPhone12Pro {
             popUpTopConstraint.constant = 46
         }
-    
-  
    }
     
 
@@ -102,6 +103,8 @@ class ForYouVC: UIViewController {
         print("setPriceLowOrder()")
 //        resultList.sort(by: {$0.price < $1.price})
 //        resultCollectionView.reloadData()
+        sort = "price"
+        order = "desc"
     }
     
     @objc
@@ -109,6 +112,8 @@ class ForYouVC: UIViewController {
         print("setPriceHighOrder")
 //        resultList.sort(by: {$0.price > $1.price})
 //        resultCollectionView.reloadData()
+        sort = "price"
+        order = "asc"
     }
     
     // MARK: - @IBAction Properties

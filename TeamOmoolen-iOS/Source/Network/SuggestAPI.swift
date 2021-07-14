@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 class SuggestAPI {
-    static let shared = DetailAPI()
+    static let shared = SuggestAPI()
     static let provider = MoyaProvider<SuggestService>()
 
     
