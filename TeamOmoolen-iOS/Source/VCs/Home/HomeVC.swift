@@ -244,7 +244,7 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.guides = homeList?.guides ?? [Guide(id: "", question: "", answer: "", createAt: "", updateAt: "", deleteAt: "")]
+            cell.guides = homeList?.guides ?? [Guide(title: "", guideDetail: [GuideDetail]())]
             cell.delegate = self
             return cell
         case 3:
@@ -314,11 +314,15 @@ extension HomeVC {
     
     @objc
     func pushToDetailVC(_ notification: Notification) {
+        var id: String
+        id = notification.object as! String
+        
         guard let detailVC = UIStoryboard(name: Const.Storyboard.Name.Detail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Detail) as? DetailVC else {
             return
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
+        detailVC.id = id
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

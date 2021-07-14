@@ -55,10 +55,6 @@ extension NewLensCVC {
         lensLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
     }
     
-    func setList() {
-        
-    }
-    
     func registerXib() {
         let detailNib = UINib(nibName: NewLensDetailTVC.identifier, bundle: nil)
         newLensTableView.register(detailNib, forCellReuseIdentifier: NewLensDetailTVC.identifier)
@@ -89,7 +85,7 @@ extension NewLensCVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NotificationCenter.default.post(name: NSNotification.Name("PushtoDetailVC"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("PushtoDetailVC"), object: newLens?[indexPath.row].id)
     }
 }
 

@@ -49,7 +49,7 @@ class PopularTVC: UITableViewCell {
     func initPopularSearchList(){
         for i in 0..<9 {
             popularCellList.append(contentsOf: [
-                PopularCellDataModel(rank: i+1, name: "스페이스 그레이")
+                PopularCellDataModel(rank: i+1, name: "ㅇ")
             ])
         }
     }
@@ -67,8 +67,9 @@ class PopularTVC: UITableViewCell {
     }
     
     func getPopularSearchWithAPI() {
-        SearchAPI.shared.getPopularSearch() { response in
+        SearchAPI.shared.getPopularSearch { response in
             self.popularSearchList = response
+            print("여기야 여기 : \(self.popularSearchList)")
         }
     }
 }

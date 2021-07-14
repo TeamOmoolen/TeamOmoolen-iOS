@@ -64,13 +64,13 @@ extension RecommendCVC {
     }
     
     func initCell(imageList: [String], brandName: String, lensName: String, diameter: Double, minCycle: Int, maxCycle: Int, pieces: Int, price: Int, colorList: [String]) {
-//        let modelString = imageList[0]
-//        let modelUrl = URL(string: modelString)!
-//        self.modelImageView.kf.setImage(with: modelUrl)
-//        
-//        let lensString = imageList[1]
+//        let lensString = imageList[0]
 //        let lensUrl = URL(string: lensString)!
 //        self.lensImageView.kf.setImage(with: lensUrl)
+//        
+//        let modelString = imageList[1]
+//        let modelUrl = URL(string: modelString)!
+//        self.modelImageView.kf.setImage(with: modelUrl)
         
         brandNameLabel.text = brandName
         lensNameLabel.text = lensName

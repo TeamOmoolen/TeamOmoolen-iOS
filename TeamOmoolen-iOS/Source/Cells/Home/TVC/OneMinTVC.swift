@@ -19,9 +19,11 @@ class OneMinTVC: UITableViewCell {
     @IBOutlet weak var oneMinCollectionView: UICollectionView!
     
     // MARK: - Local Variables
-    var guides = [Guide]()
+//    var guides = [Guide]()
     var oneMinDataList = [OneMinDataModel]()
     var oneMinDetailList = [OneMinDetailDataModel]()
+    
+    var guides = [Guide(title: "", guideDetail: [GuideDetail]())]
     
     var delegate: ViewModalProtocol?
     
@@ -126,7 +128,8 @@ extension OneMinTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OneMinCVC.identifier, for: indexPath) as? OneMinCVC else {
             return UICollectionViewCell()
         }
-        
+//        let data = guides[indexPath.row]
+//        cell.initCell(subTitle: data.title, oneMinDetail: data.guideDetail)
         return cell
     }
 }

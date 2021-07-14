@@ -54,8 +54,18 @@ struct Event: Codable {
 
 // MARK: - Guide
 struct Guide: Codable {
-    let id, question, answer, createAt: String
-    let updateAt, deleteAt: String
+//    let id, question, answer, createAt: String
+//    let updateAt, deleteAt: String
+    
+    let title: String
+    let guideDetail: [GuideDetail]
+}
+
+struct GuideDetail: Codable {
+//    let id, question, answer, createAt: String
+//    let updateAt, deleteAt: String
+    
+    let question, answer: String
 }
 
 // MARK: - RecommendationBySituation
@@ -131,8 +141,6 @@ struct RecommendationBy: Codable {
 
 struct NewLens: Codable {
     let mainData: [NewLensDetailData]
-    
-    
 }
 struct NewLensDetailData: Codable {
     let id, name: String

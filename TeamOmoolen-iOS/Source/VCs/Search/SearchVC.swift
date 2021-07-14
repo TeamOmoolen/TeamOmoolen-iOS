@@ -176,8 +176,7 @@ extension SearchVC {
     }
     
     func getSearchResultWithAPI(param: String) {
-        SearchAPI.shared.getKeywordResult(param: param) {
-            response in
+        SearchAPI.shared.getKeywordResult(param: param) { response in
             print(response)
             self.searchResultResponse = response
             
