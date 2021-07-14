@@ -32,11 +32,15 @@ class PopupModalVC: UIViewController {
     
     // MARK: - Methods
     private func setUI() {
-        popupView.layer.cornerRadius = 10
         
+        popupTitle.attributedText = NSAttributedString(string: titleText!, attributes: [.kern: -0.95])
+
+        popupView.layer.cornerRadius = 10
+        popupTitle.adjustsFontSizeToFitWidth = true
         popupTitle.font = UIFont(name: "NotoSansCJKKr-Bold", size: 19)
         popupTitle.numberOfLines = 10
         popupSubtitle.font = UIFont(name: "NotoSansCJKKr-Regular", size: 12)
+        popupSubtitle.attributedText = NSAttributedString(string: subtitleText!, attributes: [.kern: -0.3])
         popupSubtitle.textColor = .omSecondGray
         popupSubtitle.numberOfLines = 10
         popupTitle.text = titleText

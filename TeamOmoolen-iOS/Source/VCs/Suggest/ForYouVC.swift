@@ -121,7 +121,7 @@ class ForYouVC: UIViewController {
         guard let popup = UIStoryboard(name: Const.Storyboard.Name.PopupModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.PopupModal) as? PopupModalVC else {
             return
         }
-        popup.titleText = "나에게 딱 맞는 렌즈 추천,Foryou"
+        popup.titleText = "나에게 딱 맞는 렌즈 추천, For you"
         popup.subtitleText =
         """
         For you는 오무렌 사용자들이 나에게 딱 맞는 렌즈를
