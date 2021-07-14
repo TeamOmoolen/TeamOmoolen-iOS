@@ -126,7 +126,7 @@ extension OneMinTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OneMinCVC.identifier, for: indexPath) as? OneMinCVC else {
             return UICollectionViewCell()
         }
-        cell.initCell(subTitle: oneMinDataList[indexPath.row].title, oneMinDetail: oneMinDataList[indexPath.row].oneMinDetailData)
+        
         return cell
     }
 }

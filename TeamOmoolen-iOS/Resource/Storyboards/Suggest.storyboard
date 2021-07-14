@@ -52,6 +52,9 @@
                                     <constraint firstAttribute="width" constant="47" id="zur-c1-cAM"/>
                                 </constraints>
                                 <state key="normal" image="imgLogo"/>
+                                <connections>
+                                    <action selector="touchUpLogo:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KK3-Oq-4lV"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e28-Ef-1UJ">
                                 <rect key="frame" x="0.0" y="148" width="375" height="812"/>

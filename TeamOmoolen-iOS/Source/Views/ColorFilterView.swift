@@ -83,6 +83,7 @@ extension ColorFilterView {
             LensColorDataModel(image: "btnBluecolor"),
             LensColorDataModel(image: "btnGoldcolor"),
             LensColorDataModel(image: "btnPinkcolor"),
+            LensColorDataModel(image: "btnGlittercolor"),
             LensColorDataModel(image: "btnEtccolor")
         ])
     }

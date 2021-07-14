@@ -76,6 +76,15 @@ class SuggestVC: UIViewController {
         self.navigationController?.pushViewController(searchVC, animated: true)
     }
     
+    @IBAction func touchUpLogo(_ sender: Any) {
+        guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Tabbar, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Tabbar) as? TabBarController else {
+            return
+        }
+        homeVC.modalPresentationStyle = .fullScreen
+        homeVC.modalTransitionStyle = .crossDissolve
+        present(homeVC, animated: true, completion: nil)
+    }
+    
    //MARK: - Methods
     func setUI() {
         let layout = UICollectionViewFlowLayout()
@@ -124,9 +133,9 @@ class SuggestVC: UIViewController {
         suggestViews.append(newproductVC)
         suggestViews.append(seasonVC)
         
-        foryouVC.suggestForYou = suggestList?.SuggestForYou
-        situationVC.suggestForSituation = suggestList?.SuggestForSituation
-        newproductVC.suggestForNew = suggestList?.SuggestForNew
+        foryouVC.suggestForYou = suggestList?.suggestForYou
+        situationVC.suggestForSituation = suggestList?.suggestForSituation
+        newproductVC.suggestForNew = suggestList?.suggestForNew
         seasonVC.suggestForSeason = suggestList?.suggestForSeason
         
         collectionView.reloadData()
