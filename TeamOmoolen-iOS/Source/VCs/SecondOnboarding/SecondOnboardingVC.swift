@@ -160,13 +160,13 @@ class SecondOnboardingVC: UIViewController {
             return
         }
         if lensKindList.contains([0,0]) {
-            lensKind.append("컬러렌즈")
+            lensKind.append("컬러")
         }
         if lensKindList.contains([0,1]) {
-            lensKind.append("투명렌즈")
+            lensKind.append("투명")
         }
         if lensKindList.contains([0,2]) {
-            lensKind.append("코스프레/공막렌즈")
+            lensKind.append("코스프레")
         }
         
         // append lensColor

@@ -72,19 +72,19 @@ class FirstOnboardingVC: UIViewController {
             return
         }
         if genderListCollectionView.indexPathsForSelectedItems! == [[0,0]] {
-            gender = "여성"
+            gender = "w"
         } else {
-            gender = "남성"
+            gender = "m"
         }
         
         if ageListCollectionView.indexPathsForSelectedItems! == [[0,0]] {
-            age = 0
+            age = 10
         } else if ageListCollectionView.indexPathsForSelectedItems! == [[0,1]] {
-            age = 1
+            age = 20
         } else if ageListCollectionView.indexPathsForSelectedItems! == [[0,2]] {
-            age = 2
+            age = 30
         } else {
-            age = 3
+            age = 40
         }
         nextVC.gender = gender
         nextVC.age = age

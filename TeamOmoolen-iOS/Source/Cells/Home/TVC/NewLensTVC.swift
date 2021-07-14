@@ -118,10 +118,9 @@ extension NewLensTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewLensCVC.identifier, for: indexPath) as? NewLensCVC else {
             return UICollectionViewCell()
         }
-//        cell.brandLabel.text = newLens[indexPath.row].mainData[0].brand
-//        cell.lensLabel.text = newLens[indexPath.row].mainData[0].name
+        cell.brandLabel.text = newLens[indexPath.row].mainData.first?.brand
+        cell.lensLabel.text = newLens[indexPath.row].mainData.first?.name
         cell.initCell(lensData: newLens[indexPath.row].mainData)
-        
         return cell
     }
 }
