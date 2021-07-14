@@ -44,12 +44,9 @@ struct SearchResultResponse: Codable {
 struct Product: Codable {
     let id, name: String
     let imageList: [String]
-    let category, color: String
     let otherColorList: [String]
     let price: Int
-    let brand, releaseDate: String
+    let brand: String
     let diameter: Double
-    let changeCycle, changeCycleRange, pieces: Int
-    let function, material: String
-    let visionMinimum, visionMaximum, searchCount: Int
+    let changeCycleMinimum, changeCycleMaximum, pieces: Int
 }
