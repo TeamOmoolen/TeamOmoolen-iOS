@@ -8,7 +8,7 @@
 import UIKit
 
 class SuggestTabBar: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -22,7 +22,7 @@ class SuggestTabBar: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         return cv
     }()
     
-    let views = ["For You", "운동할 때", "신제품", "여름에 예쁜"]
+    var views = ["For You", "할 때", "신제품", "에 예쁜"]
     
     var suggestViewController : SuggestVC?
     

@@ -22,6 +22,9 @@ class SuggestVC: UIViewController {
     var suggestViews : [UIViewController] = []
     var position: Int = 0
     
+    var season = ""
+    var situation = ""
+    
     lazy var suggestTabBar: SuggestTabBar = {
         let suggestTB = SuggestTabBar()
         suggestTB.suggestViewController = self
@@ -55,14 +58,13 @@ class SuggestVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getSuggestWithAPI()
         setUI()
         setVCs()
         setUpTabBar()
         registerXib()
         setCollectionViewDelegate()
         setPhoneResolution()
-        getSuggestWithAPI()
     }
     
     // MARK: - IBActions
@@ -78,6 +80,9 @@ class SuggestVC: UIViewController {
     
    //MARK: - Methods
     func setUI() {
+//        season = suggestList.season
+//        situation = suggestList.situation
+        suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.frame.width, height: view.frame.height)
         layout.scrollDirection = .horizontal
@@ -221,7 +226,6 @@ extension SuggestVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         } else if (UIDevice.current.isiPhone12Pro) {
             return CGSize(width: view.frame.width, height: 800)
         } else {
-        
             return CGSize(width: view.frame.width, height: view.frame.height)
         }
     }
