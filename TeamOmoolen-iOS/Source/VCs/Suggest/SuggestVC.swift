@@ -50,6 +50,7 @@ class SuggestVC: UIViewController {
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         }
         navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidLoad() {
@@ -61,6 +62,7 @@ class SuggestVC: UIViewController {
         registerXib()
         setCollectionViewDelegate()
         setPhoneResolution()
+        getSuggestWithAPI()
     }
     
     // MARK: - IBActions
@@ -168,12 +170,19 @@ class SuggestVC: UIViewController {
         }
     }
     
-    
     func scrollToSuggestTabBarIndex(tabBarIdx: Int){
         let indexPath = NSIndexPath(item: tabBarIdx, section: 0)
         collectionView.isPagingEnabled = false
         collectionView.scrollToItem(at: indexPath as IndexPath, at: [], animated: true)
         collectionView.isPagingEnabled = true
+    }
+    
+    // MARK: - 현규교수님 검사받을 것 1
+    func getSuggestWithAPI() {
+        let userIdentifier = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
+        SuggestAPI.shared.getSuggest(accesstoken: userIdentifier) { response in
+            self.suggestList = response
+        }
     }
 }
 
