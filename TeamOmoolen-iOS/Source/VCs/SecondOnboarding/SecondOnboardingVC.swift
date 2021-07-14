@@ -125,6 +125,7 @@ class SecondOnboardingVC: UIViewController {
             LensColorDataModel(image: "btnBluecolor"),
             LensColorDataModel(image: "btnGoldcolor"),
             LensColorDataModel(image: "btnPinkcolor"),
+            LensColorDataModel(image: "btnGlittercolor"),
             LensColorDataModel(image: "btnEtccolor")
         ])
     }
@@ -203,6 +204,9 @@ class SecondOnboardingVC: UIViewController {
             lensColor.append("핑크")
         }
         if lensColorList.contains([0,10]) {
+            lensColor.append("글리터")
+        }
+        if lensColorList.contains([0,11]) {
             lensColor.append("기타")
         }
         

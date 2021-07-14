@@ -17,14 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashIllustImage12Mini" translatesAutoresizingMaskIntoConstraints="NO" id="Wg3-3v-bRf">
-                                <rect key="frame" x="19.5" y="42" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Wg3-3v-bRf" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="O2U-Vn-iZP"/>
-                            <constraint firstItem="Wg3-3v-bRf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hVv-Ey-m14"/>
+                            <constraint firstItem="Wg3-3v-bRf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7q8-SC-rIF"/>
+                            <constraint firstItem="Wg3-3v-bRf" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="EoY-sa-e4N"/>
+                            <constraint firstAttribute="bottom" secondItem="Wg3-3v-bRf" secondAttribute="bottom" id="oL4-3N-kWW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wg3-3v-bRf" secondAttribute="trailing" id="rAC-4w-zTl"/>
                         </constraints>
                     </view>
                 </viewController>
