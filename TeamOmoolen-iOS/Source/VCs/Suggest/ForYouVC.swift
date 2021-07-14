@@ -21,6 +21,11 @@ class ForYouVC: UIViewController {
     
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []
+    var suggestForYou: [SuggestProduct]? = nil
+    
+    private var currPage: Int = 1
+    private var totalPage: Int = 1
+    private var canFetchData: Bool = true
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -32,7 +37,6 @@ class ForYouVC: UIViewController {
         setCollectionViewDelegate()
         setNotification()
         setPhoneResolution()
-
     }
     
     //MARK: - Methods
@@ -145,6 +149,19 @@ extension ForYouVC: UICollectionViewDelegate {
         detailVC.modalTransitionStyle = .crossDissolve
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
+    
+    // MARK: - 무한 스크롤
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
+            print("끝에 닿음")
+            if canFetchData, currPage < totalPage {
+                currPage += 1
+                canFetchData = false
+                // 서버 통신하는 곳
+                // getSuggestForYouData(page: currPage)
+            }
+        }
+    }
 }
 
 //MARK: - CollectionViewDelegateFlowLayout
@@ -186,10 +203,12 @@ extension ForYouVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendCVC.identifier, for: indexPath) as? RecommendCVC else {
             return UICollectionViewCell()
         }
+        let data = suggestForYou?[indexPath.row]
+        cell.initCell(imageList: data?.imageList ?? [""], brandName: data?.brand ?? "오렌즈", lensName: data?.name ?? "스페니쉬 그레이", diameter: data?.diameter ?? 15.3, minCycle: data?.minCycle ?? 1, maxCycle: data?.maxCycle ?? 1, pieces: data?.pieces ?? 10, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [])
         return cell
     }
 }
+

@@ -27,6 +27,8 @@ class SuggestVC: UIViewController {
         return suggestTB
     }()
     
+    private var suggestList: SuggestResponse?
+    
     //MARK: - View Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -116,8 +118,14 @@ class SuggestVC: UIViewController {
         suggestViews.append(situationVC)
         suggestViews.append(newproductVC)
         suggestViews.append(seasonVC)
-        collectionView.reloadData()
         
+        // MARK: - 현규선배 검사 필요
+        foryouVC.suggestForYou = suggestList?.SuggestForYou
+        situationVC.suggestForSituation = suggestList?.SuggestForSituation
+        newproductVC.suggestForNew = suggestList?.SuggestForNew
+        seasonVC.suggestForSeason = suggestList?.suggestForSeason
+        
+        collectionView.reloadData()
     }
     
     private func setUpTabBar(){
@@ -139,10 +147,8 @@ class SuggestVC: UIViewController {
     }
     
     func registerXib() {
-        
         let suggestHomeNib = UINib(nibName: SuggestHomeCVC.identifier, bundle: nil)
         collectionView.register(suggestHomeNib, forCellWithReuseIdentifier: SuggestHomeCVC.identifier)
-        
     }
     
     func setCollectionViewDelegate() {
