@@ -63,15 +63,16 @@ class SuggestVC: UIViewController {
     }
     
     // MARK: - IBActions
-    //여기 연결 끊어야 함
-    @IBAction func touchUpBackButton(_ sender: Any) {
-        guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Tabbar, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Tabbar) as? TabBarController else {
+    @IBAction func editingSearch(_ sender: Any) {
+        guard let searchVC = UIStoryboard(name: Const.Storyboard.Name.Search, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Search) as? SearchVC else {
             return
         }
-        homeVC.modalPresentationStyle = .fullScreen
-        homeVC.modalTransitionStyle = .crossDissolve
-        present(homeVC, animated: true, completion: nil)
+        searchVC.modalPresentationStyle = .fullScreen
+        searchVC.modalTransitionStyle = .crossDissolve
+        present(searchVC, animated: true, completion: nil)
     }
+    
+    
     
     /*
     @IBAction func touchUpSearch(_ sender: Any) {
