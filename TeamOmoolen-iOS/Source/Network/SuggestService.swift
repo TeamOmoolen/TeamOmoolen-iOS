@@ -12,6 +12,8 @@ enum SuggestService {
     case suggest(accesstoken: String)
     case suggestForyou(accesstoken: String, page: Int, sort: String, order: String)
     case suggestSituation(accesstoken: String, page: Int, sort: String, order: String)
+    case suggestNew(accesstoken: String, page: Int, sort: String, order: String)
+    case suggestSeason(accesstoken: String, page: Int, sort: String, order: String)
 }
 
 extension SuggestService: TargetType {
@@ -27,6 +29,10 @@ extension SuggestService: TargetType {
             return "/api/suggest/foryou"
         case .suggestSituation:
             return "/api/suggest/situation"
+        case .suggestNew:
+            return "/api/suggest/new"
+        case .suggestSeason:
+            return "/api/suggest/season"
         }
     }
     
@@ -49,6 +55,10 @@ extension SuggestService: TargetType {
             return .requestParameters(parameters: ["page" : page, "sort" : sort, "order" : order], encoding: URLEncoding.queryString)
         case .suggestSituation(_, let page, let sort, let order):
             return .requestParameters(parameters: ["page" : page, "sort" : sort, "order" : order], encoding: URLEncoding.queryString)
+        case .suggestNew(_, let page, let sort, let order):
+            return .requestParameters(parameters: ["page" : page, "sort" : sort, "order" : order], encoding: URLEncoding.queryString)
+        case .suggestSeason(_, let page, let sort, let order):
+            return .requestParameters(parameters: ["page" : page, "sort" : sort, "order" : order], encoding: URLEncoding.queryString)
         }
     }
     
@@ -57,6 +67,10 @@ extension SuggestService: TargetType {
         case .suggest(let accesstoken):
             return ["Content-Type": "application/json", "accesstoken" : accesstoken]
         case .suggestForyou(let accesstoken, _,_,_):
+            return ["Content-Type": "application/json", "accesstoken" : accesstoken]
+        case .suggestNew(let accesstoken, _,_,_):
+            return ["Content-Type": "application/json", "accesstoken" : accesstoken]
+        case .suggestSeason(let accesstoken, _,_,_):
             return ["Content-Type": "application/json", "accesstoken" : accesstoken]
         case .suggestSituation(let accesstoken, _,_,_):
             return ["Content-Type": "application/json", "accesstoken" : accesstoken]
