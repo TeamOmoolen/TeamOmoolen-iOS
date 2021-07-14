@@ -121,16 +121,17 @@ class ForYouVC: UIViewController {
         guard let popup = UIStoryboard(name: Const.Storyboard.Name.PopupModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.PopupModal) as? PopupModalVC else {
             return
         }
-        popup.titleText = "나에게 딱 맞는 렌즈 추천, For you"
-        popup.subtitleText = """
-            For you는 오무렌 사용자들이 나에게 딱 맞는 렌즈를
-            찾는 데 도움을 드리고자 만들어진 개인형 맞춤 추천
-            서비스입니다.
+        popup.titleText = "나에게 딱 맞는 렌즈 추천,Foryou"
+        popup.subtitleText =
+        """
+        For you는 오무렌 사용자들이 나에게 딱 맞는 렌즈를
+        찾는 데 도움을 드리고자 만들어진 개인형 맞춤 추천
+        서비스입니다.
 
-            국내 모든 렌즈에 대한 데이터를 바탕으로 회원가입시
-            입력한 1) 기능 2)주기 3)컬러 등을 고려하여
-            유저들에게 맞는 추천 제품을 제공합니다.
-            """
+        국내 모든 렌즈에 대한 데이터를 바탕으로 회원가입시
+        입력한 1) 기능 2)주기 3)컬러 등을 고려하여
+        유저들에게 맞는 추천 제품을 제공합니다.
+        """
         
         popup.modalPresentationStyle = .overFullScreen
         popup.modalTransitionStyle = . crossDissolve

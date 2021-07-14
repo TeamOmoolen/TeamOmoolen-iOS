@@ -36,11 +36,9 @@ class PopupModalVC: UIViewController {
         
         popupTitle.font = UIFont(name: "NotoSansCJKKr-Bold", size: 19)
         popupTitle.numberOfLines = 10
-        
         popupSubtitle.font = UIFont(name: "NotoSansCJKKr-Regular", size: 12)
         popupSubtitle.textColor = .omSecondGray
         popupSubtitle.numberOfLines = 10
-        
         popupTitle.text = titleText
         popupSubtitle.text = subtitleText
     }

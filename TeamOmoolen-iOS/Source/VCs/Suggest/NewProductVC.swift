@@ -43,8 +43,8 @@ class NewProductVC: UIViewController {
         """
         
         popup.subtitleText = """
-                신제품 추천은 3개월 이내에 등록된
-                제품을 추천해드립니다.
+        신제품 추천은 3개월 이내에 등록된
+        제품을 추천해드립니다.
         """
         
         popup.modalPresentationStyle = .overFullScreen

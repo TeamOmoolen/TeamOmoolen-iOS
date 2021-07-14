@@ -17,14 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBz-xx-Xrn">
-                                <rect key="frame" x="0.0" y="111" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="101" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PBz-xx-Xrn" secondAttribute="height" multiplier="375:1" id="iHO-ER-P4B"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNo-fg-ABM">
-                                <rect key="frame" x="0.0" y="112" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="102" width="414" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFf-9w-mg1">
                                         <rect key="frame" x="105" y="11" width="42" height="21"/>
@@ -50,7 +50,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9E9-cA-rpK">
-                                <rect key="frame" x="337" y="171" width="57" height="22"/>
+                                <rect key="frame" x="337" y="161" width="57" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9E9-cA-rpK" secondAttribute="height" multiplier="44:17" id="wvW-Pm-nPK"/>
                                 </constraints>
@@ -60,7 +60,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xlx-O0-smu">
-                                <rect key="frame" x="0.0" y="220" width="414" height="642"/>
+                                <rect key="frame" x="0.0" y="210" width="414" height="652"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eQE-0e-N2Z">
                                     <size key="itemSize" width="128" height="128"/>
@@ -81,7 +81,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9E9-cA-rpK" secondAttribute="trailing" constant="20" id="UHW-4J-7Lj"/>
                             <constraint firstItem="xlx-O0-smu" firstAttribute="top" secondItem="9E9-cA-rpK" secondAttribute="bottom" constant="27" id="V1Z-v6-lMo"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="xlx-O0-smu" secondAttribute="bottom" id="Wz7-4Z-YnR"/>
-                            <constraint firstItem="PBz-xx-Xrn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="67" id="XGz-gq-cr8"/>
+                            <constraint firstItem="PBz-xx-Xrn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="57" id="XGz-gq-cr8"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PBz-xx-Xrn" secondAttribute="trailing" id="evA-7t-ohQ"/>
                             <constraint firstItem="PBz-xx-Xrn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="fL1-BC-HVP"/>
                             <constraint firstItem="xlx-O0-smu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="gOL-cE-upK"/>

@@ -43,9 +43,9 @@ class SeasonVC: UIViewController {
         popup.titleText = "여름과 잘 어울리는 렌즈"
         
         popup.subtitleText = """
-                여름과 잘 어울리는 렌즈 추천은 계절별 많이
-                구매한 제품에 대한 데이터를 기반으로
-                추천해드리는 제품입니다.
+        여름과 잘 어울리는 렌즈 추천은 계절별 많이
+        구매한 제품에 대한 데이터를 기반으로
+        추천해드리는 제품입니다.
         """
         
         popup.modalPresentationStyle = .overFullScreen
