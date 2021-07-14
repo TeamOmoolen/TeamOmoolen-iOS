@@ -31,10 +31,10 @@ struct SuggestDataModel: Codable {
 }
 
 struct SuggestResponse: Codable {
-    let SuggestForYou: SuggestProduct
-    let SuggestForSituation: SuggestProduct
-    let SuggestForNew: SuggestProduct
-    let suggestForSeason: SuggestProduct
+    let SuggestForYou: [SuggestProduct]
+    let SuggestForSituation: [SuggestProduct]
+    let SuggestForNew: [SuggestProduct]
+    let suggestForSeason: [SuggestProduct]
     
     enum CodingKeys: String, CodingKey {
         case SuggestForYou
@@ -49,7 +49,7 @@ struct SuggestProduct: Codable {
     let imageList: [String]
     let brand,name: String
     let diameter: Double
-    let changeCycle,pieces,price: Int
+    let minCycle,maxCycle,pieces,price: Int
     let otherColorList: [String]
     
     enum CodingKeys: String, CodingKey {
@@ -58,7 +58,8 @@ struct SuggestProduct: Codable {
         case brand
         case name
         case diameter
-        case changeCycle
+        case minCycle
+        case maxCycle
         case pieces
         case price
         case otherColorList

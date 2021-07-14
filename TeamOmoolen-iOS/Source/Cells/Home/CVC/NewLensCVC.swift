@@ -23,7 +23,9 @@ class NewLensCVC: UICollectionViewCell {
     // MARK: - Local Variables
     
     private var newLensList: [NewLensDetailDataModel] = []
-    var delegate: ViewModalProtocol?
+    
+    var newLens: [RecommendationBySituation]? = nil
+    private var newLensLists = [RecommendationBySituation]()
     
     // MARK: - Life Cycle Methods
     
@@ -80,9 +82,8 @@ extension NewLensCVC {
         newLensTableView.isScrollEnabled = false
     }
     
-    func initCell(brandName: String, lensName: String) {
-        brandLabel.text = brandName
-        lensLabel.text = lensName
+    func initCell(lensData: [RecommendationBySituation]) {
+        newLensLists = lensData
     }
 }
 
@@ -97,13 +98,11 @@ extension NewLensCVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("cell clicked")
         guard let detailVC = UIStoryboard(name: Const.Storyboard.Name.Detail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Detail) as? DetailVC else {
             return
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
-        delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
 
@@ -116,8 +115,8 @@ extension NewLensCVC: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewLensDetailTVC.identifier) as? NewLensDetailTVC else {
             return UITableViewCell()
         }
-        let data = newLensList[indexPath.row]
-        // 모르겠음
+//        let data = newLensLists[indexPath.row+1]
+//        cell.initCell(lensImage: data.imageList[0], brandName: data.brand, lensName: data.name, price: data.price)
         return cell
     }
     

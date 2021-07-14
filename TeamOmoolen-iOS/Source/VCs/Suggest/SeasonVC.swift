@@ -21,6 +21,7 @@ class SeasonVC: UIViewController {
     
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []
+    var suggestForSeason: [SuggestProduct]? = nil
    
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -136,9 +137,10 @@ extension SeasonVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendCVC.identifier, for: indexPath) as? RecommendCVC else {
-                return UICollectionViewCell()
+            return UICollectionViewCell()
         }
-        let data = recommendList[indexPath.row]
-            return cell
-        }
+        let data = suggestForSeason?[indexPath.row]
+        cell.initCell(imageList: data?.imageList ?? [""], brandName: data?.brand ?? "오렌즈", lensName: data?.name ?? "스페니쉬 그레이", diameter: data?.diameter ?? 15.3, minCycle: data?.minCycle ?? 1, maxCycle: data?.maxCycle ?? 1, pieces: data?.pieces ?? 10, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [])
+        return cell
+    }
 }
