@@ -21,6 +21,15 @@ class NewProductVC: UIViewController {
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []
     var suggestForNew: [SuggestProduct]? = nil
+    var suggestDetailNew: SuggestDetailResponse?
+    var accesstoken = ""
+    
+    private var currPage: Int = 1
+    private var totalPage: Int = -1
+    private var canFetchData: Bool = true
+    
+    private var sort = "price"
+    private var order = ""
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -30,6 +39,7 @@ class NewProductVC: UIViewController {
         setRecommendList()
         setCollectionViewDelegate()
         setPhoneResolution()
+        setAccesstoken()
 
     }
     
@@ -102,6 +112,44 @@ class NewProductVC: UIViewController {
         }
     }
     
+    func setAccesstoken() {
+        accesstoken = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
+    }
+    
+    func getSuggestNewWithAPI(accesstoken: String, page: Int, sort: String, order: String) {
+        SuggestAPI.shared.getNew(accesstoken: accesstoken, page: page, sort: sort, order: order) {
+            response in
+            self.suggestDetailNew = response
+        }
+    }
+    
+}
+
+//MARK: - UICollectionView Delegate
+extension NewProductVC: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let detailVC = UIStoryboard(name: Const.Storyboard.Name.Detail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Detail) as?
+                DetailVC else {
+            return
+        }
+        detailVC.modalPresentationStyle = .fullScreen
+        detailVC.modalTransitionStyle = .crossDissolve
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
+            print("끝에 닿음")
+            if canFetchData, currPage < totalPage {
+                currPage += 1
+                canFetchData = false
+                //서버통신
+                getSuggestNewWithAPI(accesstoken: accesstoken, page: currPage, sort: sort, order: order)
+            }
+            //refresh
+            newProductCollectionView.reloadData()
+        }
+    }
 }
 
 //MARK: - CollectionViewDelegateFlowLayout

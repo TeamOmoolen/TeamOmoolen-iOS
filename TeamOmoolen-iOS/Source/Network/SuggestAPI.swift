@@ -75,4 +75,47 @@ class SuggestAPI {
             }
         }
     }
+    
+    func getNew(accesstoken: String, page: Int, sort: String, order: String, completion: @escaping (SuggestDetailResponse) -> ()) {
+        SuggestAPI.provider.request(.suggestNew(accesstoken: accesstoken, page: page, sort: sort, order: order))
+        { response in
+            switch response {
+            case .success(let result):
+                do {
+                    let results = try JSONDecoder().decode(SuggestDetailDataModel.self, from: result.data)
+                    print("getSearchNewResult: \(results.message)")
+                    guard let data = results.data else {
+                        return
+                    }
+                    completion(data)
+                } catch let err {
+                    print("JSONDecode: \(err.localizedDescription)")
+                    debugPrint(err)
+                }
+            case .failure(let err):
+                print(".failure: \(err.localizedDescription)")
+            }
+        }
+    }
+    
+    func getSeason(accesstoken: String, page: Int, sort: String, order: String, completion: @escaping(SuggestDetailResponse) -> ()) {
+        SuggestAPI.provider.request(.suggestSeason(accesstoken: accesstoken, page: page, sort: sort, order: order)) { response in
+            switch response {
+            case .success(let result):
+                do {
+                    let results = try JSONDecoder().decode(SuggestDetailDataModel.self, from: result.data)
+                    print("getSearchSeasonResult: \(results.message)")
+                    guard let data = results.data else {
+                        return
+                    }
+                    completion(data)
+                } catch let err {
+                    print("JSONDecode: \(err.localizedDescription)")
+                    debugPrint(err)
+                }
+            case .failure(let err):
+                print(".failure: \(err.localizedDescription)")
+            }
+        }
+    }
 }
