@@ -23,12 +23,13 @@ class ForYouVC: UIViewController {
     private var recommendList: [RecommendLensDataModel] = []
     var suggestForYou: [SuggestProduct]? = nil
     var suggestDetailForYou: SuggestDetailResponse?
+    var accessToken = ""
     
     private var currPage: Int = 1
     private var totalPage: Int = -1
     private var canFetchData: Bool = true
     
-    private var sort = "price"
+    private var sort = ""
     private var order = ""
     
     //MARK: - View Life Cycle
@@ -36,6 +37,8 @@ class ForYouVC: UIViewController {
         super.viewDidLoad()
         
         setUI()
+        setAccesstoken()
+        getSuggestForyouWithAPI(accesstoken: accessToken, page: currPage, sort: sort, order: order)
         registerXib()
         setRecommendList()
         setCollectionViewDelegate()
@@ -57,6 +60,10 @@ class ForYouVC: UIViewController {
         myFilterLabel.textColor = .omSecondGray
                 
         popUpButton.setImage(UIImage(named: "btnQuestionmark"), for: .normal)
+    }
+    
+    func setAccesstoken() {
+        accessToken = UserDefaults.standard.string(forKey: "AccessToken") ?? ""
     }
     
     func setRecommendList() {
@@ -99,6 +106,11 @@ class ForYouVC: UIViewController {
     func getSuggestForyouWithAPI(accesstoken: String, page: Int, sort: String, order: String) {
         SuggestAPI.shared.getForyou(accesstoken: accesstoken, page: page, sort: sort, order: order) { response in
             self.suggestDetailForYou = response
+            
+            var appendList = [SuggestProduct]()
+            for i in 0..<(self.suggestDetailForYou?.items.count)! {
+                appendList.append(SuggestProduct(id: self.suggestDetailForYou!.items[i].id, imageList: self.suggestDetailForYou!.items[i].imageList, brand: self.suggestDetailForYou!.items[i].brand, name: self.suggestDetailForYou!.items[i].name, diameter: self.suggestDetailForYou!.items[i].diameter, minCycle: self.suggestDetailForYou!.items[i].changeCycleMinimum, maxCycle: self.suggestDetailForYou!.items[i].changeCycleMaximum, pieces: self.suggestDetailForYou!.items[i].pieces, price: self.suggestDetailForYou!.items[i].price, otherColorList: self.suggestDetailForYou!.items[i].otherColorList))
+            }
         }
     }
 
@@ -168,8 +180,7 @@ extension ForYouVC: UICollectionViewDelegate {
             if canFetchData, currPage < totalPage {
                 currPage += 1
                 canFetchData = false
-                // 서버 통신하는 곳
-//                getSuggestForyouWithAPI(accesstoken: <#String#>, page: currp, sort: <#String#>, order: <#String#>)
+                getSuggestForyouWithAPI(accesstoken: accessToken, page: currPage, sort: sort, order: order)
             }
             //refresh
             forYouCollectionView.reloadData()

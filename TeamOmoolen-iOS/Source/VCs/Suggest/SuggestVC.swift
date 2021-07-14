@@ -124,9 +124,9 @@ class SuggestVC: UIViewController {
         suggestViews.append(newproductVC)
         suggestViews.append(seasonVC)
         
-        foryouVC.suggestForYou = suggestList?.SuggestForYou
-        situationVC.suggestForSituation = suggestList?.SuggestForSituation
-        newproductVC.suggestForNew = suggestList?.SuggestForNew
+        foryouVC.suggestForYou = suggestList?.suggestForYou
+        situationVC.suggestForSituation = suggestList?.suggestForSituation
+        newproductVC.suggestForNew = suggestList?.suggestForNew
         seasonVC.suggestForSeason = suggestList?.suggestForSeason
         
         collectionView.reloadData()

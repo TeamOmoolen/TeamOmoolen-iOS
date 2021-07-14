@@ -23,6 +23,15 @@ class SituationVC: UIViewController {
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []
     var suggestForSituation: [SuggestProduct]? = nil
+    var suggestDetailSituation: SuggestDetailResponse?
+    var accessToken = ""
+    
+    private var currPage: Int = 1
+    private var totalPage: Int = -1
+    private var canFetchData: Bool = true
+    
+    private var sort = ""
+    private var order = ""
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -30,6 +39,8 @@ class SituationVC: UIViewController {
         setUI()
         setRecommendList()
         registerXib()
+        setAccesstoken()
+        getSuggestSituationWithAPI(accesstoken: accessToken, page: currPage, sort: sort, order: order)
         setCollectionViewDelegate()
         setNotification()
         setPhoneResolution()
@@ -69,6 +80,10 @@ class SituationVC: UIViewController {
         popUpButton.setImage(UIImage(named: "btnQuestionmark"), for: .normal)
     }
     
+    func setAccesstoken() {
+        accessToken = UserDefaults.standard.string(forKey: "AccessToken") ?? ""
+    }
+    
     func registerXib() {
         let recommedNib = UINib(nibName: RecommendCVC.identifier, bundle: nil)
         situationCollectionView.register(recommedNib, forCellWithReuseIdentifier: RecommendCVC.identifier)
@@ -105,20 +120,31 @@ class SituationVC: UIViewController {
         }
     }
     
+    func getSuggestSituationWithAPI(accesstoken: String, page: Int, sort: String, order: String) {
+        SuggestAPI.shared.getForyou(accesstoken: accesstoken, page: page, sort: sort, order: order) { response in
+            self.suggestDetailSituation = response
+            
+            var appendList = [SuggestProduct]()
+            for i in 0..<(self.suggestDetailSituation?.items.count)! {
+                appendList.append(SuggestProduct(id: self.suggestDetailSituation!.items[i].id, imageList: self.suggestDetailSituation!.items[i].imageList, brand: self.suggestDetailSituation!.items[i].brand, name: self.suggestDetailSituation!.items[i].name, diameter: self.suggestDetailSituation!.items[i].diameter, minCycle: self.suggestDetailSituation!.items[i].changeCycleMinimum, maxCycle: self.suggestDetailSituation!.items[i].changeCycleMaximum, pieces: self.suggestDetailSituation!.items[i].pieces, price: self.suggestDetailSituation!.items[i].price, otherColorList: self.suggestDetailSituation!.items[i].otherColorList))
+            }
+        }
+    }
+    
     
     // MARK: - @objc Methods
     @objc
     func setPriceLowOrder() {
         print("setPriceLowOrder()")
-        //        resultList.sort(by: {$0.price < $1.price})
-        //        resultCollectionView.reloadData()
+//        suggestForSituation?.sort(by: {$0.price < $1.price})
+//        situationCollectionView.reloadData()
     }
     
     @objc
     func setPriceHighOrder() {
         print("setPriceHighOrder")
-        //        resultList.sort(by: {$0.price > $1.price})
-        //        resultCollectionView.reloadData()
+        //        suggestForSituation?.sort(by: {$0.price > $1.price})
+        //        situationCollectionView.reloadData()
     }
     
 }
@@ -132,6 +158,19 @@ extension SituationVC: UICollectionViewDelegate {
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
         self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
+            print("끝에 닿음")
+            if canFetchData, currPage < totalPage {
+                currPage += 1
+                canFetchData = false
+                getSuggestSituationWithAPI(accesstoken: accessToken, page: currPage, sort: sort, order: order)
+            }
+            //refresh
+            situationCollectionView.reloadData()
+        }
     }
 }
 
