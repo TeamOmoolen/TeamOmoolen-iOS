@@ -37,8 +37,9 @@ struct SuggestItem: Codable {
     let brand: String
     let name: String
     let diameter: Double
-    let changeCycle: Int
-    let piesces: Int
+    let changeCycleMinimum: Int
+    let changeCycleMaximum: Int
+    let pieces: Int
     let price: Int
     let otherColorList: [String]
     
@@ -48,8 +49,9 @@ struct SuggestItem: Codable {
         case brand
         case name
         case diameter
-        case changeCycle
-        case piesces
+        case changeCycleMinimum
+        case changeCycleMaximum
+        case pieces
         case price
         case otherColorList
         
