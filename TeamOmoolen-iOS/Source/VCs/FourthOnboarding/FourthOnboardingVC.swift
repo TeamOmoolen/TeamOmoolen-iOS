@@ -152,7 +152,7 @@ class FourthOnboardingVC: UIViewController {
         } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,15]] {
             lensBrand = "쿠퍼비전"
         } else {
-            lensBrand = "그 외"
+            lensBrand = ""
         }
         
         if purposeListCollectionView.indexPathsForSelectedItems! == [[0,0]] {
@@ -429,6 +429,7 @@ extension FourthOnboardingVC {
         //렌즈입력 텍스트필드 활성화
         icToggleImageView.image = UIImage(named: "icToggleBrandselectPressed")
         lensTextView.isEditable = true
+        warningLabel.isHidden = false
     }
 }
 
@@ -448,7 +449,8 @@ extension FourthOnboardingVC {
                 nextButton.isEnabled = true
                 nextButton.backgroundColor = .omMainOrange
             } else {
-                print("렌즈명도 입력해주셔야 합니다.")
+                lensName = lensTextView.text
+                warningLabel.isHidden = false
             }
         }
     }
@@ -474,7 +476,6 @@ extension FourthOnboardingVC: UITextViewDelegate {
             lensTextView.text = ""
             lensTextView.layer.borderWidth = 0
             NotificationCenter.default.post(name: NSNotification.Name("buttonInActive"), object: lensTextView.text)
-            print("렌즈명 입력해라.")
             warningLabel.isHidden = false
         } else {
             lensTextView.textColor = .omMainOrange

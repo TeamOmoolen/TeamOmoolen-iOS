@@ -89,36 +89,8 @@ class ThirdOnboardingVC: UIViewController {
             lensPeriod.append(7)
         }
         if lensPeriodList.contains([0,8]) {
-            lensPeriod.append(0)
-            lensPeriod.append(1)
-            lensPeriod.append(2)
-            lensPeriod.append(4)
-            lensPeriod.append(5)
-            lensPeriod.append(6)
-            lensPeriod.append(7)
+            lensPeriod = [0, 1, 2, 3, 4, 5, 6, 7]
         }
-        
-        
-//        if timeCollectionView.indexPathsForSelectedItems! == [[0,0]] {
-//            lensPeriod = "원데이"
-//        if timeCollectionView.indexPathsForSelectedItems! == [[0,1]] {
-//            lensPeriod = "2~6 days"
-//        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,2]] {
-//            lensPeriod = "1 week"
-//        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,3]] {
-//            lensPeriod = "2 weeks"
-//        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,4]] {
-//            lensPeriod = "1 month"
-//        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,5]] {
-//            lensPeriod = "2~3 months"
-//        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,6]] {
-//            lensPeriod = "4~6 months"
-//        } else if timeCollectionView.indexPathsForSelectedItems! == [[0,7]] {
-//            lensPeriod = "6 months +"
-//        } else {
-//            lensPeriod = "없음"
-//        }
-
         
         nextVC.age = age
         nextVC.gender = gender

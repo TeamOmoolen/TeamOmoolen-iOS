@@ -99,7 +99,7 @@ extension DetailVC: UITableViewDelegate {
         case 2:
             return 756
         case 3:
-            return 650
+            return 375
         default:
             return UITableView.automaticDimension
         }
