@@ -42,7 +42,7 @@ class SearchAPI {
             case .success(let result):
                 do {
                     let results = try JSONDecoder().decode(SearchResultDataModel.self, from: result.data)
-                    print("getSearchFilterResult: \(results.message)")
+                    print("getSearchKeywordResult: \(results.message)")
                     guard let data = results.data else {
                         return
                     }
