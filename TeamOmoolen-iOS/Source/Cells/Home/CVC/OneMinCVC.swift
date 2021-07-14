@@ -66,14 +66,6 @@ extension OneMinCVC {
         moreButton.layer.masksToBounds = true
     }
     
-//    func setList() {
-//        oneMinDetailData.append(contentsOf: [
-//            OneMinDetailDataModel(title: "렌즈 눈치 안보고 패션을 꾸밀 수 있다?", subTitle: "1분 렌즈 상식에 대한 간단 설명"),
-//            OneMinDetailDataModel(title: "렌즈 눈치 안보고 패션을 꾸밀 수 있다?", subTitle: "1분 렌즈 상식에 대한 간단 설명"),
-//            OneMinDetailDataModel(title: "렌즈 눈치 안보고 패션을 꾸밀 수 있다?", subTitle: "1분 렌즈 상식에 대한 간단 설명")
-//        ])
-//    }
-    
     func initCell(subTitle: String, oneMinDetail: [OneMinDetailDataModel]) {
         subtitleLabel.text = subTitle
         

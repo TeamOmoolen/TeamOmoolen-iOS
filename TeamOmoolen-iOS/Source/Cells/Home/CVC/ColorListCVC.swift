@@ -15,7 +15,7 @@ class ColorListCVC: UICollectionViewCell {
     
     private lazy var colorImageView: UIImageView = {
         let imageView = UIImageView()
-        
+        imageView.backgroundColor = .clear
         return imageView
     }()
     
@@ -31,7 +31,7 @@ class ColorListCVC: UICollectionViewCell {
 
 extension ColorListCVC {
     func setUI() {
-        contentView.addSubview(colorImageView)
+//        contentView.addSubview(colorImageView)
         
         contentView.layer.cornerRadius = 6
         contentView.layer.masksToBounds = true
@@ -40,27 +40,29 @@ extension ColorListCVC {
     func initCell(color: String) {
         switch color {
         case "clear":
-            contentView.layer.borderColor = UIColor.omThirdGray.cgColor
-            contentView.layer.borderWidth = 1
+            contentView.layer.borderColor = UIColor.omClear.cgColor
         case "black":
             contentView.layer.backgroundColor = UIColor.omMainBlack.cgColor
         case "gray":
             contentView.layer.backgroundColor = UIColor.omSecondGray.cgColor
         case "choco":
-            return
+            contentView.layer.backgroundColor = UIColor.omChoco.cgColor
         case "green":
             contentView.layer.backgroundColor = UIColor.omMainGreen.cgColor
         case "brown":
-            return
+            contentView.layer.backgroundColor = UIColor.omBrown.cgColor
         case "purple":
-            return
+            contentView.layer.backgroundColor = UIColor.omPurple.cgColor
         case "blue":
-            contentView.layer.backgroundColor = UIColor.blue.cgColor
+            contentView.layer.backgroundColor = UIColor.omBlue.cgColor
         case "gold":
-            return
+            contentView.layer.backgroundColor = UIColor.omGold.cgColor
         case "pink":
             contentView.layer.backgroundColor = UIColor.bubbleGumPink.cgColor
             
+        case "glitter":
+            return
+
         default:
             return
         }

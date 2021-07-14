@@ -84,3 +84,6 @@ struct RecommendationBy: Codable {
     let pieces: Int
     let changeCycle, changeCycleRange: Int
 }
+
+
+// MARK: - NewLens
