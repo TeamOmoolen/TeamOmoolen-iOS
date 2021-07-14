@@ -56,16 +56,14 @@ extension NewLensDetailTVC {
     }
     
     func initCell(lensImage: String, brandName: String, lensName: String, price: Int) {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
+        // 이미지 킹피셔로 처리
         
         brandNameLabel.text = brandName
         lensNameLabel.text = lensName
-        priceLabel.text = "\(formatter.string(from: NSNumber(value: price))!)원"
         
-        if let image = UIImage(named: lensImage)
-        {
-            lensImageView.image = image
-        }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        
+        priceLabel.text = "\(formatter.string(from: NSNumber(value: price))!)원"
     }
 }

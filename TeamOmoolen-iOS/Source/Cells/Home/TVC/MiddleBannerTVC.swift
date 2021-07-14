@@ -59,9 +59,6 @@ extension MiddleBannerTVC {
         imageList.append(event?[0].image ?? "")
         imageList.append(event?[1].image ?? "")
         imageList.append(event?[2].image ?? "")
-//        imageList.append("btnBluecolor")
-//        imageList.append("btnBluecolor")
-//        imageList.append("btnBluecolor")
     }
     
     func registerXib() {

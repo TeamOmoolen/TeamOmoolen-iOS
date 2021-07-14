@@ -16,3 +16,4 @@ struct OneMinDetailDataModel {
     var title: String
     var subTitle: String
 }
+

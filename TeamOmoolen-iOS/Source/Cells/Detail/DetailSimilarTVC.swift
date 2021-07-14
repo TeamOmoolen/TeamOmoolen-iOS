@@ -18,6 +18,7 @@ class DetailSimilarTVC: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Local Variables
+    
     var suggestList: [SuggestList]?
     var delegate: ViewModalProtocol?
     
@@ -70,6 +71,7 @@ extension DetailSimilarTVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
+        detailVC.id = suggestList?[indexPath.row].id
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
@@ -108,7 +110,7 @@ extension DetailSimilarTVC: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let data = suggestList?[indexPath.row]
-        cell.initCell(brandName: data?.brand ?? "", lensName: data?.name ?? "", diameter: data?.diameter ?? 0, cycle: data?.changeCycle ?? 0, pieces: data?.pieces ?? 0, price: data?.price ?? 0, colorList: data?.otherColorList ?? [""])
+        
         return cell
     }
 }
