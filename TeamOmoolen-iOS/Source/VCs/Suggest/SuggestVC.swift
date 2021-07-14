@@ -15,6 +15,7 @@ class SuggestVC: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var searchLeadingConstraint: NSLayoutConstraint!
     
     
     //MARK: - Local Variables
@@ -27,32 +28,28 @@ class SuggestVC: UIViewController {
         return suggestTB
     }()
     
+    private var suggestList: SuggestResponse?
+    
     //MARK: - View Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(getPosition(_:)), name: NSNotification.Name("PostPosition"), object: nil)
+        
         if position == 0 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, at: .left, animated: true)
-            
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         } else if position == 1 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 1, section: 0) as IndexPath, at: .left, animated: true)
-            
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 1, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         } else if position == 2 {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 2, section: 0) as IndexPath, at: .left, animated: true)
-            
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 2, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         } else {
             self.collectionView?.scrollToItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, at: .left, animated: true)
-            
             suggestTabBar.collectionView.selectItem(at: NSIndexPath(item: 3, section: 0) as IndexPath, animated: true, scrollPosition: .left)
         }
-        
         navigationController?.navigationBar.isHidden = true
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(getPosition(_:)), name: NSNotification.Name("PostPosition"), object: nil)
-         
     }
     
     override func viewDidLoad() {
@@ -67,19 +64,18 @@ class SuggestVC: UIViewController {
     }
     
     // MARK: - IBActions
-    @IBAction func touchUpBackButton(_ sender: Any) {
-        guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Home, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Home) as? HomeVC else {
+    
+    @IBAction func touchUpSearch(_ sender: Any) {
+        guard let searchVC = UIStoryboard(name: Const.Storyboard.Name.Search, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Search) as? SearchVC else {
             return
         }
-        homeVC.modalPresentationStyle = .fullScreen
-        homeVC.modalTransitionStyle = .crossDissolve
-        navigationController?.popViewController(animated: true)
+        searchVC.modalPresentationStyle = .fullScreen
+        searchVC.modalTransitionStyle = .crossDissolve
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
-    
     
    //MARK: - Methods
     func setUI() {
-        
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.frame.width, height: view.frame.height)
         layout.scrollDirection = .horizontal
@@ -89,18 +85,22 @@ class SuggestVC: UIViewController {
         collectionView.isPagingEnabled = true
         collectionView.isScrollEnabled = true
         
-        searchView.layer.cornerRadius = 6
+        searchView.layer.cornerRadius = 8
         searchView.backgroundColor = .omFifthGray
+        searchView.layer.borderColor = UIColor.omMainOrange.cgColor
+        searchView.layer.borderWidth = 1
+        searchView.backgroundColor = .omWhite
         
-        searchTextField.backgroundColor = .omFifthGray
+        searchTextField.layer.borderColor = UIColor.omWhite.cgColor
+        searchTextField.placeholder = "오늘은 무슨 렌즈끼지?"
         searchTextField.layer.borderWidth = 1
-        searchTextField.layer.borderColor = UIColor.omFifthGray.cgColor
+        searchTextField.backgroundColor = .omWhite
         
         let attributes = [
             NSAttributedString.Key.foregroundColor: UIColor.omFourthGray,
-            NSAttributedString.Key.font : UIFont(name: "NotoSansCJKKR-Regular", size: 14)!
+            NSAttributedString.Key.font : UIFont(name: "NotoSansCJKKR-Regular", size: 13)!
         ]
-        searchTextField.attributedPlaceholder = NSAttributedString(string: "원하는 렌즈를 검색해보세요",attributes: attributes )
+        searchTextField.attributedPlaceholder = NSAttributedString(string: "오늘은 무슨 렌즈끼지?",attributes: attributes )
         
     }
     
@@ -121,8 +121,13 @@ class SuggestVC: UIViewController {
         suggestViews.append(situationVC)
         suggestViews.append(newproductVC)
         suggestViews.append(seasonVC)
-        collectionView.reloadData()
         
+        foryouVC.suggestForYou = suggestList?.SuggestForYou
+        situationVC.suggestForSituation = suggestList?.SuggestForSituation
+        newproductVC.suggestForNew = suggestList?.SuggestForNew
+        seasonVC.suggestForSeason = suggestList?.suggestForSeason
+        
+        collectionView.reloadData()
     }
     
     private func setUpTabBar(){
@@ -130,11 +135,11 @@ class SuggestVC: UIViewController {
         
         if UIDevice.current.isiPhoneSE2 {
             view.addConstraintsWithFormat(format: "H:|-20-[v0]-70-|", views: suggestTabBar)
-            view.addConstraintsWithFormat(format: "V:|-80-[v0(45)]", views: suggestTabBar)
+            view.addConstraintsWithFormat(format: "V:|-91-[v0(45)]", views: suggestTabBar)
 
         } else if (UIDevice.current.isiPhone12Pro) {
             view.addConstraintsWithFormat(format: "H:|-20-[v0]-70-|", views: suggestTabBar)
-            view.addConstraintsWithFormat(format: "V:|-104-[v0(45)]", views: suggestTabBar)
+            view.addConstraintsWithFormat(format: "V:|-113-[v0(45)]", views: suggestTabBar)
 
         } else {
             view.addConstraintsWithFormat(format: "H:|-20-[v0]-70-|", views: suggestTabBar)
@@ -144,10 +149,8 @@ class SuggestVC: UIViewController {
     }
     
     func registerXib() {
-        
         let suggestHomeNib = UINib(nibName: SuggestHomeCVC.identifier, bundle: nil)
         collectionView.register(suggestHomeNib, forCellWithReuseIdentifier: SuggestHomeCVC.identifier)
-        
     }
     
     func setCollectionViewDelegate() {
@@ -161,6 +164,7 @@ class SuggestVC: UIViewController {
         }
         if UIDevice.current.isiPhone12Pro {
             collectionViewTopConstraint.constant = 0
+            searchLeadingConstraint.constant = 34
         }
     }
     

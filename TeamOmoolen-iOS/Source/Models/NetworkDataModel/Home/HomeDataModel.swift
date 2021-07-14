@@ -39,7 +39,7 @@ struct HomeResponse: Codable {
     let season: String
     let recommendationBySeason: [RecommendationBy]
     let deadlineEvent: [Event]
-    let newLens: [[RecommendationBySituation]]
+    let newLens: [RecommendationBySituation]
     let situation: String
     let recommendationBySituation: [RecommendationBySituation]
     let lastestEvent: [Event]
@@ -82,4 +82,6 @@ struct RecommendationBy: Codable {
     let brand, releaseDate: String
     let diameter: Double
     let pieces: Int
+    let changeCycle, changeCycleRange: Int
 }
+

@@ -21,6 +21,11 @@ class ForYouVC: UIViewController {
     
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []
+    var suggestForYou: [SuggestProduct]? = nil
+    
+    private var currPage: Int = 1
+    private var totalPage: Int = -1
+    private var canFetchData: Bool = true
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -32,7 +37,6 @@ class ForYouVC: UIViewController {
         setCollectionViewDelegate()
         setNotification()
         setPhoneResolution()
-
     }
     
     //MARK: - Methods
@@ -53,14 +57,15 @@ class ForYouVC: UIViewController {
     
     func setRecommendList() {
         recommendList.append(contentsOf: [
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, cycle: 1, pieces: 10, price: 18000, colorList: ["green"])
+            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
+            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
+            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
+            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
+            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
+            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
+            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
+            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"])
+            
         ])
     }
     
@@ -116,16 +121,17 @@ class ForYouVC: UIViewController {
         guard let popup = UIStoryboard(name: Const.Storyboard.Name.PopupModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.PopupModal) as? PopupModalVC else {
             return
         }
-        popup.titleText = "나에게 딱 맞는 렌즈 추천, For you"
-        popup.subtitleText = """
-            For you는 오무렌 사용자들이 나에게 딱 맞는 렌즈를
-            찾는 데 도움을 드리고자 만들어진 개인형 맞춤 추천
-            서비스입니다.
+        popup.titleText = "나에게 딱 맞는 렌즈 추천,Foryou"
+        popup.subtitleText =
+        """
+        For you는 오무렌 사용자들이 나에게 딱 맞는 렌즈를
+        찾는 데 도움을 드리고자 만들어진 개인형 맞춤 추천
+        서비스입니다.
 
-            국내 모든 렌즈에 대한 데이터를 바탕으로 회원가입시
-            입력한 1) 기능 2)주기 3)컬러 등을 고려하여
-            유저들에게 맞는 추천 제품을 제공합니다.
-            """
+        국내 모든 렌즈에 대한 데이터를 바탕으로 회원가입시
+        입력한 1) 기능 2)주기 3)컬러 등을 고려하여
+        유저들에게 맞는 추천 제품을 제공합니다.
+        """
         
         popup.modalPresentationStyle = .overFullScreen
         popup.modalTransitionStyle = . crossDissolve
@@ -143,6 +149,18 @@ extension ForYouVC: UICollectionViewDelegate {
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
         self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
+            print("끝에 닿음")
+            if canFetchData, currPage < totalPage {
+                currPage += 1
+                canFetchData = false
+                // 서버 통신하는 곳
+                // getSuggestForYouWithAPI(page: currPage)
+            }
+        }
     }
 }
 
@@ -185,12 +203,12 @@ extension ForYouVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendCVC.identifier, for: indexPath) as? RecommendCVC else {
-                return UICollectionViewCell()
+            return UICollectionViewCell()
         }
-        let data = recommendList[indexPath.row]
-        cell.initCell(brandName: data.brandName, lensName: data.lensName, diameter: data.diameter, cycle: data.cycle, pieces: data.pieces, price: data.price, colorList: data.colorList)
-            return cell
-        }
+        let data = suggestForYou?[indexPath.row]
+        cell.initCell(imageList: data?.imageList ?? [""], brandName: data?.brand ?? "오렌즈", lensName: data?.name ?? "스페니쉬 그레이", diameter: data?.diameter ?? 15.3, minCycle: data?.minCycle ?? 1, maxCycle: data?.maxCycle ?? 1, pieces: data?.pieces ?? 10, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [])
+        return cell
+    }
 }
+

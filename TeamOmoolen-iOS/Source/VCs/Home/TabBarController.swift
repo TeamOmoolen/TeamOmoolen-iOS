@@ -27,7 +27,7 @@ class TabBarController: UITabBarController {
         
         
         let suggestStoryboard = UIStoryboard.init(name: "Suggest", bundle: nil)
-        let suggestTab = suggestStoryboard.instantiateViewController(identifier: "SuggestVC")
+        let suggestTab = suggestStoryboard.instantiateViewController(identifier: "NaviController")
         suggestTab.tabBarItem = UITabBarItem(title: "발견", image: UIImage(named: "abc"), selectedImage: UIImage(named: "abc"))
         
         let eventStoryboard = UIStoryboard.init(name: "Event", bundle: nil)

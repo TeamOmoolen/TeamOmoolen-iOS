@@ -50,6 +50,7 @@ extension DetailVC {
             make.top.equalToSuperview().offset(700)
         }
     }
+    
     func getProductDetailWithAPI() {
         DetailAPI.shared.getProductDetail(param: id ?? "") { response in
             self.lensData = response

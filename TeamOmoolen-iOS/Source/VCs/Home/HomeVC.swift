@@ -86,7 +86,7 @@ extension HomeVC {
         searchIcon.image = UIImage(named: "icSearchSmall")
         searchLabel.text = "오늘은 무슨 렌즈끼지?"
         searchLabel.textColor = .omFourthGray
-        searchLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 13)
+        searchLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 13)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpSearchView))
         searchView.addGestureRecognizer(tapGesture)

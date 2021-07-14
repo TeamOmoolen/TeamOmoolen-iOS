@@ -19,7 +19,7 @@ class NewLensTVC: UITableViewCell {
     @IBOutlet weak var newLensCollectionView: UICollectionView!
     
     // MARK: - Local Variables
-    var newLans: [[RecommendationBySituation]]?
+    var newLans: [RecommendationBySituation]?
     var delegate: ViewModalProtocol?
 
     // MARK: - Life Cycle Methods
@@ -54,10 +54,6 @@ extension NewLensTVC {
         moreImageView.image = UIImage(named: "icFront")
         moreImageView.addGestureRecognizer(tapGesture)
         moreImageView.isUserInteractionEnabled = true
-    }
-    
-    func initCell() {
-        
     }
     
     func registerXib() {
@@ -121,7 +117,7 @@ extension NewLensTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewLensCVC.identifier, for: indexPath) as? NewLensCVC else {
             return UICollectionViewCell()
         }
-        cell.delegate = ViewModalProtocol.self as? ViewModalProtocol
+        cell.initCell(lensData: newLans ?? [])
         return cell
     }
 }
