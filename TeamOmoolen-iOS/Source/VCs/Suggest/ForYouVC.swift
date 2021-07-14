@@ -22,6 +22,7 @@ class ForYouVC: UIViewController {
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []
     var suggestForYou: [SuggestProduct]? = nil
+    var suggestDetailForYou: SuggestDetailResponse?
     
     private var currPage: Int = 1
     private var totalPage: Int = -1
@@ -95,6 +96,11 @@ class ForYouVC: UIViewController {
         }
    }
     
+    func getSuggestForyouWithAPI(accesstoken: String, page: Int, sort: String, order: String) {
+        SuggestAPI.shared.getForyou(accesstoken: accesstoken, page: page, sort: sort, order: order) { response in
+            self.suggestDetailForYou = response
+        }
+    }
 
     
     // MARK: - @objc Methods
@@ -163,8 +169,10 @@ extension ForYouVC: UICollectionViewDelegate {
                 currPage += 1
                 canFetchData = false
                 // 서버 통신하는 곳
-                // getSuggestForYouWithAPI(page: currPage)
+//                getSuggestForyouWithAPI(accesstoken: <#String#>, page: currp, sort: <#String#>, order: <#String#>)
             }
+            //refresh
+            forYouCollectionView.reloadData()
         }
     }
 }

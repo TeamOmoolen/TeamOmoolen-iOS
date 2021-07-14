@@ -17,14 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashIllustImage12Mini" translatesAutoresizingMaskIntoConstraints="NO" id="AI7-LH-oY1">
-                                <rect key="frame" x="19.5" y="42" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="AI7-LH-oY1" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="JqI-tF-g2y"/>
-                            <constraint firstItem="AI7-LH-oY1" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="wHe-Ie-DGb"/>
+                            <constraint firstAttribute="bottom" secondItem="AI7-LH-oY1" secondAttribute="bottom" id="0wC-Vs-3dC"/>
+                            <constraint firstItem="AI7-LH-oY1" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="0xk-pR-f2l"/>
+                            <constraint firstItem="AI7-LH-oY1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="162-KI-wo8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="AI7-LH-oY1" secondAttribute="trailing" id="w3x-Dv-xdc"/>
                         </constraints>
                     </view>
                     <connections>
