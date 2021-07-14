@@ -11,6 +11,7 @@ import Moya
 enum SuggestService {
     case suggest(accesstoken: String)
     case suggestForyou(accesstoken: String, page: Int, sort: String, order: String)
+    case suggestSituation(accesstoken: String, page: Int, sort: String, order: String)
 }
 
 extension SuggestService: TargetType {
@@ -24,6 +25,8 @@ extension SuggestService: TargetType {
             return "/api/suggest"
         case .suggestForyou:
             return "/api/suggest/foryou"
+        case .suggestSituation:
+            return "/api/suggest/situation"
         }
     }
     
@@ -44,6 +47,8 @@ extension SuggestService: TargetType {
             return .requestPlain
         case .suggestForyou(_, let page, let sort, let order):
             return .requestParameters(parameters: ["page" : page, "sort" : sort, "order" : order], encoding: URLEncoding.queryString)
+        case .suggestSituation(_, let page, let sort, let order):
+            return .requestParameters(parameters: ["page" : page, "sort" : sort, "order" : order], encoding: URLEncoding.queryString)
         }
     }
     
@@ -52,6 +57,8 @@ extension SuggestService: TargetType {
         case .suggest(let accesstoken):
             return ["Content-Type": "application/json", "accesstoken" : accesstoken]
         case .suggestForyou(let accesstoken, _,_,_):
+            return ["Content-Type": "application/json", "accesstoken" : accesstoken]
+        case .suggestSituation(let accesstoken, _,_,_):
             return ["Content-Type": "application/json", "accesstoken" : accesstoken]
         }
     }
