@@ -42,9 +42,18 @@ class SearchResultVC: UIViewController {
         let vc = UIStoryboard(name: Const.Storyboard.Name.SortPanModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SortPanModal) as! SortPanModalVC
         presentPanModal(vc)
     }
+    
+
     @IBAction func popToSearch(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func returnToSearch(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
     
     // MARK: - Methods
     func setNotification() {
@@ -138,8 +147,7 @@ extension SearchResultVC: UICollectionViewDelegateFlowLayout {
 //        let height = collectionView.frame.height
         let cellWidth = (width - 24) / 3
         let cellHeight = 201
-        print(cellWidth)
-        return CGSize(width: 10, height: CGFloat(cellHeight))
+        return CGSize(width: cellWidth, height: CGFloat(cellHeight))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
