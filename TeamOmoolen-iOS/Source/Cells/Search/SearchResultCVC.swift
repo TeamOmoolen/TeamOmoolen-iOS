@@ -54,7 +54,7 @@ class SearchResultCVC: UICollectionViewCell {
             lensNameLabel.lineBreakMode = .byTruncatingTail
             lensInfoLabel.text = "직경 / 교체시기"
             lensInfoLabel.textColor = .omThirdGray
-            lensInfoLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 11)
+            lensInfoLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 10)
             
             priceLabel.text = "가격"
             priceLabel.textColor = .omMainBlack

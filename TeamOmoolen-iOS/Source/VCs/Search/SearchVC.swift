@@ -191,7 +191,8 @@ extension SearchVC {
             searchResultVC.modalTransitionStyle = .crossDissolve
             searchResultVC.resultList = self.searchResultResponse?.products
             searchResultVC.searchKeyword = self.keyword
-//            searchResultVC.productCount = self.searchResultResponse?.lensCount ?? 0
+            print("total: \(self.searchResultResponse?.totalCount)")
+            searchResultVC.totalCount = self.searchResultResponse?.totalCount ?? 0
             self.navigationController?.pushViewController(searchResultVC, animated: true)
         }
     }
