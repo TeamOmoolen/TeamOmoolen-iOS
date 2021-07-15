@@ -307,19 +307,6 @@ extension FilterVC {
     
     @objc
     func touchUpReset(_ sender: UITapGestureRecognizer) {
-//        if !brandFilterView.isHidden {
-//            NotificationCenter.default.post(name: NSNotification.Name("touchUpBrandReset"), object: nil)
-//        }
-//        if !colorFilterView.isHidden {
-//            NotificationCenter.default.post(name: NSNotification.Name("touchUpColorReset"), object: nil)
-//
-//        }
-//        if !diameterFilterView.isHidden {
-//            NotificationCenter.default.post(name: NSNotification.Name("touchUpDiameterReset"), object: nil)
-//        }
-//        if !cycleFilterView.isHidden {
-//            NotificationCenter.default.post(name: NSNotification.Name("touchUpCycleReset"), object: nil)
-//        }
         NotificationCenter.default.post(name: NSNotification.Name("touchUpBrandReset"), object: nil)
         NotificationCenter.default.post(name: NSNotification.Name("touchUpColorReset"), object: nil)
         NotificationCenter.default.post(name: NSNotification.Name("touchUpDiameterReset"), object: nil)
@@ -425,7 +412,6 @@ extension FilterVC {
             searchVC.modalPresentationStyle = .fullScreen
             searchVC.modalTransitionStyle = .crossDissolve
             searchVC.resultList = self.searchResultResponse?.products
-            
             self.navigationController?.pushViewController(searchVC, animated: true)
         }
     }

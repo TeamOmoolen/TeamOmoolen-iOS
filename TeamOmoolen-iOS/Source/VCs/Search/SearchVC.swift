@@ -167,7 +167,6 @@ extension SearchVC {
     }
     
     func requestAPI(){
-        // let param = SearchKeywordRequest(keyword)
         let param = keyword
         
         print(param)
@@ -185,7 +184,7 @@ extension SearchVC {
             searchResultVC.modalPresentationStyle = .fullScreen
             searchResultVC.modalTransitionStyle = .crossDissolve
             searchResultVC.resultList = self.searchResultResponse?.products
-            
+            searchResultVC.searchKeyword = self.keyword
             self.navigationController?.pushViewController(searchResultVC, animated: true)
         }
     }

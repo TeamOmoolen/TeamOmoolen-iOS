@@ -28,7 +28,7 @@ class NewProductVC: UIViewController {
     private var totalPage: Int = -1
     private var canFetchData: Bool = true
     
-    private var sort = "price"
+    private var sort = ""
     private var order = ""
     
     //MARK: - View Life Cycle
@@ -37,6 +37,7 @@ class NewProductVC: UIViewController {
         setUI()
         registerXib()
         setRecommendList()
+        setAccesstoken()
         setCollectionViewDelegate()
         setPhoneResolution()
 
@@ -78,6 +79,10 @@ class NewProductVC: UIViewController {
         //popUpButtomView.backgroundColor = .omFifthGray
         popUpButton.setImage(UIImage(named: "btnQuestionmark"), for: .normal)
         
+    }
+    
+    func setAccesstoken() {
+        accesstoken = UserDefaults.standard.string(forKey: "AccessToken") ?? ""
     }
     
     func registerXib(){
@@ -144,8 +149,9 @@ extension NewProductVC: UICollectionViewDelegate {
             if canFetchData, currPage < totalPage {
                 currPage += 1
                 canFetchData = false
-                //서버통신
                 getSuggestNewWithAPI(accesstoken: accesstoken, page: currPage, sort: sort, order: order)
+            } else {
+                getSuggestNewWithAPI(accesstoken: accesstoken, page: currPage, sort: "", order: "")
             }
             //refresh
             newProductCollectionView.reloadData()

@@ -50,10 +50,10 @@
                                     <constraint firstAttribute="height" constant="0.5" id="K3l-8U-cUp"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QbE-xu-afP">
-                                <rect key="frame" x="20" y="186.5" width="374" height="675.5"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QbE-xu-afP">
+                                <rect key="frame" x="20" y="186.5" width="374" height="709.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yDt-bM-IJz">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yDt-bM-IJz">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -103,7 +103,7 @@
                             <constraint firstItem="p3Z-7w-eiq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="7" id="6tb-so-FR0"/>
                             <constraint firstItem="HVR-Rw-0zV" firstAttribute="top" secondItem="TA4-Ft-7Gk" secondAttribute="bottom" constant="10" id="8MA-b6-yrN"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="HVR-Rw-0zV" secondAttribute="trailing" id="CLf-aL-KZX"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="QbE-xu-afP" secondAttribute="bottom" id="JKF-w6-64N"/>
+                            <constraint firstAttribute="bottom" secondItem="QbE-xu-afP" secondAttribute="bottom" id="JKF-w6-64N"/>
                             <constraint firstItem="HVR-Rw-0zV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="K59-fE-4QA"/>
                             <constraint firstItem="4O7-Bp-XWa" firstAttribute="top" secondItem="SgH-GA-B4P" secondAttribute="bottom" constant="3" id="SmZ-XP-mBA"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QbE-xu-afP" secondAttribute="trailing" constant="20" id="SqZ-h1-GDW"/>
