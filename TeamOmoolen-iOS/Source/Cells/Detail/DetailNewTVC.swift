@@ -20,8 +20,7 @@ class DetailNewTVC: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Local Variables
-    var popularList: [PopularList]?
-//    private var recommendList: [RecommendLensDataModel] = []
+    var popularList = [PopularList]()
     var delegate: ViewModalProtocol?
     
     // MARK: - Life Cycle Methods
@@ -68,6 +67,11 @@ extension DetailNewTVC {
         
         collectionView.showsHorizontalScrollIndicator = false
     }
+    
+    func initCell(data: [PopularList]) {
+        popularList = data
+        collectionView.reloadData()
+    }
 }
 
 // MARK: - Action Methods
@@ -88,7 +92,7 @@ extension DetailNewTVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
-        detailVC.id = popularList?[indexPath.row].id
+//        detailVC.id = popularList[indexPath.row].id
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
@@ -109,14 +113,15 @@ extension DetailNewTVC: UICollectionViewDelegateFlowLayout {
 
 extension DetailNewTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return popularList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularCVC.identifier, for: indexPath) as? PopularCVC else {
             return UICollectionViewCell()
         }
-        let data = popularList?[indexPath.row]
+        let data = popularList[indexPath.row]
+        cell.initCell(imageList: data.imageList, brandName: data.brand, lensName: data.name, diameter: data.diameter, minCycle: data.changeCycleMinimum, maxCycle: data.changeCycleMaximum, pieces: data.pieces)
         return cell
     }
 }
