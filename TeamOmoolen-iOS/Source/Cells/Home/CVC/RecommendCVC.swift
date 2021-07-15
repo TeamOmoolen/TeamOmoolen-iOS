@@ -43,7 +43,10 @@ extension RecommendCVC {
         contentView.backgroundColor = .white
         modelImageView.image = UIImage(named: "ellipse1842")
         lensImageView.image = UIImage(named: "imgColorA")
+        
         lensImageView.layer.cornerRadius = lensImageView.frame.width / 2
+        lensImageView.contentMode = .scaleAspectFill
+        lensImageView.layer.applyShadow(color: .omMainBlack, alpha: 0.4, x: 0, y: 1, blur: 5, spread: 0)
         
         brandNameLabel.text
          = "오렌즈"
@@ -65,13 +68,13 @@ extension RecommendCVC {
     }
     
     func initCell(imageList: [String], brandName: String, lensName: String, diameter: Double, minCycle: Int, maxCycle: Int, pieces: Int, price: Int, colorList: [String]) {
-//        let lensString = imageList[0]
-//        let lensUrl = URL(string: lensString)!
-//        self.lensImageView.kf.setImage(with: lensUrl)
-//        
-//        let modelString = imageList[1]
-//        let modelUrl = URL(string: modelString)!
-//        self.modelImageView.kf.setImage(with: modelUrl)
+        let lensString = imageList[0]
+        let lensUrl = URL(string: lensString)!
+        self.lensImageView.kf.setImage(with: lensUrl)
+        
+        let modelString = imageList[1]
+        let modelUrl = URL(string: modelString)!
+        self.modelImageView.kf.setImage(with: modelUrl)
         
         brandNameLabel.text = brandName
         lensNameLabel.text = lensName
@@ -96,6 +99,7 @@ extension RecommendCVC {
         priceLabel.text = "\(formatter.string(from: NSNumber(value: price))!)원"
         
         self.colorList = colorList
+        colorListCollectionView.reloadData()
     }
     
     func registerXib() {
@@ -131,15 +135,14 @@ extension RecommendCVC: UICollectionViewDelegateFlowLayout {
 
 extension RecommendCVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return colorList.count
-        return 4
+        return colorList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorListCVC.identifier, for: indexPath) as? ColorListCVC else {
             return UICollectionViewCell()
         }
-//        cell.initCell(color: colorList[indexPath.row])
+        cell.initCell(color: colorList[indexPath.row])
         return cell
     }
 }

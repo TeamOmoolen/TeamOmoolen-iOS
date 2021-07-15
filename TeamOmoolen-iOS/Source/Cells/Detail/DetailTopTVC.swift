@@ -131,19 +131,22 @@ extension DetailTopTVC {
         compareButton.layer.cornerRadius = 10
         compareButton.layer.masksToBounds = true
         
-//        modelImageView.contentMode = .scaleAspectFill
-//        lensImageView.contentMode = .scaleAspectFill
-//        lensImageView.layer.cornerRadius = lensImageView.frame.height / 2
+        // MARK: - ImageView UI
+        
+        lensImageView.layer.applyShadow(color: .omMainBlack, alpha: 0.4, x: 0, y: 1, blur: 5, spread: 0)
+        lensImageView.layer.cornerRadius = lensImageView.frame.width / 2
+        lensImageView.clipsToBounds = true
+        lensImageView.contentMode = .scaleAspectFill
+        
     }
     
     func initCell(imageList: [String], brand: String, lens: String, price: Int, diameter: Double, minCycle: Int, maxCycle:Int, texture: String, function: String, colorList: [String]) {
         // kingfisher
-        let modelURL = URL(string: imageList[0])
+        let modelURL = URL(string: imageList[1])
         modelImageView.kf.setImage(with: modelURL)
         
         let lensURL = URL(string: imageList[0])
         lensImageView.kf.setImage(with: lensURL)
-        lensImageView.layer.cornerRadius = lensImageView.frame.width / 2
         
         brandLabel.text = brand
         lensLabel.text = lens

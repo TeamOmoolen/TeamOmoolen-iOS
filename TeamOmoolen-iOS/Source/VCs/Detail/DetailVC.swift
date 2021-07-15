@@ -26,12 +26,15 @@ class DetailVC: UIViewController {
     
     
     // MARK: - Life Cycle Methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getProductDetailWithAPI()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUI()
-        getProductDetailWithAPI()
 
         registerXib()
         setTableView()
@@ -53,8 +56,8 @@ extension DetailVC {
     }
     
     func getProductDetailWithAPI() {
-//        DetailAPI.shared.getProductDetail(param: id ?? "") { response in
-        DetailAPI.shared.getProductDetail(param: "60efdf8e3e4ecf590a92403b") { response in
+        DetailAPI.shared.getProductDetail(param: id ?? "") { response in
+//        DetailAPI.shared.getProductDetail(param: "60efdf8e3e4ecf590a92403b") { response in
             self.lensData = response
             self.detailTableView.reloadData()
         }
@@ -128,7 +131,7 @@ extension DetailVC: UITableViewDataSource {
             cell.delegate = self
             
             let data = lensData
-            cell.initCell(imageList: data?.imageURL ?? [""], brand: data?.brand ?? "", lens: data?.name ?? "", price: data?.price ?? 0, diameter: data?.diameter ?? 0, minCycle: data?.changeCycleMinimum ?? 30, maxCycle: data?.changeCycleMaximum ?? 60, texture: data?.material ?? "", function: data?.function ?? "", colorList: data?.otherColorList ?? [""])
+            cell.initCell(imageList: data?.imageURL ?? ["", "", ""], brand: data?.brand ?? "", lens: data?.name ?? "", price: data?.price ?? 0, diameter: data?.diameter ?? 0, minCycle: data?.changeCycleMinimum ?? 30, maxCycle: data?.changeCycleMaximum ?? 60, texture: data?.material ?? "", function: data?.function ?? "", colorList: data?.otherColorList ?? [""])
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTVC.identifier) as? ReviewTVC else {

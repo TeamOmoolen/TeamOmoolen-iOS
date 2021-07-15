@@ -19,7 +19,7 @@ class OneMinTVC: UITableViewCell {
     @IBOutlet weak var oneMinCollectionView: UICollectionView!
     
     // MARK: - Local Variables
-    var guides = [Guide]()
+    var guides = [GuideList]()
     var oneMinDataList = [OneMinDataModel]()
     var oneMinDetailList = [OneMinDetailDataModel]()
     
@@ -70,8 +70,7 @@ extension OneMinTVC {
         oneMinCollectionView.showsHorizontalScrollIndicator = false
     }
     
-    func initCell(data : [Guide]){
-        print("OneMinTVC :",data)
+    func initCell(data : [GuideList]){
         self.guides = data
         oneMinCollectionView.reloadData()
     }
@@ -110,15 +109,15 @@ extension OneMinTVC: UICollectionViewDelegateFlowLayout {
 
 extension OneMinTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return guides.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OneMinCVC.identifier, for: indexPath) as? OneMinCVC else {
             return UICollectionViewCell()
         }
-//        let data = guides[indexPath.row]
-//        cell.initCell(subTitle: data.title, oneMinDetail: data.guideDetail)
+        let data = guides[indexPath.row]
+        cell.initCell(subTitle: data.category, oneMinDetail: data.guides)
         return cell
     }
 }

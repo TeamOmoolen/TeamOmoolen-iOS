@@ -72,7 +72,7 @@ class SearchResultCVC: UICollectionViewCell {
         let lensUrl = URL(string: lensString)
         self.lensImageView.kf.setImage(with: lensUrl)
         
-        let modelString = imageList[0]
+        let modelString = imageList[1]
         let modelUrl = URL(string: modelString)
         self.modelImageView.kf.setImage(with: modelUrl)
         
@@ -101,6 +101,7 @@ class SearchResultCVC: UICollectionViewCell {
         priceLabel.text = "\(formatter.string(from: NSNumber(value: price))!)원"
         
         self.colorList = colorList
+        colorListCollectionView.reloadData()
     }
     
     func registerXib() {

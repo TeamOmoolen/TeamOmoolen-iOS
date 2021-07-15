@@ -60,6 +60,9 @@ extension NewLensDetailTVC {
     
     func initCell(brand: String, name: String, price: Int, imageList: [String]) {
         // 이미지 킹피셔로 처리
+        let lensString = imageList[0]
+        let lensUrl = URL(string: lensString)
+        self.lensImageView.kf.setImage(with: lensUrl)
         
         brandNameLabel.text = brand
         lensNameLabel.text = name
