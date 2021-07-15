@@ -135,6 +135,18 @@ extension SearchResultVC: UICollectionViewDelegate {
             resultCollectionView.reloadData()
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let detailVC = UIStoryboard(name: Const.Storyboard.Name.Detail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Detail) as? DetailVC else {
+            return
+        }
+        detailVC.modalPresentationStyle = .fullScreen
+        detailVC.modalTransitionStyle = .crossDissolve
+        detailVC.id = resultList![indexPath.row].id
+        self.navigationController?.pushViewController(detailVC, animated: true)
+        
+    }
 }
 
 // MARK: - UICollectionViewDataSource
