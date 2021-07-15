@@ -19,7 +19,7 @@ class NewLensTVC: UITableViewCell {
     @IBOutlet weak var newLensCollectionView: UICollectionView!
     
     // MARK: - Local Variables
-    var newLens = [NewLens(mainData: [NewLensDetailData]())]
+    var newLens = [[NewLensDetailData]]()
     
     var delegate: ViewModalProtocol?
 
@@ -68,8 +68,8 @@ extension NewLensTVC {
         newLensCollectionView.showsHorizontalScrollIndicator = false
     }
     
-    func initCell(data: [NewLens]) {
-        self.newLens = data
+    func initCell(data: [[NewLensDetailData]]) {
+        newLens = data
         newLensCollectionView.reloadData()
     }
 }
@@ -115,17 +115,14 @@ extension NewLensTVC: UICollectionViewDelegateFlowLayout {
 
 extension NewLensTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return newLens.count
-        return 3
+        return newLens.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewLensCVC.identifier, for: indexPath) as? NewLensCVC else {
             return UICollectionViewCell()
         }
-//        cell.brandLabel.text = newLens[indexPath.row].mainData.first?.brand
-//        cell.lensLabel.text = newLens[indexPath.row].mainData.first?.name
-//        cell.initCell(lensData: newLens[indexPath.row].mainData)
+        cell.initCell(lensData: newLens[indexPath.row])
         return cell
     }
 }

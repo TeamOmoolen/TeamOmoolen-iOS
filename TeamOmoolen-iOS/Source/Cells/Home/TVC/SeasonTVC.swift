@@ -21,7 +21,7 @@ class SeasonTVC: UITableViewCell {
     
     // MARK: - Local Variables
     var season: String?
-    var recommendationBySeason = [RecommendationBy]()
+    private var list = [RecommendationBy]()
     var delegate: ViewModalProtocol?
     var tagDelegate: PassTagProtocol?
     
@@ -61,7 +61,7 @@ extension SeasonTVC {
     }
     
     func initCell(data: [RecommendationBy]) {
-        recommendationBySeason = data
+        list = data
         seasonCollectionView.reloadData()
     }
     
@@ -102,7 +102,7 @@ extension SeasonTVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
-//        detailVC.id = recommendationBySeason[indexPath.row].id
+        detailVC.id = list[indexPath.row].id
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
@@ -131,15 +131,15 @@ extension SeasonTVC: UICollectionViewDelegateFlowLayout {
 
 extension SeasonTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeasonCVC.identifier, for: indexPath) as? SeasonCVC else {
             return UICollectionViewCell()
         }
-//        let data = recommendationBySeason[indexPath.row]
-//        cell.initCell(imageList: data.imageList, brandName: data.brand, lensName: data.name, diameter: data.diameter, minCycle: data.minCycle, maxCycle: data.maxCycle, pieces: data.pieces, price: data.price, colorList: data.otherColorList)
+        let data = list[indexPath.row]
+        cell.initCell(imageList: data.imageList, brandName: data.brand, lensName: data.name, diameter: data.diameter, minCycle: data.changeCycleMinimum, maxCycle: data.changeCycleMaximum, pieces: data.pieces, price: data.price, colorList: data.otherColorList)
         return cell
     }
 }

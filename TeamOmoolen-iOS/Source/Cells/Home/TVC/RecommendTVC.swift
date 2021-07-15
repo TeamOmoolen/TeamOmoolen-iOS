@@ -20,7 +20,7 @@ class RecommendTVC: UITableViewCell {
     
     // MARK: - Local Variables
     
-    private var recommendList = [RecommendationBy]()
+    private var list = [RecommendationBy]()
     
     var delegate: ViewModalProtocol?
     
@@ -45,7 +45,7 @@ class RecommendTVC: UITableViewCell {
 extension RecommendTVC {
     func setUI() {
         contentView.backgroundColor = .white
-        recommendLabel.text = "\(username)님! 이 렌즈 어때요?"
+        
         recommendLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpMore(_:)))
@@ -73,8 +73,13 @@ extension RecommendTVC {
     }
     
     func initCell(data : [RecommendationBy]){
-        recommendList = data
+        list = data
         recommendCollectionView.reloadData()
+    }
+    
+    func initName(name: String) {
+        username = name
+        recommendLabel.text = "\(username!)님! 이 렌즈 어때요?"
     }
 }
 
@@ -102,7 +107,7 @@ extension RecommendTVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
-//        detailVC.id = recommendList[indexPath.row].id
+        detailVC.id = list[indexPath.row].id
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
@@ -133,15 +138,15 @@ extension RecommendTVC: UICollectionViewDelegateFlowLayout {
 
 extension RecommendTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendCVC.identifier, for: indexPath) as? RecommendCVC else {
             return UICollectionViewCell()
         }
-//        let data = recommendList[indexPath.row]
-//        cell.initCell(imageList: data.imageList, brandName: data.brand, lensName: data.name, diameter: data.diameter, minCycle: data.minCycle, maxCycle: data.maxCycle, pieces: data.pieces, price: data.price, colorList: data.otherColorList)
+        let data = list[indexPath.row]
+        cell.initCell(imageList: data.imageList, brandName: data.brand, lensName: data.name, diameter: data.diameter, minCycle: data.changeCycleMinimum, maxCycle: data.changeCycleMaximum, pieces: data.pieces, price: data.price, colorList: data.otherColorList)
         return cell
     }
 }

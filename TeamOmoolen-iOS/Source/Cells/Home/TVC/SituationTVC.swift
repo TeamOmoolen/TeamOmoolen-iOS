@@ -132,16 +132,15 @@ extension SituationTVC: UICollectionViewDelegateFlowLayout {
 
 extension SituationTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return recommendationBySituation.count
-        return 6
+        return recommendationBySituation.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeasonCVC.identifier, for: indexPath) as? SeasonCVC else {
             return UICollectionViewCell()
         }
-//        let data = recommendationBySituation[indexPath.row]
-//        cell.initCell(imageList: data.imageList, brandName: data.brand, lensName: data.name, diameter: data.diameter, minCycle: data.minCycle, maxCycle: data.maxCycle, pieces: data.pieces, price: data.price, colorList: data.otherColorList)
+        let data = recommendationBySituation[indexPath.row]
+        cell.initCell(imageList: data.imageList, brandName: data.brand, lensName: data.name, diameter: data.diameter, minCycle: data.changeCycleMinimum, maxCycle: data.changeCycleMaximum, pieces: data.pieces, price: data.price, colorList: data.otherColorList)
         return cell
     }
 }

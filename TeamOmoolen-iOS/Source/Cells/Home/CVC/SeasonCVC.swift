@@ -71,7 +71,7 @@ extension SeasonCVC {
         let lensUrl = URL(string: lensString)
         self.lensImageView.kf.setImage(with: lensUrl)
         
-        let modelString = imageList[0]
+        let modelString = imageList[1]
         let modelUrl = URL(string: modelString)
         self.modelImageView.kf.setImage(with: modelUrl)
         
@@ -100,7 +100,6 @@ extension SeasonCVC {
         priceLabel.text = "\(formatter.string(from: NSNumber(value: price))!)원"
         
         self.colorList = colorList
-        
         colorListCollectionView.reloadData()
     }
     
@@ -131,16 +130,14 @@ extension SeasonCVC: UICollectionViewDelegateFlowLayout {
 
 extension SeasonCVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return colorList.count
-        return 4
+        return colorList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorListCVC.identifier, for: indexPath) as? ColorListCVC else {
             return UICollectionViewCell()
         }
-//        cell.initCell(color: colorList[indexPath.row])
-        cell.initCell(color: "green")
+        cell.initCell(color: colorList[indexPath.row])
         return cell
     }
 }

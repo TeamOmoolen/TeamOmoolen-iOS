@@ -29,7 +29,7 @@ class OneMinCVC: UICollectionViewCell {
     var delegate: ViewModalProtocol?
     
     var title: String = ""
-    var guideDetail: [GuideDetail]? = nil
+    var guideDetail = [Guide]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -69,7 +69,7 @@ extension OneMinCVC {
         moreButton.layer.masksToBounds = true
     }
     
-    func initCell(subTitle: String, oneMinDetail: [GuideDetail]) {
+    func initCell(subTitle: String, oneMinDetail: [Guide]) {
         subtitleLabel.text = subTitle
         guideDetail = oneMinDetail
         
@@ -103,8 +103,7 @@ extension OneMinCVC: UITableViewDelegate {
 
 extension OneMinCVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return oneMinDetailData.count
-        return 3
+        return guideDetail.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -112,8 +111,7 @@ extension OneMinCVC: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.selectionStyle = .none
-        
-//        cell.initCell(title: guideDetail?[indexPath.row].question ?? "", subTitle: guideDetail?[indexPath.row].answer ?? "")
+        cell.initCell(title: guideDetail[indexPath.row].question, subTitle: guideDetail[indexPath.row].answer)
         return cell
     }
 }

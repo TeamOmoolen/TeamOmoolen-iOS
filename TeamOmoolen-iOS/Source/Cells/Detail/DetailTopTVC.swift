@@ -142,7 +142,7 @@ extension DetailTopTVC {
     
     func initCell(imageList: [String], brand: String, lens: String, price: Int, diameter: Double, minCycle: Int, maxCycle:Int, texture: String, function: String, colorList: [String]) {
         // kingfisher
-        let modelURL = URL(string: imageList[0])
+        let modelURL = URL(string: imageList[1])
         modelImageView.kf.setImage(with: modelURL)
         
         let lensURL = URL(string: imageList[0])
