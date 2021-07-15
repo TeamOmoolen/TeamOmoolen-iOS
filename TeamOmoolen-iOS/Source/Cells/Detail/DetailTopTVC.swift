@@ -132,7 +132,14 @@ extension DetailTopTVC {
         compareButton.layer.masksToBounds = true
     }
     
-    func initCell(brand: String, lens: String, price: Int, diameter: Double, cycle: Int, texture: String, function: String, colorList: [String]) {
+    func initCell(imageList: [String], brand: String, lens: String, price: Int, diameter: Double, minCycle: Int, maxCycle:Int, texture: String, function: String, colorList: [String]) {
+        // kingfisher
+        let modelURL = URL(string: imageList[0])
+        modelImageView.kf.setImage(with: modelURL)
+        
+        let lensURL = URL(string: imageList[0])
+        lensImageView.kf.setImage(with: lensURL)
+        
         brandLabel.text = brand
         lensLabel.text = lens
         
@@ -143,22 +150,17 @@ extension DetailTopTVC {
         lensDiameterLabel.text = "\(diameter)mm"
         
         var cycleData = ""
-        if cycle == 0 {
-            cycleData = "1 day"
-        } else if cycle == 1 {
-            cycleData = "2 ~ 6 days"
-        } else if cycle == 2 {
-            cycleData = "1 week"
-        } else if cycle == 3 {
-            cycleData = "2 weeks"
-        } else if cycle == 4 {
-            cycleData = "1 month"
-        } else if cycle == 5 {
-            cycleData = "2 ~ 3 months"
-        } else if cycle == 6 {
-            cycleData = "4 ~ 6 months"
-        } else if cycle == 7 {
-            cycleData = "6 months +"
+        if minCycle == maxCycle {
+            if minCycle < 7 { cycleData = "\(minCycle)Day" }
+            else if minCycle < 30 { cycleData = "\(minCycle/7)Week" }
+            else { cycleData = "\(minCycle/30)Month" }
+        } else if maxCycle < 7 {
+            cycleData = "\(minCycle)~\(maxCycle)Days"
+        } else if maxCycle < 30 {
+            cycleData = "\(minCycle/7)~\(maxCycle/7)Weeks"
+        } else if maxCycle > 30 {
+            if minCycle/30 >= 6 { cycleData = "6months+" }
+            else {cycleData = "\(minCycle/30)~\(maxCycle/30)Months"}
         }
         lensCycleLabel.text = "\(cycleData)"
         
@@ -167,6 +169,7 @@ extension DetailTopTVC {
         lensFunctionLabel.text = function
         
         self.colorList = colorList
+        lensColorListCollectionView.reloadData()
     }
     
     func registerXib() {

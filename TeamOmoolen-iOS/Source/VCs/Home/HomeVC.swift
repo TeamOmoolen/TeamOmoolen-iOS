@@ -127,10 +127,12 @@ extension HomeVC {
         homeTableView.allowsSelection = false
     }
     
+    // MARK: - Network 
     func getHomeWithAPI() {
         let userIdentifier = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
         OnboardingAPI.shared.getHome(accesstoken: userIdentifier) { response in
             self.homeList = response
+            self.homeTableView.reloadData()
         }
     }
     
@@ -236,7 +238,9 @@ extension HomeVC: UITableViewDataSource {
             }
             cell.selectionStyle = .none
             cell.username = homeList?.username
-            cell.recommendationByUser = homeList?.recommendationByUser
+            
+            cell.initCell(data: self.homeList?.recommendationByUser ?? [RecommendationBy]())
+            
             cell.delegate = self
             return cell
         case 2:
@@ -244,7 +248,9 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.guides = homeList?.guides ?? [Guide(title: "", guideDetail: [GuideDetail]())]
+            
+            cell.initCell(data: homeList?.guides ?? [])
+            
             cell.delegate = self
             return cell
         case 3:
@@ -252,8 +258,10 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            
             cell.situation = homeList?.situation
-            cell.recommendationBySituation = homeList?.recommendationBySituation
+            cell.initCell(data: homeList?.recommendationBySituation ?? [RecommendationBySituation]())
+            
             cell.delegate = self
             return cell
         case 4:
@@ -261,14 +269,16 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.event = homeList?.deadlineEvent
+            cell.initCell(ImageList: homeList?.deadlineEvent ?? [])
             return cell
         case 5:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  NewLensTVC.identifier, for: indexPath) as? NewLensTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.newLens = homeList?.newLens ?? [NewLens(mainData: [NewLensDetailData]())]
+            
+            cell.initCell(data: homeList?.newLens ?? [])
+            
             cell.delegate = self
             return cell
         case 6:
@@ -277,7 +287,9 @@ extension HomeVC: UITableViewDataSource {
             }
             cell.selectionStyle = .none
             cell.season = homeList?.season
-            cell.recommendationBySeason = homeList?.recommendationBySeason
+            
+            
+            
             cell.delegate = self
             return cell
         case 7:
@@ -285,7 +297,7 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.event = homeList?.lastestEvent
+            cell.initCell(ImageList: homeList?.lastestEvent ?? [])
             return cell
         default:
             return UITableViewCell()

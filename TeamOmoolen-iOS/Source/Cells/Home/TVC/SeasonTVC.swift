@@ -21,8 +21,7 @@ class SeasonTVC: UITableViewCell {
     
     // MARK: - Local Variables
     var season: String?
-    var recommendationBySeason: [RecommendationBy]?
-    private var seasonList: [RecommendLensDataModel] = []
+    var recommendationBySeason = [RecommendationBy]()
     var delegate: ViewModalProtocol?
     var tagDelegate: PassTagProtocol?
     
@@ -32,7 +31,6 @@ class SeasonTVC: UITableViewCell {
         super.awakeFromNib()
         
         setUI()
-        setList()
         registerXib()
         setCollectionView()
     }
@@ -62,15 +60,9 @@ extension SeasonTVC {
         moreImageView.isUserInteractionEnabled = true
     }
     
-    func setList() {
-        seasonList.append(contentsOf: [
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["brown"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"])
-        ])
+    func initCell(data: [RecommendationBy]) {
+        recommendationBySeason = data
+        seasonCollectionView.reloadData()
     }
     
     func registerXib() {
@@ -110,7 +102,7 @@ extension SeasonTVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
-        detailVC.id = recommendationBySeason?[indexPath.row].id
+//        detailVC.id = recommendationBySeason[indexPath.row].id
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
@@ -146,8 +138,8 @@ extension SeasonTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeasonCVC.identifier, for: indexPath) as? SeasonCVC else {
             return UICollectionViewCell()
         }
-        let data = recommendationBySeason?[indexPath.row]
-        cell.initCell(imageList: data?.imageList ?? [""], brandName: data?.brand ?? "", lensName: data?.name ?? "", diameter: data?.diameter ?? 0, minCycle: data?.minCycle ?? 30, maxCycle: data?.maxCycle ?? 60, pieces: data?.pieces ?? 0, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [""])
+//        let data = recommendationBySeason[indexPath.row]
+//        cell.initCell(imageList: data.imageList, brandName: data.brand, lensName: data.name, diameter: data.diameter, minCycle: data.minCycle, maxCycle: data.maxCycle, pieces: data.pieces, price: data.price, colorList: data.otherColorList)
         return cell
     }
 }

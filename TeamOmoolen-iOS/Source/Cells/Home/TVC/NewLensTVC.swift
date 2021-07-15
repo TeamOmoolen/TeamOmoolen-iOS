@@ -36,7 +36,6 @@ class NewLensTVC: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
 }
 
 extension NewLensTVC {
@@ -67,6 +66,11 @@ extension NewLensTVC {
         newLensCollectionView.dataSource = self
         
         newLensCollectionView.showsHorizontalScrollIndicator = false
+    }
+    
+    func initCell(data: [NewLens]) {
+        self.newLens = data
+        newLensCollectionView.reloadData()
     }
 }
 
@@ -103,7 +107,7 @@ extension NewLensTVC: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 }
 
@@ -111,6 +115,7 @@ extension NewLensTVC: UICollectionViewDelegateFlowLayout {
 
 extension NewLensTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return newLens.count
         return 3
     }
     
@@ -118,9 +123,9 @@ extension NewLensTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewLensCVC.identifier, for: indexPath) as? NewLensCVC else {
             return UICollectionViewCell()
         }
-        cell.brandLabel.text = newLens[indexPath.row].mainData.first?.brand
-        cell.lensLabel.text = newLens[indexPath.row].mainData.first?.name
-        cell.initCell(lensData: newLens[indexPath.row].mainData)
+//        cell.brandLabel.text = newLens[indexPath.row].mainData.first?.brand
+//        cell.lensLabel.text = newLens[indexPath.row].mainData.first?.name
+//        cell.initCell(lensData: newLens[indexPath.row].mainData)
         return cell
     }
 }

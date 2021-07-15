@@ -24,6 +24,7 @@ class DetailVC: UIViewController {
     var id: String?
     private var lensData: ProductDetailResponse?
     
+    
     // MARK: - Life Cycle Methods
     
     override func viewDidLoad() {
@@ -55,6 +56,7 @@ extension DetailVC {
 //        DetailAPI.shared.getProductDetail(param: id ?? "") { response in
         DetailAPI.shared.getProductDetail(param: "60efdf8e3e4ecf590a92403b") { response in
             self.lensData = response
+            self.detailTableView.reloadData()
         }
     }
     
@@ -124,14 +126,9 @@ extension DetailVC: UITableViewDataSource {
             }
             cell.selectionStyle = .none
             cell.delegate = self
-            cell.initCell(brand: lensData?.brand ?? "",
-                          lens: lensData?.name ?? "",
-                          price: lensData?.price ?? 0,
-                          diameter: lensData?.diameter ?? 0,
-                          cycle: 0,
-                          texture: lensData?.material ?? "",
-                          function: lensData?.function ?? "",
-                          colorList: lensData?.otherColorList ?? [""])
+            
+            let data = lensData
+            cell.initCell(imageList: data?.imageURL ?? [""], brand: data?.brand ?? "", lens: data?.name ?? "", price: data?.price ?? 0, diameter: data?.diameter ?? 0, minCycle: data?.changeCycleMinimum ?? 30, maxCycle: data?.changeCycleMaximum ?? 60, texture: data?.material ?? "", function: data?.function ?? "", colorList: data?.otherColorList ?? [""])
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTVC.identifier) as? ReviewTVC else {
@@ -144,15 +141,14 @@ extension DetailVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.suggestList = lensData?.suggestList
             cell.delegate = self
+            cell.suggestList = lensData?.suggestList ?? [SuggestList]()
             return cell
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailNewTVC.identifier) as? DetailNewTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.popularList = lensData?.popularList
             cell.delegate = self
             return cell
         default:

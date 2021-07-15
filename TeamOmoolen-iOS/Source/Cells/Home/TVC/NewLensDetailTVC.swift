@@ -45,12 +45,15 @@ extension NewLensDetailTVC {
         backView.layer.cornerRadius = 10
         backView.layer.masksToBounds = true
         
+        brandNameLabel.text = "오렌즈"
         brandNameLabel.textColor = .omMainBlack
         brandNameLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 15)
         
+        lensNameLabel.text = "브라운 컬러 익스 렌즈"
         lensNameLabel.textColor = .omMainBlack
         lensNameLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
         
+        priceLabel.text = "18,000원"
         priceLabel.textColor = .omMainBlack
         priceLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 14)
     }
