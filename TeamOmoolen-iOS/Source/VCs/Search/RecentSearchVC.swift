@@ -9,12 +9,15 @@ import UIKit
 
 class RecentSearchVC: UIViewController {
         
-    //Mark: - UI Components
+    //MARK: - UI Components
     @IBOutlet weak var searchInTableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     
     var recentSearchCellHeight = 120
+    
+    // MARK: - 여기
+    private var popularSearchList = [PopularResponse]()
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -23,7 +26,7 @@ class RecentSearchVC: UIViewController {
         registerXib()
         setSearchInTableView()
         checkNotification()
-        // Do any additional setup after loading the view.
+        getPopularSearchWithAPI()
     }
     
     //MARK: - Methods
@@ -61,6 +64,14 @@ class RecentSearchVC: UIViewController {
             searchInTableView.reloadData()
         }
     }
+    
+    func getPopularSearchWithAPI() {
+        SearchAPI.shared.getPopularSearch { response in
+            self.popularSearchList = response
+            print("여기서 통신 시작\(self.popularSearchList)")
+            self.searchInTableView.reloadData()
+        }
+    }
 }
 
 extension RecentSearchVC: UITableViewDelegate {
@@ -85,7 +96,6 @@ extension RecentSearchVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, widthForRowAt indexPath: IndexPath) -> CGFloat {
         return 335
-    
     }
     
 }
@@ -113,9 +123,10 @@ extension RecentSearchVC: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  PopularTVC.identifier, for: indexPath) as? PopularTVC else {
                 return UITableViewCell()
             }
-            
             cell.selectionStyle = .none
             cell.backgroundColor = .omWhite
+            
+            cell.setLensData(data: self.popularSearchList)
             return cell
         default:
             return UITableViewCell()

@@ -63,12 +63,6 @@ class SearchAPI {
             case .success(let result):
                 do {
                     let results = try JSONDecoder().decode(PopularDataModel.self, from: result.data)
-                    
-//                    print("getPopularSearch: \(results.message)")
-//                    print("success : \(results.success)")
-//                    print("statusCode : \(result.statusCode)")
-                    
-                    dump(result)
                     guard let data = results.data else {
                         print("nil")
                         return
