@@ -102,7 +102,7 @@ extension RecommendTVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
-        detailVC.id = recommendationByUser?[indexPath.row].id
+//        detailVC.id = recommendationByUser?[indexPath.row].id
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
@@ -140,8 +140,8 @@ extension RecommendTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendCVC.identifier, for: indexPath) as? RecommendCVC else {
             return UICollectionViewCell()
         }
-        let data = recommendationByUser?[indexPath.row]
-        cell.initCell(imageList: data?.imageList ?? [""], brandName: data?.brand ?? "", lensName: data?.name ?? "", diameter: data?.diameter ?? 0, minCycle: data?.minCycle ?? 30, maxCycle: data?.maxCycle ?? 60, pieces: data?.pieces ?? 10, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [""])
+//        let data = recommendationByUser?[indexPath.row]
+//        cell.initCell(imageList: data?.imageList ?? [""], brandName: data?.brand ?? "", lensName: data?.name ?? "", diameter: data?.diameter ?? 0, minCycle: data?.minCycle ?? 30, maxCycle: data?.maxCycle ?? 60, pieces: data?.pieces ?? 10, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [""])
         return cell
     }
 }

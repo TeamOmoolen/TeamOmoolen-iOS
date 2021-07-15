@@ -131,7 +131,7 @@ extension LastBannerTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCVC.identifier, for: indexPath) as? BannerCVC else {
             return UICollectionViewCell()
         }
-        cell.initCell(image: event?[indexPath.row].image ?? "")
+//        cell.initCell(image: event?[indexPath.row].image ?? "")
         return cell
     }
 }

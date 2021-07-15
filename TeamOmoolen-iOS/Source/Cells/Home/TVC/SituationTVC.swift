@@ -151,8 +151,8 @@ extension SituationTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeasonCVC.identifier, for: indexPath) as? SeasonCVC else {
             return UICollectionViewCell()
         }
-        let data = recommendationBySituation?[indexPath.row]
-        cell.initCell(imageList: data?.imageList ?? [""], brandName: data?.brand ?? "", lensName: data?.name ?? "", diameter: data?.diameter ?? 0, minCycle: data?.minCycle ?? 30, maxCycle: data?.maxCycle ?? 60, pieces: data?.pieces ?? 10, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [""])
+//        let data = recommendationBySituation?[indexPath.row]
+//        cell.initCell(imageList: data?.imageList ?? [""], brandName: data?.brand ?? "", lensName: data?.name ?? "", diameter: data?.diameter ?? 0, minCycle: data?.minCycle ?? 30, maxCycle: data?.maxCycle ?? 60, pieces: data?.pieces ?? 10, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [""])
         return cell
     }
 }
