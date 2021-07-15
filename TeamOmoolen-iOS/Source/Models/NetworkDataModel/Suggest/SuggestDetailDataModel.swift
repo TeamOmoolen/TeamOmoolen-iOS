@@ -19,6 +19,15 @@ struct SuggestDetailDataModel: Codable {
         case message
         case data
     }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        status = (try? values.decode(Int.self, forKey: .status)) ?? 0
+        success = (try? values.decode(Bool.self, forKey: .success)) ?? false
+        message = (try? values.decode(String.self, forKey: .message)) ?? ""
+        data = (try? values.decode(SuggestDetailResponse.self, forKey: .data)) ?? nil
+    }
 }
 
 struct SuggestDetailResponse: Codable {

@@ -113,8 +113,8 @@ class SeasonVC: UIViewController {
         accesstoken = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
     }
     
-    func getSuggestSeasonWithAPI(accesstoken: String, page: Int, sort: String, order: String) {
-        SuggestAPI.shared.getSeason(accesstoken: accesstoken, page: page, sort: sort, order: order) { response in
+    func getSuggestSeasonWithAPI(page: Int, sort: String, order: String) {
+        SuggestAPI.shared.getSeason(page: page, sort: sort, order: order) { response in
             self.suggestDetailForSeason = response
             
             var appendList = [SuggestProduct]()
@@ -148,7 +148,8 @@ extension SeasonVC: UICollectionViewDelegate {
                 currPage += 1
                 canFetchData = false
                 // 서버 통신하는 곳
-                getSuggestSeasonWithAPI(accesstoken: accesstoken, page: currPage, sort: sort, order: order)
+                getSuggestSeasonWithAPI(page: currPage, sort: sort, order: order)
+//                getSuggestSeasonWithAPI(page: 1, sort: "1", order: "1")
             }
             //refresh
             seasonCollectionView.reloadData()

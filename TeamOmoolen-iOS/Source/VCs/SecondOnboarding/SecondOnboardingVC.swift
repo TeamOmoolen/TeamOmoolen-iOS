@@ -208,7 +208,7 @@ class SecondOnboardingVC: UIViewController {
         }
         if lensColorList.contains([0,11]) {
             lensColor.append(contentsOf: [
-                "yellow", "espressogold", "hazel", "rich brown", "white", "red", "green"
+                "yellow", "espressogold", "hazel", "rich brown", "white", "red"
             ])
         }
         
@@ -216,7 +216,6 @@ class SecondOnboardingVC: UIViewController {
         nextVC.gender = gender
         nextVC.lensKind = lensKind
         nextVC.lensColor = lensColor
-        print("gender: \(gender) , age: \(age), lensKind: \(lensKind), lensColor: \(lensColor)")
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

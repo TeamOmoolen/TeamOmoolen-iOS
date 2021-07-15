@@ -19,7 +19,7 @@ class SuggestAPI {
             case .success(let result):
                 do {
                     let results = try JSONDecoder().decode(SuggestDataModel.self, from: result.data)
-                    print("getSearchFilterResult: \(results.message)")
+                    print("getSuggest: \(results.message)")
                     guard let data = results.data else {
                         return
                     }
@@ -76,8 +76,8 @@ class SuggestAPI {
         }
     }
     
-    func getNew(accesstoken: String, page: Int, sort: String, order: String, completion: @escaping (SuggestDetailResponse) -> ()) {
-        SuggestAPI.provider.request(.suggestNew(accesstoken: accesstoken, page: page, sort: sort, order: order))
+    func getNew(page: Int, sort: String, order: String, completion: @escaping (SuggestDetailResponse) -> ()) {
+        SuggestAPI.provider.request(.suggestNew(page: page, sort: sort, order: order))
         { response in
             switch response {
             case .success(let result):
@@ -98,8 +98,8 @@ class SuggestAPI {
         }
     }
     
-    func getSeason(accesstoken: String, page: Int, sort: String, order: String, completion: @escaping(SuggestDetailResponse) -> ()) {
-        SuggestAPI.provider.request(.suggestSeason(accesstoken: accesstoken, page: page, sort: sort, order: order)) { response in
+    func getSeason(page: Int, sort: String, order: String, completion: @escaping(SuggestDetailResponse) -> ()) {
+        SuggestAPI.provider.request(.suggestSeason(page: page, sort: sort, order: order)) { response in
             switch response {
             case .success(let result):
                 do {

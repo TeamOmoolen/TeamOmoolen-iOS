@@ -28,7 +28,7 @@ class SearchResultVC: UIViewController {
         setCollectionViewDelegate()
         resgisterNib()
         setNotification()
-        
+        resultCollectionView.reloadData()
         self.tabBarController?.tabBar.isHidden = false
     }
     
@@ -67,6 +67,7 @@ class SearchResultVC: UIViewController {
         countBackView.layer.cornerRadius = 10
         countBackView.backgroundColor = .omFifthGray
         
+        productCount = resultList?.count ?? 0
         countLabel.text = "총 \(productCount)개의 상품"
         countLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 13)
         countLabel.textColor = .omSecondGray
@@ -110,7 +111,7 @@ extension SearchResultVC: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let cellData = resultList![indexPath.row]
-        
+        cell.initCell(imageList: cellData.imageList, brandName: cellData.brand, lensName: cellData.name, diameter: cellData.diameter, minCycle: cellData.changeCycleMinimum, maxCycle: cellData.changeCycleMaximum, pieces: cellData.pieces, price: cellData.price, colorList: cellData.otherColorList)
         return cell
     }
     
@@ -131,8 +132,9 @@ extension SearchResultVC: UICollectionViewDelegateFlowLayout {
         let width = collectionView.frame.width
 //        let height = collectionView.frame.height
         let cellWidth = (width - 24) / 3
-        let cellHeight = 191
-        return CGSize(width: cellWidth, height: CGFloat(cellHeight))
+        let cellHeight = 201
+        print(cellWidth)
+        return CGSize(width: 10, height: CGFloat(cellHeight))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

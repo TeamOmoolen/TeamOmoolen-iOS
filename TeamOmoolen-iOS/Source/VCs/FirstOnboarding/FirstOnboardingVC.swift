@@ -88,7 +88,6 @@ class FirstOnboardingVC: UIViewController {
         }
         nextVC.gender = gender
         nextVC.age = age
-        print("gender: \(gender) , age: \(age)")
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
-     
+    
     // background 에 앱이 내려가 있는 경우 사용중단 분기처리
 //    func applicationDidBecomeActive(_ application: UIApplication) {
 //        let userIdentifier = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""

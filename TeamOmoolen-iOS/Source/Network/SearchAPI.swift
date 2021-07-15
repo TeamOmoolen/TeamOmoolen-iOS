@@ -10,6 +10,7 @@ import Moya
 
 class SearchAPI {
     static let shared = SearchAPI()
+//    static let provider = MoyaProvider<SearchService>(plugins: [NetworkLoggerPlugin()])
     static let provider = MoyaProvider<SearchService>()
 
     
@@ -63,8 +64,8 @@ class SearchAPI {
             case .success(let result):
                 do {
                     let results = try JSONDecoder().decode(PopularDataModel.self, from: result.data)
+                    print("getPopularSearch: \(results.message)")
                     guard let data = results.data else {
-                        print("nil")
                         return
                     }
                     completion(data)
