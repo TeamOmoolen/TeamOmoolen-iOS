@@ -20,7 +20,9 @@ class DetailAPI {
             case .success(let result):
                 do {
                     let results = try JSONDecoder().decode(ProductDetailDataModel.self, from: result.data)
-                    print("getSearchFilterResult: \(results.message)")
+                    print("getProductDetail: \(results.message)")
+//                    print(result)
+//                    print(results)
                     guard let data = results.data else {
                         return
                     }
@@ -35,3 +37,4 @@ class DetailAPI {
         }
     }
 }
+                                                                                                                                                                                                                                                              

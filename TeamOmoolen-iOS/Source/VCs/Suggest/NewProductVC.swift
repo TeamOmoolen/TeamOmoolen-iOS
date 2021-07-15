@@ -39,7 +39,6 @@ class NewProductVC: UIViewController {
         setRecommendList()
         setCollectionViewDelegate()
         setPhoneResolution()
-        setAccesstoken()
 
     }
     
@@ -112,12 +111,9 @@ class NewProductVC: UIViewController {
         }
     }
     
-    func setAccesstoken() {
-        accesstoken = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
-    }
     
     func getSuggestNewWithAPI(accesstoken: String, page: Int, sort: String, order: String) {
-        SuggestAPI.shared.getNew(accesstoken: accesstoken, page: page, sort: sort, order: order) {
+        SuggestAPI.shared.getNew(page: page, sort: sort, order: order) {
             response in
             self.suggestDetailNew = response
             

@@ -52,7 +52,8 @@ extension DetailVC {
     }
     
     func getProductDetailWithAPI() {
-        DetailAPI.shared.getProductDetail(param: id ?? "") { response in
+//        DetailAPI.shared.getProductDetail(param: id ?? "") { response in
+        DetailAPI.shared.getProductDetail(param: "60efdf8e3e4ecf590a92403b") { response in
             self.lensData = response
         }
     }
@@ -127,7 +128,7 @@ extension DetailVC: UITableViewDataSource {
                           lens: lensData?.name ?? "",
                           price: lensData?.price ?? 0,
                           diameter: lensData?.diameter ?? 0,
-                          cycle: lensData?.changeCycle ?? 0,
+                          cycle: 0,
                           texture: lensData?.material ?? "",
                           function: lensData?.function ?? "",
                           colorList: lensData?.otherColorList ?? [""])
