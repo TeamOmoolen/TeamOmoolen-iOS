@@ -22,7 +22,7 @@ class DetailAPI {
                     let results = try JSONDecoder().decode(ProductDetailDataModel.self, from: result.data)
                     print("getProductDetail: \(results.message)")
 //                    print(result)
-//                    print(results)
+                   // print(results)
                     guard let data = results.data else {
                         return
                     }

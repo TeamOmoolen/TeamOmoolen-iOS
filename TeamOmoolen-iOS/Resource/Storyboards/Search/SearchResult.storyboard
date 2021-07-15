@@ -24,6 +24,9 @@
                                         <rect key="frame" x="14" y="10" width="288" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="returnToSearch:" destination="Y6W-OH-hqX" eventType="touchDown" id="W8D-6A-Gcq"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>

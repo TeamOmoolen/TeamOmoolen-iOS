@@ -37,9 +37,18 @@ class SearchResultVC: UIViewController {
         let vc = UIStoryboard(name: Const.Storyboard.Name.SortPanModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SortPanModal) as! SortPanModalVC
         presentPanModal(vc)
     }
+    
+
     @IBAction func popToSearch(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func returnToSearch(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
     
     // MARK: - Methods
     func setNotification() {

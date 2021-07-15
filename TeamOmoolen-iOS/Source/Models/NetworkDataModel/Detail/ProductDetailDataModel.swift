@@ -9,13 +9,13 @@ import Foundation
 
 struct ProductDetailDataModel: Codable {
     let status: Int
-//    let success: Bool
+    // let success: Bool
     let message: String
     let data: ProductDetailResponse?
     
     enum CodingKeys: String, CodingKey {
         case status
-//        case success
+     //   case success
         case message
         case data
     }
@@ -24,7 +24,7 @@ struct ProductDetailDataModel: Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         status = (try? values.decode(Int.self, forKey: .status)) ?? 0
-//        success = (try? values.decode(Bool.self, forKey: .success)) ?? false
+        //success = (try? values.decode(Bool.self, forKey: .success)) ?? false
         message = (try? values.decode(String.self, forKey: .message)) ?? ""
         data = (try? values.decode(ProductDetailResponse.self, forKey: .data)) ?? nil
     }

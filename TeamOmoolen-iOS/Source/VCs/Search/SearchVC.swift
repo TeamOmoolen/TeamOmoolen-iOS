@@ -182,6 +182,7 @@ extension SearchVC {
             guard let searchResultVC = UIStoryboard(name: Const.Storyboard.Name.SearchResult, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SearchResult) as? SearchResultVC else {
                 return
             }
+            searchResultVC.searchKeyword = param
             searchResultVC.modalPresentationStyle = .fullScreen
             searchResultVC.modalTransitionStyle = .crossDissolve
             searchResultVC.resultList = self.searchResultResponse?.products
