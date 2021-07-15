@@ -142,8 +142,7 @@ extension SearchResultVC: UICollectionViewDelegateFlowLayout {
 //        let height = collectionView.frame.height
         let cellWidth = (width - 24) / 3
         let cellHeight = 201
-        print(cellWidth)
-        return CGSize(width: 10, height: CGFloat(cellHeight))
+        return CGSize(width: cellWidth, height: CGFloat(cellHeight))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

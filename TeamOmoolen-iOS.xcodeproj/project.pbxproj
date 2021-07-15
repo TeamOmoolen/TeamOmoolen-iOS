@@ -151,6 +151,8 @@
 		F824590C268E1F3A0048BE84 /* TimeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8245908268E1F3A0048BE84 /* TimeCVC.swift */; };
 		F82975BB269AE2590025CA64 /* SortPanModal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F82975BA269AE2590025CA64 /* SortPanModal.storyboard */; };
 		F82975BD269AE26B0025CA64 /* SortPanModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82975BC269AE26B0025CA64 /* SortPanModalVC.swift */; };
+		F830416D26A0455B00E1876B /* SearchResultCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830416B26A0455B00E1876B /* SearchResultCVC.swift */; };
+		F830416E26A0455B00E1876B /* SearchResultCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F830416C26A0455B00E1876B /* SearchResultCVC.xib */; };
 		F831304C2697670A004A247C /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831304B2697670A004A247C /* LoginService.swift */; };
 		F831304E26976714004A247C /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831304D26976714004A247C /* LoginAPI.swift */; };
 		F831305126976A7E004A247C /* AppleLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831305026976A7E004A247C /* AppleLoginRequest.swift */; };
@@ -375,6 +377,8 @@
 		F8245908268E1F3A0048BE84 /* TimeCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCVC.swift; sourceTree = "<group>"; };
 		F82975BA269AE2590025CA64 /* SortPanModal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SortPanModal.storyboard; sourceTree = "<group>"; };
 		F82975BC269AE26B0025CA64 /* SortPanModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortPanModalVC.swift; sourceTree = "<group>"; };
+		F830416B26A0455B00E1876B /* SearchResultCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCVC.swift; sourceTree = "<group>"; };
+		F830416C26A0455B00E1876B /* SearchResultCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCVC.xib; sourceTree = "<group>"; };
 		F831304B2697670A004A247C /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		F831304D26976714004A247C /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		F831305026976A7E004A247C /* AppleLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRequest.swift; sourceTree = "<group>"; };
@@ -556,6 +560,8 @@
 		9261598626920EA600E1E87F /* CVC */ = {
 			isa = PBXGroup;
 			children = (
+				F830416B26A0455B00E1876B /* SearchResultCVC.swift */,
+				F830416C26A0455B00E1876B /* SearchResultCVC.xib */,
 				F8F52513269D789A00EB6FF0 /* PopularCVC.swift */,
 				F8F52514269D789A00EB6FF0 /* PopularCVC.xib */,
 				9261598726920EBE00E1E87F /* RecommendCVC.swift */,
@@ -1311,6 +1317,7 @@
 				92F994FC26918BC30053ABD8 /* RecommendTVC.xib in Resources */,
 				F802D770269C14FE0041383B /* PopupModal.storyboard in Resources */,
 				F8B91F74268E207A006114CD /* Roboto-MediumItalic.ttf in Resources */,
+				F830416E26A0455B00E1876B /* SearchResultCVC.xib in Resources */,
 				927692612693CB9100201EE1 /* BrandFilterView.xib in Resources */,
 				F8B91F76268E207A006114CD /* Roboto-Regular.ttf in Resources */,
 				F86F7AC826900A2F0037081D /* Home.storyboard in Resources */,
@@ -1480,6 +1487,7 @@
 				92BAA04F2694FDE7004A155A /* OneMinDetailTVC.swift in Sources */,
 				F82975BD269AE26B0025CA64 /* SortPanModalVC.swift in Sources */,
 				F8F52512269D5CA900EB6FF0 /* ProductDetailDataModel.swift in Sources */,
+				F830416D26A0455B00E1876B /* SearchResultCVC.swift in Sources */,
 				E8AF8028269841E000D76A21 /* ForYouVC.swift in Sources */,
 				F8CB27ED2691FB8800DEFA75 /* GeneralAPI.swift in Sources */,
 				F86F7AD326918AC50037081D /* UIViewController+Extension.swift in Sources */,
