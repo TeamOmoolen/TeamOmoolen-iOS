@@ -49,22 +49,22 @@ extension UIViewController {
     }
     
     // apple id 로그인이 백그라운드에서 유효하지 않으면 바로 로그인화면으로 감.
-    func setNotificationLoginErr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(forcePresentToLogin), name: NSNotification.Name("LoginFail"), object: nil)
-    }
-    
-    @objc
-    func forcePresentToLogin() {
-        print("notification : setNotificationLoginErr")
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-            print("LoginFial: go to loginVC")
-            guard let loginVC = UIStoryboard(name: Const.Storyboard.Name.Login, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Login) as? UINavigationController else {
-                return
-            }
-            loginVC.modalPresentationStyle = .fullScreen
-            loginVC.modalTransitionStyle = .crossDissolve
-            self.present(loginVC, animated: true, completion: nil)
-        }
-    }
+//    func setNotificationLoginErr() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(forcePresentToLogin), name: NSNotification.Name("LoginFail"), object: nil)
+//    }
+//
+//    @objc
+//    func forcePresentToLogin() {
+//        print("notification : setNotificationLoginErr")
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+//            print("LoginFial: go to loginVC")
+//            guard let loginVC = UIStoryboard(name: Const.Storyboard.Name.Login, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Login) as? UINavigationController else {
+//                return
+//            }
+//            loginVC.modalPresentationStyle = .fullScreen
+//            loginVC.modalTransitionStyle = .crossDissolve
+//            self.present(loginVC, animated: true, completion: nil)
+//        }
+//    }
     
 }

@@ -18,6 +18,8 @@ class OnboardingAPI {
             case .success(let result):
                 do {
                     let results = try JSONDecoder().decode(OnBoardingDataModel.self, from: result.data)
+                    print(results.status)
+                    print(results.success)
                     print("OnboadingAPI - postOnboarding():\(results.message)")
                     completion(results)
                 } catch let err {

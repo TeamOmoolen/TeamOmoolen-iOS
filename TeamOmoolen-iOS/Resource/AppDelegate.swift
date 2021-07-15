@@ -20,9 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Apple login
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         appleIDProvider.getCredentialState(forUserID: userIdentifier) { (credentialState, error) in
-            
-            print(userIdentifier)
-            
             switch credentialState {
             case .revoked:
                 // Apple ID 사용 중단 경우.
