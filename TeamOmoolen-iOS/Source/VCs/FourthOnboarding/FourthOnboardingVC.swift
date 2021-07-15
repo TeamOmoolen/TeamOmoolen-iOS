@@ -152,7 +152,7 @@ class FourthOnboardingVC: UIViewController {
         } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,15]] {
             lensBrand = "쿠퍼비전"
         } else {
-            lensBrand = ""
+            
         }
         
         if purposeListCollectionView.indexPathsForSelectedItems! == [[0,0]] {
@@ -161,8 +161,6 @@ class FourthOnboardingVC: UIViewController {
             lensWhen = "특별한 날"
         } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,2]] {
             lensWhen = "여행"
-        } else {
-            lensWhen = "기타"
         }
         
         let userIdentifier = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
@@ -346,8 +344,7 @@ extension FourthOnboardingVC {
             PurposeDataModel(purpose: "운동"),
             PurposeDataModel(purpose: "일상생활"),
             PurposeDataModel(purpose: "특별한 날"),
-            PurposeDataModel(purpose: "여행"),
-            PurposeDataModel(purpose: "기타")
+            PurposeDataModel(purpose: "여행")
         ])
     }
     
