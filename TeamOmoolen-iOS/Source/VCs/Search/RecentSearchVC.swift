@@ -20,6 +20,12 @@ class RecentSearchVC: UIViewController {
     private var searchResultResponse: SearchResultResponse?
     
     //MARK: - View Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        //super.viewWillAppear(true)
+        //searchInTableView.reloadData()
+        //NotificationCenter.default.post(name: NSNotification.Name("ViewWillAppear"), object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setPhoneResolution()
@@ -29,6 +35,8 @@ class RecentSearchVC: UIViewController {
         getPopularSearchWithAPI()
         getNotification()
     }
+    
+
     
     //MARK: - Methods
     func setPhoneResolution(){
@@ -81,7 +89,11 @@ extension RecentSearchVC {
         NotificationCenter.default.addObserver(self, selector: #selector(pushToSearchResultVC(_:)), name: NSNotification.Name("PushToSearchResult"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(pushRecentToSearchResultVC(_:)), name: NSNotification.Name("RecentToSearchResult"), object: nil)
+        
+       
     }
+    
+
     
     @objc func pushToSearchResultVC(_ notification: Notification) {
         var keyword: String
@@ -107,6 +119,7 @@ extension RecentSearchVC {
             guard let searchResultVC = UIStoryboard(name: Const.Storyboard.Name.SearchResult, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SearchResult) as? SearchResultVC else {
                 return
             }
+            searchResultVC.totalCount = (self.searchResultResponse?.products.count)!
             searchResultVC.resultList = self.searchResultResponse?.products
             searchResultVC.modalPresentationStyle = .fullScreen
             searchResultVC.modalTransitionStyle = .crossDissolve
@@ -160,6 +173,7 @@ extension RecentSearchVC: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  SearchInTVC.identifier, for: indexPath) as? SearchInTVC else {
                 return UITableViewCell()
             }
+            
             cell.selectionStyle = .none
             cell.backgroundColor = .omWhite
             return cell
@@ -169,7 +183,6 @@ extension RecentSearchVC: UITableViewDataSource {
             }
             cell.selectionStyle = .none
             cell.backgroundColor = .omWhite
-            
             cell.setLensData(data: self.popularSearchList)
             return cell
         default:

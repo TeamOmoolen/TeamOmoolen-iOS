@@ -30,8 +30,6 @@ class SearchInTVC: UITableViewCell {
         setSearchList()
         setSearchHistoryTable()
         checkNotification()
-        
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -111,15 +109,30 @@ class SearchInTVC: UITableViewCell {
         NotificationCenter.default.addObserver(self, selector: #selector(allClear), name: NSNotification.Name("AllClear"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(returnHome), name: NSNotification.Name("ReturnHome"), object: nil)
-
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: NSNotification.Name("ViewWillAppear"), object: nil)
+        
+    }
+    
+    @objc func reloadData(notification: NSNotification) {
+        searchList.removeAll()
+        setSearchList()
+        searchHistoryTableView.reloadData()
     }
     
     @objc func returnHome(notification: NSNotification) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name("SearchEntered"), object: nil)
-        setSearchList()
+        //setSearchList()
     }
     
     
+    /*
+    @objc func pushResult(notification: NSNotification) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("SearchEntered"), object: nil)
+        setSearchList()
+    }*/
+    
+    //검색어 입련된 걸 받고, searchdidon exit 에서 realm db에 저장
     @objc func searchEntered(notification: NSNotification) {
         
         let enteredText = notification.object as! String
@@ -139,7 +152,7 @@ class SearchInTVC: UITableViewCell {
                 } else {
                     realm?.add(searchWord)
                 }
-                setSearchList()
+                //setSearchList()
             }
         } catch {
             print("문제")
