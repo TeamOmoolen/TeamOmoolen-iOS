@@ -21,7 +21,7 @@ extension OnboardingService: TargetType {
     public var path: String {
         switch self {
         case .onboarding:
-            return "/api/saveOnBoardingData"
+            return "/api/users/saveOnBoardingData"
         case .home:
             return "/api/home"
         }
