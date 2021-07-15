@@ -95,7 +95,6 @@ extension RecentSearchVC {
         var keyword: String
         keyword = notification.object as! String
         let param = keyword
-        print("요 아이 입니다")
         print(param)
         getSearchResultWithAPI(param: param)
     }

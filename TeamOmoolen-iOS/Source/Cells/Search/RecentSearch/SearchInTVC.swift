@@ -224,7 +224,6 @@ extension SearchInTVC: UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-       
         var keyword = ""
         switch indexPath.section {
         case 0:
@@ -244,22 +243,7 @@ extension SearchInTVC: UITableViewDelegate {
         default:
             return
         }
-        /*let indexPath = tableView.indexPathForSelectedRow!
-
-        let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell*/
-        
-        //예외처리: 전체삭제를 눌렀을 때는 그냥 단어를 지워주기만 해야함!
-        //검색어 0개면 x
-        //1개면 index 0번째만
-        //2개면 index 0,1
-        //3개면 index 0,1,2만 가능
-        /*if (searchList.count == 0 || indexPath.row == searchList.count) {
-            //0개이거나 전체삭제 버튼이거나
-            return
-        }
-        print("우리는 여기")
-        print(indexPath.row)
-         */
+    
         NotificationCenter.default.post(name: NSNotification.Name("RecentToSearchResult"), object: keyword)
     }
 }
