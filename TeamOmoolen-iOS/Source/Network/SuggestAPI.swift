@@ -10,7 +10,7 @@ import Moya
 
 class SuggestAPI {
     static let shared = SuggestAPI()
-    static let provider = MoyaProvider<SuggestService>()
+    static let provider = MoyaProvider<SuggestService>(plugins: [NetworkLoggerPlugin()])
 
     // get data
     func getSuggest(accesstoken: String, completion: @escaping (SuggestResponse) -> ()) {

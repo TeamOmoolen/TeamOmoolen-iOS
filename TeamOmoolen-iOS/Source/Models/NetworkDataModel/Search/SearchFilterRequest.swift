@@ -8,22 +8,22 @@
 import Foundation
 
 struct SearchFilterRequest: Codable {
-    let lensBrand: [String]
-    let lensColor: [String]
-    let lensDiameter: Int
-    let lensCycle: [Int]
+    let brand: [String]
+    let color: [String]
+    let diameter: Int
+    let changeCycleRange: [Int]
     
     enum CodingKeys: String, CodingKey {
-        case lensBrand = "brand"
-        case lensColor = "color"
-        case lensDiameter = "diameter"
-        case lensCycle = "changeCycle"
+        case brand
+        case color
+        case diameter
+        case changeCycleRange
     }
     
-    init(_ lensBrand: [String], _ lensColor: [String], _ lensDiameter: Int, _ lensCycle: [Int]) {
-        self.lensBrand = lensBrand
-        self.lensColor = lensColor
-        self.lensDiameter = lensDiameter
-        self.lensCycle = lensCycle
+    init(_ brand: [String], _ color: [String], _ diameter: Int, _ changeCycleRange: [Int]) {
+        self.brand = brand
+        self.color = color
+        self.diameter = diameter
+        self.changeCycleRange = changeCycleRange
     }
 }

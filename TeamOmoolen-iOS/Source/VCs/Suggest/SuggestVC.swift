@@ -191,8 +191,8 @@ class SuggestVC: UIViewController {
     }
     
     func getSuggestWithAPI() {
-        let userIdentifier = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
-        SuggestAPI.shared.getSuggest(accesstoken: userIdentifier) { response in
+        let accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
+        SuggestAPI.shared.getSuggest(accesstoken: accesstoken) { response in
             self.suggestList = response
         }
     }

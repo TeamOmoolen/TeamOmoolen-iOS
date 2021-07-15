@@ -37,7 +37,7 @@ extension SearchService: TargetType {
         case .searchWindow:
             return .get
         case .searchFilter:
-            return .get
+            return .post
         case .searchKeyword:
             return .get
         }

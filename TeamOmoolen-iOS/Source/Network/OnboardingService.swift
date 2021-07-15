@@ -53,7 +53,7 @@ extension OnboardingService: TargetType {
         case .onboarding(_, let accesstoken):
             return ["Content-Type": "application/json", "accesstoken" : accesstoken]
         case .home(let accesstoken):
-            return ["Content-Type": "application/json", "accesstoken" : accesstoken]
+            return ["Content- Type": "application/json", "accesstoken" : accesstoken]
         }
     }
 }
