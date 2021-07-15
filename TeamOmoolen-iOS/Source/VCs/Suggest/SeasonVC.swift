@@ -79,7 +79,7 @@ class SeasonVC: UIViewController {
         
     }
     func setAccesstoken() {
-        accesstoken = UserDefaults.standard.string(forKey: "AccessToken") ?? ""
+        accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
     }
     func registerXib(){
         let recommedNib = UINib(nibName: RecommendCVC.identifier, bundle: nil)

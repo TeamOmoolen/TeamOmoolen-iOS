@@ -158,18 +158,18 @@ class FourthOnboardingVC: UIViewController {
         if purposeListCollectionView.indexPathsForSelectedItems! == [[0,0]] {
             lensWhen = "운동"
         } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,1]] {
-            lensWhen = "특별한 날"
+            lensWhen = "일상"
         } else if purposeListCollectionView.indexPathsForSelectedItems! == [[0,2]] {
+            lensWhen = "특별"
+        } else {
             lensWhen = "여행"
         }
         
-        let userIdentifier = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
-
+        let accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
+        
         let param = OnboardingRequest(gender: gender, age: age, wantedLens: WantedLens(category: lensKind, color: lensColor, function: lensFunction, changeCycleRange: lensPeriod), suitedLens: SuitedLens(brand: lensBrand, name: lensName), wearTime: lensWhen)
         
-        print(param)
-        
-        OnboardingAPI.shared.postOnboarding(param: param, accesstoken: userIdentifier) { response in
+        OnboardingAPI.shared.postOnboarding(param: param, accesstoken: accesstoken) { response in
             if response.success {
                 print("postOnboardingWithAPI: post success")
                 guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Tabbar, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Tabbar) as? TabBarController else {
