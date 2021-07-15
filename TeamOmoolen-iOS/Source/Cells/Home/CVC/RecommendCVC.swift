@@ -41,23 +41,24 @@ class RecommendCVC: UICollectionViewCell {
 extension RecommendCVC {
     func setUI() {
         contentView.backgroundColor = .white
-        modelImageView.image = UIImage(named: "abc")
-        lensImageView.image = UIImage(named: "abc")
+        modelImageView.image = UIImage(named: "ellipse1842")
+        lensImageView.image = UIImage(named: "imgColorA")
+        lensImageView.layer.cornerRadius = lensImageView.frame.width / 2
         
         brandNameLabel.text
-         = "브랜드명"
+         = "오렌즈"
         brandNameLabel.textColor = .omThirdGray
         brandNameLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 11)
         
-        lensNameLabel.text = "렌즈명"
+        lensNameLabel.text = "브라운 컬러렌즈"
         lensNameLabel.textColor = .omMainBlack
         lensNameLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 14)
         
-        lensInfoLabel.text = "직경 / 교체시기"
+        lensInfoLabel.text = "11.9 mm / 1Day(10p)"
         lensInfoLabel.textColor = .omThirdGray
         lensInfoLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 11)
         
-        priceLabel.text = "가격"
+        priceLabel.text = "18,000원"
         priceLabel.textColor = .omMainBlack
         priceLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 14)
         
@@ -130,14 +131,15 @@ extension RecommendCVC: UICollectionViewDelegateFlowLayout {
 
 extension RecommendCVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return colorList.count
+//        return colorList.count
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorListCVC.identifier, for: indexPath) as? ColorListCVC else {
             return UICollectionViewCell()
         }
-        cell.initCell(color: colorList[indexPath.row])
+//        cell.initCell(color: colorList[indexPath.row])
         return cell
     }
 }

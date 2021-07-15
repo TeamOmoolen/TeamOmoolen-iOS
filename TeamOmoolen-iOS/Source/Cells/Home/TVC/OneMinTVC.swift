@@ -19,11 +19,9 @@ class OneMinTVC: UITableViewCell {
     @IBOutlet weak var oneMinCollectionView: UICollectionView!
     
     // MARK: - Local Variables
-//    var guides = [Guide]()
+    var guides = [Guide]()
     var oneMinDataList = [OneMinDataModel]()
     var oneMinDetailList = [OneMinDetailDataModel]()
-    
-    var guides = [Guide(title: "", guideDetail: [GuideDetail]())]
     
     var delegate: ViewModalProtocol?
     

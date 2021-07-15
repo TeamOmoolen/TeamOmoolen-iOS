@@ -56,7 +56,6 @@ extension DetailVC {
 //        DetailAPI.shared.getProductDetail(param: id ?? "") { response in
         DetailAPI.shared.getProductDetail(param: "60efdf8e3e4ecf590a92403b") { response in
             self.lensData = response
-            print(self.lensData)
             self.detailTableView.reloadData()
         }
     }
@@ -142,15 +141,14 @@ extension DetailVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.suggestList = lensData?.suggestList
             cell.delegate = self
+            cell.suggestList = lensData?.suggestList ?? [SuggestList]()
             return cell
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailNewTVC.identifier) as? DetailNewTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.popularList = lensData?.popularList
             cell.delegate = self
             return cell
         default:

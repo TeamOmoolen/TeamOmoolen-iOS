@@ -169,6 +169,7 @@ extension DetailTopTVC {
         lensFunctionLabel.text = function
         
         self.colorList = colorList
+        lensColorListCollectionView.reloadData()
     }
     
     func registerXib() {

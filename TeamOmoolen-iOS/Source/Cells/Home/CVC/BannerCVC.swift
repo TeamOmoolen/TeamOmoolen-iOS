@@ -39,6 +39,8 @@ extension BannerCVC {
         
         bannerImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         bannerImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        
+        bannerImageView.image = UIImage(named: "btFinishNormal")
     }
     
     func initCell(image: String) {

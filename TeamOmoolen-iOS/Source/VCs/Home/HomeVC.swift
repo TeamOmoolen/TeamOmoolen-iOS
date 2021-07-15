@@ -127,6 +127,7 @@ extension HomeVC {
         homeTableView.allowsSelection = false
     }
     
+    // MARK: - Network 
     func getHomeWithAPI() {
         let userIdentifier = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
         OnboardingAPI.shared.getHome(accesstoken: userIdentifier) { response in
@@ -287,7 +288,7 @@ extension HomeVC: UITableViewDataSource {
             cell.selectionStyle = .none
             cell.season = homeList?.season
             
-            cell.recommendationBySeason = homeList?.recommendationBySeason
+            
             
             cell.delegate = self
             return cell

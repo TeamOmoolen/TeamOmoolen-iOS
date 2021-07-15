@@ -11,9 +11,6 @@ import SnapKit
 class ColorListCVC: UICollectionViewCell {
     static let identifier = "ColorListCVC"
     
-    // MARK: - Local Variables
-    private var hexColor = ""
-    
     private lazy var colorImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "lensDescribeGlitter")
@@ -58,6 +55,8 @@ extension ColorListCVC {
             contentView.layer.backgroundColor = UIColor.omGold.cgColor
         case "pink":
             contentView.layer.backgroundColor = UIColor.bubbleGumPink.cgColor
+        case "orange":
+            contentView.layer.backgroundColor = UIColor.omMainOrange.cgColor
             
         case "glitter":
             contentView.addSubview(colorImageView)

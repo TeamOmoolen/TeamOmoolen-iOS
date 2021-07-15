@@ -57,7 +57,7 @@ extension OneMinCVC {
         titleLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
         titleLabel.textColor = .white
         
-        subtitleLabel.text = "이런이런 정보가 들어가요!"
+        subtitleLabel.text = "나에게 맞는 렌즈, 어떻게 사?"
         subtitleLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         subtitleLabel.textColor = .white
         
@@ -103,7 +103,8 @@ extension OneMinCVC: UITableViewDelegate {
 
 extension OneMinCVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return oneMinDetailData.count
+//        return oneMinDetailData.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -111,8 +112,8 @@ extension OneMinCVC: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.selectionStyle = .none
-//        cell.initCell(title: oneMinDetailData[indexPath.row].title, subTitle: oneMinDetailData[indexPath.row].subTitle)
-        cell.initCell(title: guideDetail?[indexPath.row].question ?? "", subTitle: guideDetail?[indexPath.row].answer ?? "")
+        
+//        cell.initCell(title: guideDetail?[indexPath.row].question ?? "", subTitle: guideDetail?[indexPath.row].answer ?? "")
         return cell
     }
 }
