@@ -139,6 +139,7 @@ extension DetailTopTVC {
         
         let lensURL = URL(string: imageList[0])
         lensImageView.kf.setImage(with: lensURL)
+        lensImageView.layer.cornerRadius = lensImageView.frame.width / 2
         
         brandLabel.text = brand
         lensLabel.text = lens

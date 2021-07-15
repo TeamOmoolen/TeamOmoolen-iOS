@@ -142,7 +142,7 @@ extension DetailVC: UITableViewDataSource {
             }
             cell.selectionStyle = .none
             cell.delegate = self
-            cell.suggestList = lensData?.suggestList ?? [SuggestList]()
+            cell.initCell(data: lensData?.suggestList ?? [SuggestList]())
             return cell
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailNewTVC.identifier) as? DetailNewTVC else {
@@ -150,6 +150,7 @@ extension DetailVC: UITableViewDataSource {
             }
             cell.selectionStyle = .none
             cell.delegate = self
+            cell.initCell(data: lensData?.popularList ?? [PopularList]())
             return cell
         default:
             return UITableViewCell()

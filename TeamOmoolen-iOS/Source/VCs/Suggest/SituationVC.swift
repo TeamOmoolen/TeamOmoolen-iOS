@@ -24,7 +24,7 @@ class SituationVC: UIViewController {
     private var recommendList: [RecommendLensDataModel] = []
     var suggestForSituation: [SuggestProduct]? = nil
     var suggestDetailSituation: SuggestDetailResponse?
-    var accessToken = ""
+    var accesstoken = ""
     
     private var currPage: Int = 1
     private var totalPage: Int = -1
@@ -40,7 +40,7 @@ class SituationVC: UIViewController {
         setRecommendList()
         registerXib()
         setAccesstoken()
-        getSuggestSituationWithAPI(accesstoken: accessToken, page: currPage, sort: sort, order: order)
+        getSuggestSituationWithAPI(accesstoken: accesstoken, page: currPage, sort: sort, order: order)
         setCollectionViewDelegate()
         setNotification()
         setPhoneResolution()
@@ -81,7 +81,7 @@ class SituationVC: UIViewController {
     }
     
     func setAccesstoken() {
-        accessToken = UserDefaults.standard.string(forKey: "AccessToken") ?? ""
+        accesstoken = UserDefaults.standard.string(forKey: "AccessToken") ?? ""
     }
     
     func registerXib() {
@@ -166,7 +166,9 @@ extension SituationVC: UICollectionViewDelegate {
             if canFetchData, currPage < totalPage {
                 currPage += 1
                 canFetchData = false
-                getSuggestSituationWithAPI(accesstoken: accessToken, page: currPage, sort: sort, order: order)
+                getSuggestSituationWithAPI(accesstoken: accesstoken, page: currPage, sort: sort, order: order)
+            } else {
+                getSuggestSituationWithAPI(accesstoken: accesstoken, page: currPage, sort: "", order: "")
             }
             //refresh
             situationCollectionView.reloadData()
