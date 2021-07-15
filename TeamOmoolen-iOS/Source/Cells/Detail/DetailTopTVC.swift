@@ -130,6 +130,10 @@ extension DetailTopTVC {
         compareButton.setTitle("보관함 비교", for: .normal)
         compareButton.layer.cornerRadius = 10
         compareButton.layer.masksToBounds = true
+        
+//        modelImageView.contentMode = .scaleAspectFill
+//        lensImageView.contentMode = .scaleAspectFill
+//        lensImageView.layer.cornerRadius = lensImageView.frame.height / 2
     }
     
     func initCell(imageList: [String], brand: String, lens: String, price: Int, diameter: Double, minCycle: Int, maxCycle:Int, texture: String, function: String, colorList: [String]) {

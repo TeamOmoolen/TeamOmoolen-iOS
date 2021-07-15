@@ -32,10 +32,12 @@ struct SearchResultDataModel: Codable {
 struct SearchResultResponse: Codable {
     let products: [Product]
     let totalPage: Int
+//    let lensCount: Int
     
     enum CodingKeys: String, CodingKey {
         case products = "items"
         case totalPage
+//        case lensCount
     }
     
 }
