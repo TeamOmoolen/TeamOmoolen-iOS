@@ -560,8 +560,6 @@
 		9261598626920EA600E1E87F /* CVC */ = {
 			isa = PBXGroup;
 			children = (
-				F830416B26A0455B00E1876B /* SearchResultCVC.swift */,
-				F830416C26A0455B00E1876B /* SearchResultCVC.xib */,
 				F8F52513269D789A00EB6FF0 /* PopularCVC.swift */,
 				F8F52514269D789A00EB6FF0 /* PopularCVC.xib */,
 				9261598726920EBE00E1E87F /* RecommendCVC.swift */,
@@ -792,6 +790,8 @@
 				E8C9A4362690AA3100E5BD9D /* SearchTabBarCVC.xib */,
 				E8C9A4432690D56000E5BD9D /* SearchHomeCVC.swift */,
 				E8C9A4442690D56000E5BD9D /* SearchHomeCVC.xib */,
+				F830416B26A0455B00E1876B /* SearchResultCVC.swift */,
+				F830416C26A0455B00E1876B /* SearchResultCVC.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";

@@ -43,7 +43,10 @@ extension RecommendCVC {
         contentView.backgroundColor = .white
         modelImageView.image = UIImage(named: "ellipse1842")
         lensImageView.image = UIImage(named: "imgColorA")
+        
         lensImageView.layer.cornerRadius = lensImageView.frame.width / 2
+        lensImageView.contentMode = .scaleAspectFill
+        lensImageView.layer.applyShadow(color: .omMainBlack, alpha: 0.4, x: 0, y: 1, blur: 5, spread: 0)
         
         brandNameLabel.text
          = "오렌즈"
@@ -140,6 +143,7 @@ extension RecommendCVC: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 //        cell.initCell(color: colorList[indexPath.row])
+        cell.initCell(color: "blue")
         return cell
     }
 }

@@ -327,14 +327,14 @@ extension HomeVC {
     @objc
     func pushToDetailVC(_ notification: Notification) {
         var id: String
-        id = notification.object as! String
+//        id = notification.object as! String
         
         guard let detailVC = UIStoryboard(name: Const.Storyboard.Name.Detail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Detail) as? DetailVC else {
             return
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
-        detailVC.id = id
+//        detailVC.id = id
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

@@ -99,6 +99,7 @@ class SearchResultCVC: UICollectionViewCell {
         priceLabel.text = "\(formatter.string(from: NSNumber(value: price))!)원"
         
         self.colorList = colorList
+        colorListCollectionView.reloadData()
     }
     
     func registerXib() {
