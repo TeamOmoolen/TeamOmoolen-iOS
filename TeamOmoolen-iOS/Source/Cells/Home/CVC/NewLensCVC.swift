@@ -40,17 +40,19 @@ class NewLensCVC: UICollectionViewCell {
 extension NewLensCVC {
     func setUI() {
         contentView.backgroundColor = .white
-        modelImageView.image = UIImage(named: "abc")
+        modelImageView.image = UIImage(named: "ellipse1842")
         modelImageView.layer.cornerRadius = 10
         modelImageView.layer.masksToBounds = true
         
-        brandImageView.image = UIImage(named: "abc")
+        brandImageView.image = UIImage(named: "imgOlensLogoOnboardingNormal")
         brandImageView.layer.cornerRadius = brandImageView.frame.width / 2
         brandImageView.layer.masksToBounds = true
         
+        brandLabel.text = "렌즈미"
         brandLabel.textColor = .omWhite
         brandLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
         
+        lensLabel.text = "제품 상세 정보 이름"
         lensLabel.textColor = .omWhite
         lensLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
     }
@@ -71,6 +73,7 @@ extension NewLensCVC {
     
     func initCell(lensData: [NewLensDetailData]) {
         newLens = lensData
+        newLensTableView.reloadData()
     }
 }
 
@@ -91,8 +94,8 @@ extension NewLensCVC: UITableViewDelegate {
 
 extension NewLensCVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newLens?.count ?? 0 - 1
-//        return 3
+//        return newLens?.count ?? 0 - 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,8 +103,7 @@ extension NewLensCVC: UITableViewDataSource {
             return UITableViewCell()
         }
         let data = newLens?[indexPath.row + 1]
-        cell.initCell(brand: data?.brand ?? "", name: data?.name ?? "", price: data?.price ?? 0, imageList: data?.imageList ?? [""])
-//        cell.initCell()
+//        cell.initCell(brand: data?.brand ?? "", name: data?.name ?? "", price: data?.price ?? 0, imageList: data?.imageList ?? [""])
         return cell
     }
     

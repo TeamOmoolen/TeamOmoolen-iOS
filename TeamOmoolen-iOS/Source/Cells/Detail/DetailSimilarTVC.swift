@@ -19,7 +19,7 @@ class DetailSimilarTVC: UITableViewCell {
     
     // MARK: - Local Variables
     
-    var suggestList: [SuggestList]?
+    var suggestList = [SuggestList]()
     var delegate: ViewModalProtocol?
     
     // MARK: - Life Cycle Methdos
@@ -60,6 +60,13 @@ extension DetailSimilarTVC {
         
         collectionView.isScrollEnabled = false
     }
+    
+    func initCell(data: [SuggestList]) {
+        self.suggestList = data
+        print(data)
+        print(suggestList)
+        collectionView.reloadData()
+    }
 }
 
 // MARK: - UICollectionView Delegate
@@ -71,7 +78,7 @@ extension DetailSimilarTVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
-        detailVC.id = suggestList?[indexPath.row].id
+//        detailVC.id = suggestList[indexPath.row].id
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
@@ -102,15 +109,15 @@ extension DetailSimilarTVC: UICollectionViewDelegateFlowLayout {
 
 extension DetailSimilarTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return suggestList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeasonCVC.identifier, for: indexPath) as? SeasonCVC else {
             return UICollectionViewCell()
         }
-        let data = suggestList?[indexPath.row]
-        
+        let data = suggestList[indexPath.row]
+        cell.initCell(imageList: data.imageList, brandName: data.brand, lensName: data.name, diameter: data.diameter, minCycle: data.changeCycleMinimum, maxCycle: data.changeCycleMaximum, pieces: data.pieces, price: data.price, colorList: data.otherColorList)
         return cell
     }
 }

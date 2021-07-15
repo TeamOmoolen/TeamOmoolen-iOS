@@ -28,14 +28,19 @@ class SearchResultVC: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var resultCollectionView: UICollectionView!
     
+    // MARK: - Life Cycle Methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         setCollectionViewDelegate()
         resgisterNib()
         setNotification()
-        resultCollectionView.reloadData()
-        
     }
     
     // MARK: - @IBAction Properties
@@ -43,9 +48,18 @@ class SearchResultVC: UIViewController {
         let vc = UIStoryboard(name: Const.Storyboard.Name.SortPanModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SortPanModal) as! SortPanModalVC
         presentPanModal(vc)
     }
+    
+
     @IBAction func popToSearch(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func returnToSearch(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
     
     // MARK: - Methods
     func setNotification() {
