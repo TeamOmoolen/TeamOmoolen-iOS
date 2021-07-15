@@ -222,7 +222,30 @@ extension SearchInTVC: UITableViewDelegate {
             }
         }
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var keyword = ""
+        switch indexPath.section {
+        case 0:
+            if (searchList.count != 0) {
+                keyword = searchList[0]
+            }
+        case 1:
+            if (searchList.count != 0 && searchList.count <= 3) {
+             keyword = searchList[1]
+            }
+        case 2:
+            if (searchList.count == 3) {
+                keyword = searchList[2]
+            }
+        case 3:
+            return
+        default:
+            return
+        }
     
+        NotificationCenter.default.post(name: NSNotification.Name("RecentToSearchResult"), object: keyword)
+    }
 }
 
 

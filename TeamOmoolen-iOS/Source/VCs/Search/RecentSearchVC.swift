@@ -79,6 +79,8 @@ extension RecentSearchVC {
     
     func getNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(pushToSearchResultVC(_:)), name: NSNotification.Name("PushToSearchResult"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(pushRecentToSearchResultVC(_:)), name: NSNotification.Name("RecentToSearchResult"), object: nil)
     }
     
     @objc func pushToSearchResultVC(_ notification: Notification) {
@@ -87,6 +89,16 @@ extension RecentSearchVC {
         let param = keyword
         getSearchResultWithAPI(param: param)
     }
+    
+    //Realm에 저장된 최근 검색어에서 검색결과 서버통신
+    @objc func pushRecentToSearchResultVC(_ notification: Notification) {
+        var keyword: String
+        keyword = notification.object as! String
+        let param = keyword
+        print(param)
+        getSearchResultWithAPI(param: param)
+    }
+    
     
     func getSearchResultWithAPI(param: String) {
         SearchAPI.shared.getKeywordResult(param: param) { response in

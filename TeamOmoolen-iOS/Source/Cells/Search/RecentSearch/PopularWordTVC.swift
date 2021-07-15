@@ -42,6 +42,8 @@ class PopularWordTVC: UITableViewCell {
         rankLabel.text = String(rank)
         searchWordLabel.text = name
     }
+    
+    
 
     
 }
