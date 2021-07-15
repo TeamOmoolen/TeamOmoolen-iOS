@@ -63,8 +63,6 @@ extension DetailSimilarTVC {
     
     func initCell(data: [SuggestList]) {
         self.suggestList = data
-        print(data)
-        print(suggestList)
         collectionView.reloadData()
     }
 }
