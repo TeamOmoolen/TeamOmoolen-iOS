@@ -107,6 +107,20 @@ class SearchResultVC: UIViewController {
 // MARK: - UICollectionViewDelegate
 extension SearchResultVC: UICollectionViewDelegate {
     
+    //검색결과에서 cell 클릭 경우, 상세정보로 화면전환
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        let id = resultList![indexPath.row].id
+        guard let detailVC = UIStoryboard(name:Const.Storyboard.Name.Detail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Detail) as? DetailVC else {
+            return
+        }
+        detailVC.modalPresentationStyle = .fullScreen
+        detailVC.modalTransitionStyle = .crossDissolve
+        detailVC.id = id
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
 }
 
 // MARK: - UICollectionViewDataSource
