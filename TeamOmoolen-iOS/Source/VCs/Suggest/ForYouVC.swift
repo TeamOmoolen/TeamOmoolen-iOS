@@ -62,7 +62,7 @@ class ForYouVC: UIViewController {
     }
     
     func setAccesstoken() {
-        accesstoken = UserDefaults.standard.string(forKey: "AccessToken") ?? ""
+        accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
     }
     
     func setRecommendList() {

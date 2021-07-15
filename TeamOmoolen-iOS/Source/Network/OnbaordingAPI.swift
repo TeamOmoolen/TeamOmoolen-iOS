@@ -10,7 +10,7 @@ import Moya
 
 class OnboardingAPI {
     static let shared = OnboardingAPI()
-    static let provider = MoyaProvider<OnboardingService>()
+    static let provider = MoyaProvider<OnboardingService>(plugins: [NetworkLoggerPlugin()])
 
     func postOnboarding(param: OnboardingRequest, accesstoken: String ,completion: @escaping (OnBoardingDataModel) -> ()) {
         OnboardingAPI.provider.request(.onboarding(param: param, accesstoken: accesstoken)) { response in

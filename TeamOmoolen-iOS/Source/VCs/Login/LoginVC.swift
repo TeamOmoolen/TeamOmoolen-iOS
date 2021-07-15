@@ -81,8 +81,7 @@ class LoginVC: UIViewController {
     
     func postAppleLoginWithAPI(param: AppleLoginRequest) {
         LoginAPI.shared.postAppleLogin(param: param) { response in
-            print(response.accessToken)
-            UserDefaults.standard.set(response.accessToken, forKey: "accessToken")
+            UserDefaults.standard.set(response.accessToken, forKey: "Accesstoken")
         }
     }
 }
