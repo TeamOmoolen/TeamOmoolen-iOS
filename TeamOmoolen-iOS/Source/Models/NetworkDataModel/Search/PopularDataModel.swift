@@ -31,7 +31,7 @@ struct PopularDataModel: Codable {
 }
 
 struct PopularResponse: Codable {
-    let id: Int
+    let id: String
     let name: String
     
     enum CodingKeys: String, CodingKey {

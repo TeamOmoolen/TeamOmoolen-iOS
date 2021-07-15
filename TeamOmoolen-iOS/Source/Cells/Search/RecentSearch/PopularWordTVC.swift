@@ -11,18 +11,18 @@ class PopularWordTVC: UITableViewCell {
 
     static let identifier = "PopularWordTVC"
     
-    //Mark: - UI Components
+    //MARK: - UI Components
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var searchWordLabel: UILabel!
     @IBOutlet weak var icImageView: UIImageView!
     
-    //Mark: - View Life Cycle
+    //MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         setUI()
     }
 
-    //Mark: - Methods
+    //MARK: - Methods
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

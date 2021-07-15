@@ -11,31 +11,28 @@ class PopularTVC: UITableViewCell {
 
     static let identifier = "PopularTVC"
     
-    //Mark: - Properties
-    private var popularSearchList = [PopularResponse]()
-    private var popularCellList = [PopularCellDataModel]()
+    //MARK: - Properties
+    var cellPopularList = [PopularResponse]()
 
-    //Mark: - IB Outlets
+    //MARK: - IB Outlets
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var popularTableView: UITableView!
     
     
-    //Mark: - View Life Cycle
+    //MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         setUI()
         setPopularTable()
         registerXib()
-        getPopularSearchWithAPI()
-        initPopularSearchList()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    //Mark: - Methods
+    //MARK: - Methods
     func setUI() {
         headerLabel.text = "인기검색어"
         headerLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
@@ -46,12 +43,10 @@ class PopularTVC: UITableViewCell {
         
     }
     
-    func initPopularSearchList(){
-        for i in 0..<9 {
-            popularCellList.append(contentsOf: [
-                PopularCellDataModel(rank: i+1, name: "ㅇ")
-            ])
-        }
+    func setLensData(data : [PopularResponse]){
+        print("data@@@",data)
+        self.cellPopularList = data
+        popularTableView.reloadData()
     }
     
     func registerXib() {
@@ -65,13 +60,6 @@ class PopularTVC: UITableViewCell {
         popularTableView.dataSource = self
         popularTableView.separatorStyle = .none
     }
-    
-    func getPopularSearchWithAPI() {
-        SearchAPI.shared.getPopularSearch { response in
-            self.popularSearchList = response
-            print("여기야 여기 : \(self.popularSearchList)")
-        }
-    }
 }
 
 //Mark: - Extensions
@@ -84,14 +72,14 @@ extension PopularTVC: UITableViewDelegate {
 
 extension PopularTVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return popularCellList.count
+        return cellPopularList.count
     }
  
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PopularWordTVC.identifier, for: indexPath) as? PopularWordTVC else {
             return UITableViewCell()
         }
-        cell.initCell(rank: popularCellList[indexPath.row].rank, name: popularCellList[indexPath.row].name)
+        cell.initCell(rank: indexPath.row + 1, name: cellPopularList[indexPath.row].name)
         cell.selectionStyle = .none
         
         return cell
