@@ -12,7 +12,7 @@ class SearchResultVC: UIViewController {
 
     // MARK: - Properties
     var resultList: [Product]?
-    var productCount = 0
+    var productCount = -1
     var searchKeyword = ""
     
     private var currPage: Int = 1
@@ -87,7 +87,7 @@ class SearchResultVC: UIViewController {
         countBackView.layer.cornerRadius = 10
         countBackView.backgroundColor = .omFifthGray
         
-        productCount = resultList?.count ?? 0
+//        productCount = resultList?.count ?? 0
         countLabel.text = "총 \(productCount)개의 상품"
         countLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 13)
         countLabel.textColor = .omSecondGray

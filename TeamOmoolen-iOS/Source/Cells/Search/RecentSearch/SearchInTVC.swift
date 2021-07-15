@@ -244,7 +244,9 @@ extension SearchInTVC: UITableViewDelegate {
             return
         }
     
-        NotificationCenter.default.post(name: NSNotification.Name("RecentToSearchResult"), object: keyword)
+        if (keyword != "") {
+            NotificationCenter.default.post(name: NSNotification.Name("RecentToSearchResult"), object: keyword)
+        }
     }
 }
 

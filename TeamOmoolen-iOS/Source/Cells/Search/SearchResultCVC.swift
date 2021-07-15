@@ -50,6 +50,8 @@ class SearchResultCVC: UICollectionViewCell {
             lensNameLabel.textColor = .omMainBlack
             lensNameLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 12)
             
+            lensNameLabel.numberOfLines = 2
+            lensNameLabel.lineBreakMode = .byTruncatingTail
             lensInfoLabel.text = "직경 / 교체시기"
             lensInfoLabel.textColor = .omThirdGray
             lensInfoLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 11)
