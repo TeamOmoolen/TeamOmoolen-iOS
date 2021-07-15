@@ -59,7 +59,7 @@ class ThirdOnboardingVC: UIViewController {
         } else if functionCollectionView.indexPathsForSelectedItems! == [[0,2]] {
             lensFunction = "다초점"
         } else {
-            lensFunction = "없음"
+            lensFunction = ""
         }
         
         let lensPeriodList = timeCollectionView.indexPathsForSelectedItems!

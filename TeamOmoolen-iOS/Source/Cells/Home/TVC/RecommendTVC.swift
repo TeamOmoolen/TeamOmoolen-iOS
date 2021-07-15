@@ -102,7 +102,7 @@ extension RecommendTVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
-        detailVC.id = recommendList[indexPath.row].id
+//        detailVC.id = recommendList[indexPath.row].id
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
