@@ -76,8 +76,9 @@ extension MiddleBannerTVC {
         collectionView.showsHorizontalScrollIndicator = false
     }
     
-    func initCell(ImageList: [String]) {
-        self.imageList = ImageList
+    func initCell(ImageList: [Event]) {
+        self.event = ImageList
+        collectionView.reloadData()
     }
 }
 

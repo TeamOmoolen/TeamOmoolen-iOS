@@ -52,8 +52,10 @@ extension DetailVC {
     }
     
     func getProductDetailWithAPI() {
-        DetailAPI.shared.getProductDetail(param: id ?? "") { response in
+        DetailAPI.shared.getProductDetail(param: "60efdf8e3e4ecf590a92403b") { response in
             self.lensData = response
+            print(self.lensData)
+            self.detailTableView.reloadData()
         }
     }
     
@@ -123,14 +125,7 @@ extension DetailVC: UITableViewDataSource {
             }
             cell.selectionStyle = .none
             cell.delegate = self
-            cell.initCell(brand: lensData?.brand ?? "",
-                          lens: lensData?.name ?? "",
-                          price: lensData?.price ?? 0,
-                          diameter: lensData?.diameter ?? 0,
-                          cycle: lensData?.changeCycle ?? 0,
-                          texture: lensData?.material ?? "",
-                          function: lensData?.function ?? "",
-                          colorList: lensData?.otherColorList ?? [""])
+            
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTVC.identifier) as? ReviewTVC else {

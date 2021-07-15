@@ -27,6 +27,12 @@ class SearchVC: UIViewController {
     }()
     
     //MARK: - View Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabBar()
@@ -34,7 +40,6 @@ class SearchVC: UIViewController {
         registerNib()
         setCollectionViewDelegate()
         setVCs()
-        self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {

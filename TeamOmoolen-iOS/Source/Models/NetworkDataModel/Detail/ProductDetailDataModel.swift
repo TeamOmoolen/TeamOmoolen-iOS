@@ -36,7 +36,8 @@ struct ProductDetailResponse: Codable {
     let name: String
     let price: Int
     let diameter: Double
-    let changeCycle: Int
+    let changeCycleMinimum: Int
+    let changeCycleMaximum: Int
     let material: String
     let function: String
     let color: String
@@ -50,7 +51,8 @@ struct SuggestList: Codable {
     let brand: String
     let name: String
     let diameter: Double
-    let changeCycle: Int
+    let changeCycleMinimum: Int
+    let changeCycleMaximum: Int
     let pieces: Int
     let price: Int
     let otherColorList: [String]
@@ -61,6 +63,7 @@ struct PopularList: Codable {
     let brand: String
     let name: String
     let diameter: Double
-    let changeCycle: Int
+    let changeCycleMinimum: Int
+    let changeCycleMaximum: Int
     let pieces: Int
 }

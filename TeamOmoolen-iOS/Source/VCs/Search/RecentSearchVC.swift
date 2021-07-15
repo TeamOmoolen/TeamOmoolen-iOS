@@ -16,7 +16,6 @@ class RecentSearchVC: UIViewController {
     
     var recentSearchCellHeight = 120
     
-    // MARK: - 여기
     private var popularSearchList = [PopularResponse]()
     
     //MARK: - View Life Cycle
@@ -68,7 +67,6 @@ class RecentSearchVC: UIViewController {
     func getPopularSearchWithAPI() {
         SearchAPI.shared.getPopularSearch { response in
             self.popularSearchList = response
-            print("여기서 통신 시작\(self.popularSearchList)")
             self.searchInTableView.reloadData()
         }
     }

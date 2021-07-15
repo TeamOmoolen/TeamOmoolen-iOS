@@ -77,8 +77,9 @@ extension LastBannerTVC {
         collectionView.showsHorizontalScrollIndicator = false
     }
     
-    func initCell(imageList: [String]) {
-        self.imageList = imageList
+    func initCell(ImageList: [Event]) {
+        self.event = ImageList
+        collectionView.reloadData()
     }
 }
 

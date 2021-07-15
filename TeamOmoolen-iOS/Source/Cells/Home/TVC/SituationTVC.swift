@@ -74,8 +74,9 @@ extension SituationTVC {
         ])
     }
     
-    func initCell() {
-        
+    func initCell(data: [RecommendationBySituation]) {
+        self.recommendationBySituation = data
+        timeRecommendCollectionView.reloadData()
     }
     
     func registerXib() {

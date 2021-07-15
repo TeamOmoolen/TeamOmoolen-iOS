@@ -22,14 +22,19 @@ class SearchResultVC: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var resultCollectionView: UICollectionView!
     
+    // MARK: - Life Cycle Methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         setCollectionViewDelegate()
         resgisterNib()
         setNotification()
-        
-        self.tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: - @IBAction Properties

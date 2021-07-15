@@ -36,7 +36,6 @@ class NewLensTVC: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
 }
 
 extension NewLensTVC {
@@ -67,6 +66,10 @@ extension NewLensTVC {
         newLensCollectionView.dataSource = self
         
         newLensCollectionView.showsHorizontalScrollIndicator = false
+    }
+    
+    func initCell(data: [NewLens]) {
+        self.newLens = data
     }
 }
 

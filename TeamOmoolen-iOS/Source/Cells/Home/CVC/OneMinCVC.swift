@@ -69,16 +69,11 @@ extension OneMinCVC {
         moreButton.layer.masksToBounds = true
     }
     
-//    func initCell(subTitle: String, oneMinDetail: [OneMinDetailDataModel]) {
-//        subtitleLabel.text = subTitle
-//
-//        oneMinDetailData = oneMinDetail
-//    }
-    
     func initCell(subTitle: String, oneMinDetail: [GuideDetail]) {
         subtitleLabel.text = subTitle
-        
         guideDetail = oneMinDetail
+        
+        oneMinTableView.reloadData()
     }
     
     func registerXib() {

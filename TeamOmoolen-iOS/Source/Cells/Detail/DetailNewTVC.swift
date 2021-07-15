@@ -117,7 +117,6 @@ extension DetailNewTVC: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let data = popularList?[indexPath.row]
-        cell.initCell(imageList: data?.imageList ?? ["",""], brandName: data?.brand ?? "", lensName: data?.name ?? "", diameter: data?.diameter ?? 0, cycle: data?.changeCycle ?? 0, pieces: data?.pieces ?? 0)
         return cell
     }
 }
