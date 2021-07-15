@@ -29,8 +29,13 @@ class SearchVC: UIViewController {
     //MARK: - View Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        self.searchTextField.text = ""
         self.tabBarController?.tabBar.isHidden = true
+        searchTextField.becomeFirstResponder()
+        
+        NotificationCenter.default.post(name: NSNotification.Name("ViewWillAppear"), object: nil)
+        
+    
     }
     
     override func viewDidLoad() {
@@ -40,6 +45,11 @@ class SearchVC: UIViewController {
         registerNib()
         setCollectionViewDelegate()
         setVCs()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        searchTextField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
