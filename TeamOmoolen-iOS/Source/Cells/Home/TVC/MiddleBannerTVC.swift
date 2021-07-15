@@ -115,15 +115,14 @@ extension MiddleBannerTVC: UICollectionViewDelegateFlowLayout {
 
 extension MiddleBannerTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return event.count
-        return 3
+        return event.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCVC.identifier, for: indexPath) as? BannerCVC else {
             return UICollectionViewCell()
         }
-//        cell.initCell(image: event[indexPath.row].image)
+        cell.initCell(image: event[indexPath.row].image)
         return cell
     }
 }

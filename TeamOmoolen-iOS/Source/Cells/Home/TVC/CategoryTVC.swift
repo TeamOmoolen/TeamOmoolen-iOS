@@ -41,22 +41,22 @@ extension CategoryTVC {
     func setUI() {
         contentView.backgroundColor = .omWhite
         
-        colorImageView.image = UIImage(named: "abc")
+        colorImageView.image = UIImage(named: "icHomeCategoryColor")
         colorLabel.text = "컬러"
         colorLabel.textColor = .omSecondGray
         colorLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
         
-        clearImageView.image = UIImage(named: "abc")
+        clearImageView.image = UIImage(named: "icHomeCategoryTransparent")
         clearLabel.text = "투명"
         clearLabel.textColor = .omSecondGray
         clearLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
         
-        cospreImageView.image = UIImage(named: "abc")
+        cospreImageView.image = UIImage(named: "icHomeCategoryCosplay")
         cospreLabel.text = "코스프레"
         cospreLabel.textColor = .omSecondGray
         cospreLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
         
-        newImageView.image = UIImage(named: "abc")
+        newImageView.image = UIImage(named: "icHomeCategoryNew")
         newLabel.text = "신제품"
         newLabel.textColor = .omSecondGray
         newLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)

@@ -158,7 +158,7 @@ extension SearchResultVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCVC.identifier, for: indexPath) as? SearchResultCVC else {
             return UICollectionViewCell()
         }
-        let cellData = resultList?[indexPath.row] ?? Product(id: "", name: "", imageList: [""], otherColorList: [""], price: 0, brand: "", diameter: 0, changeCycleMinimum: 0, changeCycleMaximum: 0, pieces: 0)
+        let cellData = resultList?[indexPath.row] ?? Product(id: "", name: "", imageList: ["", "", ""], otherColorList: [""], price: 0, brand: "", diameter: 0, changeCycleMinimum: 0, changeCycleMaximum: 0, pieces: 0)
         
         cell.initCell(imageList: cellData.imageList, brandName: cellData.brand, lensName: cellData.name, diameter: cellData.diameter, minCycle: cellData.changeCycleMinimum, maxCycle: cellData.changeCycleMaximum, pieces: cellData.pieces, price: cellData.price, colorList: cellData.otherColorList)
         return cell

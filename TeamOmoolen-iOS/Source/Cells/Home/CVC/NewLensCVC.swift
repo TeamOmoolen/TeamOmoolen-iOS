@@ -22,7 +22,7 @@ class NewLensCVC: UICollectionViewCell {
     
     // MARK: - Local Variables
     
-    var newLens: [NewLensDetailData]? = nil
+    var newLens = [NewLensDetailData]()
     
     // MARK: - Life Cycle Methods
     
@@ -88,22 +88,21 @@ extension NewLensCVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NotificationCenter.default.post(name: NSNotification.Name("PushtoDetailVC"), object: newLens?[indexPath.row].id)
+        NotificationCenter.default.post(name: NSNotification.Name("PushtoDetailVC"), object: newLens[indexPath.row].id)
     }
 }
 
 extension NewLensCVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return newLens?.count ?? 0 - 1
-        return 3
+        return newLens.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewLensDetailTVC.identifier) as? NewLensDetailTVC else {
             return UITableViewCell()
         }
-        let data = newLens?[indexPath.row + 1]
-//        cell.initCell(brand: data?.brand ?? "", name: data?.name ?? "", price: data?.price ?? 0, imageList: data?.imageList ?? [""])
+        let data = newLens[indexPath.row]
+        cell.initCell(brand: data.brand, name: data.name, price: data.price, imageList: data.imageList)
         return cell
     }
     
