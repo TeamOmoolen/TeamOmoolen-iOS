@@ -36,10 +36,12 @@ extension OneMinDetailTVC {
         titleLabel.text = "렌즈 눈치 안보고 패션을 꾸밀 수 있다?"
         titleLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 14)
         titleLabel.textColor = .omMainBlack
+        titleLabel.lineBreakMode = .byTruncatingTail
         
         subtitleLabel.text = "부제목"
         subtitleLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 11)
         subtitleLabel.textColor = .omThirdGray
+        subtitleLabel.lineBreakMode = .byTruncatingTail
     }
     
     func initCell(title: String, subTitle: String) {

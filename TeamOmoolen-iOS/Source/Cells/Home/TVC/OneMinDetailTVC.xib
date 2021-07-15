@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boY-iy-sJe">
-                        <rect key="frame" x="16" y="22" width="42" height="21"/>
+                        <rect key="frame" x="16" y="22" width="349" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJK-Wm-d3f">
-                        <rect key="frame" x="16" y="47" width="42" height="21"/>
+                        <rect key="frame" x="16" y="47" width="349" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -32,8 +32,10 @@
                 <constraints>
                     <constraint firstItem="OJK-Wm-d3f" firstAttribute="top" secondItem="boY-iy-sJe" secondAttribute="bottom" constant="4" id="77a-xV-LYd"/>
                     <constraint firstItem="OJK-Wm-d3f" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Hwe-NS-Dzf"/>
+                    <constraint firstAttribute="trailing" secondItem="boY-iy-sJe" secondAttribute="trailing" constant="10" id="Jb5-Bb-ld3"/>
                     <constraint firstItem="boY-iy-sJe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="gfX-Th-7lW"/>
                     <constraint firstItem="boY-iy-sJe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="jpp-9M-fhD"/>
+                    <constraint firstAttribute="trailing" secondItem="OJK-Wm-d3f" secondAttribute="trailing" constant="10" id="oAs-8r-ECO"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
