@@ -14,13 +14,13 @@ enum DetailService {
 
 extension DetailService: TargetType {
     var baseURL: URL {
-        return URL(string: Const.GeneralAPI.loginURL)!
+        return URL(string: Const.GeneralAPI.baseURL)!
     }
     
     var path: String {
         switch self {
-        case .product:
-            return "/api/product"
+        case .product(let param):
+            return "/api/products/\(param)"
         }
     }
     
@@ -37,8 +37,8 @@ extension DetailService: TargetType {
     
     var task: Task {
         switch self {
-        case .product(let param):
-            return .requestJSONEncodable(param)
+        case .product:
+            return .requestPlain
         }
     }
     

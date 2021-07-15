@@ -17,6 +17,7 @@ class RecentSearchVC: UIViewController {
     var recentSearchCellHeight = 120
     
     private var popularSearchList = [PopularResponse]()
+    private var searchResultResponse: SearchResultResponse?
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -26,6 +27,7 @@ class RecentSearchVC: UIViewController {
         setSearchInTableView()
         checkNotification()
         getPopularSearchWithAPI()
+        getNotification()
     }
     
     //MARK: - Methods
@@ -70,6 +72,38 @@ class RecentSearchVC: UIViewController {
             self.searchInTableView.reloadData()
         }
     }
+}
+
+//MARK: - Notification
+extension RecentSearchVC {
+    
+    func getNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(pushToSearchResultVC(_:)), name: NSNotification.Name("PushToSearchResult"), object: nil)
+    }
+    
+    @objc func pushToSearchResultVC(_ notification: Notification) {
+        var keyword: String
+        keyword = notification.object as! String
+        let param = keyword
+        getSearchResultWithAPI(param: param)
+    }
+    
+    func getSearchResultWithAPI(param: String) {
+        SearchAPI.shared.getKeywordResult(param: param) { response in
+            self.searchResultResponse = response
+
+            guard let searchResultVC = UIStoryboard(name: Const.Storyboard.Name.SearchResult, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SearchResult) as? SearchResultVC else {
+                return
+            }
+            searchResultVC.resultList = self.searchResultResponse?.products
+            searchResultVC.modalPresentationStyle = .fullScreen
+            searchResultVC.modalTransitionStyle = .crossDissolve
+            searchResultVC.searchKeyword = param
+            
+            self.navigationController?.pushViewController(searchResultVC, animated: true)
+        }
+    }
+    
 }
 
 extension RecentSearchVC: UITableViewDelegate {

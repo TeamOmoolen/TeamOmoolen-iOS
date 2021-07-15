@@ -7,8 +7,9 @@
 
 import Foundation
 
+
 struct PopularCellDataModel {
     
-    let rank: Int
-    let name: String
+    var rank: Int
+    var name: String
 }

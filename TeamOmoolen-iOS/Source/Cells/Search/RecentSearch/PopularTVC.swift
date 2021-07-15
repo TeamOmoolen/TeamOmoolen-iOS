@@ -44,7 +44,7 @@ class PopularTVC: UITableViewCell {
     }
     
     func setLensData(data : [PopularResponse]){
-        print("data@@@",data)
+        print("PopularTVC - setLensData() :",data)
         self.cellPopularList = data
         popularTableView.reloadData()
     }
@@ -67,7 +67,9 @@ extension PopularTVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 48
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        NotificationCenter.default.post(name: NSNotification.Name("PushToSearchResult"), object: cellPopularList[indexPath.row].name)
+    }
 }
 
 extension PopularTVC: UITableViewDataSource {

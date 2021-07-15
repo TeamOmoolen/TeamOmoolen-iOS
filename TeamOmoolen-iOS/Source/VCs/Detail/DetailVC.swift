@@ -52,6 +52,7 @@ extension DetailVC {
     }
     
     func getProductDetailWithAPI() {
+//        DetailAPI.shared.getProductDetail(param: id ?? "") { response in
         DetailAPI.shared.getProductDetail(param: "60efdf8e3e4ecf590a92403b") { response in
             self.lensData = response
             print(self.lensData)

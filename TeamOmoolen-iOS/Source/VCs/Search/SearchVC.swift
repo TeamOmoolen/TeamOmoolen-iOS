@@ -182,7 +182,6 @@ extension SearchVC {
     
     func getSearchResultWithAPI(param: String) {
         SearchAPI.shared.getKeywordResult(param: param) { response in
-            print(response)
             self.searchResultResponse = response
             
             guard let searchResultVC = UIStoryboard(name: Const.Storyboard.Name.SearchResult, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SearchResult) as? SearchResultVC else {

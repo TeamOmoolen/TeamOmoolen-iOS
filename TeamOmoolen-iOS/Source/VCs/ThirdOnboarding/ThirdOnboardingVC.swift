@@ -98,7 +98,6 @@ class ThirdOnboardingVC: UIViewController {
         nextVC.lensColor = lensColor
         nextVC.lensFunction = lensFunction
         nextVC.lensPeriod = lensPeriod
-        print("gender: \(gender) , age: \(age), lensKind: \(lensKind), lensColor: \(lensColor), lensFunction: \(lensFunction), lensPeriod: \(lensPeriod)")
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
