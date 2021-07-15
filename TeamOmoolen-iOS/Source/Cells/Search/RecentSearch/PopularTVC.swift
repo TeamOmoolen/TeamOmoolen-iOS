@@ -67,7 +67,9 @@ extension PopularTVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 48
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        NotificationCenter.default.post(name: NSNotification.Name("PushToSearchResult"), object: cellPopularList[indexPath.row].name)
+    }
 }
 
 extension PopularTVC: UITableViewDataSource {
