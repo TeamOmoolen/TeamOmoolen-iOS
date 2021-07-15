@@ -30,7 +30,7 @@ class SeasonVC: UIViewController {
     private var totalPage: Int = -1
     private var canFetchData: Bool = true
     
-    private var sort = "price"
+    private var sort = ""
     private var order = ""
    
     //MARK: - View Life Cycle
@@ -39,6 +39,7 @@ class SeasonVC: UIViewController {
         setUI()
         registerXib()
         setRecommendList()
+        setAccesstoken()
         setCollectionViewDelegate()
         setPhoneResolution()
         setAccesstoken()
@@ -77,7 +78,9 @@ class SeasonVC: UIViewController {
         popUpButton.setImage(UIImage(named: "btnQuestionmark"), for: .normal)
         
     }
-    
+    func setAccesstoken() {
+        accesstoken = UserDefaults.standard.string(forKey: "AccessToken") ?? ""
+    }
     func registerXib(){
         let recommedNib = UINib(nibName: RecommendCVC.identifier, bundle: nil)
         seasonCollectionView.register(recommedNib, forCellWithReuseIdentifier: RecommendCVC.identifier)
@@ -108,11 +111,7 @@ class SeasonVC: UIViewController {
             popUpTopConstraint.constant = 46
         }
     }
-    
-    func setAccesstoken(){
-        accesstoken = UserDefaults.standard.string(forKey: "UserIdentifier") ?? ""
-    }
-    
+
     func getSuggestSeasonWithAPI(page: Int, sort: String, order: String) {
         SuggestAPI.shared.getSeason(page: page, sort: sort, order: order) { response in
             self.suggestDetailForSeason = response
@@ -121,13 +120,8 @@ class SeasonVC: UIViewController {
             for i in 0..<(self.suggestDetailForSeason?.items.count)! {
                 appendList.append(SuggestProduct(id: self.suggestDetailForSeason!.items[i].id, imageList: self.suggestDetailForSeason!.items[i].imageList, brand: self.suggestDetailForSeason!.items[i].brand, name: self.suggestDetailForSeason!.items[i].name, diameter: self.suggestDetailForSeason!.items[i].diameter, minCycle: self.suggestDetailForSeason!.items[i].changeCycleMinimum, maxCycle: self.suggestDetailForSeason!.items[i].changeCycleMaximum, pieces: self.suggestDetailForSeason!.items[i].pieces, price: self.suggestDetailForSeason!.items[i].price, otherColorList: self.suggestDetailForSeason!.items[i].otherColorList))
             }
-            
-
         }
-    
     }
-    
-    
 }
 
 //MARK: - UICollectionView Delegate
@@ -149,7 +143,6 @@ extension SeasonVC: UICollectionViewDelegate {
                 canFetchData = false
                 // 서버 통신하는 곳
                 getSuggestSeasonWithAPI(page: currPage, sort: sort, order: order)
-//                getSuggestSeasonWithAPI(page: 1, sort: "1", order: "1")
             }
             //refresh
             seasonCollectionView.reloadData()

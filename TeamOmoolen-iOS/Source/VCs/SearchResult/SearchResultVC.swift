@@ -13,7 +13,13 @@ class SearchResultVC: UIViewController {
     // MARK: - Properties
     var resultList: [Product]?
     var productCount = 0
-    var searchKeyword = "keyword"
+    var searchKeyword = ""
+    
+    private var currPage: Int = 1
+    private var totalPage: Int = -1
+    private var canFetchData: Bool = true
+    private var sort = ""
+    private var order = ""
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var serperatorView: UIView!
@@ -62,8 +68,8 @@ class SearchResultVC: UIViewController {
     }
     
     func resgisterNib() {
-            let seasonNib = UINib(nibName: SeasonCVC.identifier, bundle: nil)
-            resultCollectionView.register(seasonNib, forCellWithReuseIdentifier: SeasonCVC.identifier)
+            let searchResultNib = UINib(nibName: SearchResultCVC.identifier, bundle: nil)
+            resultCollectionView.register(searchResultNib, forCellWithReuseIdentifier: SearchResultCVC.identifier)
     }
     
     func setUI() {
@@ -85,11 +91,16 @@ class SearchResultVC: UIViewController {
         countLabel.text = "총 \(productCount)개의 상품"
         countLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 13)
         countLabel.textColor = .omSecondGray
+        
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func setCollectionViewDelegate() {
         resultCollectionView.delegate = self
         resultCollectionView.dataSource = self
+    }
+    
+    func getSearchResultMoreWithAPI(page: Int, sort: String, order: String) {
         
     }
     
@@ -111,20 +122,33 @@ class SearchResultVC: UIViewController {
 
 // MARK: - UICollectionViewDelegate
 extension SearchResultVC: UICollectionViewDelegate {
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
+            print("끝에 닿음")
+            if canFetchData, currPage < totalPage {
+                currPage += 1
+                canFetchData = false
+                // 서버 통신하는 곳
+                getSearchResultMoreWithAPI(page: currPage, sort: sort, order: order)
+            }
+            //refresh
+            resultCollectionView.reloadData()
+        }
+    }
 }
 
 // MARK: - UICollectionViewDataSource
 extension SearchResultVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return resultList!.count
+        return resultList?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeasonCVC.identifier, for: indexPath) as? SeasonCVC else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCVC.identifier, for: indexPath) as? SearchResultCVC else {
             return UICollectionViewCell()
         }
-        let cellData = resultList![indexPath.row]
+        let cellData = resultList?[indexPath.row] ?? Product(id: "", name: "", imageList: [""], otherColorList: [""], price: 0, brand: "", diameter: 0, changeCycleMinimum: 0, changeCycleMaximum: 0, pieces: 0)
+        
         cell.initCell(imageList: cellData.imageList, brandName: cellData.brand, lensName: cellData.name, diameter: cellData.diameter, minCycle: cellData.changeCycleMinimum, maxCycle: cellData.changeCycleMaximum, pieces: cellData.pieces, price: cellData.price, colorList: cellData.otherColorList)
         return cell
     }
