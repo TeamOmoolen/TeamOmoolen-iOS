@@ -19,8 +19,7 @@ class LastBannerTVC: UITableViewCell {
     @IBOutlet weak var thirdIndicator: UIView!
     
     // MARK: - Local Variables
-    var event: [Event]?
-    private var imageList = [String]()
+    var event = [Event]()
     
     // MARK: - Life Cycle Methods
     
@@ -28,7 +27,6 @@ class LastBannerTVC: UITableViewCell {
         super.awakeFromNib()
         
         setUI()
-        setList()
         
         registerXib()
         setCollectionView()
@@ -56,12 +54,6 @@ extension LastBannerTVC {
         thirdIndicator.layer.masksToBounds = true
     }
     
-    func setList() {
-        imageList.append(event?[0].image ?? "")
-        imageList.append(event?[1].image ?? "")
-        imageList.append(event?[2].image ?? "")
-    }
-    
     func registerXib() {
         let nib = UINib(nibName: BannerCVC.identifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: BannerCVC.identifier)
@@ -77,8 +69,9 @@ extension LastBannerTVC {
         collectionView.showsHorizontalScrollIndicator = false
     }
     
-    func initCell(imageList: [String]) {
-        self.imageList = imageList
+    func initCell(ImageList: [Event]) {
+        self.event = ImageList
+        collectionView.reloadData()
     }
 }
 
@@ -123,6 +116,7 @@ extension LastBannerTVC: UICollectionViewDelegateFlowLayout {
 
 extension LastBannerTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return event.count
         return 3
     }
     
@@ -130,7 +124,7 @@ extension LastBannerTVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCVC.identifier, for: indexPath) as? BannerCVC else {
             return UICollectionViewCell()
         }
-        cell.initCell(image: event?[indexPath.row].image ?? "")
+//        cell.initCell(image: event[indexPath.row].image)
         return cell
     }
 }
