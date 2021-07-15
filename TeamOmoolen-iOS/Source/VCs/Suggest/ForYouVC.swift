@@ -23,7 +23,7 @@ class ForYouVC: UIViewController {
     private var recommendList: [RecommendLensDataModel] = []
     var suggestForYou: [SuggestProduct]? = nil
     var suggestDetailForYou: SuggestDetailResponse?
-    var accessToken = ""
+    var accesstoken = ""
     
     private var currPage: Int = 1
     private var totalPage: Int = -1
@@ -38,7 +38,6 @@ class ForYouVC: UIViewController {
         
         setUI()
         setAccesstoken()
-        getSuggestForyouWithAPI(accesstoken: accessToken, page: currPage, sort: sort, order: order)
         registerXib()
         setRecommendList()
         setCollectionViewDelegate()
@@ -63,7 +62,7 @@ class ForYouVC: UIViewController {
     }
     
     func setAccesstoken() {
-        accessToken = UserDefaults.standard.string(forKey: "AccessToken") ?? ""
+        accesstoken = UserDefaults.standard.string(forKey: "AccessToken") ?? ""
     }
     
     func setRecommendList() {
@@ -180,7 +179,9 @@ extension ForYouVC: UICollectionViewDelegate {
             if canFetchData, currPage < totalPage {
                 currPage += 1
                 canFetchData = false
-                getSuggestForyouWithAPI(accesstoken: accessToken, page: currPage, sort: sort, order: order)
+                getSuggestForyouWithAPI(accesstoken: accesstoken, page: currPage, sort: sort, order: order)
+            } else {
+                getSuggestForyouWithAPI(accesstoken: accesstoken, page: currPage, sort: "", order: "")
             }
             //refresh
             forYouCollectionView.reloadData()
