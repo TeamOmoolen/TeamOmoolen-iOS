@@ -26,8 +26,6 @@ class ForYouVC: UIViewController {
     var suggestDetailForYou: SuggestDetailResponse?
     var accesstoken = ""
     
-    var list = [SuggestProduct]()
-    
     private var currPage: Int = 1
     private var totalPage: Int = -1
     private var canFetchData: Bool = true
