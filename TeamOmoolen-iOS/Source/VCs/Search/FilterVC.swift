@@ -416,7 +416,7 @@ extension FilterVC {
             }
             searchResultVC.modalPresentationStyle = .fullScreen
             searchResultVC.modalTransitionStyle = .crossDissolve
-            searchResultVC.totalCount = (self.searchResultResponse?.products.count)!
+            searchResultVC.totalCount = self.searchResultResponse?.totalCount ?? 0
             searchResultVC.resultList = self.searchResultResponse?.products
             self.navigationController?.pushViewController(searchResultVC, animated: true)
         }
