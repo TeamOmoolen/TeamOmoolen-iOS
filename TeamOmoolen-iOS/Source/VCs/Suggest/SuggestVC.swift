@@ -220,12 +220,10 @@ class SuggestVC: UIViewController {
             self.seasonList = self.suggestList?.suggestForSeason ?? [SuggestProduct]()
             self.newProductList = self.suggestList?.suggestForNew ?? [SuggestProduct]()
             
-            //total count 넣기
             self.foryouTotal = self.suggestList?.suggestForYouTotalPage ?? 0
             self.situationTotal = self.suggestList?.suggestForSituationTotalPage ?? 0
             self.seasonTotal = self.suggestList?.suggestForSeasonTotalPage ?? 0
             self.newProductTotal = suggestList?.suggestForNewTotalPage ?? 0
-            
             
             self.collectionView.reloadData()
             setVCs()
