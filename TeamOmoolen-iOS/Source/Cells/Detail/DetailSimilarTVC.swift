@@ -76,7 +76,7 @@ extension DetailSimilarTVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
-//        detailVC.id = suggestList[indexPath.row].id
+        detailVC.id = suggestList[indexPath.row].id
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }

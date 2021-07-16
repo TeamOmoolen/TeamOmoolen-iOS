@@ -108,6 +108,7 @@ extension NewLensCVC: UITableViewDataSource {
         }
         let data = newLens[indexPath.row]
         cell.initCell(brand: data.brand, name: data.name, price: data.price, imageList: data.imageList)
+        print(data.imageList)
         return cell
     }
     
