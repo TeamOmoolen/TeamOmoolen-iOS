@@ -18,13 +18,21 @@ class SuggestVC: UIViewController {
     @IBOutlet weak var searchLeadingConstraint: NSLayoutConstraint!
     
     
-    //MARK: - Local Variables
+    //MARK: - Variables
     var suggestViews : [UIViewController] = []
     var position: Int = 0
+
+    //MARK: - Local Variables
     private var forYouList = [SuggestProduct]()
     private var situationList = [SuggestProduct]()
     private var newProductList = [SuggestProduct]()
     private var seasonList = [SuggestProduct]()
+    
+    private var foryouTotal: Int = 0
+    private var situationTotal: Int = 0
+    private var newProductTotal: Int = 0
+    private var seasonTotal: Int = 0
+
     
     var season = ""
     var situation = ""
@@ -139,6 +147,12 @@ class SuggestVC: UIViewController {
         seasonVC.list = seasonList
         newproductVC.list = newProductList
         
+        foryouVC.totalPage = foryouTotal
+        situationVC.totalPage = situationTotal
+        seasonVC.totalPage = seasonTotal
+        newproductVC.totalPage = newProductTotal
+        
+        //각 VC에 넣어주기 total count
         suggestViews.append(foryouVC)
         suggestViews.append(situationVC)
         suggestViews.append(newproductVC)
@@ -191,10 +205,8 @@ class SuggestVC: UIViewController {
     }
     
     func getSuggestWithAPI() {
-//        let accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
-        let accesstoken = "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYwNzhmNDQ4NDQxMDUwN2ZiNzc5MDIiLCJpYXQiOjE2MjYzNzI4Mzd9.i9mIl_wW8IFk7AUyIFR4DwBdN7UtAHSLs1SvLB9otocs9jwEttcT5zdhoockTLpV"
-        
-        
+        let accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
+        //let accesstoken = "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYwNzhmNDQ4NDQxMDUwN2ZiNzc5MDIiLCJpYXQiOjE2MjYzNzI4Mzd9.i9mIl_wW8IFk7AUyIFR4DwBdN7UtAHSLs1SvLB9otocs9jwEttcT5zdhoockTLpV"
         SuggestAPI.shared.getSuggest(accesstoken: accesstoken) { [self] response in
             self.suggestList = response
             self.forYouList = self.suggestList?.suggestForYou ?? [SuggestProduct]()
@@ -205,10 +217,15 @@ class SuggestVC: UIViewController {
             
             self.forYouList = self.suggestList?.suggestForYou ?? [SuggestProduct]()
             self.situationList = self.suggestList?.suggestForSituation ?? [SuggestProduct]()
-            
             self.seasonList = self.suggestList?.suggestForSeason ?? [SuggestProduct]()
-            
             self.newProductList = self.suggestList?.suggestForNew ?? [SuggestProduct]()
+            
+            //total count 넣기
+            self.foryouTotal = self.suggestList?.suggestForYouTotalPage ?? 0
+            self.situationTotal = self.suggestList?.suggestForSituationTotalPage ?? 0
+            self.seasonTotal = self.suggestList?.suggestForSeasonTotalPage ?? 0
+            self.newProductTotal = suggestList?.suggestForNewTotalPage ?? 0
+            
             
             self.collectionView.reloadData()
             setVCs()

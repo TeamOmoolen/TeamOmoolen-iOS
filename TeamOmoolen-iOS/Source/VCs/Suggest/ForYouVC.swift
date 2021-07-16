@@ -21,7 +21,7 @@ class ForYouVC: UIViewController {
     
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []
-    var suggestForYou: [SuggestProduct]? = nil
+//    var suggestForYou: [SuggestProduct]? = nil
     var list = [SuggestProduct]()
     var suggestDetailForYou: SuggestDetailResponse?
     var accesstoken = ""
@@ -99,13 +99,9 @@ class ForYouVC: UIViewController {
             
             for i in 0..<(self.suggestDetailForYou?.items.count)! {
                 self.list.append(SuggestProduct(id: self.suggestDetailForYou!.items[i].id, imageList: self.suggestDetailForYou!.items[i].imageList, brand: self.suggestDetailForYou!.items[i].brand, name: self.suggestDetailForYou!.items[i].name, diameter: self.suggestDetailForYou!.items[i].diameter, changeCycleMinimum: self.suggestDetailForYou!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailForYou!.items[i].changeCycleMaximum, pieces: self.suggestDetailForYou!.items[i].pieces, price: self.suggestDetailForYou!.items[i].price, otherColorList: self.suggestDetailForYou!.items[i].otherColorList))
+                self.forYouCollectionView.reloadData()
             }
         }
-    }
-    
-    func setData(data: [SuggestProduct]) {
-        list = data
-        print("fuck you", data)
     }
 
     
@@ -171,13 +167,11 @@ extension ForYouVC: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
-            print("끝에 닿음")
             if currPage < totalPage {
                 let sortParam = self.sort
                 let orderParam = self.order
                 currPage += 1
                 getSuggestForyouWithAPI(accesstoken: accesstoken, page: currPage, sort: sortParam, order: orderParam)
-                forYouCollectionView.reloadData()
             }
         }
     }
