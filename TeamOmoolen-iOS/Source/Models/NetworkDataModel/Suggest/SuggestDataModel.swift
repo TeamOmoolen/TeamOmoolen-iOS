@@ -53,7 +53,7 @@ struct SuggestProduct: Codable {
     let imageList: [String]
     let brand,name: String
     let diameter: Double
-    let minCycle,maxCycle,pieces,price: Int
+    let changeCycleMinimum,changeCycleMaximum,pieces,price: Int
     let otherColorList: [String]
     
     enum CodingKeys: String, CodingKey {
@@ -62,8 +62,8 @@ struct SuggestProduct: Codable {
         case brand
         case name
         case diameter
-        case minCycle
-        case maxCycle
+        case changeCycleMinimum
+        case changeCycleMaximum
         case pieces
         case price
         case otherColorList
