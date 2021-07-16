@@ -79,7 +79,7 @@ class ForYouVC: UIViewController {
     func setCollectionViewDelegate(){
         forYouCollectionView.delegate = self
         forYouCollectionView.dataSource = self
-        forYouCollectionView.reloadData()
+        //forYouCollectionView.reloadData()
     }
     
     func setNotification() {
@@ -191,26 +191,19 @@ extension ForYouVC: UICollectionViewDelegate {
 extension ForYouVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        var width = CGFloat(0)
-        var height = CGFloat(0)
+        let width = (collectionView.frame.width - 100) / 2
+        let height = (collectionView.frame.height - 40) / 2
         
-        if (UIDevice.current.isiPhone12Pro) {
-            width = (collectionView.frame.width - 100) / 2
-            height = (collectionView.frame.height - 40) / 2
-        } else {
-            width = (collectionView.frame.width - 40 - 15) / 2
-            height = (collectionView.frame.height - 40) / 2
-        }
         return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 40
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
     
-        return 15
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
