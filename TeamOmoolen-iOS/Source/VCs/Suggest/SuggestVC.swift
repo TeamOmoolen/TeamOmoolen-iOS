@@ -53,13 +53,14 @@ class SuggestVC: UIViewController {
         }
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
+        setVCs()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getSuggestWithAPI()
         setUI()
-        setVCs()
+//        setVCs()
         setUpTabBar()
         registerXib()
         setCollectionViewDelegate()
@@ -194,6 +195,7 @@ class SuggestVC: UIViewController {
         let accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
         SuggestAPI.shared.getSuggest(accesstoken: accesstoken) { response in
             self.suggestList = response
+            self.collectionView.reloadData()
         }
     }
 }

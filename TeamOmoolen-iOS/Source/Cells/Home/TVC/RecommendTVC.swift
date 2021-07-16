@@ -20,12 +20,10 @@ class RecommendTVC: UITableViewCell {
     
     // MARK: - Local Variables
     
+    private var username: String? = nil
     private var list = [RecommendationBy]()
     
     var delegate: ViewModalProtocol?
-    
-    var username: String? = nil
-    var recommendationByUser: [RecommendationBy]? = nil
     
     // MARK: - Life Cycle Methods
     

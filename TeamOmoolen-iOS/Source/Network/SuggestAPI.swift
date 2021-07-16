@@ -21,6 +21,7 @@ class SuggestAPI {
                     let results = try JSONDecoder().decode(SuggestDataModel.self, from: result.data)
                     print("getSuggest: \(results.message)")
                     guard let data = results.data else {
+                        print("nil")
                         return
                     }
                     completion(data)

@@ -104,6 +104,7 @@ extension SituationTVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
+        detailVC.id = recommendationBySituation[indexPath.row].id
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
