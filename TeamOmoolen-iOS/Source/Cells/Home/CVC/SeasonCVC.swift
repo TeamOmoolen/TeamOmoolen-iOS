@@ -42,6 +42,8 @@ extension SeasonCVC {
     func setUI() {
         contentView.backgroundColor = .white
         modelImageView.image = UIImage(named: "ellipse1842")
+        modelImageView.contentMode = .scaleAspectFit
+        
         lensImageView.image = UIImage(named: "imgColorA")
         
         lensImageView.contentMode = .scaleAspectFill
