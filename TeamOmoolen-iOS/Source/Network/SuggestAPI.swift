@@ -57,7 +57,7 @@ class SuggestAPI {
     }
     
     func getSituation(accesstoken: String, page: Int, sort: String, order: String, completion: @escaping (SuggestDetailResponse) -> ()) {
-        SuggestAPI.provider.request(.suggestForyou(accesstoken: accesstoken, page: page, sort: sort, order: order)) { response in
+        SuggestAPI.provider.request(.suggestSituation(accesstoken: accesstoken, page: page, sort: sort, order: order)) { response in
             switch response {
             case .success(let result):
                 do {

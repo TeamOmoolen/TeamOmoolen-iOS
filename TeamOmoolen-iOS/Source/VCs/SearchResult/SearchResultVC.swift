@@ -16,10 +16,10 @@ class SearchResultVC: UIViewController {
     var searchKeyword = ""
     
     private var currPage: Int = 1
-    private var totalPage: Int = -1
+    var totalPage: Int = -1
     private var canFetchData: Bool = true
-    private var sort = ""
-    private var order = ""
+    private var sort = "name"
+    private var order = "desc"
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var serperatorView: UIView!
@@ -100,7 +100,7 @@ class SearchResultVC: UIViewController {
     }
     
     func getSearchResultMoreWithAPI(page: Int, sort: String, order: String) {
-        
+//        SearchAPI.shared.getKeywordResult(param: <#T##String#>, completion: <#T##(SearchResultResponse) -> ()#>)
     }
     
     // MARK: - @objc Methods

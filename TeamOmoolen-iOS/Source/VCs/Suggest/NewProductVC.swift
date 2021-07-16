@@ -27,7 +27,7 @@ class NewProductVC: UIViewController {
 
     
     private var currPage: Int = 1
-    private var totalPage: Int = -1
+    var totalPage: Int = -1
     private var canFetchData: Bool = true
     
     private var sort = ""
@@ -124,9 +124,8 @@ class NewProductVC: UIViewController {
             response in
             self.suggestDetailNew = response
             
-            var appendList = [SuggestProduct]()
             for i in 0..<(self.suggestDetailNew?.items.count)! {
-                appendList.append(SuggestProduct(id: self.suggestDetailNew!.items[i].id, imageList: self.suggestDetailNew!.items[i].imageList, brand: self.suggestDetailNew!.items[i].brand, name: self.suggestDetailNew!.items[i].name, diameter: self.suggestDetailNew!.items[i].diameter, changeCycleMinimum: self.suggestDetailNew!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailNew!.items[i].changeCycleMaximum, pieces: self.suggestDetailNew!.items[i].pieces, price: self.suggestDetailNew!.items[i].price, otherColorList: self.suggestDetailNew!.items[i].otherColorList))
+                self.list.append(SuggestProduct(id: self.suggestDetailNew!.items[i].id, imageList: self.suggestDetailNew!.items[i].imageList, brand: self.suggestDetailNew!.items[i].brand, name: self.suggestDetailNew!.items[i].name, diameter: self.suggestDetailNew!.items[i].diameter, changeCycleMinimum: self.suggestDetailNew!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailNew!.items[i].changeCycleMaximum, pieces: self.suggestDetailNew!.items[i].pieces, price: self.suggestDetailNew!.items[i].price, otherColorList: self.suggestDetailNew!.items[i].otherColorList))
             }
         }
     }
@@ -149,15 +148,13 @@ extension NewProductVC: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
             print("끝에 닿음")
-            if canFetchData, currPage < totalPage {
+            if currPage < totalPage {
+                let sortParam = self.sort
+                let orderParam = self.order
                 currPage += 1
-                canFetchData = false
-                getSuggestNewWithAPI(accesstoken: accesstoken, page: currPage, sort: sort, order: order)
-            } else {
-                getSuggestNewWithAPI(accesstoken: accesstoken, page: currPage, sort: "", order: "")
+                getSuggestNewWithAPI(accesstoken: accesstoken, page: currPage, sort: sortParam, order: orderParam)
+                newProductCollectionView.reloadData()
             }
-            //refresh
-            newProductCollectionView.reloadData()
         }
     }
 }
