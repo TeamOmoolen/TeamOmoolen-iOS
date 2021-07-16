@@ -60,13 +60,13 @@ class FilterVC: UIViewController {
     private var getCycleData = false
     
     // MARK: - View Life Cycle Methods
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        getBrandData = false
-        getColorData = false
-        getDiameterData = false
-        getCycleData = false
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        getBrandData = false
+//        getColorData = false
+//        getDiameterData = false
+//        getCycleData = false
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -400,14 +400,11 @@ extension FilterVC {
     
     func requestAPI() {
         let param = SearchFilterRequest(lensBrand, lensColor, lensDiameter, lensCycle)
-        
-        print("여기여기여기여기", param)
-        
         getSearchResultWithAPI(param: param)
     }
     
     func getSearchResultWithAPI(param: SearchFilterRequest) {
-        SearchAPI.shared.getSearchFilterResult(param: param) { response in
+        SearchAPI.shared.getSearchFilterResult(param: param) { response, sucess in
             print("getSearchResultWithAPI: \(response)")
             self.searchResultResponse = response
             
@@ -419,6 +416,13 @@ extension FilterVC {
             searchResultVC.totalCount = self.searchResultResponse?.totalCount ?? 0
             searchResultVC.resultList = self.searchResultResponse?.products
             self.navigationController?.pushViewController(searchResultVC, animated: true)
+            
+            if sucess {
+                self.getBrandData = false
+                self.getColorData = false
+                self.getDiameterData = false
+                self.getCycleData = false
+            }
         }
     }
 }

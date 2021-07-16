@@ -70,14 +70,12 @@ extension RecommendTVC {
         recommendCollectionView.showsHorizontalScrollIndicator = false
     }
     
-    func initCell(data : [RecommendationBy]){
-        list = data
-        recommendCollectionView.reloadData()
-    }
-    
-    func initName(name: String) {
+    func initCell(name: String, data : [RecommendationBy]){
         username = name
         recommendLabel.text = "\(username!)님! 이 렌즈 어때요?"
+
+        list = data
+        recommendCollectionView.reloadData()
     }
 }
 

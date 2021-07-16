@@ -48,7 +48,6 @@ extension SituationTVC {
         
         dividerView.backgroundColor = .omAlmostwhite
         
-        timeRecommendLabel.text = "운동할 때 끼기 좋은 렌즈"
         timeRecommendLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpMore(_:)))
@@ -62,7 +61,17 @@ extension SituationTVC {
         moreImageView.isUserInteractionEnabled = true
     }
     
-    func initCell(data: [RecommendationBySituation]) {
+    func initCell(time: String, data: [RecommendationBySituation]) {
+        if time == "운동" {
+            timeRecommendLabel.text = "\(time)할 때"
+        } else if time == "일상" {
+            timeRecommendLabel.text = "\(time)에서"
+        } else if time == "여행" {
+            timeRecommendLabel.text = "\(time)에서"
+        } else if time == "특별" {
+            timeRecommendLabel.text = "\(time)한 날에"
+        }
+        
         self.recommendationBySituation = data
         timeRecommendCollectionView.reloadData()
     }
