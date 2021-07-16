@@ -124,8 +124,6 @@ class SuggestVC: UIViewController {
     func setVCs(){
         let foryouSB = UIStoryboard(name: "ForYou", bundle:nil)
         guard let foryouVC = foryouSB.instantiateViewController(identifier: "ForYouVC") as? ForYouVC else {return}
-        foryouVC.setData(data: forYouList)
-        
         let situationSB = UIStoryboard(name: "Situation", bundle:nil)
         guard let situationVC = situationSB.instantiateViewController(identifier: "SituationVC") as? SituationVC else {return}
         
@@ -200,7 +198,7 @@ class SuggestVC: UIViewController {
             
             self.season = self.suggestList!.season
             self.situation = self.suggestList!.situation
-            self.setSeason()
+            self.setResponse()
             
             self.forYouList = self.suggestList?.suggestForYou ?? [SuggestProduct]()
             self.situationList = self.suggestList?.suggestForSituation ?? [SuggestProduct]()
@@ -209,14 +207,12 @@ class SuggestVC: UIViewController {
             
             self.newProductList = self.suggestList?.suggestForNew ?? [SuggestProduct]()
             
-            suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
             self.collectionView.reloadData()
-            self.suggestTabBar.collectionView.reloadData()
             setVCs()
 
         }
     }
-    func setSeason() {
+    func setResponse() {
         if (self.season == "summer") {
             self.season = "여름"
         } else if (self.season == "spring") {
@@ -226,6 +222,16 @@ class SuggestVC: UIViewController {
         } else {
             self.season = "겨울"
         }
+        
+        if (self.situation == "특별"){
+            suggestTabBar.views = ["For You", "\(situation)한 날에", "신제품", "\(season)에 예쁜"]
+        } else if (self.situation == "운동") {
+            suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
+        } else if (self.situation == "일상" || self.situation == "여행") {
+            suggestTabBar.views = ["For You", "\(situation)에서", "신제품", "\(season)에 예쁜"]
+        }
+        
+        self.suggestTabBar.collectionView.reloadData()
     }
 }
 

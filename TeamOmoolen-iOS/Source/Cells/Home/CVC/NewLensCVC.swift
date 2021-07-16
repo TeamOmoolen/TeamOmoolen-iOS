@@ -44,6 +44,7 @@ extension NewLensCVC {
         modelImageView.image = UIImage(named: "ellipse1842")
         modelImageView.layer.cornerRadius = 10
         modelImageView.layer.masksToBounds = true
+        modelImageView.contentMode = .scaleAspectFit
         
         brandImageView.image = UIImage(named: "imgLensmeLogoOnboardingNormal")
         brandImageView.layer.cornerRadius = brandImageView.frame.width / 2
