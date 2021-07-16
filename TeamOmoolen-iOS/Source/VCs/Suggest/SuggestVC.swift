@@ -53,14 +53,15 @@ class SuggestVC: UIViewController {
         }
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
+        getSuggestWithAPI()
         setVCs()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getSuggestWithAPI()
+ //       getSuggestWithAPI()
         setUI()
-//        setVCs()
+        setVCs()
         setUpTabBar()
         registerXib()
         setCollectionViewDelegate()
@@ -91,7 +92,7 @@ class SuggestVC: UIViewController {
     func setUI() {
         // season = suggestList!.season
         // situation = suggestList!.situation
-        suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
+       // suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.frame.width, height: view.frame.height)
         layout.scrollDirection = .horizontal
@@ -200,7 +201,9 @@ class SuggestVC: UIViewController {
             self.situation = self.suggestList!.situation
             self.setSeason()
             self.collectionView.reloadData()
+            suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
             self.suggestTabBar.collectionView.reloadData()
+            setVCs()
         }
     }
     func setSeason() {

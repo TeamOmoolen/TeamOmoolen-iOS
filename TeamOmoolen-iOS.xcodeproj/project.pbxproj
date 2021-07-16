@@ -837,6 +837,8 @@
 		F83BA01D268C476B00E94E74 /* TeamOmoolen-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				F83BA01E268C476B00E94E74 /* AppDelegate.swift */,
+				F83BA020268C476B00E94E74 /* SceneDelegate.swift */,
 				F83BA070268CE8E200E94E74 /* TeamOmoolen-iOS.entitlements */,
 				F83BA02C268C476C00E94E74 /* Info.plist */,
 				F83BA032268C489B00E94E74 /* Resource */,
@@ -848,8 +850,6 @@
 		F83BA032268C489B00E94E74 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				F83BA01E268C476B00E94E74 /* AppDelegate.swift */,
-				F83BA020268C476B00E94E74 /* SceneDelegate.swift */,
 				F83BA03B268C4A1400E94E74 /* Assets */,
 				F83BA04A268C4BF600E94E74 /* Constants */,
 				F83BA047268C4AD200E94E74 /* Extensions */,
