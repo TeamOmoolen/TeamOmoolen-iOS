@@ -68,7 +68,7 @@ class HomeVC: UIViewController {
         loadingVC.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         
         self.present(loadingVC, animated: true, completion: nil)
-        //
+        
     }
 }
 

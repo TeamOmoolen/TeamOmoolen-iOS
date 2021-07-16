@@ -212,7 +212,6 @@ class SuggestVC: UIViewController {
             
             self.collectionView.reloadData()
             setVCs()
-            
         }
     }
     func setResponse() {
