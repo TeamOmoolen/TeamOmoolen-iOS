@@ -145,6 +145,9 @@
 		E8C9A4462690D56000E5BD9D /* SearchHomeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8C9A4442690D56000E5BD9D /* SearchHomeCVC.xib */; };
 		F802D770269C14FE0041383B /* PopupModal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F802D76F269C14FE0041383B /* PopupModal.storyboard */; };
 		F802D772269C171E0041383B /* PopupModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F802D771269C171E0041383B /* PopupModalVC.swift */; };
+		F821485026A1959B00034B3D /* UIImageView+LoadingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F821484F26A1959B00034B3D /* UIImageView+LoadingImage.swift */; };
+		F821485226A1978C00034B3D /* LoadingLogo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F821485126A1978C00034B3D /* LoadingLogo.storyboard */; };
+		F821485626A199FC00034B3D /* LoadingLogoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F821485526A199FC00034B3D /* LoadingLogoVC.swift */; };
 		F8245909268E1F3A0048BE84 /* FunctionCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8245905268E1F3A0048BE84 /* FunctionCVC.xib */; };
 		F824590A268E1F3A0048BE84 /* TimeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8245906268E1F3A0048BE84 /* TimeCVC.xib */; };
 		F824590B268E1F3A0048BE84 /* FunctionCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8245907268E1F3A0048BE84 /* FunctionCVC.swift */; };
@@ -371,6 +374,9 @@
 		E8C9A4442690D56000E5BD9D /* SearchHomeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHomeCVC.xib; sourceTree = "<group>"; };
 		F802D76F269C14FE0041383B /* PopupModal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopupModal.storyboard; sourceTree = "<group>"; };
 		F802D771269C171E0041383B /* PopupModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupModalVC.swift; sourceTree = "<group>"; };
+		F821484F26A1959B00034B3D /* UIImageView+LoadingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadingImage.swift"; sourceTree = "<group>"; };
+		F821485126A1978C00034B3D /* LoadingLogo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoadingLogo.storyboard; sourceTree = "<group>"; };
+		F821485526A199FC00034B3D /* LoadingLogoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLogoVC.swift; sourceTree = "<group>"; };
 		F8245905268E1F3A0048BE84 /* FunctionCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FunctionCVC.xib; sourceTree = "<group>"; };
 		F8245906268E1F3A0048BE84 /* TimeCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCVC.xib; sourceTree = "<group>"; };
 		F8245907268E1F3A0048BE84 /* FunctionCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionCVC.swift; sourceTree = "<group>"; };
@@ -892,6 +898,7 @@
 				922506A1269AD70D00419B40 /* Tip.storyboard */,
 				922506A3269AD71A00419B40 /* MyPage.storyboard */,
 				F802D76F269C14FE0041383B /* PopupModal.storyboard */,
+				F821485126A1978C00034B3D /* LoadingLogo.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -978,6 +985,7 @@
 				E8C9A4412690D06100E5BD9D /* UIView.swift */,
 				927692662694CABE00201EE1 /* UICollectionView+Extension.swift */,
 				F885CB8F2698393800835B11 /* UIDevice+Extension.swift */,
+				F821484F26A1959B00034B3D /* UIImageView+LoadingImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1070,6 +1078,7 @@
 				F86F7AC526900A030037081D /* HomeVC.swift */,
 				92A889D82692FBD200AC1B81 /* TabBarController.swift */,
 				928E503726987CAB0086FC31 /* NaviController.swift */,
+				F821485526A199FC00034B3D /* LoadingLogoVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1289,6 +1298,7 @@
 				92BC7DEC269641A10088E4EE /* Detail.storyboard in Resources */,
 				F8B91F72268E207A006114CD /* Roboto-LightItalic.ttf in Resources */,
 				E8AF804C26984B3800D76A21 /* SuggestTabBarCVC.xib in Resources */,
+				F821485226A1978C00034B3D /* LoadingLogo.storyboard in Resources */,
 				F83BA028268C476C00E94E74 /* Assets.xcassets in Resources */,
 				92BF87A7268D94F700706384 /* AgeCVC.xib in Resources */,
 				F8B91F56268E205E006114CD /* NotoSansCJKkr-Bold.otf in Resources */,
@@ -1436,6 +1446,7 @@
 				E8A089D62697425C00089B6A /* PopularCellDataModel.swift in Sources */,
 				F8D9EC2A269EBACF00A1E3F1 /* SuggestDetailDataModel.swift in Sources */,
 				F83BA06F268CE4FD00E94E74 /* CALayer+applyShadow.swift in Sources */,
+				F821485026A1959B00034B3D /* UIImageView+LoadingImage.swift in Sources */,
 				924751B9268E672300924891 /* LensBrandCVC.swift in Sources */,
 				F8F5251D269DE4FE00EB6FF0 /* SuggestDataModel.swift in Sources */,
 				E82DE8F1268C5D5600296B53 /* ThirdOnboardingVC.swift in Sources */,
@@ -1530,6 +1541,7 @@
 				F83BA067268C754A00E94E74 /* LensKindDataModel.swift in Sources */,
 				929C840E26971CB900A879A7 /* CycleFilterView.swift in Sources */,
 				92BF87A6268D94F700706384 /* AgeCVC.swift in Sources */,
+				F821485626A199FC00034B3D /* LoadingLogoVC.swift in Sources */,
 				E8C9A4452690D56000E5BD9D /* SearchHomeCVC.swift in Sources */,
 				E8A6602426959B9800EB7EEA /* NoRecentTVC.swift in Sources */,
 				F83BA04C268C4C1600E94E74 /* Const.swift in Sources */,

@@ -34,6 +34,8 @@ class SuggestVC: UIViewController {
     
     private var suggestList: SuggestResponse?
     
+    var forUlist = [SuggestProduct]()
+    
     //MARK: - View Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -63,7 +65,7 @@ class SuggestVC: UIViewController {
         super.viewDidLoad()
         getSuggestWithAPI()
         setUI()
-        setVCs()
+        
         setUpTabBar()
         registerXib()
         setCollectionViewDelegate()
