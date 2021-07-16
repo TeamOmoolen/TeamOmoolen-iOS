@@ -44,7 +44,6 @@ extension RecommendCVC {
         modelImageView.image = UIImage(named: "ellipse1842")
         lensImageView.image = UIImage(named: "imgColorA")
         
-        lensImageView.layer.cornerRadius = lensImageView.frame.width / 2
         lensImageView.contentMode = .scaleAspectFill
         lensImageView.layer.applyShadow(color: .omMainBlack, alpha: 0.4, x: 0, y: 1, blur: 5, spread: 0)
         
@@ -68,12 +67,15 @@ extension RecommendCVC {
     }
     
     func initCell(imageList: [String], brandName: String, lensName: String, diameter: Double, minCycle: Int, maxCycle: Int, pieces: Int, price: Int, colorList: [String]) {
+        // MARK: - FIX ME : image list 
         let lensString = imageList[0]
-        let lensUrl = URL(string: lensString)!
+        let lensUrl = URL(string: lensString) ?? URL(string: "")
         self.lensImageView.kf.setImage(with: lensUrl)
+        self.lensImageView.layer.cornerRadius = lensImageView.frame.width / 2
+        self.lensImageView.layer.masksToBounds = true
         
         let modelString = imageList[1]
-        let modelUrl = URL(string: modelString)!
+        let modelUrl = URL(string: modelString) ?? URL(string: "")
         self.modelImageView.kf.setImage(with: modelUrl)
         
         brandNameLabel.text = brandName

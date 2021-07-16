@@ -44,7 +44,6 @@ extension SeasonCVC {
         modelImageView.image = UIImage(named: "ellipse1842")
         lensImageView.image = UIImage(named: "imgColorA")
         
-        lensImageView.layer.cornerRadius = lensImageView.frame.width / 2
         lensImageView.contentMode = .scaleAspectFill
         lensImageView.layer.applyShadow(color: .omMainBlack, alpha: 0.4, x: 0, y: 1, blur: 5, spread: 0)
         
@@ -70,6 +69,8 @@ extension SeasonCVC {
         let lensString = imageList[0]
         let lensUrl = URL(string: lensString)
         self.lensImageView.kf.setImage(with: lensUrl)
+        self.lensImageView.layer.cornerRadius = lensImageView.frame.width / 2
+        self.lensImageView.layer.masksToBounds = true
         
         let modelString = imageList[1]
         let modelUrl = URL(string: modelString)
