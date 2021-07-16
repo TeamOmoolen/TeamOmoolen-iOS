@@ -165,6 +165,7 @@ extension ForYouVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
+        detailVC.id = list[indexPath.row].id
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     

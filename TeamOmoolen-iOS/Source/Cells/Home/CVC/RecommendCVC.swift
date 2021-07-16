@@ -43,6 +43,7 @@ extension RecommendCVC {
     func setUI() {
         contentView.backgroundColor = .white
         modelImageView.image = UIImage(named: "ellipse1842")
+        modelImageView.contentMode = .scaleAspectFit
         lensImageView.image = UIImage(named: "imgColorA")
         
         lensImageView.contentMode = .scaleAspectFill
@@ -79,6 +80,7 @@ extension RecommendCVC {
             let modelURL = URL(string: imageList[1])
             modelImageView.kf.setImage(with: modelURL)
         }
+        //modelImageView.contentMode = .scaleAspectFit
         
         brandNameLabel.text = brandName
         lensNameLabel.text = lensName

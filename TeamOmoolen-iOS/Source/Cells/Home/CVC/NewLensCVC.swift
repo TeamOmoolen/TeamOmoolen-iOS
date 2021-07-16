@@ -23,6 +23,7 @@ class NewLensCVC: UICollectionViewCell {
     // MARK: - Local Variables
     
     var newLens = [NewLensDetailData]()
+    private var tableList = [NewLensDetailData]()
     
     // MARK: - Life Cycle Methods
     
@@ -43,6 +44,7 @@ extension NewLensCVC {
         modelImageView.image = UIImage(named: "ellipse1842")
         modelImageView.layer.cornerRadius = 10
         modelImageView.layer.masksToBounds = true
+        modelImageView.contentMode = .scaleAspectFit
         
         brandImageView.image = UIImage(named: "imgLensmeLogoOnboardingNormal")
         brandImageView.layer.cornerRadius = brandImageView.frame.width / 2
@@ -78,6 +80,10 @@ extension NewLensCVC {
         let lensUrl = URL(string: lensString) ?? URL(string: "")
         self.modelImageView.kf.setImage(with: lensUrl)
         
+        tableList.append(lensData[1])
+        tableList.append(lensData[2])
+        tableList.append(lensData[3])
+        
         newLensTableView.reloadData()
     }
 }
@@ -99,14 +105,14 @@ extension NewLensCVC: UITableViewDelegate {
 
 extension NewLensCVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newLens.count
+        return tableList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewLensDetailTVC.identifier) as? NewLensDetailTVC else {
             return UITableViewCell()
         }
-        let data = newLens[indexPath.row]
+        let data = tableList[indexPath.row]
         cell.initCell(brand: data.brand, name: data.name, price: data.price, imageList: data.imageList)
         return cell
     }
