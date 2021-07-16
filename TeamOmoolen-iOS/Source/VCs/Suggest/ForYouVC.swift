@@ -22,6 +22,7 @@ class ForYouVC: UIViewController {
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []
     var suggestForYou: [SuggestProduct]? = nil
+    var list = [SuggestProduct]()
     var suggestDetailForYou: SuggestDetailResponse?
     var accesstoken = ""
     
@@ -37,13 +38,18 @@ class ForYouVC: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUI()
         setAccesstoken()
         registerXib()
         setCollectionViewDelegate()
         setNotification()
         setPhoneResolution()
+    }
+    
+    func setForYouData(data: [SuggestProduct]) {
+        self.list = data
+        print("foryou data", list)
+        //forYouCollectionView.reloadData()
     }
     
     //MARK: - Methods
@@ -74,6 +80,7 @@ class ForYouVC: UIViewController {
     func setCollectionViewDelegate(){
         forYouCollectionView.delegate = self
         forYouCollectionView.dataSource = self
+        forYouCollectionView.reloadData()
     }
     
     func setNotification() {
