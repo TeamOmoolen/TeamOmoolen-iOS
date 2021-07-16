@@ -23,7 +23,6 @@ class SeasonTVC: UITableViewCell {
     var season: String?
     private var list = [RecommendationBy]()
     var delegate: ViewModalProtocol?
-    var tagDelegate: PassTagProtocol?
     
     // MARK: - Life Cycle Methods
     
@@ -88,8 +87,8 @@ extension SeasonTVC {
         }
         suggestVC.modalPresentationStyle = .fullScreen
         suggestVC.modalTransitionStyle = .crossDissolve
-        suggestVC.passTag(tag: 3)
-        delegate?.suggestViewModalDelegate(dvc: suggestVC)
+        let position = 3
+        NotificationCenter.default.post(name: NSNotification.Name("ChangeIndex"), object: position)
     }
 }
 

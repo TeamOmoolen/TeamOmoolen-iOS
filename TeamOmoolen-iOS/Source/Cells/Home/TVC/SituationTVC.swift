@@ -90,8 +90,8 @@ extension SituationTVC {
         }
         suggestVC.modalPresentationStyle = .fullScreen
         suggestVC.modalTransitionStyle = .crossDissolve
-        suggestVC.passTag(tag: 1)
-        self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
+        let positon = 1
+        NotificationCenter.default.post(name: NSNotification.Name("ChangeIndex"), object: positon)
     }
 }
 

@@ -326,10 +326,6 @@ extension HomeVC: ViewModalProtocol {
     func detailViewModalDelegate(dvc: DetailVC) {
         navigationController?.pushViewController(dvc, animated: true)
     }
-    
-    func suggestViewModalDelegate(dvc: SuggestVC) {
-        navigationController?.pushViewController(dvc, animated: true)
-    }
 }
 
 // MARK: - Notification

@@ -119,12 +119,13 @@ class SuggestVC: UIViewController {
             NSAttributedString.Key.font : UIFont(name: "NotoSansCJKKR-Regular", size: 13)!
         ]
         searchTextField.attributedPlaceholder = NSAttributedString(string: "오늘은 무슨 렌즈끼지?",attributes: attributes )
-        
     }
     
     func setVCs(){
         let foryouSB = UIStoryboard(name: "ForYou", bundle:nil)
         guard let foryouVC = foryouSB.instantiateViewController(identifier: "ForYouVC") as? ForYouVC else {return}
+        foryouVC.setData(data: forYouList)
+        
         let situationSB = UIStoryboard(name: "Situation", bundle:nil)
         guard let situationVC = situationSB.instantiateViewController(identifier: "SituationVC") as? SituationVC else {return}
         
@@ -143,7 +144,6 @@ class SuggestVC: UIViewController {
         suggestViews.append(situationVC)
         suggestViews.append(newproductVC)
         suggestViews.append(seasonVC)
-        collectionView.reloadData()
     }
     
     private func setUpTabBar(){
@@ -196,6 +196,8 @@ class SuggestVC: UIViewController {
         let accesstoken = "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYwNzhmNDQ4NDQxMDUwN2ZiNzc5MDIiLCJpYXQiOjE2MjYzNzI4Mzd9.i9mIl_wW8IFk7AUyIFR4DwBdN7UtAHSLs1SvLB9otocs9jwEttcT5zdhoockTLpV"
         SuggestAPI.shared.getSuggest(accesstoken: accesstoken) { [self] response in
             self.suggestList = response
+            self.forYouList = self.suggestList?.suggestForYou ?? [SuggestProduct]()
+            
             self.season = self.suggestList!.season
             self.situation = self.suggestList!.situation
             self.setSeason()
@@ -267,25 +269,7 @@ extension SuggestVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
 }
 
-
-// MARK: - Protocols
-
-extension SuggestVC: PassTagProtocol {
-    func passTag(tag: Int) {
-        switch tag {
-        case 0:
-            position = 0
-        case 1:
-            position = 1
-        case 2:
-            position = 2
-        case 3:
-            position = 3
-        default:
-            return
-        }
-    }
-}
+// MARK: - Notification func
 
 extension SuggestVC {
     @objc
