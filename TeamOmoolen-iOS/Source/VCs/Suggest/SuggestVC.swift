@@ -21,7 +21,10 @@ class SuggestVC: UIViewController {
     //MARK: - Local Variables
     var suggestViews : [UIViewController] = []
     var position: Int = 0
-    private  var forYouList = [SuggestProduct]()
+    private var forYouList = [SuggestProduct]()
+    private var situationList = [SuggestProduct]()
+    private var newProductList = [SuggestProduct]()
+    private var seasonList = [SuggestProduct]()
     
     var season = ""
     var situation = ""
@@ -56,8 +59,6 @@ class SuggestVC: UIViewController {
         }
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
-       // getSuggestWithAPI()
-       // setVCs()
         collectionView.reloadData()
     }
     
@@ -65,7 +66,6 @@ class SuggestVC: UIViewController {
         super.viewDidLoad()
         getSuggestWithAPI()
         setUI()
-        
         setUpTabBar()
         registerXib()
         setCollectionViewDelegate()
@@ -134,6 +134,11 @@ class SuggestVC: UIViewController {
         let seasonSB = UIStoryboard(name:"Season", bundle: nil)
         guard let seasonVC = seasonSB.instantiateViewController(identifier: "SeasonVC") as? SeasonVC else {return}
         
+        foryouVC.list = forYouList
+        situationVC.list = situationList
+        seasonVC.list = seasonList
+        newproductVC.list = newProductList
+        
         suggestViews.append(foryouVC)
         suggestViews.append(situationVC)
         suggestViews.append(newproductVC)
@@ -194,17 +199,19 @@ class SuggestVC: UIViewController {
             self.season = self.suggestList!.season
             self.situation = self.suggestList!.situation
             self.setSeason()
-            //self.forYouList = self.suggestList?.suggestForYou ?? [SuggestProduct]()
             
+            self.forYouList = self.suggestList?.suggestForYou ?? [SuggestProduct]()
+            self.situationList = self.suggestList?.suggestForSituation ?? [SuggestProduct]()
+            
+            self.seasonList = self.suggestList?.suggestForSeason ?? [SuggestProduct]()
+            
+            self.newProductList = self.suggestList?.suggestForNew ?? [SuggestProduct]()
             
             suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
             self.collectionView.reloadData()
-            
-            NotificationCenter.default.post(name: Notification.Name("ReloadForYou"), object: self.suggestList?.suggestForYou ?? [SuggestProduct]())
-            
-            //NotificationCenter.default.post(name: Notification.Name("ReloadSituation"), object: nil)
-            
             self.suggestTabBar.collectionView.reloadData()
+            setVCs()
+
         }
     }
     func setSeason() {
