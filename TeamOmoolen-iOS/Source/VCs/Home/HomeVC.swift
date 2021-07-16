@@ -34,14 +34,6 @@ class HomeVC: UIViewController {
     // MARK: - Local Variables
     
     private var homeList: HomeResponse?
-    private var userName = String()
-    
-    private var forUList = [RecommendationBy]()
-    private var seasonList = [RecommendationBy]()
-    private var situtationList = [RecommendationBySituation]()
-    private var deadlineList = [Event]()
-    private var lastestList = [Event]()
-    
     private var guideList = [GuideList]()
     private var newList = [[NewLensDetailData]]()
     
@@ -143,11 +135,6 @@ extension HomeVC {
         let accesstoken = "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYwNzhmNDQ4NDQxMDUwN2ZiNzc5MDIiLCJpYXQiOjE2MjYzNzI4Mzd9.i9mIl_wW8IFk7AUyIFR4DwBdN7UtAHSLs1SvLB9otocs9jwEttcT5zdhoockTLpV"
         OnboardingAPI.shared.getHome(accesstoken: accesstoken) { response in
             self.homeList = response
-            self.forUList = response.recommendationByUser
-            self.seasonList = response.recommendationBySeason
-            self.situtationList = response.recommendationBySituation
-            self.deadlineList = response.deadlineEvent
-            self.lastestList = response.lastestEvent
             
             self.guideList.append(response.guides.guideList1)
             self.guideList.append(response.guides.guideList2)
@@ -156,8 +143,6 @@ extension HomeVC {
             self.newList.append(response.newLens.newLensBrand1)
             self.newList.append(response.newLens.newLensBrand2)
             self.newList.append(response.newLens.newLensBrand3)
-            
-            self.userName = response.username
             
             self.homeTableView.reloadData()
         }
@@ -264,8 +249,8 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.initName(name: userName)
-            cell.initCell(data: forUList)
+            cell.initName(name: homeList?.username ?? "")
+            cell.initCell(data: homeList?.recommendationByUser ?? [RecommendationBy]())
             cell.delegate = self
             return cell
         case 2:
@@ -281,7 +266,7 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.initCell(data: situtationList)
+            cell.initCell(data: homeList?.recommendationBySituation ?? [RecommendationBySituation]())
             cell.delegate = self
             return cell
         case 4:
@@ -289,14 +274,14 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.initCell(ImageList: deadlineList)
+            cell.initCell(ImageList: homeList?.deadlineEvent ?? [Event]())
             return cell
         case 5:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  NewLensTVC.identifier, for: indexPath) as? NewLensTVC else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.initCell(data: newList)
+            cell.initCell(data: self.newList)
             cell.delegate = self
             return cell
         case 6:
@@ -304,7 +289,7 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.initCell(data: self.seasonList)
+            cell.initCell(data: homeList?.recommendationBySeason ?? [RecommendationBy]())
             cell.delegate = self
             return cell
         case 7:
@@ -312,7 +297,7 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.initCell(ImageList: lastestList)
+            cell.initCell(ImageList: homeList?.lastestEvent ?? [Event]())
             return cell
         default:
             return UITableViewCell()

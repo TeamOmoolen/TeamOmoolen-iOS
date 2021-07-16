@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RecommendCVC: UICollectionViewCell {
     static let identifier = "RecommendCVC"
@@ -44,7 +45,6 @@ extension RecommendCVC {
         modelImageView.image = UIImage(named: "ellipse1842")
         lensImageView.image = UIImage(named: "imgColorA")
         
-        lensImageView.layer.cornerRadius = lensImageView.frame.width / 2
         lensImageView.contentMode = .scaleAspectFill
         lensImageView.layer.applyShadow(color: .omMainBlack, alpha: 0.4, x: 0, y: 1, blur: 5, spread: 0)
         
@@ -68,13 +68,17 @@ extension RecommendCVC {
     }
     
     func initCell(imageList: [String], brandName: String, lensName: String, diameter: Double, minCycle: Int, maxCycle: Int, pieces: Int, price: Int, colorList: [String]) {
-        let lensString = imageList[0]
-        let lensUrl = URL(string: lensString)!
-        self.lensImageView.kf.setImage(with: lensUrl)
+        // MARK: - FIX ME : image list 
+        let lensURL = URL(string: imageList[0])
+        lensImageView.kf.setImage(with: lensURL)
         
-        let modelString = imageList[0]
-        let modelUrl = URL(string: modelString)!
-        self.modelImageView.kf.setImage(with: modelUrl)
+        self.lensImageView.layer.cornerRadius = lensImageView.frame.width / 2
+        self.lensImageView.layer.masksToBounds = true
+        
+        if !imageList[0].isEmpty {
+            let modelURL = URL(string: imageList[1])
+            modelImageView.kf.setImage(with: modelURL)
+        }
         
         brandNameLabel.text = brandName
         lensNameLabel.text = lensName

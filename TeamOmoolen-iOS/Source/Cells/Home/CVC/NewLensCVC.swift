@@ -48,11 +48,9 @@ extension NewLensCVC {
         brandImageView.layer.cornerRadius = brandImageView.frame.width / 2
         brandImageView.layer.masksToBounds = true
         
-        brandLabel.text = "렌즈미"
         brandLabel.textColor = .omWhite
         brandLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
-        
-        lensLabel.text = "제품 상세 정보 이름"
+
         lensLabel.textColor = .omWhite
         lensLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
     }
@@ -73,6 +71,13 @@ extension NewLensCVC {
     
     func initCell(lensData: [NewLensDetailData]) {
         newLens = lensData
+        brandLabel.text = newLens.first?.brand
+        lensLabel.text = newLens.first?.name
+        
+        guard let lensString = newLens.first?.imageList[1] else { return }
+        let lensUrl = URL(string: lensString) ?? URL(string: "")
+        self.modelImageView.kf.setImage(with: lensUrl)
+        
         newLensTableView.reloadData()
     }
 }
@@ -103,6 +108,7 @@ extension NewLensCVC: UITableViewDataSource {
         }
         let data = newLens[indexPath.row]
         cell.initCell(brand: data.brand, name: data.name, price: data.price, imageList: data.imageList)
+        print(data.imageList)
         return cell
     }
     

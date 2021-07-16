@@ -115,8 +115,8 @@ struct RecommendationBy: Codable {
         imageList = (try? values.decode([String].self, forKey: .imageList)) ?? [""]
         
         otherColorList = (try? values.decode([String].self, forKey: .otherColorList)) ?? [""]
-        price = (try? values.decode(Int.self, forKey: .otherColorList)) ?? 0
-        brand = (try? values.decode(String.self, forKey: .otherColorList)) ?? ""
+        price = (try? values.decode(Int.self, forKey: .price)) ?? 0
+        brand = (try? values.decode(String.self, forKey: .brand)) ?? ""
         
         diameter = (try? values.decode(Double.self, forKey: .diameter)) ?? 0
         pieces = (try? values.decode(Int.self, forKey: .pieces)) ?? 0

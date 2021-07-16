@@ -45,5 +45,6 @@ extension BannerCVC {
     func initCell(image: String) {
         let listURL = URL(string: image)
         bannerImageView.kf.setImage(with: listURL)
+        bannerImageView.contentMode = .scaleAspectFill
     }
 }

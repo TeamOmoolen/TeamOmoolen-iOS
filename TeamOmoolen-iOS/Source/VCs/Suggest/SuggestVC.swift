@@ -53,13 +53,14 @@ class SuggestVC: UIViewController {
         }
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
+        setVCs()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getSuggestWithAPI()
         setUI()
-        setVCs()
+//        setVCs()
         setUpTabBar()
         registerXib()
         setCollectionViewDelegate()
@@ -190,13 +191,14 @@ class SuggestVC: UIViewController {
     }
     
     func getSuggestWithAPI() {
+//        let accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
         let accesstoken = "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYwNzhmNDQ4NDQxMDUwN2ZiNzc5MDIiLCJpYXQiOjE2MjYzNzI4Mzd9.i9mIl_wW8IFk7AUyIFR4DwBdN7UtAHSLs1SvLB9otocs9jwEttcT5zdhoockTLpV"
-            //UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
         SuggestAPI.shared.getSuggest(accesstoken: accesstoken) { [self] response in
             self.suggestList = response
-            self.season = suggestList!.season
-            self.situation = suggestList!.situation
-            setSeason()
+            print(suggestList)
+            self.season = self.suggestList!.season
+            self.situation = self.suggestList!.situation
+            self.setSeason()
             self.collectionView.reloadData()
             self.suggestTabBar.collectionView.reloadData()
         }
