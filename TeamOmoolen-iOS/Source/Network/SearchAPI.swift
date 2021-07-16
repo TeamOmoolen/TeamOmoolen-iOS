@@ -15,7 +15,7 @@ class SearchAPI {
 
     
     // get data
-    func getSearchFilterResult(param: SearchFilterRequest, completion: @escaping (SearchResultResponse) -> ()) {
+    func getSearchFilterResult(param: SearchFilterRequest, completion: @escaping (SearchResultResponse, Bool) -> ()) {
         SearchAPI.provider.request(.searchFilter(param: param)) { response in
             switch response {
             case .success(let result):
@@ -25,7 +25,7 @@ class SearchAPI {
                     guard let data = results.data else {
                         return
                     }
-                    completion(data)
+                    completion(data, results.success)
                 } catch let err {
                     print("JSONDecode: \(err.localizedDescription)")
                     debugPrint(err)

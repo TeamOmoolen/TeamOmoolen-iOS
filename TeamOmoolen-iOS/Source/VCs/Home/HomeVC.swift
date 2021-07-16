@@ -264,8 +264,7 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.initName(name: homeList?.username ?? "")
-            cell.initCell(data: homeList?.recommendationByUser ?? [RecommendationBy]())
+            cell.initCell(name: homeList?.username ?? "", data: homeList?.recommendationByUser ?? [RecommendationBy]())
             cell.delegate = self
             return cell
         case 2:
@@ -281,7 +280,7 @@ extension HomeVC: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.initCell(data: homeList?.recommendationBySituation ?? [RecommendationBySituation]())
+            cell.initCell(time: homeList?.situation ?? "", data: homeList?.recommendationBySituation ?? [RecommendationBySituation]())
             cell.delegate = self
             return cell
         case 4:
