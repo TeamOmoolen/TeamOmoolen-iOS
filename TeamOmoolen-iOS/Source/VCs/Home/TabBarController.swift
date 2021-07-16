@@ -50,6 +50,13 @@ class TabBarController: UITabBarController {
         
         self.setViewControllers(tabs, animated: false)
         self.selectedViewController = homeTab
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeIndex), name: NSNotification.Name("ChangeIndex"), object: nil)
+    }
+    
+    @objc
+    func changeIndex() {
+        self.selectedIndex = 1
     }
 
 }

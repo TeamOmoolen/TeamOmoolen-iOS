@@ -92,6 +92,7 @@ extension RecommendTVC {
         suggestVC.modalPresentationStyle = .fullScreen
         suggestVC.modalTransitionStyle = .crossDissolve
         suggestVC.passTag(tag: 0)
+        NotificationCenter.default.post(name: NSNotification.Name("ChangeIndex"), object: nil)
         self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
     }
 }

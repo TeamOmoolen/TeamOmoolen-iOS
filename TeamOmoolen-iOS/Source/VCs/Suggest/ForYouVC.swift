@@ -26,8 +26,6 @@ class ForYouVC: UIViewController {
     var suggestDetailForYou: SuggestDetailResponse?
     var accesstoken = ""
     
-    var list = [SuggestProduct]()
-    
     private var currPage: Int = 1
     private var totalPage: Int = -1
     private var canFetchData: Bool = true
@@ -44,12 +42,12 @@ class ForYouVC: UIViewController {
         setCollectionViewDelegate()
         setNotification()
         setPhoneResolution()
+        
+        print("여기야 여기", list)
     }
     
     func setForYouData(data: [SuggestProduct]) {
         self.list = data
-        print("foryou data", list)
-        //forYouCollectionView.reloadData()
     }
     
     //MARK: - Methods
@@ -206,7 +204,7 @@ extension ForYouVC: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 40
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

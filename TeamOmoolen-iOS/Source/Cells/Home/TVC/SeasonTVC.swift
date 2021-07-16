@@ -89,6 +89,7 @@ extension SeasonTVC {
         suggestVC.modalPresentationStyle = .fullScreen
         suggestVC.modalTransitionStyle = .crossDissolve
         suggestVC.passTag(tag: 3)
+        
         delegate?.suggestViewModalDelegate(dvc: suggestVC)
     }
 }

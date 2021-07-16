@@ -21,7 +21,7 @@ class SuggestVC: UIViewController {
     //MARK: - Local Variables
     var suggestViews : [UIViewController] = []
     var position: Int = 0
-    private  var forYouList = [SuggestProduct]()
+    var forYouList = [SuggestProduct]()
     
     var season = ""
     var situation = ""
@@ -33,8 +33,6 @@ class SuggestVC: UIViewController {
     }()
     
     private var suggestList: SuggestResponse?
-    
-    var forYouList = [SuggestProduct]()
     
     //MARK: - View Life Cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -56,15 +54,13 @@ class SuggestVC: UIViewController {
         }
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
-       // getSuggestWithAPI()
-       // setVCs()
-        collectionView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getSuggestWithAPI()
         setUI()
+        setVCs()
         setUpTabBar()
         registerXib()
         setCollectionViewDelegate()
@@ -118,7 +114,6 @@ class SuggestVC: UIViewController {
             NSAttributedString.Key.font : UIFont(name: "NotoSansCJKKR-Regular", size: 13)!
         ]
         searchTextField.attributedPlaceholder = NSAttributedString(string: "오늘은 무슨 렌즈끼지?",attributes: attributes )
-        
     }
     
     func setVCs(){
@@ -139,13 +134,6 @@ class SuggestVC: UIViewController {
         suggestViews.append(situationVC)
         suggestViews.append(newproductVC)
         suggestViews.append(seasonVC)
-        
-        
-        situationVC.suggestForSituation = suggestList?.suggestForSituation
-        newproductVC.suggestForNew = suggestList?.suggestForNew
-        seasonVC.suggestForSeason = suggestList?.suggestForSeason
-        
-        collectionView.reloadData()
     }
     
     private func setUpTabBar(){
