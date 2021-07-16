@@ -62,7 +62,7 @@ class SuggestVC: UIViewController {
         super.viewDidLoad()
         getSuggestWithAPI()
         setUI()
-        
+        setVCs()
         setUpTabBar()
         registerXib()
         setCollectionViewDelegate()
@@ -259,25 +259,7 @@ extension SuggestVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
 }
 
-
-// MARK: - Protocols
-
-extension SuggestVC: PassTagProtocol {
-    func passTag(tag: Int) {
-        switch tag {
-        case 0:
-            position = 0
-        case 1:
-            position = 1
-        case 2:
-            position = 2
-        case 3:
-            position = 3
-        default:
-            return
-        }
-    }
-}
+// MARK: - Notification func
 
 extension SuggestVC {
     @objc

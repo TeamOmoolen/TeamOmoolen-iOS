@@ -84,8 +84,8 @@ extension NewLensTVC {
         }
         suggestVC.modalPresentationStyle = .fullScreen
         suggestVC.modalTransitionStyle = .crossDissolve
-        suggestVC.passTag(tag: 2)
-        self.delegate?.suggestViewModalDelegate(dvc: suggestVC)
+        let position = 2
+        NotificationCenter.default.post(name: NSNotification.Name("ChangeIndex"), object: position)
     }
 }
 

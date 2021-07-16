@@ -9,8 +9,6 @@ import Foundation
 
 protocol ViewModalProtocol {
     func detailViewModalDelegate(dvc: DetailVC)
-    
-    func suggestViewModalDelegate(dvc: SuggestVC)
 }
 
 

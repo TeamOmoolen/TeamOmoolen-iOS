@@ -8,8 +8,13 @@
 import UIKit
 
 class TabBarController: UITabBarController {
+    
+    // MARK: Local Variables
+    
+    private var position = 0
 
     // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,6 +23,7 @@ class TabBarController: UITabBarController {
     }
     
     // MARK: - Methods
+    
     func setUI() {
         UITabBar.appearance().tintColor = UIColor.omMainBlack
     }
@@ -57,7 +63,9 @@ class TabBarController: UITabBarController {
     }
     
     @objc
-    func changeIndex() {
+    func changeIndex(_ notification: Notification) {
+        position = notification.object as! Int
+        NotificationCenter.default.post(name: NSNotification.Name("PostPosition"), object: position)
         self.selectedIndex = 1
     }
 
