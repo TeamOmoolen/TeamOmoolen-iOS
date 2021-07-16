@@ -118,6 +118,7 @@ extension OneMinTVC: UICollectionViewDataSource {
         }
         let data = guides[indexPath.row]
         cell.initCell(subTitle: data.category, oneMinDetail: data.guides)
+        cell.initImage(idx: indexPath.row, imageName: "img1MinHome\(indexPath.row+1)")
         return cell
     }
 }

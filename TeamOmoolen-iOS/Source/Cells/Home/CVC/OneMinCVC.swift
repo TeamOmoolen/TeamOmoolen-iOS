@@ -54,11 +54,11 @@ extension OneMinCVC {
         oneMinTableView.backgroundColor = .gray
         
         titleLabel.text = "오무렌 1분 렌즈 상식"
-        titleLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
-        titleLabel.textColor = .white
+        titleLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 13)
+        titleLabel.textColor = .omAlmostwhite
         
         subtitleLabel.text = "나에게 맞는 렌즈, 어떻게 사?"
-        subtitleLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 18)
+        subtitleLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 17)
         subtitleLabel.textColor = .white
         
         moreButton.setTitle("1분 렌즈 상식 더보기", for: .normal)
@@ -74,6 +74,17 @@ extension OneMinCVC {
         guideDetail = oneMinDetail
         
         oneMinTableView.reloadData()
+    }
+    
+    func initImage(idx: Int, imageName: String) {
+        if idx == 0 {
+            topView.backgroundColor = .omMainOrange
+        } else if idx == 1 {
+            topView.backgroundColor = .omPurple
+        } else {
+            topView.backgroundColor = .omMainGreen
+        }
+        imageView.image = UIImage(named: imageName)
     }
     
     func registerXib() {

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "btnMypageMaintabNormal.png",
+      "filename" : "btnMypageMaintabPressed.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "btnMypageMaintabNormal@2x.png",
+      "filename" : "btnMypageMaintabPressed@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "btnMypageMaintabNormal@3x.png",
+      "filename" : "btnMypageMaintabPressed@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

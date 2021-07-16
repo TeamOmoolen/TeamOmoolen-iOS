@@ -24,6 +24,8 @@ class SituationVC: UIViewController {
     private var recommendList: [RecommendLensDataModel] = []
     var suggestForSituation: [SuggestProduct]? = nil
     var suggestDetailSituation: SuggestDetailResponse?
+    
+    var list = [SuggestProduct]()
     var accesstoken = ""
     
     private var currPage: Int = 1
