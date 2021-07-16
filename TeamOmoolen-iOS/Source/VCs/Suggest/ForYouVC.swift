@@ -44,16 +44,10 @@ class ForYouVC: UIViewController {
         setPhoneResolution()
     }
     
-    @objc func reloadCollectionView(_ notification: Notification) {
-        list = notification.object as! [SuggestProduct]
-        forYouCollectionView.reloadData()
-    }
-    
     //MARK: - Methods
     func setUI(){
-        
         popUpTop.backgroundColor = .omFifthGray
-        //서버에서 받아올 수도
+        
         popUpLabel.text = "나에게 딱 맞는 오무렌의 추천 렌즈를 소개합니다"
         popUpLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 10)
         popUpLabel.textColor = .omThirdGray
@@ -77,7 +71,6 @@ class ForYouVC: UIViewController {
     func setCollectionViewDelegate(){
         forYouCollectionView.delegate = self
         forYouCollectionView.dataSource = self
-        //forYouCollectionView.reloadData()
     }
     
     func setNotification() {
@@ -173,6 +166,7 @@ extension ForYouVC: UICollectionViewDelegate {
                 currPage += 1
                 getSuggestForyouWithAPI(accesstoken: accesstoken, page: currPage, sort: sortParam, order: orderParam)
             }
+            print(currPage)
         }
     }
 }
@@ -205,7 +199,6 @@ extension ForYouVC: UICollectionViewDelegateFlowLayout {
 
 extension ForYouVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        collectionView.reloadData()
         return list.count
     }
     

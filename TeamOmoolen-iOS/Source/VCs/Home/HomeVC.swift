@@ -144,8 +144,6 @@ extension HomeVC {
     func getHomeWithAPI() {
         let accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
         
-
-        //let accesstoken = "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYwNzhmNDQ4NDQxMDUwN2ZiNzc5MDIiLCJpYXQiOjE2MjYzNzI4Mzd9.i9mIl_wW8IFk7AUyIFR4DwBdN7UtAHSLs1SvLB9otocs9jwEttcT5zdhoockTLpV"
         OnboardingAPI.shared.getHome(accesstoken: accesstoken) { response in
             self.dismiss(animated: true, completion: nil)
             
@@ -331,7 +329,9 @@ extension HomeVC: ViewModalProtocol {
 
 extension HomeVC {
     func getNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(pushToDetailVC(_:)), name: NSNotification.Name("PushtoDetailVC"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(pushToDetailVC(_:)), name: NSNotification.Name("PushToDetailVC"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(pushToPopUpVC(_:)), name: NSNotification.Name("PushToPopUp"), object: nil)
     }
     
     @objc
@@ -346,5 +346,23 @@ extension HomeVC {
         detailVC.modalTransitionStyle = .crossDissolve
         detailVC.id = id
         self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    @objc
+    func pushToPopUpVC (_ notification: Notification) {
+        guard let popup = UIStoryboard(name: Const.Storyboard.Name.PopupModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.PopupModal) as? PopupModalVC else {
+            return
+        }
+        popup.titleText = "1분 렌즈 상식"
+        popup.subtitleText =
+        """
+        준비중입니다.
+        빠른시일 내에 새로운 기능으로 찾아뵙겠습니다!
+        """
+        
+        popup.modalPresentationStyle = .overFullScreen
+        popup.modalTransitionStyle = . crossDissolve
+        
+        self.present(popup, animated: true, completion: nil)
     }
 }

@@ -81,7 +81,7 @@ extension OneMinTVC {
 extension OneMinTVC {
     @objc
     func touchUpMore(_ sender: UITapGestureRecognizer) {
-        
+        NotificationCenter.default.post(name: NSNotification.Name("PushToPopUp"), object: nil)
     }
 }
 

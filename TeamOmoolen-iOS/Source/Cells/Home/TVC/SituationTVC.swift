@@ -63,13 +63,13 @@ extension SituationTVC {
     
     func initCell(time: String, data: [RecommendationBySituation]) {
         if time == "운동" {
-            timeRecommendLabel.text = "\(time)할 때"
+            timeRecommendLabel.text = "\(time)할 때 끼기 좋은 렌즈"
         } else if time == "일상" {
-            timeRecommendLabel.text = "\(time)에서"
+            timeRecommendLabel.text = "\(time)에서 끼기 좋은 렌즈"
         } else if time == "여행" {
-            timeRecommendLabel.text = "\(time)에서"
+            timeRecommendLabel.text = "\(time)에서 끼기 좋은 렌즈"
         } else if time == "특별" {
-            timeRecommendLabel.text = "\(time)한 날에"
+            timeRecommendLabel.text = "\(time)한 날에 끼기 좋은 렌즈"
         }
         
         self.recommendationBySituation = data
