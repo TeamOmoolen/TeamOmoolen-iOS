@@ -38,6 +38,7 @@ class SituationVC: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadSituationView), name: NSNotification.Name("ReloadSituation"), object: nil)
         setUI()
         setRecommendList()
         registerXib()
@@ -46,6 +47,13 @@ class SituationVC: UIViewController {
         setCollectionViewDelegate()
         setNotification()
         setPhoneResolution()
+    }
+    
+    @objc func reloadSituationView(_ notification: Notification) {
+        list = notification.object as! [SuggestProduct]
+        print("데이터 받았습니다")
+        print(list)
+        situationCollectionView.reloadData()
     }
     
     // MARK: - @IBAction Properties
@@ -206,15 +214,16 @@ extension SituationVC: UICollectionViewDelegateFlowLayout {
 // MARK: - UICollectionView DataSource
 extension SituationVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recommendList.count
+        
+        return list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendCVC.identifier, for: indexPath) as? RecommendCVC else {
             return UICollectionViewCell()
         }
-        let data = suggestForSituation?[indexPath.row]
-        cell.initCell(imageList: data?.imageList ?? ["", "", ""], brandName: data?.brand ?? "오렌즈", lensName: data?.name ?? "스페니쉬 그레이", diameter: data?.diameter ?? 15.3, minCycle: data?.changeCycleMinimum ?? 1, maxCycle: data?.changeCycleMaximum ?? 1, pieces: data?.pieces ?? 10, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [])
+        let data = list[indexPath.row]
+        cell.initCell(imageList: data.imageList, brandName: data.brand, lensName: data.name, diameter: data.diameter, minCycle: data.changeCycleMinimum, maxCycle: data.changeCycleMaximum, pieces: data.pieces, price: data.price, colorList: data.otherColorList)
         return cell
     }
 }
