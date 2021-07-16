@@ -80,8 +80,6 @@ extension SeasonCVC {
         brandNameLabel.text = brandName
         lensNameLabel.text = lensName
         
-        // MARK: - FIX ME : 주기 분기 처리
-        
         var cycleData = ""
         if minCycle == maxCycle {
             if minCycle < 7 { cycleData = "\(minCycle)Day" }

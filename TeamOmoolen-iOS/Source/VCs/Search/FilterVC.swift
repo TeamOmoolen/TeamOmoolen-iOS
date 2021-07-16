@@ -401,7 +401,7 @@ extension FilterVC {
     func requestAPI() {
         let param = SearchFilterRequest(lensBrand, lensColor, lensDiameter, lensCycle)
         
-        print(param)
+        print("여기여기여기여기", param)
         
         getSearchResultWithAPI(param: param)
     }

@@ -82,6 +82,7 @@ extension RecommendCVC {
         
         brandNameLabel.text = brandName
         lensNameLabel.text = lensName
+        lensNameLabel.lineBreakMode = .byTruncatingTail
         
         var cycleData = ""
         if minCycle == maxCycle {

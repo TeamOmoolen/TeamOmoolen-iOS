@@ -49,12 +49,12 @@ class SearchResultCVC: UICollectionViewCell {
             lensNameLabel.text = "렌즈명"
             lensNameLabel.textColor = .omMainBlack
             lensNameLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 12)
-            
-            lensNameLabel.numberOfLines = 2
             lensNameLabel.lineBreakMode = .byTruncatingTail
+            
             lensInfoLabel.text = "직경 / 교체시기"
             lensInfoLabel.textColor = .omThirdGray
             lensInfoLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 10)
+            lensInfoLabel.lineBreakMode = .byTruncatingTail
             
             priceLabel.text = "가격"
             priceLabel.textColor = .omMainBlack
@@ -78,8 +78,6 @@ class SearchResultCVC: UICollectionViewCell {
         
         brandNameLabel.text = brandName
         lensNameLabel.text = lensName
-        
-        // MARK: - FIX ME : 주기 분기 처리
         
         var cycleData = ""
         if minCycle == maxCycle {

@@ -40,7 +40,7 @@ class TabBarController: UITabBarController {
         
         let eventStoryboard = UIStoryboard.init(name: "Event", bundle: nil)
         let eventTab = eventStoryboard.instantiateViewController(identifier: "EventVC")
-        eventTab.tabBarItem = UITabBarItem(title: "이벤트", image: UIImage(named: "btnEventMaintabNormal"), selectedImage: UIImage(named: "btnDiscoverMaintabPressed"))
+        eventTab.tabBarItem = UITabBarItem(title: "이벤트", image: UIImage(named: "btnEventMaintabNormal"), selectedImage: UIImage(named: "btnEventMaintabPressed"))
         
         let tipStoryboard = UIStoryboard.init(name: "Tip", bundle: nil)
         let tipTab = tipStoryboard.instantiateViewController(identifier: "TipVC")
