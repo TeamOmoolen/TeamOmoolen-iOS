@@ -12,7 +12,6 @@ class TabBarController: UITabBarController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUI()
         setTabBar()
     }
@@ -20,6 +19,7 @@ class TabBarController: UITabBarController {
     // MARK: - Methods
     func setUI() {
         UITabBar.appearance().tintColor = UIColor.omMainBlack
+        
     }
     
     func setTabBar() {

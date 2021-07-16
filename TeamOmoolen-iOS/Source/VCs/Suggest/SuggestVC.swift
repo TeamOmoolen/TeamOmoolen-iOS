@@ -56,8 +56,6 @@ class SuggestVC: UIViewController {
         }
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
-       // getSuggestWithAPI()
-       // setVCs()
         collectionView.reloadData()
     }
     
@@ -65,7 +63,7 @@ class SuggestVC: UIViewController {
         super.viewDidLoad()
         getSuggestWithAPI()
         setUI()
-        
+        setVCs()
         setUpTabBar()
         registerXib()
         setCollectionViewDelegate()
