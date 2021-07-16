@@ -31,7 +31,7 @@ class SearchVC: UIViewController {
         super.viewWillAppear(true)
         self.searchTextField.text = ""
         self.tabBarController?.tabBar.isHidden = true
-        searchTextField.becomeFirstResponder()
+//        searchTextField.becomeFirstResponder()
         
         NotificationCenter.default.post(name: NSNotification.Name("ViewWillAppear"), object: nil)
         
@@ -49,7 +49,7 @@ class SearchVC: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        searchTextField.becomeFirstResponder()
+//        searchTextField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -16,7 +16,7 @@ class BannerCVC: UICollectionViewCell {
     private var bannerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "abc")
-        
+
         return imageView
     }()
 
@@ -37,14 +37,14 @@ extension BannerCVC {
         [bannerImageView].forEach { v in
             contentView.addSubview(v)
         }
-        
-        bannerImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        bannerImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        bannerImageView.snp.makeConstraints { make in
+            make.top.left.bottom.right.equalToSuperview()
+        }
+        bannerImageView.contentMode = .scaleAspectFit
     }
     
     func initCell(image: String) {
         let listURL = URL(string: image)
         bannerImageView.kf.setImage(with: listURL)
-        bannerImageView.contentMode = .scaleAspectFill
     }
 }

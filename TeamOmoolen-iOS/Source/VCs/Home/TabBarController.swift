@@ -23,24 +23,24 @@ class TabBarController: UITabBarController {
     func setTabBar() {
         let homeStoryboard = UIStoryboard.init(name: "Home", bundle: nil)
         let homeTab = homeStoryboard.instantiateViewController(identifier: "NaviController")
-        homeTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "btnHomeMaintabPressed"), tag: 0)
+        homeTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "btnHomeMaintabNormal"), selectedImage: UIImage(named: "btnHomeMaintabPressed"))
         
         
         let suggestStoryboard = UIStoryboard.init(name: "Suggest", bundle: nil)
         let suggestTab = suggestStoryboard.instantiateViewController(identifier: "NaviController")
-        suggestTab.tabBarItem = UITabBarItem(title: "발견", image: UIImage(named: "btnDiscoverMaintabNormal"), tag: 1)
+        suggestTab.tabBarItem = UITabBarItem(title: "발견", image: UIImage(named: "btnDiscoverMaintabNormal"), selectedImage: UIImage(named: "btnDiscoverMaintabPressed"))
         
         let eventStoryboard = UIStoryboard.init(name: "Event", bundle: nil)
         let eventTab = eventStoryboard.instantiateViewController(identifier: "EventVC")
-        eventTab.tabBarItem = UITabBarItem(title: "이벤트", image: UIImage(named: "btnEventMaintabNormal"), tag:2)
+        eventTab.tabBarItem = UITabBarItem(title: "이벤트", image: UIImage(named: "btnEventMaintabNormal"), selectedImage: UIImage(named: "btnDiscoverMaintabPressed"))
         
         let tipStoryboard = UIStoryboard.init(name: "Tip", bundle: nil)
         let tipTab = tipStoryboard.instantiateViewController(identifier: "TipVC")
-        tipTab.tabBarItem = UITabBarItem(title: "꿀팁", image: UIImage(named: "btnEventTipNormal"), tag: 3)
+        tipTab.tabBarItem = UITabBarItem(title: "꿀팁", image: UIImage(named: "btnEventTipNormal"), selectedImage: UIImage(named: "btnEventTipPressed"))
         
         let myStoryboard = UIStoryboard.init(name: "MyPage", bundle: nil)
         let myTab = myStoryboard.instantiateViewController(identifier: "MyPageVC")
-        myTab.tabBarItem = UITabBarItem(title: "마이페이지", image: UIImage(named: "btnMypageMaintabNormal"), tag: 4)
+        myTab.tabBarItem = UITabBarItem(title: "마이페이지", image: UIImage(named: "btnMypageMaintabNormal"), selectedImage: UIImage(named: "btnMypageMaintabPressed"))
         
         // 탭 연결
         let tabs =  [homeTab, suggestTab, eventTab, tipTab, myTab]
