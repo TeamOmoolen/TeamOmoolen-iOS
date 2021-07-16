@@ -21,6 +21,7 @@ class SuggestVC: UIViewController {
     //MARK: - Local Variables
     var suggestViews : [UIViewController] = []
     var position: Int = 0
+    private  var forYouList = [SuggestProduct]()
     
     var season = ""
     var situation = ""
@@ -53,13 +54,14 @@ class SuggestVC: UIViewController {
         }
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
-        getSuggestWithAPI()
-        setVCs()
+       // getSuggestWithAPI()
+       // setVCs()
+        collectionView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
- //       getSuggestWithAPI()
+        getSuggestWithAPI()
         setUI()
         setVCs()
         setUpTabBar()
@@ -90,9 +92,6 @@ class SuggestVC: UIViewController {
     
    //MARK: - Methods
     func setUI() {
-        // season = suggestList!.season
-        // situation = suggestList!.situation
-       // suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.frame.width, height: view.frame.height)
         layout.scrollDirection = .horizontal
@@ -137,12 +136,6 @@ class SuggestVC: UIViewController {
         suggestViews.append(situationVC)
         suggestViews.append(newproductVC)
         suggestViews.append(seasonVC)
-        
-        foryouVC.suggestForYou = suggestList?.suggestForYou
-        situationVC.suggestForSituation = suggestList?.suggestForSituation
-        newproductVC.suggestForNew = suggestList?.suggestForNew
-        seasonVC.suggestForSeason = suggestList?.suggestForSeason
-        
         collectionView.reloadData()
     }
     
@@ -196,15 +189,19 @@ class SuggestVC: UIViewController {
         let accesstoken = "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYwNzhmNDQ4NDQxMDUwN2ZiNzc5MDIiLCJpYXQiOjE2MjYzNzI4Mzd9.i9mIl_wW8IFk7AUyIFR4DwBdN7UtAHSLs1SvLB9otocs9jwEttcT5zdhoockTLpV"
         SuggestAPI.shared.getSuggest(accesstoken: accesstoken) { [self] response in
             self.suggestList = response
-            print(suggestList)
             self.season = self.suggestList!.season
             self.situation = self.suggestList!.situation
             self.setSeason()
-            self.collectionView.reloadData()
-            suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
+            self.forYouList = self.suggestList?.suggestForYou ?? [SuggestProduct]()
             
+            
+            let foryouSB = UIStoryboard(name: "ForYou", bundle:nil)
+            guard let foryouVC = foryouSB.instantiateViewController(identifier: "ForYouVC") as? ForYouVC else {return}
+            
+            suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
+            self.collectionView.reloadData()
+            foryouVC.setForYouData(data: forYouList)
             self.suggestTabBar.collectionView.reloadData()
-            setVCs()
         }
     }
     func setSeason() {
