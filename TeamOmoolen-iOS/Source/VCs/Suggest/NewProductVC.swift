@@ -124,7 +124,7 @@ class NewProductVC: UIViewController {
             
             var appendList = [SuggestProduct]()
             for i in 0..<(self.suggestDetailNew?.items.count)! {
-                appendList.append(SuggestProduct(id: self.suggestDetailNew!.items[i].id, imageList: self.suggestDetailNew!.items[i].imageList, brand: self.suggestDetailNew!.items[i].brand, name: self.suggestDetailNew!.items[i].name, diameter: self.suggestDetailNew!.items[i].diameter, minCycle: self.suggestDetailNew!.items[i].changeCycleMinimum, maxCycle: self.suggestDetailNew!.items[i].changeCycleMaximum, pieces: self.suggestDetailNew!.items[i].pieces, price: self.suggestDetailNew!.items[i].price, otherColorList: self.suggestDetailNew!.items[i].otherColorList))
+                appendList.append(SuggestProduct(id: self.suggestDetailNew!.items[i].id, imageList: self.suggestDetailNew!.items[i].imageList, brand: self.suggestDetailNew!.items[i].brand, name: self.suggestDetailNew!.items[i].name, diameter: self.suggestDetailNew!.items[i].diameter, changeCycleMinimum: self.suggestDetailNew!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailNew!.items[i].changeCycleMaximum, pieces: self.suggestDetailNew!.items[i].pieces, price: self.suggestDetailNew!.items[i].price, otherColorList: self.suggestDetailNew!.items[i].otherColorList))
             }
         }
     }
@@ -195,7 +195,7 @@ extension NewProductVC: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let data = suggestForNew?[indexPath.row]
-        cell.initCell(imageList: data?.imageList ?? ["", "", ""], brandName: data?.brand ?? "오렌즈", lensName: data?.name ?? "스페니쉬 그레이", diameter: data?.diameter ?? 15.3, minCycle: data?.minCycle ?? 1, maxCycle: data?.maxCycle ?? 1, pieces: data?.pieces ?? 10, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [])
+        cell.initCell(imageList: data?.imageList ?? ["", "", ""], brandName: data?.brand ?? "오렌즈", lensName: data?.name ?? "스페니쉬 그레이", diameter: data?.diameter ?? 15.3, minCycle: data?.changeCycleMinimum ?? 1, maxCycle: data?.changeCycleMaximum ?? 1, pieces: data?.pieces ?? 10, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [])
         return cell
     }
 }
