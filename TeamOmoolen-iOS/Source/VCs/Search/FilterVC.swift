@@ -408,16 +408,17 @@ extension FilterVC {
     
     func getSearchResultWithAPI(param: SearchFilterRequest) {
         SearchAPI.shared.getSearchFilterResult(param: param) { response in
-            print(response)
+            print("getSearchResultWithAPI: \(response)")
             self.searchResultResponse = response
             
-            guard let searchVC = UIStoryboard(name: Const.Storyboard.Name.SearchResult, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SearchResult) as? SearchResultVC else {
+            guard let searchResultVC = UIStoryboard(name: Const.Storyboard.Name.SearchResult, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SearchResult) as? SearchResultVC else {
                 return
             }
-            searchVC.modalPresentationStyle = .fullScreen
-            searchVC.modalTransitionStyle = .crossDissolve
-            searchVC.resultList = self.searchResultResponse?.products
-            self.navigationController?.pushViewController(searchVC, animated: true)
+            searchResultVC.modalPresentationStyle = .fullScreen
+            searchResultVC.modalTransitionStyle = .crossDissolve
+            searchResultVC.totalCount = (self.searchResultResponse?.products.count)!
+            searchResultVC.resultList = self.searchResultResponse?.products
+            self.navigationController?.pushViewController(searchResultVC, animated: true)
         }
     }
 }

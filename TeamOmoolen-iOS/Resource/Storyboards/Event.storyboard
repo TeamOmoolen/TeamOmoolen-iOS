@@ -16,27 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s11-Cm-jdV">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vho-he-1CP">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="preparePopupImg" translatesAutoresizingMaskIntoConstraints="NO" id="Exh-Z3-8Cr">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="preparePopupImg" translatesAutoresizingMaskIntoConstraints="NO" id="Vfw-uE-yGz">
                                         <rect key="frame" x="53" y="363" width="308" height="170"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.34999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Exh-Z3-8Cr" firstAttribute="centerX" secondItem="s11-Cm-jdV" secondAttribute="centerX" id="YxE-Tg-YX9"/>
-                                    <constraint firstItem="Exh-Z3-8Cr" firstAttribute="centerY" secondItem="s11-Cm-jdV" secondAttribute="centerY" id="hy6-JQ-r4f"/>
+                                    <constraint firstItem="Vfw-uE-yGz" firstAttribute="centerY" secondItem="Vho-he-1CP" secondAttribute="centerY" id="LaU-VI-B2e"/>
+                                    <constraint firstItem="Vfw-uE-yGz" firstAttribute="centerX" secondItem="Vho-he-1CP" secondAttribute="centerX" id="aAt-5S-EtB"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="s11-Cm-jdV" secondAttribute="trailing" id="LJO-qN-inD"/>
-                            <constraint firstAttribute="bottom" secondItem="s11-Cm-jdV" secondAttribute="bottom" id="Q3H-4i-7At"/>
-                            <constraint firstItem="s11-Cm-jdV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cKD-4p-MEm"/>
-                            <constraint firstItem="s11-Cm-jdV" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="dDe-1s-fFw"/>
+                            <constraint firstItem="Vho-he-1CP" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Bcq-pi-x9M"/>
+                            <constraint firstItem="Vho-he-1CP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Bvw-SM-eyS"/>
+                            <constraint firstItem="Vho-he-1CP" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="OYH-BV-eUW"/>
+                            <constraint firstAttribute="bottom" secondItem="Vho-he-1CP" secondAttribute="bottom" id="RbR-NJ-d5T"/>
                         </constraints>
                     </view>
                 </viewController>

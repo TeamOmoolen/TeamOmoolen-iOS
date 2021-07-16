@@ -34,6 +34,8 @@ extension Const {
             static let Event = "Event"
             static let Tip = "Tip"
             static let MyPage = "MyPage"
+            
+            static let LoadingLogo = "LoadingLogo"
         }
     }
 }

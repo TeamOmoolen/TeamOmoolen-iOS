@@ -16,27 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2S8-O9-bI4">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BvC-fT-dQK">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="preparePopupImg" translatesAutoresizingMaskIntoConstraints="NO" id="kUD-qJ-JFF">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="preparePopupImg" translatesAutoresizingMaskIntoConstraints="NO" id="1ow-73-7aT">
                                         <rect key="frame" x="53" y="363" width="308" height="170"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.29999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.34999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="kUD-qJ-JFF" firstAttribute="centerX" secondItem="2S8-O9-bI4" secondAttribute="centerX" id="0Ne-hO-NLC"/>
-                                    <constraint firstItem="kUD-qJ-JFF" firstAttribute="centerY" secondItem="2S8-O9-bI4" secondAttribute="centerY" id="dF8-iu-s10"/>
+                                    <constraint firstItem="1ow-73-7aT" firstAttribute="centerX" secondItem="BvC-fT-dQK" secondAttribute="centerX" id="36a-jn-SYu"/>
+                                    <constraint firstItem="1ow-73-7aT" firstAttribute="centerY" secondItem="BvC-fT-dQK" secondAttribute="centerY" id="gkw-AP-aWD"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2S8-O9-bI4" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="3IH-sF-6Df"/>
-                            <constraint firstItem="2S8-O9-bI4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="RZf-QY-5fy"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2S8-O9-bI4" secondAttribute="trailing" id="Wzc-oA-BMf"/>
-                            <constraint firstAttribute="bottom" secondItem="2S8-O9-bI4" secondAttribute="bottom" id="u45-vg-QJ9"/>
+                            <constraint firstItem="BvC-fT-dQK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="5sX-vN-rkm"/>
+                            <constraint firstAttribute="bottom" secondItem="BvC-fT-dQK" secondAttribute="bottom" id="9tH-rG-GzT"/>
+                            <constraint firstItem="BvC-fT-dQK" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="ElX-t6-i5B"/>
+                            <constraint firstItem="BvC-fT-dQK" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="NeV-Rg-P3w"/>
                         </constraints>
                     </view>
                 </viewController>
