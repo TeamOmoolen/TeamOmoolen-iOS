@@ -42,6 +42,8 @@ class ForYouVC: UIViewController {
         setCollectionViewDelegate()
         setNotification()
         setPhoneResolution()
+        
+        print("여기야 여기", list)
     }
     
     @objc func reloadCollectionView(_ notification: Notification) {
@@ -68,20 +70,6 @@ class ForYouVC: UIViewController {
     func setAccesstoken() {
         accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
     }
-    
-    /*
-    func setRecommendList() {
-        recommendList.append(contentsOf: [
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"])
-        ])
-    }*/
     
     func registerXib(){
         let recommedNib = UINib(nibName: RecommendCVC.identifier, bundle: nil)
@@ -116,6 +104,11 @@ class ForYouVC: UIViewController {
                 appendList.append(SuggestProduct(id: self.suggestDetailForYou!.items[i].id, imageList: self.suggestDetailForYou!.items[i].imageList, brand: self.suggestDetailForYou!.items[i].brand, name: self.suggestDetailForYou!.items[i].name, diameter: self.suggestDetailForYou!.items[i].diameter, changeCycleMinimum: self.suggestDetailForYou!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailForYou!.items[i].changeCycleMaximum, pieces: self.suggestDetailForYou!.items[i].pieces, price: self.suggestDetailForYou!.items[i].price, otherColorList: self.suggestDetailForYou!.items[i].otherColorList))
             }
         }
+    }
+    
+    func setData(data: [SuggestProduct]) {
+        list = data
+        print("fuck you", data)
     }
 
     
@@ -212,7 +205,7 @@ extension ForYouVC: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 40
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

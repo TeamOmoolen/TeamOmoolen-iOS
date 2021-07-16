@@ -69,7 +69,6 @@
 		92B46AB72697417600217CD9 /* FilterCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B46AB52697417600217CD9 /* FilterCVC.xib */; };
 		92B46ABA269742F100217CD9 /* FilterDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B46AB9269742F100217CD9 /* FilterDataModel.swift */; };
 		92B46ABC2697678100217CD9 /* SearchFilterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B46ABB2697678100217CD9 /* SearchFilterRequest.swift */; };
-		92B56056269AF28A0046A9B3 /* PassTagProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B56055269AF28A0046A9B3 /* PassTagProtocols.swift */; };
 		92BAA04F2694FDE7004A155A /* OneMinDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BAA04D2694FDE7004A155A /* OneMinDetailTVC.swift */; };
 		92BAA0502694FDE7004A155A /* OneMinDetailTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BAA04E2694FDE7004A155A /* OneMinDetailTVC.xib */; };
 		92BAA052269500DA004A155A /* OneMinDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BAA051269500DA004A155A /* OneMinDataModel.swift */; };
@@ -297,7 +296,6 @@
 		92B46AB52697417600217CD9 /* FilterCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCVC.xib; sourceTree = "<group>"; };
 		92B46AB9269742F100217CD9 /* FilterDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDataModel.swift; sourceTree = "<group>"; };
 		92B46ABB2697678100217CD9 /* SearchFilterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterRequest.swift; sourceTree = "<group>"; };
-		92B56055269AF28A0046A9B3 /* PassTagProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassTagProtocols.swift; sourceTree = "<group>"; };
 		92BAA04D2694FDE7004A155A /* OneMinDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMinDetailTVC.swift; sourceTree = "<group>"; };
 		92BAA04E2694FDE7004A155A /* OneMinDetailTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneMinDetailTVC.xib; sourceTree = "<group>"; };
 		92BAA051269500DA004A155A /* OneMinDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMinDataModel.swift; sourceTree = "<group>"; };
@@ -530,7 +528,6 @@
 			isa = PBXGroup;
 			children = (
 				922F49702699E95400447E8E /* ViewModelProtocols.swift */,
-				92B56055269AF28A0046A9B3 /* PassTagProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1515,7 +1512,6 @@
 				F8514795269366C300C8532F /* HomeDataModel.swift in Sources */,
 				E8AF804B26984B3800D76A21 /* SuggestTabBarCVC.swift in Sources */,
 				E8AF80242698415100D76A21 /* SuggestVC.swift in Sources */,
-				92B56056269AF28A0046A9B3 /* PassTagProtocols.swift in Sources */,
 				F83BA072268CEB5D00E94E74 /* UIColor+Addition.swift in Sources */,
 				925644172692C1DB00A45945 /* NewLensTVC.swift in Sources */,
 				9276926A2694E28100201EE1 /* CategoryTVC.swift in Sources */,
