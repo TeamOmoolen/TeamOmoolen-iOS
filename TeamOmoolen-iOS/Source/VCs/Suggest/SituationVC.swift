@@ -29,11 +29,10 @@ class SituationVC: UIViewController {
     var accesstoken = ""
     
     private var currPage: Int = 1
-    private var totalPage: Int = -1
-    private var canFetchData: Bool = true
+    var totalPage: Int = -1
     
-    private var sort = ""
-    private var order = ""
+    private var sort = "name"
+    private var order = "desc"
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -90,19 +89,6 @@ class SituationVC: UIViewController {
         situationCollectionView.register(recommedNib, forCellWithReuseIdentifier: RecommendCVC.identifier)
     }
     
-    /*func setRecommendList(){
-        recommendList.append(contentsOf: [
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-        ])
-    } */
-    
     func setCollectionViewDelegate(){
         situationCollectionView.delegate = self
         situationCollectionView.dataSource = self
@@ -123,12 +109,11 @@ class SituationVC: UIViewController {
     }
     
     func getSuggestSituationWithAPI(accesstoken: String, page: Int, sort: String, order: String) {
-        SuggestAPI.shared.getForyou(accesstoken: accesstoken, page: page, sort: sort, order: order) { response in
+        SuggestAPI.shared.getSituation(accesstoken: accesstoken, page: page, sort: sort, order: order) { response in
             self.suggestDetailSituation = response
-            
-            var appendList = [SuggestProduct]()
+
             for i in 0..<(self.suggestDetailSituation?.items.count)! {
-                appendList.append(SuggestProduct(id: self.suggestDetailSituation!.items[i].id, imageList: self.suggestDetailSituation!.items[i].imageList, brand: self.suggestDetailSituation!.items[i].brand, name: self.suggestDetailSituation!.items[i].name, diameter: self.suggestDetailSituation!.items[i].diameter, changeCycleMinimum: self.suggestDetailSituation!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailSituation!.items[i].changeCycleMaximum, pieces: self.suggestDetailSituation!.items[i].pieces, price: self.suggestDetailSituation!.items[i].price, otherColorList: self.suggestDetailSituation!.items[i].otherColorList))
+                self.list.append(SuggestProduct(id: self.suggestDetailSituation!.items[i].id, imageList: self.suggestDetailSituation!.items[i].imageList, brand: self.suggestDetailSituation!.items[i].brand, name: self.suggestDetailSituation!.items[i].name, diameter: self.suggestDetailSituation!.items[i].diameter, changeCycleMinimum: self.suggestDetailSituation!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailSituation!.items[i].changeCycleMaximum, pieces: self.suggestDetailSituation!.items[i].pieces, price: self.suggestDetailSituation!.items[i].price, otherColorList: self.suggestDetailSituation!.items[i].otherColorList))
             }
         }
     }
@@ -165,15 +150,13 @@ extension SituationVC: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
             print("끝에 닿음")
-            if canFetchData, currPage < totalPage {
+            if currPage < totalPage {
+                let sortParam = self.sort
+                let orderParam = self.order
                 currPage += 1
-                canFetchData = false
-                getSuggestSituationWithAPI(accesstoken: accesstoken, page: currPage, sort: sort, order: order)
-            } else {
-                getSuggestSituationWithAPI(accesstoken: accesstoken, page: currPage, sort: "", order: "")
+                getSuggestSituationWithAPI(accesstoken: accesstoken, page: currPage, sort: sortParam, order: orderParam)
+                situationCollectionView.reloadData()
             }
-            //refresh
-            situationCollectionView.reloadData()
         }
     }
 }

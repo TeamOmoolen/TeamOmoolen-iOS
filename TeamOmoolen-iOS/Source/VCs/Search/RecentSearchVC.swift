@@ -119,7 +119,8 @@ extension RecentSearchVC {
             guard let searchResultVC = UIStoryboard(name: Const.Storyboard.Name.SearchResult, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SearchResult) as? SearchResultVC else {
                 return
             }
-            searchResultVC.totalCount = (self.searchResultResponse?.products.count)!
+            searchResultVC.totalCount = self.searchResultResponse?.totalCount ?? 0
+            searchResultVC.totalPage = self.searchResultResponse?.totalPage ?? 0
             searchResultVC.resultList = self.searchResultResponse?.products
             searchResultVC.modalPresentationStyle = .fullScreen
             searchResultVC.modalTransitionStyle = .crossDissolve

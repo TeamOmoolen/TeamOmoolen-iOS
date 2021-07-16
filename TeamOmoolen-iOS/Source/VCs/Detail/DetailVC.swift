@@ -28,7 +28,7 @@ class DetailVC: UIViewController {
     // MARK: - Life Cycle Methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        getProductDetailWithAPI()
+        getProductDetailWithAPI() 
     }
     
     override func viewDidLoad() {
@@ -56,24 +56,9 @@ extension DetailVC {
     }
     
     func getProductDetailWithAPI() {
-        // loadinglogo
-        guard let loadingVC = UIStoryboard(name: Const.Storyboard.Name.LoadingLogo, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LoadingLogo) as? LoadingLogoVC else {
-            return
-        }
-        loadingVC.modalPresentationStyle = .overFullScreen
-        loadingVC.modalTransitionStyle = .crossDissolve
-        loadingVC.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        
-        self.present(loadingVC, animated: true, completion: nil)
-        //
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) {
-            DetailAPI.shared.getProductDetail(param: self.id ?? "") { response in
-                print("dismiss")
-                self.dismiss(animated: true, completion: nil)
-                
-                self.lensData = response
-                self.detailTableView.reloadData()
-            }
+        DetailAPI.shared.getProductDetail(param: self.id ?? "") { response in
+            self.lensData = response
+            self.detailTableView.reloadData()
         }
     }
     

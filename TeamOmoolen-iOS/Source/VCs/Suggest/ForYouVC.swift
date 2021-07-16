@@ -27,11 +27,11 @@ class ForYouVC: UIViewController {
     var accesstoken = ""
     
     private var currPage: Int = 1
-    private var totalPage: Int = -1
+    var totalPage: Int = -1
     private var canFetchData: Bool = true
     
-    private var sort = ""
-    private var order = ""
+    private var sort = "name"
+    private var order = "desc"
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -42,8 +42,6 @@ class ForYouVC: UIViewController {
         setCollectionViewDelegate()
         setNotification()
         setPhoneResolution()
-        
-        print("여기야 여기", list)
     }
     
     @objc func reloadCollectionView(_ notification: Notification) {
@@ -99,9 +97,8 @@ class ForYouVC: UIViewController {
         SuggestAPI.shared.getForyou(accesstoken: accesstoken, page: page, sort: sort, order: order) { response in
             self.suggestDetailForYou = response
             
-            var appendList = [SuggestProduct]()
             for i in 0..<(self.suggestDetailForYou?.items.count)! {
-                appendList.append(SuggestProduct(id: self.suggestDetailForYou!.items[i].id, imageList: self.suggestDetailForYou!.items[i].imageList, brand: self.suggestDetailForYou!.items[i].brand, name: self.suggestDetailForYou!.items[i].name, diameter: self.suggestDetailForYou!.items[i].diameter, changeCycleMinimum: self.suggestDetailForYou!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailForYou!.items[i].changeCycleMaximum, pieces: self.suggestDetailForYou!.items[i].pieces, price: self.suggestDetailForYou!.items[i].price, otherColorList: self.suggestDetailForYou!.items[i].otherColorList))
+                self.list.append(SuggestProduct(id: self.suggestDetailForYou!.items[i].id, imageList: self.suggestDetailForYou!.items[i].imageList, brand: self.suggestDetailForYou!.items[i].brand, name: self.suggestDetailForYou!.items[i].name, diameter: self.suggestDetailForYou!.items[i].diameter, changeCycleMinimum: self.suggestDetailForYou!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailForYou!.items[i].changeCycleMaximum, pieces: self.suggestDetailForYou!.items[i].pieces, price: self.suggestDetailForYou!.items[i].price, otherColorList: self.suggestDetailForYou!.items[i].otherColorList))
             }
         }
     }
@@ -174,15 +171,13 @@ extension ForYouVC: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
             print("끝에 닿음")
-            if canFetchData, currPage < totalPage {
+            if currPage < totalPage {
+                let sortParam = self.sort
+                let orderParam = self.order
                 currPage += 1
-                canFetchData = false
-                getSuggestForyouWithAPI(accesstoken: accesstoken, page: currPage, sort: sort, order: order)
-            } else {
-                getSuggestForyouWithAPI(accesstoken: accesstoken, page: currPage, sort: "", order: "")
+                getSuggestForyouWithAPI(accesstoken: accesstoken, page: currPage, sort: sortParam, order: orderParam)
+                forYouCollectionView.reloadData()
             }
-            //refresh
-            forYouCollectionView.reloadData()
         }
     }
 }

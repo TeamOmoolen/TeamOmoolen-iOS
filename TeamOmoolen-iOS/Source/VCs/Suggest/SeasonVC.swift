@@ -29,7 +29,7 @@ class SeasonVC: UIViewController {
 
     
     private var currPage: Int = 1
-    private var totalPage: Int = -1
+    var totalPage: Int = -1
     private var canFetchData: Bool = true
     
     private var sort = ""
@@ -118,9 +118,8 @@ class SeasonVC: UIViewController {
         SuggestAPI.shared.getSeason(page: page, sort: sort, order: order) { response in
             self.suggestDetailForSeason = response
             
-            var appendList = [SuggestProduct]()
             for i in 0..<(self.suggestDetailForSeason?.items.count)! {
-                appendList.append(SuggestProduct(id: self.suggestDetailForSeason!.items[i].id, imageList: self.suggestDetailForSeason!.items[i].imageList, brand: self.suggestDetailForSeason!.items[i].brand, name: self.suggestDetailForSeason!.items[i].name, diameter: self.suggestDetailForSeason!.items[i].diameter, changeCycleMinimum: self.suggestDetailForSeason!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailForSeason!.items[i].changeCycleMaximum, pieces: self.suggestDetailForSeason!.items[i].pieces, price: self.suggestDetailForSeason!.items[i].price, otherColorList: self.suggestDetailForSeason!.items[i].otherColorList))
+                self.list.append(SuggestProduct(id: self.suggestDetailForSeason!.items[i].id, imageList: self.suggestDetailForSeason!.items[i].imageList, brand: self.suggestDetailForSeason!.items[i].brand, name: self.suggestDetailForSeason!.items[i].name, diameter: self.suggestDetailForSeason!.items[i].diameter, changeCycleMinimum: self.suggestDetailForSeason!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailForSeason!.items[i].changeCycleMaximum, pieces: self.suggestDetailForSeason!.items[i].pieces, price: self.suggestDetailForSeason!.items[i].price, otherColorList: self.suggestDetailForSeason!.items[i].otherColorList))
             }
         }
     }
@@ -140,14 +139,13 @@ extension SeasonVC: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
             print("끝에 닿음")
-            if canFetchData, currPage < totalPage {
+            if currPage < totalPage {
+                let sortParam = self.sort
+                let orderParam = self.order
                 currPage += 1
-                canFetchData = false
-                // 서버 통신하는 곳
-                getSuggestSeasonWithAPI(page: currPage, sort: sort, order: order)
+                getSuggestSeasonWithAPI(page: currPage, sort: sortParam, order: orderParam)
+                seasonCollectionView.reloadData()
             }
-            //refresh
-            seasonCollectionView.reloadData()
         }
     }
 }
