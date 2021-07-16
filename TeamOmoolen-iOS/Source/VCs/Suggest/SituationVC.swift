@@ -114,6 +114,7 @@ class SituationVC: UIViewController {
 
             for i in 0..<(self.suggestDetailSituation?.items.count)! {
                 self.list.append(SuggestProduct(id: self.suggestDetailSituation!.items[i].id, imageList: self.suggestDetailSituation!.items[i].imageList, brand: self.suggestDetailSituation!.items[i].brand, name: self.suggestDetailSituation!.items[i].name, diameter: self.suggestDetailSituation!.items[i].diameter, changeCycleMinimum: self.suggestDetailSituation!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailSituation!.items[i].changeCycleMaximum, pieces: self.suggestDetailSituation!.items[i].pieces, price: self.suggestDetailSituation!.items[i].price, otherColorList: self.suggestDetailSituation!.items[i].otherColorList))
+                self.situationCollectionView.reloadData()
             }
         }
     }
@@ -156,7 +157,6 @@ extension SituationVC: UICollectionViewDelegate {
                 let orderParam = self.order
                 currPage += 1
                 getSuggestSituationWithAPI(accesstoken: accesstoken, page: currPage, sort: sortParam, order: orderParam)
-                situationCollectionView.reloadData()
             }
         }
     }
