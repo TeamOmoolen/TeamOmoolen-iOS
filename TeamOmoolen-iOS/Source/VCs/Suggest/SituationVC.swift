@@ -128,7 +128,7 @@ class SituationVC: UIViewController {
             
             var appendList = [SuggestProduct]()
             for i in 0..<(self.suggestDetailSituation?.items.count)! {
-                appendList.append(SuggestProduct(id: self.suggestDetailSituation!.items[i].id, imageList: self.suggestDetailSituation!.items[i].imageList, brand: self.suggestDetailSituation!.items[i].brand, name: self.suggestDetailSituation!.items[i].name, diameter: self.suggestDetailSituation!.items[i].diameter, minCycle: self.suggestDetailSituation!.items[i].changeCycleMinimum, maxCycle: self.suggestDetailSituation!.items[i].changeCycleMaximum, pieces: self.suggestDetailSituation!.items[i].pieces, price: self.suggestDetailSituation!.items[i].price, otherColorList: self.suggestDetailSituation!.items[i].otherColorList))
+                appendList.append(SuggestProduct(id: self.suggestDetailSituation!.items[i].id, imageList: self.suggestDetailSituation!.items[i].imageList, brand: self.suggestDetailSituation!.items[i].brand, name: self.suggestDetailSituation!.items[i].name, diameter: self.suggestDetailSituation!.items[i].diameter, changeCycleMinimum: self.suggestDetailSituation!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailSituation!.items[i].changeCycleMaximum, pieces: self.suggestDetailSituation!.items[i].pieces, price: self.suggestDetailSituation!.items[i].price, otherColorList: self.suggestDetailSituation!.items[i].otherColorList))
             }
         }
     }
@@ -214,7 +214,7 @@ extension SituationVC: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let data = suggestForSituation?[indexPath.row]
-        cell.initCell(imageList: data?.imageList ?? ["", "", ""], brandName: data?.brand ?? "오렌즈", lensName: data?.name ?? "스페니쉬 그레이", diameter: data?.diameter ?? 15.3, minCycle: data?.minCycle ?? 1, maxCycle: data?.maxCycle ?? 1, pieces: data?.pieces ?? 10, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [])
+        cell.initCell(imageList: data?.imageList ?? ["", "", ""], brandName: data?.brand ?? "오렌즈", lensName: data?.name ?? "스페니쉬 그레이", diameter: data?.diameter ?? 15.3, minCycle: data?.changeCycleMinimum ?? 1, maxCycle: data?.changeCycleMaximum ?? 1, pieces: data?.pieces ?? 10, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [])
         return cell
     }
 }

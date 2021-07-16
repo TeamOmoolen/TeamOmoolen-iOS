@@ -53,14 +53,15 @@ class SuggestVC: UIViewController {
         }
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
+        getSuggestWithAPI()
         setVCs()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getSuggestWithAPI()
+ //       getSuggestWithAPI()
         setUI()
-//        setVCs()
+        setVCs()
         setUpTabBar()
         registerXib()
         setCollectionViewDelegate()
@@ -89,11 +90,9 @@ class SuggestVC: UIViewController {
     
    //MARK: - Methods
     func setUI() {
-//        guard let seasonText = suggestList?.season else {
-//            self.season = seasonText
-//        }
-        situation = suggestList!.situation
-        suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
+        // season = suggestList!.season
+        // situation = suggestList!.situation
+       // suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.frame.width, height: view.frame.height)
         layout.scrollDirection = .horizontal
@@ -125,7 +124,6 @@ class SuggestVC: UIViewController {
     func setVCs(){
         let foryouSB = UIStoryboard(name: "ForYou", bundle:nil)
         guard let foryouVC = foryouSB.instantiateViewController(identifier: "ForYouVC") as? ForYouVC else {return}
-        
         let situationSB = UIStoryboard(name: "Situation", bundle:nil)
         guard let situationVC = situationSB.instantiateViewController(identifier: "SituationVC") as? SituationVC else {return}
         
@@ -196,9 +194,27 @@ class SuggestVC: UIViewController {
     func getSuggestWithAPI() {
 //        let accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
         let accesstoken = "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYwNzhmNDQ4NDQxMDUwN2ZiNzc5MDIiLCJpYXQiOjE2MjYzNzI4Mzd9.i9mIl_wW8IFk7AUyIFR4DwBdN7UtAHSLs1SvLB9otocs9jwEttcT5zdhoockTLpV"
-        SuggestAPI.shared.getSuggest(accesstoken: accesstoken) { response in
+        SuggestAPI.shared.getSuggest(accesstoken: accesstoken) { [self] response in
             self.suggestList = response
+            print(suggestList)
+            self.season = self.suggestList!.season
+            self.situation = self.suggestList!.situation
+            self.setSeason()
             self.collectionView.reloadData()
+            suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
+            self.suggestTabBar.collectionView.reloadData()
+            setVCs()
+        }
+    }
+    func setSeason() {
+        if (self.season == "summer") {
+            self.season = "여름"
+        } else if (self.season == "spring") {
+            self.season = "봄"
+        } else if (self.season == "fall") {
+            self.season = "가을"
+        } else {
+            self.season = "겨울"
         }
     }
 }
