@@ -404,26 +404,24 @@ extension FilterVC {
     }
     
     func getSearchResultWithAPI(param: SearchFilterRequest) {
-        SearchAPI.shared.getSearchFilterResult(param: param) { response, sucess in
+        SearchAPI.shared.getSearchFilterResult(param: param) { response, success in
             print("getSearchResultWithAPI: \(response)")
             self.searchResultResponse = response
-            
-            guard let searchResultVC = UIStoryboard(name: Const.Storyboard.Name.SearchResult, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SearchResult) as? SearchResultVC else {
-                return
+            DispatchQueue.global().sync {
+                guard let searchResultVC = UIStoryboard(name: Const.Storyboard.Name.SearchResult, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SearchResult) as? SearchResultVC else {
+                    return
+                }
+                searchResultVC.modalPresentationStyle = .fullScreen
+                searchResultVC.modalTransitionStyle = .crossDissolve
+                searchResultVC.totalPage = self.searchResultResponse?.totalPage ?? 0
+                searchResultVC.totalCount = self.searchResultResponse?.totalCount ?? 0
+                searchResultVC.resultList = self.searchResultResponse?.products
+                self.navigationController?.pushViewController(searchResultVC, animated: true)
             }
-            searchResultVC.modalPresentationStyle = .fullScreen
-            searchResultVC.modalTransitionStyle = .crossDissolve
-            searchResultVC.totalPage = self.searchResultResponse?.totalPage ?? 0
-            searchResultVC.totalCount = self.searchResultResponse?.totalCount ?? 0
-            searchResultVC.resultList = self.searchResultResponse?.products
-            self.navigationController?.pushViewController(searchResultVC, animated: true)
-            
-            if sucess {
-                self.getBrandData = false
-                self.getColorData = false
-                self.getDiameterData = false
-                self.getCycleData = false
-            }
+            self.getBrandData = false
+            self.getColorData = false
+            self.getDiameterData = false
+            self.getCycleData = false
         }
     }
 }
