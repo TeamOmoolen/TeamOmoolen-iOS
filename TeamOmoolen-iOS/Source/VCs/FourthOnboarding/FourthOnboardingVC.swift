@@ -177,8 +177,14 @@ class FourthOnboardingVC: UIViewController {
                 }
                 homeVC.modalPresentationStyle = .fullScreen
                 homeVC.modalTransitionStyle = .crossDissolve
-                
-                self.navigationController?.pushViewController(homeVC, animated: true )
+                self.present(homeVC, animated: true, completion: nil)
+//                guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Tabbar, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Tabbar) as? TabBarController else {
+//                    return
+//                }
+//                homeVC.modalPresentationStyle = .fullScreen
+//                homeVC.modalTransitionStyle = .crossDissolve
+//
+//                self.navigationController?.pushViewController(homeVC, animated: true )
             } else {
                 print("postOnboardingWithAPI: Fail")
             }
