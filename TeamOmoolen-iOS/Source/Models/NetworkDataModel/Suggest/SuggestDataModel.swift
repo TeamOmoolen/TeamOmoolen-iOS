@@ -37,6 +37,10 @@ struct SuggestResponse: Codable {
     let suggestForSeason: [SuggestProduct]
     let season: String
     let situation: String
+    let suggestForYouTotalPage: Int
+    let suggestForSituationTotalPage: Int
+    let suggestForNewTotalPage: Int
+    let suggestForSeasonTotalPage: Int
     
     enum CodingKeys: String, CodingKey {
         case suggestForYou
@@ -45,6 +49,11 @@ struct SuggestResponse: Codable {
         case suggestForSeason
         case season
         case situation
+        case suggestForYouTotalPage
+        case suggestForSituationTotalPage
+        case suggestForNewTotalPage
+        case suggestForSeasonTotalPage
+    
     }
 }
 

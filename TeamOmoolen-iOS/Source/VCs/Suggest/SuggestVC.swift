@@ -147,6 +147,11 @@ class SuggestVC: UIViewController {
         seasonVC.list = seasonList
         newproductVC.list = newProductList
         
+        foryouVC.totalPage = foryouTotal
+        situationVC.totalPage = situationTotal
+        seasonVC.totalPage = seasonTotal
+        newproductVC.totalPage = newProductTotal
+        
         //각 VC에 넣어주기 total count
         suggestViews.append(foryouVC)
         suggestViews.append(situationVC)
@@ -216,6 +221,12 @@ class SuggestVC: UIViewController {
             self.newProductList = self.suggestList?.suggestForNew ?? [SuggestProduct]()
             
             //total count 넣기
+            self.foryouTotal = self.suggestList?.suggestForYouTotalPage ?? 0
+            self.situationTotal = self.suggestList?.suggestForSituationTotalPage ?? 0
+            self.seasonTotal = self.suggestList?.suggestForSeasonTotalPage ?? 0
+            self.newProductTotal = suggestList?.suggestForNewTotalPage ?? 0
+            
+            
             self.collectionView.reloadData()
             setVCs()
             

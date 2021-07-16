@@ -123,9 +123,12 @@ class NewProductVC: UIViewController {
         SuggestAPI.shared.getNew(page: page, sort: sort, order: order) {
             response in
             self.suggestDetailNew = response
+            print("ㄹㄹㄹㄹㄹ")
+            print(self.totalPage)
             
             for i in 0..<(self.suggestDetailNew?.items.count)! {
                 self.list.append(SuggestProduct(id: self.suggestDetailNew!.items[i].id, imageList: self.suggestDetailNew!.items[i].imageList, brand: self.suggestDetailNew!.items[i].brand, name: self.suggestDetailNew!.items[i].name, diameter: self.suggestDetailNew!.items[i].diameter, changeCycleMinimum: self.suggestDetailNew!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailNew!.items[i].changeCycleMaximum, pieces: self.suggestDetailNew!.items[i].pieces, price: self.suggestDetailNew!.items[i].price, otherColorList: self.suggestDetailNew!.items[i].otherColorList))
+                self.newProductCollectionView.reloadData()
             }
         }
     }
@@ -147,13 +150,11 @@ extension NewProductVC: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
-            print("끝에 닿음")
             if currPage < totalPage {
                 let sortParam = self.sort
                 let orderParam = self.order
                 currPage += 1
                 getSuggestNewWithAPI(accesstoken: accesstoken, page: currPage, sort: sortParam, order: orderParam)
-                newProductCollectionView.reloadData()
             }
         }
     }
