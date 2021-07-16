@@ -125,13 +125,6 @@ class SearchInTVC: UITableViewCell {
         //setSearchList()
     }
     
-    
-    /*
-    @objc func pushResult(notification: NSNotification) {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("SearchEntered"), object: nil)
-        setSearchList()
-    }*/
-    
     //검색어 입련된 걸 받고, searchdidon exit 에서 realm db에 저장
     @objc func searchEntered(notification: NSNotification) {
         
@@ -143,16 +136,25 @@ class SearchInTVC: UITableViewCell {
                 let searchWord = RecentSearch()
                 searchWord.word = enteredText
                 if (realm?.objects(RecentSearch.self).count == 0) {
-                    //처음 입력 받았을때
                     realm?.add(searchWord)
                     print("검색어를 입력해 주세요")
                 }
                 else if (searchList.contains(searchWord.word)) {
                     print("db 추가할 필요 없음")
+                    for i in 0..<searchList.count {
+                        if (searchList[i] == searchWord.word) {
+                            searchList.remove(at:i)
+                            let targetWord = realm?.objects(RecentSearch.self).filter("word CONTAINS[c] %@", searchWord.word)
+                            if let obj = targetWord {
+                                realm?.delete(obj)
+                            }
+                            break
+                        }
+                    }
+                    realm?.add(searchWord)
                 } else {
                     realm?.add(searchWord)
                 }
-                //setSearchList()
             }
         } catch {
             print("문제")
