@@ -34,8 +34,6 @@ class SearchVC: UIViewController {
 //        searchTextField.becomeFirstResponder()
         
         NotificationCenter.default.post(name: NSNotification.Name("ViewWillAppear"), object: nil)
-        
-    
     }
     
     override func viewDidLoad() {

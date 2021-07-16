@@ -34,6 +34,8 @@ class SuggestVC: UIViewController {
     
     private var suggestList: SuggestResponse?
     
+    var forUlist = [SuggestProduct]()
+    
     //MARK: - View Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -60,7 +62,7 @@ class SuggestVC: UIViewController {
         super.viewDidLoad()
         getSuggestWithAPI()
         setUI()
-        setVCs()
+        
         setUpTabBar()
         registerXib()
         setCollectionViewDelegate()
@@ -191,15 +193,16 @@ class SuggestVC: UIViewController {
             self.season = self.suggestList!.season
             self.situation = self.suggestList!.situation
             self.setSeason()
-            self.forYouList = self.suggestList?.suggestForYou ?? [SuggestProduct]()
+            //self.forYouList = self.suggestList?.suggestForYou ?? [SuggestProduct]()
             
-            
-            let foryouSB = UIStoryboard(name: "ForYou", bundle:nil)
-            guard let foryouVC = foryouSB.instantiateViewController(identifier: "ForYouVC") as? ForYouVC else {return}
             
             suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
             self.collectionView.reloadData()
-            foryouVC.setForYouData(data: forYouList)
+            
+            NotificationCenter.default.post(name: Notification.Name("ReloadForYou"), object: self.suggestList?.suggestForYou ?? [SuggestProduct]())
+            
+            //NotificationCenter.default.post(name: Notification.Name("ReloadSituation"), object: nil)
+            
             self.suggestTabBar.collectionView.reloadData()
         }
     }

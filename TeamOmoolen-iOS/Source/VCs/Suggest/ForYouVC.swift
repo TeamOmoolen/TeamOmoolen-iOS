@@ -36,6 +36,7 @@ class ForYouVC: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadCollectionView), name: NSNotification.Name("ReloadForYou"), object: nil)
         setUI()
         setAccesstoken()
         registerXib()
@@ -44,6 +45,11 @@ class ForYouVC: UIViewController {
         setPhoneResolution()
         
         print("여기야 여기", list)
+    }
+    
+    @objc func reloadCollectionView(_ notification: Notification) {
+        list = notification.object as! [SuggestProduct]
+        forYouCollectionView.reloadData()
     }
     
     func setForYouData(data: [SuggestProduct]) {
@@ -221,6 +227,7 @@ extension ForYouVC: UICollectionViewDelegateFlowLayout {
 
 extension ForYouVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        collectionView.reloadData()
         return list.count
     }
     

@@ -39,6 +39,7 @@ extension Const {
             static let Tip = "TipVC"
             static let MyPage = "MyPageVC"
             static let SortPanModal = "SortPanModalVC"
+            static let LoadingLogo = "LoadingLogoVC"
         }
     }
 }
