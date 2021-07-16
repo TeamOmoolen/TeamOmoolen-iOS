@@ -22,6 +22,7 @@ class ForYouVC: UIViewController {
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []
     var suggestForYou: [SuggestProduct]? = nil
+    var list = [SuggestProduct]()
     var suggestDetailForYou: SuggestDetailResponse?
     var accesstoken = ""
     
@@ -35,14 +36,19 @@ class ForYouVC: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUI()
         setAccesstoken()
         registerXib()
-        setRecommendList()
+        //setRecommendList()
         setCollectionViewDelegate()
         setNotification()
         setPhoneResolution()
+    }
+    
+    func setForYouData(data: [SuggestProduct]) {
+        self.list = data
+        print("foryou data", list)
+        //forYouCollectionView.reloadData()
     }
     
     //MARK: - Methods
@@ -65,6 +71,7 @@ class ForYouVC: UIViewController {
         accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
     }
     
+    /*
     func setRecommendList() {
         recommendList.append(contentsOf: [
             RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
@@ -77,7 +84,7 @@ class ForYouVC: UIViewController {
             RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"])
             
         ])
-    }
+    }*/
     
     func registerXib(){
         let recommedNib = UINib(nibName: RecommendCVC.identifier, bundle: nil)
@@ -87,6 +94,7 @@ class ForYouVC: UIViewController {
     func setCollectionViewDelegate(){
         forYouCollectionView.delegate = self
         forYouCollectionView.dataSource = self
+        forYouCollectionView.reloadData()
     }
     
     func setNotification() {
@@ -224,15 +232,15 @@ extension ForYouVC: UICollectionViewDelegateFlowLayout {
 
 extension ForYouVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recommendList.count
+        return list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendCVC.identifier, for: indexPath) as? RecommendCVC else {
             return UICollectionViewCell()
         }
-        let data = suggestForYou?[indexPath.row]
-        cell.initCell(imageList: data?.imageList ?? [""], brandName: data?.brand ?? "오렌즈", lensName: data?.name ?? "스페니쉬 그레이", diameter: data?.diameter ?? 15.3, minCycle: data?.changeCycleMinimum ?? 1, maxCycle: data?.changeCycleMaximum ?? 1, pieces: data?.pieces ?? 10, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [])
+        let data = list[indexPath.row]
+        cell.initCell(imageList: data.imageList, brandName: data.brand, lensName: data.name, diameter: data.diameter, minCycle: data.changeCycleMinimum, maxCycle: data.changeCycleMaximum, pieces: data.pieces, price: data.price, colorList: data.otherColorList)
         return cell
     }
 }
