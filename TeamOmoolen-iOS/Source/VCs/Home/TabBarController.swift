@@ -25,7 +25,6 @@ class TabBarController: UITabBarController {
     
     func setUI() {
         UITabBar.appearance().tintColor = UIColor.omMainBlack
-        
     }
     
     func setTabBar() {

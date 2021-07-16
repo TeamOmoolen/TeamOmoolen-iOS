@@ -98,7 +98,7 @@ extension NewLensCVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NotificationCenter.default.post(name: NSNotification.Name("PushtoDetailVC"), object: newLens[indexPath.row].id)
+        NotificationCenter.default.post(name: NSNotification.Name("PushToDetailVC"), object: tableList[indexPath.row].id)
     }
 }
 

@@ -151,7 +151,6 @@ extension SituationVC: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
-            print("끝에 닿음")
             if currPage < totalPage {
                 let sortParam = self.sort
                 let orderParam = self.order

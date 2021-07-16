@@ -206,7 +206,7 @@ class SuggestVC: UIViewController {
     
     func getSuggestWithAPI() {
         let accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
-        //let accesstoken = "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYwNzhmNDQ4NDQxMDUwN2ZiNzc5MDIiLCJpYXQiOjE2MjYzNzI4Mzd9.i9mIl_wW8IFk7AUyIFR4DwBdN7UtAHSLs1SvLB9otocs9jwEttcT5zdhoockTLpV"
+        
         SuggestAPI.shared.getSuggest(accesstoken: accesstoken) { [self] response in
             self.suggestList = response
             self.forYouList = self.suggestList?.suggestForYou ?? [SuggestProduct]()
@@ -229,7 +229,6 @@ class SuggestVC: UIViewController {
             
             self.collectionView.reloadData()
             setVCs()
-            
         }
     }
     func setResponse() {

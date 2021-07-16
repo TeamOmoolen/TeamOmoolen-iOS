@@ -30,7 +30,6 @@ class ColorListCVC: UICollectionViewCell {
         
         setUI()
     }
-
 }
 
 extension ColorListCVC {
