@@ -41,10 +41,8 @@ class SeasonCVC: UICollectionViewCell {
 extension SeasonCVC {
     func setUI() {
         contentView.backgroundColor = .white
-        modelImageView.image = UIImage(named: "ellipse1842")
-        modelImageView.contentMode = .scaleAspectFit
         
-        lensImageView.image = UIImage(named: "imgColorA")
+        modelImageView.contentMode = .scaleAspectFit
         
         lensImageView.contentMode = .scaleAspectFill
         lensImageView.layer.applyShadow(color: .omMainBlack, alpha: 0.4, x: 0, y: 1, blur: 5, spread: 0)

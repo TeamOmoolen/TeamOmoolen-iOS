@@ -44,7 +44,6 @@ class PopularTVC: UITableViewCell {
     }
     
     func setLensData(data : [PopularResponse]){
-        print("PopularTVC - setLensData() :",data)
         self.cellPopularList = data
         popularTableView.reloadData()
     }
