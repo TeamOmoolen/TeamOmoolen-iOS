@@ -51,6 +51,7 @@ extension SeasonCVC {
          = "오렌즈"
         brandNameLabel.textColor = .omThirdGray
         brandNameLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 11)
+        brandNameLabel.lineBreakMode = .byTruncatingTail
         
         lensNameLabel.text = "브라운 컬러렌즈"
         lensNameLabel.textColor = .omMainBlack

@@ -60,6 +60,13 @@ class FilterVC: UIViewController {
     private var getCycleData = false
     
     // MARK: - View Life Cycle Methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getBrandData = false
+        getColorData = false
+        getDiameterData = false
+        getCycleData = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,8 +77,6 @@ class FilterVC: UIViewController {
         setButtonView()
         setCustomView()
         setNotification()
-        
-        getData()
     }
     
     // 필터 검색 버튼 눌렀을 때

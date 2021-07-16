@@ -202,6 +202,7 @@ class SuggestVC: UIViewController {
             self.setSeason()
             self.collectionView.reloadData()
             suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
+            
             self.suggestTabBar.collectionView.reloadData()
             setVCs()
         }

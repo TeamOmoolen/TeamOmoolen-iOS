@@ -60,7 +60,7 @@ class SearchResultCVC: UICollectionViewCell {
             priceLabel.textColor = .omMainBlack
             priceLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 12)
             
-            modelImageView.contentMode = .scaleAspectFill
+            modelImageView.contentMode = .scaleAspectFit
             modelImageView.layer.cornerRadius = 10
             lensImageView.contentMode = .scaleAspectFill
             lensImageView.layer.cornerRadius = lensImageView.frame.height / 2

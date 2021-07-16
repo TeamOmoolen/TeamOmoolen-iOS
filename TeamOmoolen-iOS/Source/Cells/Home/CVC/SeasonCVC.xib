@@ -31,7 +31,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9v-I1-Edy">
-                        <rect key="frame" x="0.0" y="168" width="42" height="21"/>
+                        <rect key="frame" x="0.0" y="168" width="159" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -88,6 +88,7 @@
                 <constraint firstItem="SVY-h2-rqg" firstAttribute="top" secondItem="g9v-I1-Edy" secondAttribute="bottom" constant="4" id="lv8-bN-NYP"/>
                 <constraint firstItem="cQh-CX-Hom" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pJS-tf-Uu4"/>
                 <constraint firstItem="cQh-CX-Hom" firstAttribute="top" secondItem="3Km-ak-Ryt" secondAttribute="bottom" constant="8" id="rLd-l1-o78"/>
+                <constraint firstAttribute="trailing" secondItem="g9v-I1-Edy" secondAttribute="trailing" constant="1" id="yeU-o9-mWq"/>
             </constraints>
             <size key="customSize" width="160" height="290"/>
             <connections>
