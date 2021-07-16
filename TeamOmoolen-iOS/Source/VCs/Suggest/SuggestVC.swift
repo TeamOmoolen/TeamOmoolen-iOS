@@ -33,6 +33,8 @@ class SuggestVC: UIViewController {
     
     private var suggestList: SuggestResponse?
     
+    var forYouList = [SuggestProduct]()
+    
     //MARK: - View Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -59,9 +61,8 @@ class SuggestVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
- //       getSuggestWithAPI()
+
         setUI()
-        setVCs()
         setUpTabBar()
         registerXib()
         setCollectionViewDelegate()
@@ -124,6 +125,8 @@ class SuggestVC: UIViewController {
     func setVCs(){
         let foryouSB = UIStoryboard(name: "ForYou", bundle:nil)
         guard let foryouVC = foryouSB.instantiateViewController(identifier: "ForYouVC") as? ForYouVC else {return}
+        foryouVC.setData(data: forYouList)
+        
         let situationSB = UIStoryboard(name: "Situation", bundle:nil)
         guard let situationVC = situationSB.instantiateViewController(identifier: "SituationVC") as? SituationVC else {return}
         
@@ -138,7 +141,7 @@ class SuggestVC: UIViewController {
         suggestViews.append(newproductVC)
         suggestViews.append(seasonVC)
         
-        foryouVC.suggestForYou = suggestList?.suggestForYou
+        
         situationVC.suggestForSituation = suggestList?.suggestForSituation
         newproductVC.suggestForNew = suggestList?.suggestForNew
         seasonVC.suggestForSeason = suggestList?.suggestForSeason
@@ -196,7 +199,8 @@ class SuggestVC: UIViewController {
         let accesstoken = "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYwNzhmNDQ4NDQxMDUwN2ZiNzc5MDIiLCJpYXQiOjE2MjYzNzI4Mzd9.i9mIl_wW8IFk7AUyIFR4DwBdN7UtAHSLs1SvLB9otocs9jwEttcT5zdhoockTLpV"
         SuggestAPI.shared.getSuggest(accesstoken: accesstoken) { [self] response in
             self.suggestList = response
-            print(suggestList)
+            self.forYouList = self.suggestList?.suggestForYou ?? [SuggestProduct]()
+            
             self.season = self.suggestList!.season
             self.situation = self.suggestList!.situation
             self.setSeason()

@@ -25,6 +25,8 @@ class ForYouVC: UIViewController {
     var suggestDetailForYou: SuggestDetailResponse?
     var accesstoken = ""
     
+    var list = [SuggestProduct]()
+    
     private var currPage: Int = 1
     private var totalPage: Int = -1
     private var canFetchData: Bool = true
@@ -39,7 +41,6 @@ class ForYouVC: UIViewController {
         setUI()
         setAccesstoken()
         registerXib()
-        setRecommendList()
         setCollectionViewDelegate()
         setNotification()
         setPhoneResolution()
@@ -63,19 +64,6 @@ class ForYouVC: UIViewController {
     
     func setAccesstoken() {
         accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
-    }
-    
-    func setRecommendList() {
-        recommendList.append(contentsOf: [
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
-            RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"])
-        ])
     }
     
     func registerXib(){
@@ -110,6 +98,11 @@ class ForYouVC: UIViewController {
                 appendList.append(SuggestProduct(id: self.suggestDetailForYou!.items[i].id, imageList: self.suggestDetailForYou!.items[i].imageList, brand: self.suggestDetailForYou!.items[i].brand, name: self.suggestDetailForYou!.items[i].name, diameter: self.suggestDetailForYou!.items[i].diameter, changeCycleMinimum: self.suggestDetailForYou!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailForYou!.items[i].changeCycleMaximum, pieces: self.suggestDetailForYou!.items[i].pieces, price: self.suggestDetailForYou!.items[i].price, otherColorList: self.suggestDetailForYou!.items[i].otherColorList))
             }
         }
+    }
+    
+    func setData(data: [SuggestProduct]) {
+        list = data
+        print("fuck you", data)
     }
 
     
@@ -223,15 +216,15 @@ extension ForYouVC: UICollectionViewDelegateFlowLayout {
 
 extension ForYouVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recommendList.count
+        return list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendCVC.identifier, for: indexPath) as? RecommendCVC else {
             return UICollectionViewCell()
         }
-        let data = suggestForYou?[indexPath.row]
-        cell.initCell(imageList: data?.imageList ?? [""], brandName: data?.brand ?? "오렌즈", lensName: data?.name ?? "스페니쉬 그레이", diameter: data?.diameter ?? 15.3, minCycle: data?.changeCycleMinimum ?? 1, maxCycle: data?.changeCycleMaximum ?? 1, pieces: data?.pieces ?? 10, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [])
+        let data = list[indexPath.row]
+        cell.initCell(imageList: data.imageList, brandName: data.brand, lensName: data.name, diameter: data.diameter, minCycle: data.changeCycleMinimum, maxCycle: data.changeCycleMaximum, pieces: data.pieces, price: data.price, colorList: data.otherColorList)
         return cell
     }
 }
