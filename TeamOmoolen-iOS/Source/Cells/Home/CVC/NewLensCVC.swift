@@ -44,7 +44,7 @@ extension NewLensCVC {
         modelImageView.layer.cornerRadius = 10
         modelImageView.layer.masksToBounds = true
         
-        brandImageView.image = UIImage(named: "imgOlensLogoOnboardingNormal")
+        brandImageView.image = UIImage(named: "imgLensmeLogoOnboardingNormal")
         brandImageView.layer.cornerRadius = brandImageView.frame.width / 2
         brandImageView.layer.masksToBounds = true
         

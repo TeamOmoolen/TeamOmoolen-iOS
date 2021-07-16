@@ -144,6 +144,7 @@ extension DetailTopTVC {
         // kingfisher
         let modelURL = URL(string: imageList[1])
         modelImageView.kf.setImage(with: modelURL)
+        modelImageView.contentMode = .scaleAspectFill
         
         let lensURL = URL(string: imageList[0])
         lensImageView.kf.setImage(with: lensURL)

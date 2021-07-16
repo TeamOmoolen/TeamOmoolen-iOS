@@ -144,7 +144,6 @@ extension SearchResultVC: UICollectionViewDelegate {
         detailVC.modalTransitionStyle = .crossDissolve
         detailVC.id = resultList![indexPath.row].id
         self.navigationController?.pushViewController(detailVC, animated: true)
-        
     }
 }
 
@@ -163,8 +162,6 @@ extension SearchResultVC: UICollectionViewDataSource {
         cell.initCell(imageList: cellData.imageList, brandName: cellData.brand, lensName: cellData.name, diameter: cellData.diameter, minCycle: cellData.changeCycleMinimum, maxCycle: cellData.changeCycleMaximum, pieces: cellData.pieces, price: cellData.price, colorList: cellData.otherColorList)
         return cell
     }
-    
-    
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
