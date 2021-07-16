@@ -197,10 +197,10 @@ class SuggestVC: UIViewController {
             
             let foryouSB = UIStoryboard(name: "ForYou", bundle:nil)
             guard let foryouVC = foryouSB.instantiateViewController(identifier: "ForYouVC") as? ForYouVC else {return}
-            foryouVC.setForYouData(data: forYouList)
             
             suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
             self.collectionView.reloadData()
+            foryouVC.setForYouData(data: forYouList)
             self.suggestTabBar.collectionView.reloadData()
         }
     }
