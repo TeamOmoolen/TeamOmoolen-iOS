@@ -92,7 +92,7 @@ extension DetailNewTVC: UICollectionViewDelegate {
         }
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
-//        detailVC.id = popularList[indexPath.row].id
+        detailVC.id = popularList[indexPath.row].id
         delegate?.detailViewModalDelegate(dvc: detailVC)
     }
 }
