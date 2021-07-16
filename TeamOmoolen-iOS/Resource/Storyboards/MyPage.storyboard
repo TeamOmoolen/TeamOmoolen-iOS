@@ -15,8 +15,29 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zBr-OV-pjz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="preparePopupImg" translatesAutoresizingMaskIntoConstraints="NO" id="0a3-Eu-rMj">
+                                        <rect key="frame" x="53" y="363" width="308" height="170"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.29999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="0a3-Eu-rMj" firstAttribute="centerX" secondItem="zBr-OV-pjz" secondAttribute="centerX" id="0t0-34-Dvo"/>
+                                    <constraint firstItem="0a3-Eu-rMj" firstAttribute="centerY" secondItem="zBr-OV-pjz" secondAttribute="centerY" id="LwM-o4-vkm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zBr-OV-pjz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9Ko-PL-ceO"/>
+                            <constraint firstItem="zBr-OV-pjz" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="WGN-u1-G2h"/>
+                            <constraint firstAttribute="bottom" secondItem="zBr-OV-pjz" secondAttribute="bottom" id="hDO-Li-iMf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zBr-OV-pjz" secondAttribute="trailing" id="i4x-bw-kbl"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -25,6 +46,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="preparePopupImg" width="308" height="170"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

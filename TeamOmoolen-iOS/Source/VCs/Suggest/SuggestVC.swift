@@ -89,8 +89,10 @@ class SuggestVC: UIViewController {
     
    //MARK: - Methods
     func setUI() {
-//        season = suggestList.season
-//        situation = suggestList.situation
+//        guard let seasonText = suggestList?.season else {
+//            self.season = seasonText
+//        }
+        situation = suggestList!.situation
         suggestTabBar.views = ["For You", "\(situation)할 때", "신제품", "\(season)에 예쁜"]
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.frame.width, height: view.frame.height)
