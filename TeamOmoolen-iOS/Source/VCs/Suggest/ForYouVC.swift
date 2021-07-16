@@ -36,7 +36,6 @@ class ForYouVC: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadCollectionView), name: NSNotification.Name("ReloadForYou"), object: nil)
         setUI()
         setAccesstoken()
         registerXib()
@@ -50,10 +49,6 @@ class ForYouVC: UIViewController {
     @objc func reloadCollectionView(_ notification: Notification) {
         list = notification.object as! [SuggestProduct]
         forYouCollectionView.reloadData()
-    }
-    
-    func setForYouData(data: [SuggestProduct]) {
-        self.list = data
     }
     
     //MARK: - Methods

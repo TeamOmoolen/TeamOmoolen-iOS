@@ -25,6 +25,8 @@ class SeasonVC: UIViewController {
     var suggestForSeason: [SuggestProduct]? = nil
     var suggestDetailForSeason: SuggestDetailResponse?
     var accesstoken = ""
+    var list = [SuggestProduct]()
+
     
     private var currPage: Int = 1
     private var totalPage: Int = -1
@@ -179,7 +181,7 @@ extension SeasonVC: UICollectionViewDelegateFlowLayout {
 // MARK: - UICollectionView DataSource
 extension SeasonVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recommendList.count
+        return list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -187,8 +189,8 @@ extension SeasonVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendCVC.identifier, for: indexPath) as? RecommendCVC else {
             return UICollectionViewCell()
         }
-        let data = suggestForSeason?[indexPath.row]
-        cell.initCell(imageList: data?.imageList ?? [""], brandName: data?.brand ?? "오렌즈", lensName: data?.name ?? "스페니쉬 그레이", diameter: data?.diameter ?? 15.3, minCycle: data?.changeCycleMinimum ?? 1, maxCycle: data?.changeCycleMaximum ?? 1, pieces: data?.pieces ?? 10, price: data?.price ?? 18000, colorList: data?.otherColorList ?? [])
+        let data = list[indexPath.row]
+        cell.initCell(imageList: data.imageList, brandName: data.brand, lensName: data.name, diameter: data.diameter, minCycle: data.changeCycleMinimum, maxCycle: data.changeCycleMaximum, pieces: data.pieces, price: data.price, colorList: data.otherColorList)
         return cell
     }
 }

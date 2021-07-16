@@ -38,22 +38,13 @@ class SituationVC: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadSituationView), name: NSNotification.Name("ReloadSituation"), object: nil)
         setUI()
-        setRecommendList()
         registerXib()
         setAccesstoken()
         getSuggestSituationWithAPI(accesstoken: accesstoken, page: currPage, sort: sort, order: order)
         setCollectionViewDelegate()
         setNotification()
         setPhoneResolution()
-    }
-    
-    @objc func reloadSituationView(_ notification: Notification) {
-        list = notification.object as! [SuggestProduct]
-        print("데이터 받았습니다")
-        print(list)
-        situationCollectionView.reloadData()
     }
     
     // MARK: - @IBAction Properties
@@ -99,7 +90,7 @@ class SituationVC: UIViewController {
         situationCollectionView.register(recommedNib, forCellWithReuseIdentifier: RecommendCVC.identifier)
     }
     
-    func setRecommendList(){
+    /*func setRecommendList(){
         recommendList.append(contentsOf: [
             RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
             RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
@@ -110,11 +101,12 @@ class SituationVC: UIViewController {
             RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
             RecommendLensDataModel(imageList: ["abc"], brandName: "오렌즈", lensName: "브라운 컬러렌즈", diameter: 11.9, minCycle: 1, maxCycle: 1, pieces: 10, price: 18000, colorList: ["green"]),
         ])
-    }
+    } */
     
     func setCollectionViewDelegate(){
         situationCollectionView.delegate = self
         situationCollectionView.dataSource = self
+        situationCollectionView.reloadData()
     }
     
     func setNotification() {
