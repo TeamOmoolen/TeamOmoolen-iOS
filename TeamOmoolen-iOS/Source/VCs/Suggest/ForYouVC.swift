@@ -92,6 +92,8 @@ class ForYouVC: UIViewController {
             
             for i in 0..<(self.suggestDetailForYou?.items.count)! {
                 self.list.append(SuggestProduct(id: self.suggestDetailForYou!.items[i].id, imageList: self.suggestDetailForYou!.items[i].imageList, brand: self.suggestDetailForYou!.items[i].brand, name: self.suggestDetailForYou!.items[i].name, diameter: self.suggestDetailForYou!.items[i].diameter, changeCycleMinimum: self.suggestDetailForYou!.items[i].changeCycleMinimum, changeCycleMaximum: self.suggestDetailForYou!.items[i].changeCycleMaximum, pieces: self.suggestDetailForYou!.items[i].pieces, price: self.suggestDetailForYou!.items[i].price, otherColorList: self.suggestDetailForYou!.items[i].otherColorList))
+                
+                self.canFetchData = true
                 self.forYouCollectionView.reloadData()
             }
         }
@@ -160,10 +162,11 @@ extension ForYouVC: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
-            if currPage < totalPage {
+            if canFetchData, currPage < totalPage {
                 let sortParam = self.sort
                 let orderParam = self.order
                 currPage += 1
+                canFetchData = false
                 getSuggestForyouWithAPI(accesstoken: accesstoken, page: currPage, sort: sortParam, order: orderParam)
             }
             print(currPage)

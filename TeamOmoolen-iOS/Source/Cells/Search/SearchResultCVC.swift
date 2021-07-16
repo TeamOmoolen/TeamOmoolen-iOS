@@ -72,7 +72,7 @@ class SearchResultCVC: UICollectionViewCell {
         let lensUrl = URL(string: lensString)
         self.lensImageView.kf.setImage(with: lensUrl)
         
-        let modelString = imageList[1]
+        let modelString = ""
         let modelUrl = URL(string: modelString)
         self.modelImageView.kf.setImage(with: modelUrl)
         

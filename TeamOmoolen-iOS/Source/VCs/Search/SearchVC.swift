@@ -201,6 +201,7 @@ extension SearchVC {
             searchResultVC.searchKeyword = self.keyword
             searchResultVC.totalPage = self.searchResultResponse?.totalPage ?? 0
             searchResultVC.totalCount = self.searchResultResponse?.totalCount ?? 0
+    
             self.navigationController?.pushViewController(searchResultVC, animated: true)
         }
     }

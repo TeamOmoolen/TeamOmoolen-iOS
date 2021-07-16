@@ -41,7 +41,7 @@ extension ColorListCVC {
     func initCell(color: String) {
         switch color {
         case "clear":
-            contentView.layer.borderColor = UIColor.omClear.cgColor
+            contentView.layer.backgroundColor = UIColor.omClear.cgColor
             return
         case "black":
             contentView.layer.backgroundColor = UIColor.omMainBlack.cgColor
@@ -86,6 +86,7 @@ extension ColorListCVC {
             }
             return
         default:
+            contentView.layer.backgroundColor = UIColor.omWhite.cgColor
             return
         }
     }

@@ -100,7 +100,7 @@ class SearchResultVC: UIViewController {
     }
     
     func getSearchResultMoreWithAPI(page: Int, sort: String, order: String) {
-//        SearchAPI.shared.getKeywordResult(param: <#T##String#>, completion: <#T##(SearchResultResponse) -> ()#>)
+        
     }
     
     // MARK: - @objc Methods
@@ -160,6 +160,7 @@ extension SearchResultVC: UICollectionViewDataSource {
         let cellData = resultList?[indexPath.row] ?? Product(id: "", name: "", imageList: ["", "", ""], otherColorList: [""], price: 0, brand: "", diameter: 0, changeCycleMinimum: 0, changeCycleMaximum: 0, pieces: 0)
         
         cell.initCell(imageList: cellData.imageList, brandName: cellData.brand, lensName: cellData.name, diameter: cellData.diameter, minCycle: cellData.changeCycleMinimum, maxCycle: cellData.changeCycleMaximum, pieces: cellData.pieces, price: cellData.price, colorList: cellData.otherColorList)
+        
         return cell
     }
 }
@@ -176,7 +177,6 @@ extension SearchResultVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width
-//        let height = collectionView.frame.height
         let cellWidth = (width - 24) / 3
         let cellHeight = 201
         return CGSize(width: cellWidth, height: CGFloat(cellHeight))
