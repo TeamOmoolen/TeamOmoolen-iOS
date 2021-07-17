@@ -12,14 +12,13 @@ import Moya
 class LoginVC: UIViewController {
     
     // MARK: - @IBOutlet Properties
-    @IBOutlet var loginImageView: UIImageView!
+    @IBOutlet weak var logoImage: UIImageView!
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         setNavigationBarDidLoad()
-        loginTapAction()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +34,7 @@ class LoginVC: UIViewController {
         view.addSubview(appleLoginBtn)
         
         appleLoginBtn.translatesAutoresizingMaskIntoConstraints = false
-        appleLoginBtn.topAnchor.constraint(equalTo: loginImageView.bottomAnchor, constant: 24).isActive = true
+        appleLoginBtn.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 24).isActive = true
         appleLoginBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         appleLoginBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         appleLoginBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
@@ -48,11 +47,7 @@ class LoginVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    func loginTapAction() {
-        let login = UITapGestureRecognizer(target: self, action: #selector(login))
-        loginImageView.isUserInteractionEnabled = true
-        loginImageView.addGestureRecognizer(login)
-    }
+
     
     // MARK: - @objc Methods
     @objc
