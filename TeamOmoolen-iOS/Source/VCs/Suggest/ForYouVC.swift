@@ -96,6 +96,7 @@ class ForYouVC: UIViewController {
                 self.canFetchData = true
                 self.forYouCollectionView.reloadData()
             }
+            print(self.list)
         }
     }
 
