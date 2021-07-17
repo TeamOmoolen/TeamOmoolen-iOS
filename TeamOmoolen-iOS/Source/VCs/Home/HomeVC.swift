@@ -142,8 +142,9 @@ extension HomeVC {
     
     // MARK: - Network 
     func getHomeWithAPI() {
-        let accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
+//        let accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
         
+        let accesstoken = "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYxMDA4ZDRlYmVmNzU3NTM0MzYxOWUiLCJpYXQiOjE2MjY0MjA3MDl9.j1iDT3bVq51cyv0XgvKKhUf5_XycMAbDAyuMTz2pjvpxnD8pOAWOoZOZ-HoSN3ge"
         OnboardingAPI.shared.getHome(accesstoken: accesstoken) { response in
             self.dismiss(animated: true, completion: nil)
             

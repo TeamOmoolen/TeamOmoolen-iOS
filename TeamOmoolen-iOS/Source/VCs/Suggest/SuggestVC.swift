@@ -45,8 +45,6 @@ class SuggestVC: UIViewController {
     
     private var suggestList: SuggestResponse?
     
-    var forUlist = [SuggestProduct]()
-    
     //MARK: - View Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -205,11 +203,12 @@ class SuggestVC: UIViewController {
     }
     
     func getSuggestWithAPI() {
-        let accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
+//        let accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
+        
+        let accesstoken = "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYxMDA4ZDRlYmVmNzU3NTM0MzYxOWUiLCJpYXQiOjE2MjY0MjA3MDl9.j1iDT3bVq51cyv0XgvKKhUf5_XycMAbDAyuMTz2pjvpxnD8pOAWOoZOZ-HoSN3ge"
         
         SuggestAPI.shared.getSuggest(accesstoken: accesstoken) { [self] response in
             self.suggestList = response
-            self.forYouList = self.suggestList?.suggestForYou ?? [SuggestProduct]()
             
             self.season = self.suggestList!.season
             self.situation = self.suggestList!.situation
