@@ -76,10 +76,13 @@ extension RecommendCVC {
         self.lensImageView.layer.cornerRadius = lensImageView.frame.width / 2
         self.lensImageView.layer.masksToBounds = true
         
-        if !imageList[0].isEmpty {
-            let modelURL = URL(string: imageList[1])
-            modelImageView.kf.setImage(with: modelURL)
-        }
+//        if !imageList[0].isEmpty {
+//            let modelURL = URL(string: imageList[1])
+//            modelImageView.kf.setImage(with: modelURL)
+//
+        let modelURL = URL(string: imageList[1])
+        modelImageView.kf.setImage(with: modelURL)
+        
         //modelImageView.contentMode = .scaleAspectFit
         
         brandNameLabel.text = brandName
