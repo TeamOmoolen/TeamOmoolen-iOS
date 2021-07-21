@@ -21,13 +21,13 @@ class SituationTVC: UITableViewCell {
     @IBOutlet weak var timeRecommendCollectionView: UICollectionView!
     
     // MARK: - Local Variables
-    var situation: String? = nil
-    var delegate: ViewModalProtocol?
-    
     private var recommendationBySituation = [RecommendationBySituation]()
     
-    // MARK: - Life Cycle Methods
+    var situation: String? = nil
+    var delegate: ViewModalProtocol?
+    let positon = 1
     
+    // MARK: - Life Cycle Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -39,7 +39,6 @@ class SituationTVC: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
 }
 
 extension SituationTVC {
@@ -99,7 +98,6 @@ extension SituationTVC {
         }
         suggestVC.modalPresentationStyle = .fullScreen
         suggestVC.modalTransitionStyle = .crossDissolve
-        let positon = 1
         NotificationCenter.default.post(name: NSNotification.Name("ChangeIndex"), object: positon)
     }
 }

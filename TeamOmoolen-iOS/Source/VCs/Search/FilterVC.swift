@@ -10,8 +10,6 @@ import UIKit
 class FilterVC: UIViewController {
     
     // MARK: - UI Components
-    
-    // 카테고리 뷰
     @IBOutlet weak var filterView: UIView!
     
     @IBOutlet weak var brandView: UIView!
@@ -26,7 +24,6 @@ class FilterVC: UIViewController {
     @IBOutlet weak var cycleView: UIView!
     @IBOutlet weak var cycleLabel: UILabel!
     
-    // 버튼 뷰
     @IBOutlet weak var buttonView: UIView!
     
     @IBOutlet weak var resetBackView: UIView!
@@ -34,12 +31,10 @@ class FilterVC: UIViewController {
     
     @IBOutlet weak var searchButton: UIButton!
     
-    //기기대응
     @IBOutlet weak var filterViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var buttonButtomConstraint: NSLayoutConstraint!
     
     // MARK: - Custom Views
-    
     let colorFilterView = ColorFilterView()
     let brandFilterView = BrandFilterView()
     let diameterFilterView = DiameterFilterView()
@@ -60,14 +55,6 @@ class FilterVC: UIViewController {
     private var getCycleData = false
     
     // MARK: - View Life Cycle Methods
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        getBrandData = false
-//        getColorData = false
-//        getDiameterData = false
-//        getCycleData = false
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,7 +66,6 @@ class FilterVC: UIViewController {
         setNotification()
     }
     
-    // 필터 검색 버튼 눌렀을 때
     @IBAction func touchUpSearchButton(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name("touchUpSearchButton"), object: nil)
     }
@@ -88,7 +74,6 @@ class FilterVC: UIViewController {
 // MARK: - Custom Methods
 
 extension FilterVC {
-    
     func setPhoneResolution(){
         if UIDevice.current.isiPhoneSE2 {
             filterViewTopConstraint.constant = 0
@@ -98,9 +83,9 @@ extension FilterVC {
             filterViewTopConstraint.constant = 85
         }
     }
+    
     // MARK: - Category View
     func setCategoryView() {
-        // 브랜드 필터
         brandView.backgroundColor = .omMainOrange
         brandView.layer.borderWidth = 1
         brandView.layer.borderColor = UIColor.omFifthGray.cgColor
@@ -115,7 +100,6 @@ extension FilterVC {
         let brandTapGesture =  UITapGestureRecognizer(target: self, action: #selector(touchUpBrandFilter))
         brandView.addGestureRecognizer(brandTapGesture)
         
-        // 컬러 필터
         colorView.backgroundColor = .omWhite
         colorView.layer.borderWidth = 1
         colorView.layer.borderColor = UIColor.omFifthGray.cgColor
@@ -130,7 +114,6 @@ extension FilterVC {
         let colorTapGesture =  UITapGestureRecognizer(target: self, action: #selector(touchUpColorFilter))
         colorView.addGestureRecognizer(colorTapGesture)
         
-        // 직경 필터
         diameterView.backgroundColor = .omWhite
         diameterView.layer.borderWidth = 1
         diameterView.layer.borderColor = UIColor.omFifthGray.cgColor
@@ -145,7 +128,6 @@ extension FilterVC {
         let diameterTapGesture =  UITapGestureRecognizer(target: self, action: #selector(touchUpDiameterFilter))
         diameterView.addGestureRecognizer(diameterTapGesture)
         
-        // 주기 필터
         cycleView.backgroundColor = .omWhite
         cycleView.layer.borderWidth = 1
         cycleView.layer.borderColor = UIColor.omFifthGray.cgColor
@@ -323,24 +305,19 @@ extension FilterVC {
 
 extension FilterVC {
     private func setNotification() {
-        // 브랜드
         NotificationCenter.default.addObserver(self, selector: #selector(searchBrandData), name: NSNotification.Name("postBrandList"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resetBrandData), name: NSNotification.Name("resetBrandList"), object: nil)
         
-        // 컬러
         NotificationCenter.default.addObserver(self, selector: #selector(searchColorData), name: NSNotification.Name("postColorList"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resetColorData), name: NSNotification.Name("resetColorList"), object: nil)
         
-        // 직경
         NotificationCenter.default.addObserver(self, selector: #selector(searchDiameterData), name: NSNotification.Name("postDiameterList"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resetDiameterData), name: NSNotification.Name("resetDiameterList"), object: nil)
         
-        // 주기
         NotificationCenter.default.addObserver(self, selector: #selector(searchCycleData), name: NSNotification.Name("postCycleList"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resetCycleData), name: NSNotification.Name("resetCycleList"), object: nil)
     }
     
-    // 브랜드 검색, 초기화
     @objc
     func searchBrandData(_ notification: Notification) {
         getBrandData = true
@@ -352,7 +329,6 @@ extension FilterVC {
         lensBrand = notification.object as! [String]
     }
     
-    // 컬러 검색, 초기화
     @objc
     func searchColorData(_ notification: Notification) {
         getColorData = true
@@ -364,7 +340,6 @@ extension FilterVC {
         lensColor = notification.object as! [String]
     }
     
-    // 직경 검색, 초기화
     @objc
     func searchDiameterData(_ notification: Notification) {
         getDiameterData = true
@@ -376,7 +351,6 @@ extension FilterVC {
         lensDiameter = notification.object as! Int
     }
     
-    // 주기 검색, 초기화
     @objc
     func searchCycleData(_ notification: Notification) {
         getCycleData = true
@@ -390,7 +364,6 @@ extension FilterVC {
 }
 
 // MARK: - Request API
-
 extension FilterVC {
     func getData() {
         if getBrandData && getColorData && getDiameterData && getCycleData {

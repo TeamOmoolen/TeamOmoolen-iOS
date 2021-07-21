@@ -24,6 +24,8 @@ class SeasonTVC: UITableViewCell {
     private var list = [RecommendationBy]()
     var delegate: ViewModalProtocol?
     
+    let position = 3
+    
     // MARK: - Life Cycle Methods
     
     override func awakeFromNib() {
@@ -87,7 +89,6 @@ extension SeasonTVC {
         }
         suggestVC.modalPresentationStyle = .fullScreen
         suggestVC.modalTransitionStyle = .crossDissolve
-        let position = 3
         NotificationCenter.default.post(name: NSNotification.Name("ChangeIndex"), object: position)
     }
 }

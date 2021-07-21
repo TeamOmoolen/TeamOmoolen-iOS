@@ -149,13 +149,10 @@ class SecondOnboardingVC: UIViewController {
     
     // MARK: - @IBAction Properties
     @IBAction func pushToThirdOnboarding(_ sender: Any) {
-//        print(firstCollectionView.indexPathsForSelectedItems!)
-//        print(secondCollectionView.indexPathsForSelectedItems!)
-        
         guard let nextVC = UIStoryboard(name: Const.Storyboard.Name.ThirdOnboarding, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.ThirdOnboarding) as? ThirdOnboardingVC else {
             return
         }
-        // append lensKind
+        
         guard let lensKindList = firstCollectionView.indexPathsForSelectedItems else {
             return
         }
@@ -169,7 +166,6 @@ class SecondOnboardingVC: UIViewController {
             lensKind.append("코스프레")
         }
         
-        // append lensColor
         guard let lensColorList = secondCollectionView.indexPathsForSelectedItems else {
             return
         }

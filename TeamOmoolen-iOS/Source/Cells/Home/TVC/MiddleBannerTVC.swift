@@ -11,7 +11,6 @@ class MiddleBannerTVC: UITableViewCell {
     static let identifier = "MiddleBannerTVC"
     
     // MARK: - UI Components
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var firstIndicator: UIView!
