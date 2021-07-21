@@ -4,23 +4,27 @@
 > **SOPT 28th APPJAM**  
 > **프로젝트 기간: 2021.06.26 ~ 2021.07.17**  
 
-
 |   김소연      |    김현규     |   임경진   |
 | :-------------: |:-------------:| :-----:|
 | <img src ="https://user-images.githubusercontent.com/69136340/126435019-6a8735e1-3ab5-4617-ad7e-7af448339e18.png" width ="200"> |   <img src ="https://user-images.githubusercontent.com/69136340/126434954-07f19c00-5fa1-4ff5-8e94-ef7070ab6fb2.png" width = "200"> | <img src ="https://user-images.githubusercontent.com/69136340/126435011-40d06259-0859-4e57-ab7c-18b0499a23fd.png" width = "200"> |
 
+### Development Environment and Using Library
+<img src ="https://user-images.githubusercontent.com/69136340/126439984-92d8e162-d5d5-410f-a782-d7cfb4c2813b.png" width = "600">
+
+### Git Flow
+<img src ="https://user-images.githubusercontent.com/69136340/126439696-1e229600-dd6c-42b0-ae7a-f2ebf3de73eb.png" width ="600">
+
+### File Foldering
+<img src ="https://user-images.githubusercontent.com/69136340/126439801-d3aa9a94-a4e7-4d2e-9021-5058cf4eaa2e.png" width ="600">
+
+### Code Convention
+[TeamOmoolen Code Convention](https://github.com/TeamOmoolen/TeamOmoolen-iOS/wiki/Coding-Convention)
+
+### Commit, Issue, PR Convention
+[TeamOmoolen Commit, Issue, PR Convention](https://github.com/TeamOmoolen/TeamOmoolen-iOS/wiki/Commit,-Issue,-PR)
 
 ## 소개
-<p align="center">
 <img src ="https://user-images.githubusercontent.com/69136340/126436360-27dd44ca-eaef-400f-b882-1f9fec1f9408.png" width = "800">
-</p>
-
-
-## IA
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/67837091/125954645-aafd7754-5991-4eef-ae1b-fb34d979a1e8.jpg" width = "800"/>
-</p>
-
 
 ## 기능 구현
 |    뷰    |    기능     |   담당   |
