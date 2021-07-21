@@ -13,7 +13,7 @@ class NoRecentTVC: UITableViewCell {
     
     @IBOutlet weak var noRecentLabel: UILabel!
     
-    //Mark: - View Life Cycle
+    //MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         setUI()
@@ -24,7 +24,7 @@ class NoRecentTVC: UITableViewCell {
 
     }
     
-    //Mark: - Methods
+    //MARK: - Methods
     func setUI(){
         noRecentLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 14)
         noRecentLabel.textColor = .omFourthGray

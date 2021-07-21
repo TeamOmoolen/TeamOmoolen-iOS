@@ -11,11 +11,11 @@ class SearchWordTVC: UITableViewCell {
 
     static let identifier = "SearchWordTVC"
     
-    //Mark: - IB Outlets
+    //MARK: - IB Outlets
     @IBOutlet weak var searchLabel: UILabel!
     @IBOutlet weak var removeImageView: UIImageView!
     
-    //Mark: - View Life Cycle
+    //MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         setUI()

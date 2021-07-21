@@ -18,24 +18,14 @@ class SplashVC: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print("SplashVC: viewDidLoad()")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        if UIDevice.current.isiPhoneSE2 {
-//            splashImage.image = UIImage(named: "splashIllustImageSe2")
-//        } else if UIDevice.current.isiPhone12mini {
-//            splashImage.image = UIImage(named: "splashIllustImage12Mini")
-//        } else {
-//            splashImage.image = UIImage(named: "splashIllustImage12Pro")
-//        }
-
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) {
             self.setIsLogin()
         }
-        
     }
     
     // MARK: - Methods
@@ -63,7 +53,6 @@ class SplashVC: UIViewController {
         loginVC.modalPresentationStyle = .fullScreen
         loginVC.modalTransitionStyle = .crossDissolve
         self.present(loginVC, animated: true, completion: nil)
-
     }
 
 }

@@ -71,7 +71,6 @@ class SituationVC: UIViewController {
     //MARK: - Methods
     func setUI()  {
         popTopView.backgroundColor = .omFifthGray
-        //서버에서 받아올 수도
         popLabel.text = "선택한 상황에 적절한 렌즈를 모아봤어요"
         popLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 10)
         popLabel.textColor = .omThirdGray

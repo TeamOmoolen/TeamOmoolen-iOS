@@ -73,7 +73,6 @@ class SeasonVC: UIViewController {
     //MARK: - Methods
     func setUI() {
         popUpTopView.backgroundColor = .omFifthGray
-        //서버에서 받아올 수도
         popUpLabel.text = "여름과 잘 어울리는 렌즈를 추천해드릴게요"
         popUpLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 10)
         popUpLabel.textColor = .omThirdGray

@@ -13,7 +13,6 @@ class DetailAPI {
     static let provider = MoyaProvider<DetailService>()
 
     
-    // get data
     func getProductDetail(param: String, completion: @escaping (ProductDetailResponse) -> ()) {
         DetailAPI.provider.request(.product(param: param)) { response in
             switch response {

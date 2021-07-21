@@ -10,11 +10,9 @@ import Moya
 
 class SearchAPI {
     static let shared = SearchAPI()
-//    static let provider = MoyaProvider<SearchService>(plugins: [NetworkLoggerPlugin()])
     static let provider = MoyaProvider<SearchService>()
 
     
-    // get data
     func getSearchFilterResult(param: SearchFilterRequest, completion: @escaping (SearchResultResponse, Bool) -> ()) {
         SearchAPI.provider.request(.searchFilter(param: param)) { response in
             switch response {
@@ -36,7 +34,6 @@ class SearchAPI {
         }
     }
     
-    //get data for keyWord Result
     func getKeywordResult(param: String, completion: @escaping (SearchResultResponse) -> ()) {
         SearchAPI.provider.request(.searchKeyword(keyword: param)) { response in
             switch response {

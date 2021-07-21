@@ -12,7 +12,6 @@ class SuggestAPI {
     static let shared = SuggestAPI()
     static let provider = MoyaProvider<SuggestService>()
 
-    // get data
     func getSuggest(accesstoken: String, completion: @escaping (SuggestResponse) -> ()) {
         SuggestAPI.provider.request(.suggest(accesstoken: accesstoken)) { response in
             switch response {

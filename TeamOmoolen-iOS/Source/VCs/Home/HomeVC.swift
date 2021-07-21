@@ -143,7 +143,6 @@ extension HomeVC {
     // MARK: - Network 
     func getHomeWithAPI() {
         let accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
-        
         OnboardingAPI.shared.getHome(accesstoken: accesstoken) { response in
             self.dismiss(animated: true, completion: nil)
             
