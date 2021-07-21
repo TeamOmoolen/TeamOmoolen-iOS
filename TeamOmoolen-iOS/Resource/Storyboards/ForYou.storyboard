@@ -63,7 +63,7 @@
                                 </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QIP-D8-QmS">
-                                <rect key="frame" x="0.0" y="207" width="414" height="689"/>
+                                <rect key="frame" x="0.0" y="206" width="414" height="690"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="piO-us-Vb7">
                                     <size key="itemSize" width="128" height="128"/>
@@ -89,14 +89,12 @@
                         <constraints>
                             <constraint firstItem="QIP-D8-QmS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="1n1-3b-ljU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QIP-D8-QmS" secondAttribute="trailing" id="3IZ-CP-56Z"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="QIP-D8-QmS" secondAttribute="bottom" constant="-34" id="5aB-lh-nwx"/>
+                            <constraint firstAttribute="bottom" secondItem="QIP-D8-QmS" secondAttribute="bottom" id="5aB-lh-nwx"/>
                             <constraint firstItem="Yc7-Mq-rnK" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="6sx-ui-ypH"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eL2-T9-MCo" secondAttribute="trailing" constant="20" id="7Qn-zA-0Y3"/>
                             <constraint firstItem="5VU-zW-KMT" firstAttribute="top" secondItem="Yc7-Mq-rnK" secondAttribute="bottom" id="8sq-Ff-0iF"/>
-                            <constraint firstItem="QIP-D8-QmS" firstAttribute="top" secondItem="eL2-T9-MCo" secondAttribute="bottom" constant="28" id="G5e-sf-Jmw"/>
+                            <constraint firstItem="QIP-D8-QmS" firstAttribute="top" secondItem="eL2-T9-MCo" secondAttribute="bottom" constant="27" id="G5e-sf-Jmw"/>
                             <constraint firstItem="dus-Od-O22" firstAttribute="leading" secondItem="vNo-3u-DLk" secondAttribute="trailing" constant="7" id="H6j-ju-yAL"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QIP-D8-QmS" secondAttribute="trailing" id="MBW-et-bsr"/>
-                            <constraint firstItem="QIP-D8-QmS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MVd-BK-SBF"/>
                             <constraint firstItem="vNo-3u-DLk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="PzR-gm-usv"/>
                             <constraint firstItem="vNo-3u-DLk" firstAttribute="top" secondItem="5VU-zW-KMT" secondAttribute="bottom" constant="19" id="RMi-D1-Xsw"/>
                             <constraint firstItem="Yc7-Mq-rnK" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="57" id="Tki-Pb-4O0"/>
