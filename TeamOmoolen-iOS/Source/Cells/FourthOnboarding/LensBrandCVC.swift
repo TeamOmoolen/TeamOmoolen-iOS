@@ -46,6 +46,7 @@ class LensBrandCVC: UICollectionViewCell {
 }
 
 // MARK: - Custom Methods
+
 extension LensBrandCVC {
     func setUI() {
         backView.layer.borderWidth = 1

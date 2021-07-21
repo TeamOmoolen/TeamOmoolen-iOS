@@ -52,7 +52,6 @@ extension AgeCVC {
     
     func initCell(age: String) {
         ageLabel.text = age
-        
     }
 }
 

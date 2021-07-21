@@ -11,20 +11,19 @@ class FunctionCVC: UICollectionViewCell {
 
     static let identifier : String = "FunctionCVC"
     
-    //Mark: - IBOutlet Properties
+    // MARK: - IBOutlet Properties
     
     @IBOutlet weak var functionView: UIView!
     @IBOutlet weak var functionLabel: UILabel!
     
-    //Mark: - View Life Cycle
+    // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         setUI()
-
     }
     
-    //Mark: - Methods
+    // MARK: - Methods
 
     func setUI() {
         functionLabel.center = CGPoint(x: self.functionView.frame.size.width / 2.0, y:self.functionView.frame.size.height / 2.0)
@@ -32,12 +31,12 @@ class FunctionCVC: UICollectionViewCell {
         
     }
     
-    //Mark: - Methods
+    // MARK: - Methods
+    
     func setData(functionName: String) {
         
         functionLabel.text = functionName
         functionLabel.textColor = .omThirdGray
-        
     }
     
     override var isSelected: Bool {
@@ -50,7 +49,6 @@ class FunctionCVC: UICollectionViewCell {
 
                 functionLabel.textColor = UIColor.omMainOrange
 
-                
             } else {
                 self.layer.applyShadow(color: .black, alpha: 0.14, x: 1, y: 1, blur: 7, spread: 0)
                 self.contentView.layer.borderColor = UIColor.omWhite.cgColor
