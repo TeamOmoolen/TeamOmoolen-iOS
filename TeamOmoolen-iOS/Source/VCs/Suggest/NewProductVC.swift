@@ -73,12 +73,11 @@ class NewProductVC: UIViewController {
     //MARK: - Methods
     func setUI(){
         popUpTopView.backgroundColor = .omFifthGray
-        //서버에서 받아올 수도
+        
         popUpLabel.text = "요즘 핫한 신제품을 만나보세요"
         popUpLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 10)
         popUpLabel.textColor = .omThirdGray
                 
-        //popUpButtomView.backgroundColor = .omFifthGray
         popUpButton.setImage(UIImage(named: "btnQuestionmark"), for: .normal)
         
     }

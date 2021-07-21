@@ -36,7 +36,6 @@ class PopularTVC: UITableViewCell {
     func setUI() {
         headerLabel.text = "인기검색어"
         headerLabel.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
-        //나중에 여기 시간 변수로 설정해야 할듯
         timeLabel.text = "오전 12:00 기준"
         timeLabel.textColor = .omFourthGray
         timeLabel.font = UIFont(name: "NotoSansCJKKR-Regular", size: 12)
@@ -61,7 +60,7 @@ class PopularTVC: UITableViewCell {
     }
 }
 
-//Mark: - Extensions
+//MARK: - UITableViewDelegate
 extension PopularTVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 48
@@ -71,6 +70,7 @@ extension PopularTVC: UITableViewDelegate {
     }
 }
 
+//MARK: - UITableViewDataSource
 extension PopularTVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellPopularList.count

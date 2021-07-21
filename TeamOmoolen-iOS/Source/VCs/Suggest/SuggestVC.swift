@@ -150,7 +150,6 @@ class SuggestVC: UIViewController {
         seasonVC.totalPage = seasonTotal
         newproductVC.totalPage = newProductTotal
         
-        //각 VC에 넣어주기 total count
         suggestViews.append(foryouVC)
         suggestViews.append(situationVC)
         suggestViews.append(newproductVC)

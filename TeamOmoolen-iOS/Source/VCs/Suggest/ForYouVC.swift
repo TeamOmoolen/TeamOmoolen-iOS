@@ -21,7 +21,6 @@ class ForYouVC: UIViewController {
     
     //MARK: - Local Variables
     private var recommendList: [RecommendLensDataModel] = []
-//    var suggestForYou: [SuggestProduct]? = nil
     var list = [SuggestProduct]()
     var suggestDetailForYou: SuggestDetailResponse?
     var accesstoken = ""

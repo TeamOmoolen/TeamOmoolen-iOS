@@ -122,10 +122,8 @@ class SearchInTVC: UITableViewCell {
     
     @objc func returnHome(notification: NSNotification) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name("SearchEntered"), object: nil)
-        //setSearchList()
     }
     
-    //검색어 입련된 걸 받고, searchdidon exit 에서 realm db에 저장
     @objc func searchEntered(notification: NSNotification) {
         
         let enteredText = notification.object as! String
@@ -140,7 +138,6 @@ class SearchInTVC: UITableViewCell {
                     print("검색어를 입력해 주세요")
                 }
                 else if (searchList.contains(searchWord.word)) {
-                    print("db 추가할 필요 없음")
                     for i in 0..<searchList.count {
                         if (searchList[i] == searchWord.word) {
                             searchList.remove(at:i)
@@ -174,7 +171,6 @@ class SearchInTVC: UITableViewCell {
         let targetWord = realm?.objects(RecentSearch.self).filter("word CONTAINS[c] %@", target)
             try! realm?.write {
                 if let obj = targetWord {
-                    //db에서 지워주기
                     realm?.delete(obj)
                     let idx = searchList.firstIndex(of: target)!
                     searchList.remove(at: idx)
@@ -183,46 +179,46 @@ class SearchInTVC: UITableViewCell {
     }
 }
 
-//Mark: - Extensions
+//MARK: - Extensions
 extension Results {
     func toArray() -> Array<Element> {
         return self.map{$0}
     }
 }
 
+//MARK: - UITableViewDelegate
 extension SearchInTVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (searchList.count == 0) {
             switch indexPath.section {
             case 0:
-                return 80 //최근검색어 없음
+                return 80
             case 1:
-                return 55 //전체삭제
+                return 55
             default:
-                return 50 //나중에 변경
+                return 50
             }
         } else if (searchList.count == 1) {
             switch indexPath.section {
             case 0:
-                return 50 //단어 1
+                return 50
             case 1:
-                return 55 //전체삭제
+                return 55
             default:
                 return 50
             }
         } else if (searchList.count == 2) {
             switch indexPath.section {
             case 0:
-                return 50 //단어 1
+                return 50
             case 1:
-                return 50 //단어 2
+                return 50
             case 2:
-                return 55 //전체삭제
+                return 55
             default:
                 return 55
             }
         } else {
-            //검색어 세개 다 꽉 찬 경우
             switch indexPath.section {
             case 0:
                 return 50
@@ -265,7 +261,7 @@ extension SearchInTVC: UITableViewDelegate {
     }
 }
 
-
+//MARK: - UITableViewDataSource
 extension SearchInTVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
@@ -273,7 +269,7 @@ extension SearchInTVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         
         var num = 0
-        if (searchList.count == 0){ //검색어 3개에서 전체 삭제 했을 때 여기로 들어옴
+        if (searchList.count == 0){
             tableViewHeight.constant = 135
             num = 2
         } else if (searchList.count == 1){
@@ -282,7 +278,7 @@ extension SearchInTVC: UITableViewDataSource {
         } else if (searchList.count == 2){
             tableViewHeight.constant = 169
             num = 3
-        } else { //검색어 3개
+        } else {
             tableViewHeight.constant = 231
             num = 4
         }
@@ -294,13 +290,13 @@ extension SearchInTVC: UITableViewDataSource {
         
         if (searchList.count == 0) {
             switch indexPath.section {
-            case 0: //최근검색어 없음
+            case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier:  NoRecentTVC.identifier, for: indexPath) as? NoRecentTVC else {
                     return UITableViewCell()
                 }
                 cell.selectionStyle = .none
                 return cell
-            case 1: //전체삭제 버튼
+            case 1:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier:  AllClearTVC.identifier, for: indexPath) as? AllClearTVC else {
                     return UITableViewCell()
                 }
@@ -311,7 +307,7 @@ extension SearchInTVC: UITableViewDataSource {
             }
         } else if (searchList.count == 1) {
             switch indexPath.section {
-            case 0: //단어 1
+            case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
                     return UITableViewCell()
                 }
@@ -319,7 +315,7 @@ extension SearchInTVC: UITableViewDataSource {
                 cell.selectionStyle = .none
 
                 return cell
-            case 1: //전체삭제 버튼
+            case 1:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AllClearTVC.identifier, for: indexPath) as? AllClearTVC else {
                     return UITableViewCell()
                 }
@@ -330,7 +326,7 @@ extension SearchInTVC: UITableViewDataSource {
             }
         } else if (searchList.count == 2){
             switch indexPath.section {
-            case 0: //단어 1
+            case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
                     return UITableViewCell()
                 }
@@ -338,7 +334,7 @@ extension SearchInTVC: UITableViewDataSource {
                 cell.selectionStyle = .none
                 return cell
 
-            case 1: //단어 2
+            case 1:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
                     return UITableViewCell()
                 }
@@ -346,7 +342,7 @@ extension SearchInTVC: UITableViewDataSource {
                 cell.selectionStyle = .none
                 return cell
             
-            case 2: //전체삭제
+            case 2:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AllClearTVC.identifier, for: indexPath) as? AllClearTVC else {
                     return UITableViewCell()
                 }
@@ -355,9 +351,9 @@ extension SearchInTVC: UITableViewDataSource {
             default:
                 return UITableViewCell()
             }
-        } //3개 이상일 경우
+        }
             switch indexPath.section {
-            case 0: //단어 1
+            case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
                     return UITableViewCell()
                 }
@@ -365,7 +361,7 @@ extension SearchInTVC: UITableViewDataSource {
                 cell.selectionStyle = .none
                 return cell
             
-            case 1: //단어 2
+            case 1:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
                     return UITableViewCell()
                 }
@@ -373,7 +369,7 @@ extension SearchInTVC: UITableViewDataSource {
                 cell.selectionStyle = .none
                 return cell
                 
-            case 2: //단어 3
+            case 2:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchWordTVC.identifier, for: indexPath) as? SearchWordTVC else {
                     return UITableViewCell()
                 }
@@ -381,7 +377,7 @@ extension SearchInTVC: UITableViewDataSource {
                 cell.selectionStyle = .none
                 return cell
                 
-            case 3: //전체삭제
+            case 3:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AllClearTVC.identifier, for: indexPath) as? SearchWordTVC else {
                 return UITableViewCell()
                 }

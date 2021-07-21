@@ -22,7 +22,6 @@ class PopupModalVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        // Do any additional setup after loading the view.
     }
     
     // MARK: - @IBAction Properties
