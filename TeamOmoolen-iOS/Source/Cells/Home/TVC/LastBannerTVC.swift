@@ -11,7 +11,6 @@ class LastBannerTVC: UITableViewCell {
     static let identifier = "LastBannerTVC"
     
     // MARK: - UI Components
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var firstIndicator: UIView!

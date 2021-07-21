@@ -9,7 +9,7 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
-    // MARK: Local Variables
+    // MARK: - Local Variables
     
     private var position = 0
 

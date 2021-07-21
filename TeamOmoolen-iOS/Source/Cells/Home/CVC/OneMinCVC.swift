@@ -38,7 +38,6 @@ class OneMinCVC: UICollectionViewCell {
         registerXib()
         setTableView()
     }
-
 }
 
 extension OneMinCVC {

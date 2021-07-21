@@ -35,7 +35,6 @@ class SeasonCVC: UICollectionViewCell {
         registerXib()
         setCollectionView()
     }
-
 }
 
 extension SeasonCVC {
@@ -47,8 +46,7 @@ extension SeasonCVC {
         lensImageView.contentMode = .scaleAspectFill
         lensImageView.layer.applyShadow(color: .omMainBlack, alpha: 0.4, x: 0, y: 1, blur: 5, spread: 0)
         
-        brandNameLabel.text
-         = "오렌즈"
+        brandNameLabel.text = "오렌즈"
         brandNameLabel.textColor = .omThirdGray
         brandNameLabel.font = UIFont(name: "NotoSansCJKKR-Medium", size: 11)
         brandNameLabel.lineBreakMode = .byTruncatingTail

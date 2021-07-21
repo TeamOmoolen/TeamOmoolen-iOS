@@ -20,8 +20,8 @@ class NewLensTVC: UITableViewCell {
     
     // MARK: - Local Variables
     var newLens = [[NewLensDetailData]]()
-    
     var delegate: ViewModalProtocol?
+    let position = 2
 
     // MARK: - Life Cycle Methods
     
@@ -84,7 +84,6 @@ extension NewLensTVC {
         }
         suggestVC.modalPresentationStyle = .fullScreen
         suggestVC.modalTransitionStyle = .crossDissolve
-        let position = 2
         NotificationCenter.default.post(name: NSNotification.Name("ChangeIndex"), object: position)
     }
 }
