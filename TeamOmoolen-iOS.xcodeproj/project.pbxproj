@@ -802,10 +802,10 @@
 		F8245904268E1F3A0048BE84 /* ThirdOnboarding */ = {
 			isa = PBXGroup;
 			children = (
-				F8245905268E1F3A0048BE84 /* FunctionCVC.xib */,
-				F8245906268E1F3A0048BE84 /* TimeCVC.xib */,
 				F8245907268E1F3A0048BE84 /* FunctionCVC.swift */,
+				F8245905268E1F3A0048BE84 /* FunctionCVC.xib */,
 				F8245908268E1F3A0048BE84 /* TimeCVC.swift */,
+				F8245906268E1F3A0048BE84 /* TimeCVC.xib */,
 			);
 			path = ThirdOnboarding;
 			sourceTree = "<group>";

@@ -28,6 +28,7 @@ class GenderCVC: UICollectionViewCell {
     }
     
     // MARK: - Methods
+    
     func setPhoneResolution(){
         if UIDevice.current.isiPhoneSE2 {
             imageViewTopAnchor.constant = 11
@@ -36,7 +37,6 @@ class GenderCVC: UICollectionViewCell {
             imageVIewBottomAnchor.constant = 8
         }
     }
-
     
     // cell 선택 시
     override var isSelected: Bool {
