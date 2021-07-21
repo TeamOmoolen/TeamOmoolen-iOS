@@ -10,10 +10,12 @@ import UIKit
 class TimeCVC: UICollectionViewCell {
 
     //MARK: - IBOutlet Properties
+    
     @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var timeLabel: UILabel!
     
     //MARK: - View LifeCycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,6 +25,7 @@ class TimeCVC: UICollectionViewCell {
     }
     
     //MARK: - Methods
+    
     func setUI() {
         timeLabel.font = UIFont(name: "NotoSansCJKKR-DemiLight", size: 14)
         timeLabel.textColor = .omThirdGray
@@ -52,6 +55,7 @@ class TimeCVC: UICollectionViewCell {
     }
     
     //MARK: - Methods
+    
     func setData(timeType: String) {
         timeLabel.text = timeType
         
