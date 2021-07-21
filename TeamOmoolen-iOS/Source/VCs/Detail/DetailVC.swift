@@ -41,6 +41,8 @@ class DetailVC: UIViewController {
         
         setTabbarController()
         setNavigationController()
+        
+        
     }
 }
 

@@ -112,8 +112,6 @@ extension RecommendCVC {
     func setCollectionView() {
         colorListCollectionView.delegate = self
         colorListCollectionView.dataSource = self
-        
-        colorListCollectionView.reloadData()
     }
 }
 
