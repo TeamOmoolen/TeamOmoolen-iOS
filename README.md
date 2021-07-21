@@ -29,18 +29,19 @@
 [TeamOmoolen Commit, Issue, PR Convention](https://github.com/TeamOmoolen/TeamOmoolen-iOS/wiki/Commit,-Issue,-PR)
 
 ### 시연 영상
+
 - 온보딩
 <img src ="https://user-images.githubusercontent.com/69136340/126449511-4693c12e-7108-4fa3-992a-02988353b680.gif" width = "250">
-
+ 
 - 홈
 <img src ="https://user-images.githubusercontent.com/69136340/126449518-3161e00c-4e75-4f9e-baaa-3ab94845f75a.gif" width = "250">
 
 - 더보기(발견탭)
 <img src ="https://user-images.githubusercontent.com/69136340/126450411-c49bf24b-ad89-44b2-8e92-a486aa01125e.gif" width = "250">
-
+ 
 - 검색
 <img src ="https://user-images.githubusercontent.com/69136340/126450422-22372018-ff77-4b5b-b891-d63441011351.gif" width = "250">
-     
+
 ## 기능 구현
 |    뷰    |    기능     |   담당   |
 | :-------------: |:-------------:| :-----:|
