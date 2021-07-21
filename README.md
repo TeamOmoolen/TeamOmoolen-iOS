@@ -4,6 +4,11 @@
 > **SOPT 28th APPJAM**  
 > **프로젝트 기간: 2021.06.26 ~ 2021.07.17**  
 
+## 소개
+<img src ="https://user-images.githubusercontent.com/69136340/126436360-27dd44ca-eaef-400f-b882-1f9fec1f9408.png" width = "800">
+
+## 팀원 소개
+
 |   김소연      |    김현규     |   임경진   |
 | :-------------: |:-------------:| :-----:|
 | <img src ="https://user-images.githubusercontent.com/69136340/126435019-6a8735e1-3ab5-4617-ad7e-7af448339e18.png" width ="200"> |   <img src ="https://user-images.githubusercontent.com/69136340/126434954-07f19c00-5fa1-4ff5-8e94-ef7070ab6fb2.png" width = "200"> | <img src ="https://user-images.githubusercontent.com/69136340/126435011-40d06259-0859-4e57-ab7c-18b0499a23fd.png" width = "200"> |
@@ -22,9 +27,6 @@
 
 ### Commit, Issue, PR Convention
 [TeamOmoolen Commit, Issue, PR Convention](https://github.com/TeamOmoolen/TeamOmoolen-iOS/wiki/Commit,-Issue,-PR)
-
-## 소개
-<img src ="https://user-images.githubusercontent.com/69136340/126436360-27dd44ca-eaef-400f-b882-1f9fec1f9408.png" width = "800">
 
 ## 기능 구현
 |    뷰    |    기능     |   담당   |
