@@ -22,7 +22,6 @@ class PopularCVC: UICollectionViewCell {
         super.awakeFromNib()
         
         setUI()
-        // Initialization code
     }
 
     // MARK: - Methods
@@ -61,7 +60,6 @@ class PopularCVC: UICollectionViewCell {
         }
         lensInfoLabel.text = "\(diameter)mm / \(cycleData)(\(pieces)p)"
         
-        // kingfisher
         let modelURL = URL(string: imageList[1])
         modelImageView.kf.setImage(with: modelURL)
         

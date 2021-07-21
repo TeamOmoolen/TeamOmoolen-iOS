@@ -8,8 +8,6 @@
 import UIKit
 
 class FirstOnboardingVC: UIViewController {
-    var gender = ""
-    var age = -1
     
     // MARK: - UIComponents
     @IBOutlet weak var customNavigationBarViewHeight: NSLayoutConstraint!
@@ -25,9 +23,6 @@ class FirstOnboardingVC: UIViewController {
     @IBOutlet weak var guideLable3TopAnchor: NSLayoutConstraint!
     @IBOutlet weak var nextButtonBottomAnchor: NSLayoutConstraint!
     @IBOutlet weak var genderListCollectionViewRatio: NSLayoutConstraint!
-    
-    
-    
     
     @IBOutlet weak var customNavigationBarView: UIView!
     
@@ -50,6 +45,9 @@ class FirstOnboardingVC: UIViewController {
     
     private var isGenderSelected = false
     private var isAgeSelected = false
+    
+    var gender = ""
+    var age = -1
     
     private var navigationBar = UIView()
     
@@ -124,9 +122,6 @@ extension FirstOnboardingVC {
             guideLabel3.font = UIFont(name: "NotoSansCJKKR-Bold", size: 16)
 
             nextButtonBottomAnchor.constant = 28
-
-            
-//            genderListCollectionViewRatio = 352:140
         }
     }
     
@@ -214,6 +209,7 @@ extension FirstOnboardingVC {
 }
 
 // MARK: - UICollectionView Delegate
+
 extension FirstOnboardingVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if genderListCollectionView.indexPathsForSelectedItems?.isEmpty == false && ageListCollectionView.indexPathsForSelectedItems?.isEmpty == false {

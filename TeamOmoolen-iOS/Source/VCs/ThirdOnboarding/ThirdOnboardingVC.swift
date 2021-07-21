@@ -9,7 +9,7 @@ import UIKit
 
 class ThirdOnboardingVC: UIViewController {
     
-    //Mark: - Properties
+    // MARK: - Properties
     private var functionList: [FunctionDataModel] = []
     private var timeList: [TimeDataModel] = []
     var gender = ""
@@ -234,7 +234,6 @@ class ThirdOnboardingVC: UIViewController {
 
 }
 
-//MARK: - Extensions
 //MARK: - UICollectionViewDataSource
 
 extension ThirdOnboardingVC: UICollectionViewDataSource {
@@ -325,7 +324,6 @@ extension ThirdOnboardingVC: UICollectionViewDelegateFlowLayout {
         } else {
             return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         }
-        
     }
     
     

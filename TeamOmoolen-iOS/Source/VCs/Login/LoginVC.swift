@@ -47,8 +47,6 @@ class LoginVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-
-    
     // MARK: - @objc Methods
     @objc
     func login() {
@@ -96,14 +94,6 @@ extension LoginVC: ASAuthorizationControllerDelegate {
                let identityToken = appleIDCredential.identityToken,
                let authString = String(data: authorizationCode, encoding: .utf8),
                let tokenString = String(data: identityToken, encoding: .utf8) {
-//                print("authorizationCode: \(authorizationCode)")
-//                print("identityToken: \(identityToken)")
-//                print("authString: \(authString)")
-//                print("tokenString: \(tokenString)")
-//                
-//                print("useridentifier: \(userIdentifier)")
-//                print("fullName: \(fullName)")
-//                print("email: \(email)")
             }
             
             let appleLoginRequest = AppleLoginRequest(userIdentifier, fullName?.familyName ?? "", fullName?.givenName ?? "")
@@ -112,13 +102,8 @@ extension LoginVC: ASAuthorizationControllerDelegate {
             UserDefaults.standard.set(userIdentifier, forKey: "UserIdentifier")
             
         case let passwordCredential as ASPasswordCredential:
-
-            // Sign in using an existing iCloud Keychain credential.
             let username = passwordCredential.user
             let password = passwordCredential.password
-
-            print("username: \(username)")
-            print("password: \(password)")
 
         default:
             break
@@ -134,7 +119,6 @@ extension LoginVC: ASAuthorizationControllerDelegate {
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        // Handle error.
         print("login error")
     }
 }

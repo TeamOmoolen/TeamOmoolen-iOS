@@ -29,6 +29,7 @@ class SearchResultVC: UIViewController {
     @IBOutlet weak var resultCollectionView: UICollectionView!
     
     // MARK: - Life Cycle Methods
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
@@ -37,6 +38,7 @@ class SearchResultVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUI()
         setCollectionViewDelegate()
         resgisterNib()
@@ -44,6 +46,7 @@ class SearchResultVC: UIViewController {
     }
     
     // MARK: - @IBAction Properties
+    
     @IBAction func sortButton(_ sender: Any) {
         let vc = UIStoryboard(name: Const.Storyboard.Name.SortPanModal, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SortPanModal) as! SortPanModalVC
         presentPanModal(vc)
@@ -58,10 +61,8 @@ class SearchResultVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    // MARK: - Method
     
-    
-    
-    // MARK: - Methods
     func setNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(setPriceLowOrder), name: Notification.Name("SetLowOrder"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setPriceHighOrder), name: Notification.Name("SetHighOrder"), object: nil)
@@ -98,10 +99,10 @@ class SearchResultVC: UIViewController {
         resultCollectionView.delegate = self
         resultCollectionView.dataSource = self
     }
-    
-    func getSearchResultMoreWithAPI(page: Int, sort: String, order: String) {
-        
-    }
+
+//    func getSearchResultMoreWithAPI(page: Int, sort: String, order: String) {
+//
+//    }
     
     // MARK: - @objc Methods
     @objc
@@ -128,7 +129,7 @@ extension SearchResultVC: UICollectionViewDelegate {
                 currPage += 1
                 canFetchData = false
                 // 서버 통신하는 곳
-                getSearchResultMoreWithAPI(page: currPage, sort: sort, order: order)
+//                getSearchResultMoreWithAPI(page: currPage, sort: sort, order: order)
             }
             //refresh
             resultCollectionView.reloadData()

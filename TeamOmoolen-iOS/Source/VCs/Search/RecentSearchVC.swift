@@ -20,12 +20,6 @@ class RecentSearchVC: UIViewController {
     private var searchResultResponse: SearchResultResponse?
     
     //MARK: - View Life Cycle
-    override func viewWillAppear(_ animated: Bool) {
-        //super.viewWillAppear(true)
-        //searchInTableView.reloadData()
-        //NotificationCenter.default.post(name: NSNotification.Name("ViewWillAppear"), object: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setPhoneResolution()
@@ -35,8 +29,6 @@ class RecentSearchVC: UIViewController {
         getPopularSearchWithAPI()
         getNotification()
     }
-    
-
     
     //MARK: - Methods
     func setPhoneResolution(){
@@ -51,7 +43,6 @@ class RecentSearchVC: UIViewController {
         let searchInNib = UINib(nibName:SearchInTVC.identifier, bundle: nil)
         searchInTableView.register(searchInNib, forCellReuseIdentifier: SearchInTVC.identifier)
         
-    
         let popularNib = UINib(nibName: PopularTVC.identifier, bundle: nil)
         searchInTableView.register(popularNib, forCellReuseIdentifier: PopularTVC.identifier)
     }
@@ -84,25 +75,20 @@ class RecentSearchVC: UIViewController {
 
 //MARK: - Notification
 extension RecentSearchVC {
-    
     func getNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(pushToSearchResultVC(_:)), name: NSNotification.Name("PushToSearchResult"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(pushRecentToSearchResultVC(_:)), name: NSNotification.Name("RecentToSearchResult"), object: nil)
-        
-       
     }
-    
-
     
     @objc func pushToSearchResultVC(_ notification: Notification) {
         var keyword: String
         keyword = notification.object as! String
+        
         let param = keyword
         getSearchResultWithAPI(param: param)
     }
     
-    //Realm에 저장된 최근 검색어에서 검색결과 서버통신
     @objc func pushRecentToSearchResultVC(_ notification: Notification) {
         var keyword: String
         keyword = notification.object as! String
@@ -110,7 +96,6 @@ extension RecentSearchVC {
         print(param)
         getSearchResultWithAPI(param: param)
     }
-    
     
     func getSearchResultWithAPI(param: String) {
         SearchAPI.shared.getKeywordResult(param: param) { response in
@@ -133,9 +118,7 @@ extension RecentSearchVC {
 }
 
 extension RecentSearchVC: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         switch indexPath.section{
         case 0:
             return CGFloat(recentSearchCellHeight) + 10
@@ -146,7 +129,6 @@ extension RecentSearchVC: UITableViewDelegate {
             else {
                 return 660
             }
-        
         default:
             return UITableView.automaticDimension
         }
@@ -160,7 +142,7 @@ extension RecentSearchVC: UITableViewDelegate {
 
 extension RecentSearchVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        return 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -168,7 +150,6 @@ extension RecentSearchVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  SearchInTVC.identifier, for: indexPath) as? SearchInTVC else {

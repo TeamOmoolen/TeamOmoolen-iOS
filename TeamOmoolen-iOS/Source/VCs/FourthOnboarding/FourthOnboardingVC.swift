@@ -12,6 +12,7 @@ import Moya
 class FourthOnboardingVC: UIViewController {
 
     // MARK: - UI Components
+    
     @IBOutlet weak var customNavigationBarViewHeight: NSLayoutConstraint!
     @IBOutlet weak var progressBarLeftAnchor: NSLayoutConstraint!
     @IBOutlet weak var indexLabelLeftAnchor: NSLayoutConstraint!
@@ -74,6 +75,7 @@ class FourthOnboardingVC: UIViewController {
     }()
     
     // MARK: - Local Variables
+    
     var gender = ""
     var age = -1
     var lensKind = [String]()
@@ -178,13 +180,6 @@ class FourthOnboardingVC: UIViewController {
                 homeVC.modalPresentationStyle = .fullScreen
                 homeVC.modalTransitionStyle = .crossDissolve
                 self.present(homeVC, animated: true, completion: nil)
-//                guard let homeVC = UIStoryboard(name: Const.Storyboard.Name.Tabbar, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Tabbar) as? TabBarController else {
-//                    return
-//                }
-//                homeVC.modalPresentationStyle = .fullScreen
-//                homeVC.modalTransitionStyle = .crossDissolve
-//
-//                self.navigationController?.pushViewController(homeVC, animated: true )
             } else {
                 print("postOnboardingWithAPI: Fail")
             }

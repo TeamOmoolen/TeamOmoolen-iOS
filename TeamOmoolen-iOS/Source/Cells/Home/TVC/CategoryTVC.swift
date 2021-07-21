@@ -11,7 +11,6 @@ class CategoryTVC: UITableViewCell {
     
     // MARK: - Properties
     static let identifier = "CategoryTVC"
-
     
     // MARK: - UI Components
     @IBOutlet weak var colorImageView: UIImageView!

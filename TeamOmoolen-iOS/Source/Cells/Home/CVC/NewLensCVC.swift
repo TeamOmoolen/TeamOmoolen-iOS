@@ -35,7 +35,6 @@ class NewLensCVC: UICollectionViewCell {
         registerXib()
         setTableView()
     }
-    
 }
 
 extension NewLensCVC {
@@ -66,7 +65,7 @@ extension NewLensCVC {
         newLensTableView.dataSource = self
         
         newLensTableView.separatorStyle = .none
-        
+
         newLensTableView.isScrollEnabled = false
     }
     
@@ -115,5 +114,4 @@ extension NewLensCVC: UITableViewDataSource {
         cell.initCell(brand: data.brand, name: data.name, price: data.price, imageList: data.imageList)
         return cell
     }
-    
 }

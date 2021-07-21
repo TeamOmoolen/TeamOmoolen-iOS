@@ -140,9 +140,11 @@ extension HomeVC {
         homeTableView.allowsSelection = false
     }
     
-    // MARK: - Network 
+    // MARK: - Network
+    
     func getHomeWithAPI() {
         let accesstoken = UserDefaults.standard.string(forKey: "Accesstoken") ?? ""
+    
         OnboardingAPI.shared.getHome(accesstoken: accesstoken) { response in
             self.dismiss(animated: true, completion: nil)
             

@@ -31,7 +31,6 @@ class SearchVC: UIViewController {
         super.viewWillAppear(true)
         self.searchTextField.text = ""
         self.tabBarController?.tabBar.isHidden = true
-//        searchTextField.becomeFirstResponder()
         
         NotificationCenter.default.post(name: NSNotification.Name("ViewWillAppear"), object: nil)
     }
@@ -43,11 +42,6 @@ class SearchVC: UIViewController {
         registerNib()
         setCollectionViewDelegate()
         setVCs()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-//        searchTextField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -92,7 +86,6 @@ class SearchVC: UIViewController {
         view.addSubview(searchTabBar)
         
         view.addConstraintsWithFormat(format: "H:|-20-[v0]|", views: searchTabBar)
-
         view.addConstraintsWithFormat(format: "V:|-103-[v0(50)]", views: searchTabBar)
     }
     
@@ -119,7 +112,6 @@ class SearchVC: UIViewController {
             NSAttributedString.Key.font : UIFont(name: "NotoSansCJKKR-Regular", size: 14)!
         ]
         searchTextField.attributedPlaceholder = NSAttributedString(string: "원하는 렌즈를 검색해보세요",attributes: attributes )
-
     }
     
     func registerNib() {
