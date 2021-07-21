@@ -40,7 +40,8 @@ class SituationVC: UIViewController {
         setUI()
         registerXib()
         setAccesstoken()
-        getSuggestSituationWithAPI(accesstoken: accesstoken, page: currPage, sort: sort, order: order)
+        print("list\(list)")
+//        getSuggestSituationWithAPI(accesstoken: accesstoken, page: currPage, sort: sort, order: order)
         setCollectionViewDelegate()
         setNotification()
         setPhoneResolution()
@@ -92,7 +93,6 @@ class SituationVC: UIViewController {
     func setCollectionViewDelegate(){
         situationCollectionView.delegate = self
         situationCollectionView.dataSource = self
-        situationCollectionView.reloadData()
     }
     
     func setNotification() {
